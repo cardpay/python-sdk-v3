@@ -1,0 +1,6 @@
+coverage>=4.0.3
+pytest>=5.0.1
+pluggy>=0.3.1
+py>=1.4.31
+randomize>=0.13
+Faker>=1.0.7
