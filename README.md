@@ -9,7 +9,7 @@ Please follow the [installation](#installation) instruction and take a look at [
 
 ## Requirements
 
-Python 2.7 and 3.4+
+Python 3+
 
 ## Installation & Usage
 ### pip install
@@ -17,13 +17,19 @@ Python 2.7 and 3.4+
 If the python package is hosted on Github, you can install directly from Github
 
 ```sh
-pip install git+https://github.com/cardpay/python-sdk-v3.git
+pip install git+https://github.com/cardpay/python-sdk-v3.git --upgrade
 ```
-(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/cardpay/python-sdk-v3.git`)
+or
+
+```sh
+pip install cardpay --upgrade
+```
+
+(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/cardpay/python-sdk-v3.git` or `sudo pip install cardpay`)
 
 Then import the package:
 ```python
-import cardpay 
+from cardpay import *
 ```
 
 ### Setuptools
@@ -37,5 +43,5 @@ python setup.py install --user
 
 Then import the package:
 ```python
-import cardpay
+from cardpay import *
 ```
