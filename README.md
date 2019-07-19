@@ -25,8 +25,6 @@ or
 pip install cardpay --upgrade
 ```
 
-(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/cardpay/python-sdk-v3.git` or `sudo pip install cardpay`)
-
 Then import the package:
 ```python
 from cardpay import *
@@ -39,7 +37,6 @@ Install via [Setuptools](http://pypi.python.org/pypi/setuptools).
 ```sh
 python setup.py install --user
 ```
-(or `sudo python setup.py install` to install the package for all users)
 
 Then import the package:
 ```python

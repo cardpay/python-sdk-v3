@@ -12,10 +12,11 @@ with open(os.path.join(here, "README.md"), "r", encoding="utf-8") as fp:
 
 setup(
     name="cardpay",
-    version="1.4.5.6",
+    version="1.4.5.6-6",
     description="Cardpay APIv3 Python SDK",
     author_email="",
     url="https://github.com/cardpay/python-sdk-v3.git",
+    license="MIT",
     keywords=["cardpay", "APIv3", "CardPay REST API"],
     install_requires=[
         "certifi>=2017.4.17",
@@ -23,7 +24,7 @@ setup(
         "six>=1.10",
         "urllib3>=1.23"
     ],
-    packages=find_packages(),
+    packages=find_packages(exclude=["tests", "tests.*"]),
     include_package_data=True,
     long_description=long_description,
     long_description_content_type="text/markdown",
