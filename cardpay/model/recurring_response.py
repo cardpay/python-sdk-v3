@@ -3,7 +3,7 @@
 """
     CardPay REST API
 
-    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a REST resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on OAuth 2.0 standard. For recent changes see changelog section.  # noqa: E501
+    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on [OAuth 2.0](https://oauth.net/2/) standard. For recent changes see changelog section.  # noqa: E501
 
     OpenAPI spec version: 3.0
     
@@ -18,8 +18,8 @@ import six
 
 from cardpay.model.payment_response_card_account import PaymentResponseCardAccount  # noqa: F401,E501
 from cardpay.model.recurring_customer import RecurringCustomer  # noqa: F401,E501
+from cardpay.model.recurring_response_merchant_order import RecurringResponseMerchantOrder  # noqa: F401,E501
 from cardpay.model.recurring_response_recurring_data import RecurringResponseRecurringData  # noqa: F401,E501
-from cardpay.model.transaction_response_merchant_order import TransactionResponseMerchantOrder  # noqa: F401,E501
 
 
 class RecurringResponse(object):
@@ -37,7 +37,7 @@ class RecurringResponse(object):
     """
     swagger_types = {
         'payment_method': 'str',
-        'merchant_order': 'TransactionResponseMerchantOrder',
+        'merchant_order': 'RecurringResponseMerchantOrder',
         'recurring_data': 'RecurringResponseRecurringData',
         'card_account': 'PaymentResponseCardAccount',
         'customer': 'RecurringCustomer'
@@ -102,7 +102,7 @@ class RecurringResponse(object):
         Merchant order data  # noqa: E501
 
         :return: The merchant_order of this RecurringResponse.  # noqa: E501
-        :rtype: TransactionResponseMerchantOrder
+        :rtype: RecurringResponseMerchantOrder
         """
         return self._merchant_order
 
@@ -113,7 +113,7 @@ class RecurringResponse(object):
         Merchant order data  # noqa: E501
 
         :param merchant_order: The merchant_order of this RecurringResponse.  # noqa: E501
-        :type: TransactionResponseMerchantOrder
+        :type: RecurringResponseMerchantOrder
         """
 
         self._merchant_order = merchant_order

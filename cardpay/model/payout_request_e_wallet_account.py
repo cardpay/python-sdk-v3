@@ -3,7 +3,7 @@
 """
     CardPay REST API
 
-    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a REST resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on OAuth 2.0 standard. For recent changes see changelog section.  # noqa: E501
+    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on [OAuth 2.0](https://oauth.net/2/) standard. For recent changes see changelog section.  # noqa: E501
 
     OpenAPI spec version: 3.0
     
@@ -71,7 +71,7 @@ class PayoutRequestEWalletAccount(object):
     def bank_branch(self):
         """Gets the bank_branch of this PayoutRequestEWalletAccount.  # noqa: E501
 
-        Customer bank branch number (name). Mandatory for 'Latin America', 'Asia' and DIRECTBANKINGNGA methods only. For 'Latin America': <ul><li>required for methods where country = BR, UY</li><li>for UY (Uruguay) is optional if 'payment_method' is `UY113`</li></ul> For 'Asia': must be in Simplified Chinese For DIRECTBANKINGNGA: Customer bank branch number (name), only for Ghana banks (GH******)  # noqa: E501
+        Customer bank branch number (name). Mandatory for 'Latin America' and DIRECTBANKINGNGA methods only. For 'Latin America': <ul><li>required for methods where country = BR, UY</li><li>for UY (Uruguay) is optional if 'payment_method' is `UY113`</li></ul> For DIRECTBANKINGNGA: Customer bank branch number (name), only for Ghana banks (GH******)  # noqa: E501
 
         :return: The bank_branch of this PayoutRequestEWalletAccount.  # noqa: E501
         :rtype: str
@@ -82,7 +82,7 @@ class PayoutRequestEWalletAccount(object):
     def bank_branch(self, bank_branch):
         """Sets the bank_branch of this PayoutRequestEWalletAccount.
 
-        Customer bank branch number (name). Mandatory for 'Latin America', 'Asia' and DIRECTBANKINGNGA methods only. For 'Latin America': <ul><li>required for methods where country = BR, UY</li><li>for UY (Uruguay) is optional if 'payment_method' is `UY113`</li></ul> For 'Asia': must be in Simplified Chinese For DIRECTBANKINGNGA: Customer bank branch number (name), only for Ghana banks (GH******)  # noqa: E501
+        Customer bank branch number (name). Mandatory for 'Latin America' and DIRECTBANKINGNGA methods only. For 'Latin America': <ul><li>required for methods where country = BR, UY</li><li>for UY (Uruguay) is optional if 'payment_method' is `UY113`</li></ul> For DIRECTBANKINGNGA: Customer bank branch number (name), only for Ghana banks (GH******)  # noqa: E501
 
         :param bank_branch: The bank_branch of this PayoutRequestEWalletAccount.  # noqa: E501
         :type: str
@@ -117,7 +117,7 @@ class PayoutRequestEWalletAccount(object):
     def id(self):
         """Gets the id of this PayoutRequestEWalletAccount.  # noqa: E501
 
-        For QIWI: Customer phone number (from 1 to 15 digits) For WEBMONEY: Customer account number For NETELLER: Customer email For 'Latin America': Customer personal identification number For 'Asia': Customer bank account number For YANDEXMONEY: Customer wallet number, 11 to 16 digits, begins with `410` For AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE and TIGO: phone number linked to Customer's mobile money account. Phone prefix is **required**: AIRTEL - 233 (GHS), 256 (UGX); MTN - 233 (GHS), 256 (UGX); TIGO, VODAFONE - 233; UGANDAMOBILE - 256; MPESA - 254 For DIRECTBANKINGNGA: bank account number *(mandatory for QIWI, WEBMONEY, NETELLER, 'Latin America', 'Asia', YANDEXMONEY, AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE, TIGO and DIRECTBANKINGNGA methods only)*  # noqa: E501
+        For QIWI: Customer phone number (from 1 to 15 digits) For WEBMONEY: Customer account number For NETELLER: Customer email For 'Latin America': Customer personal identification number For YANDEXMONEY: Customer wallet number, 11 to 16 digits, begins with `410` For AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE and TIGO: phone number linked to Customer's mobile money account. Phone prefix is **required**: AIRTEL - 233 (GHS), 256 (UGX); MTN - 233 (GHS), 256 (UGX); TIGO, VODAFONE - 233; UGANDAMOBILE - 256; MPESA - 254 For DIRECTBANKINGNGA: bank account number For PAYPAL: Customer email, phone or PayPal account number *(mandatory for QIWI, PAYPAL, WEBMONEY, NETELLER, 'Latin America', YANDEXMONEY, AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE, TIGO and DIRECTBANKINGNGA methods only)*  # noqa: E501
 
         :return: The id of this PayoutRequestEWalletAccount.  # noqa: E501
         :rtype: str
@@ -128,7 +128,7 @@ class PayoutRequestEWalletAccount(object):
     def id(self, id):
         """Sets the id of this PayoutRequestEWalletAccount.
 
-        For QIWI: Customer phone number (from 1 to 15 digits) For WEBMONEY: Customer account number For NETELLER: Customer email For 'Latin America': Customer personal identification number For 'Asia': Customer bank account number For YANDEXMONEY: Customer wallet number, 11 to 16 digits, begins with `410` For AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE and TIGO: phone number linked to Customer's mobile money account. Phone prefix is **required**: AIRTEL - 233 (GHS), 256 (UGX); MTN - 233 (GHS), 256 (UGX); TIGO, VODAFONE - 233; UGANDAMOBILE - 256; MPESA - 254 For DIRECTBANKINGNGA: bank account number *(mandatory for QIWI, WEBMONEY, NETELLER, 'Latin America', 'Asia', YANDEXMONEY, AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE, TIGO and DIRECTBANKINGNGA methods only)*  # noqa: E501
+        For QIWI: Customer phone number (from 1 to 15 digits) For WEBMONEY: Customer account number For NETELLER: Customer email For 'Latin America': Customer personal identification number For YANDEXMONEY: Customer wallet number, 11 to 16 digits, begins with `410` For AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE and TIGO: phone number linked to Customer's mobile money account. Phone prefix is **required**: AIRTEL - 233 (GHS), 256 (UGX); MTN - 233 (GHS), 256 (UGX); TIGO, VODAFONE - 233; UGANDAMOBILE - 256; MPESA - 254 For DIRECTBANKINGNGA: bank account number For PAYPAL: Customer email, phone or PayPal account number *(mandatory for QIWI, PAYPAL, WEBMONEY, NETELLER, 'Latin America', YANDEXMONEY, AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE, TIGO and DIRECTBANKINGNGA methods only)*  # noqa: E501
 
         :param id: The id of this PayoutRequestEWalletAccount.  # noqa: E501
         :type: str
@@ -144,7 +144,7 @@ class PayoutRequestEWalletAccount(object):
     def name(self):
         """Gets the name of this PayoutRequestEWalletAccount.  # noqa: E501
 
-        Customer bank account name. For 'Asia' methods: <ul><li>mandatory</li><li>for `CNY` currency: must be in Simplified Chinese</li></ul>  # noqa: E501
+        Customer bank account name.  # noqa: E501
 
         :return: The name of this PayoutRequestEWalletAccount.  # noqa: E501
         :rtype: str
@@ -155,7 +155,7 @@ class PayoutRequestEWalletAccount(object):
     def name(self, name):
         """Sets the name of this PayoutRequestEWalletAccount.
 
-        Customer bank account name. For 'Asia' methods: <ul><li>mandatory</li><li>for `CNY` currency: must be in Simplified Chinese</li></ul>  # noqa: E501
+        Customer bank account name.  # noqa: E501
 
         :param name: The name of this PayoutRequestEWalletAccount.  # noqa: E501
         :type: str

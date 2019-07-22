@@ -3,7 +3,7 @@
 """
     CardPay REST API
 
-    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a REST resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on OAuth 2.0 standard. For recent changes see changelog section.  # noqa: E501
+    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on [OAuth 2.0](https://oauth.net/2/) standard. For recent changes see changelog section.  # noqa: E501
 
     OpenAPI spec version: 3.0
     
@@ -147,6 +147,7 @@ class InstallmentData(object):
     def dynamic_descriptor(self):
         """Gets the dynamic_descriptor of this InstallmentData.  # noqa: E501
 
+        Short description of the service or product, must be enabled by CardPay manager to be used.  # noqa: E501
 
         :return: The dynamic_descriptor of this InstallmentData.  # noqa: E501
         :rtype: str
@@ -157,6 +158,7 @@ class InstallmentData(object):
     def dynamic_descriptor(self, dynamic_descriptor):
         """Sets the dynamic_descriptor of this InstallmentData.
 
+        Short description of the service or product, must be enabled by CardPay manager to be used.  # noqa: E501
 
         :param dynamic_descriptor: The dynamic_descriptor of this InstallmentData.  # noqa: E501
         :type: str
@@ -172,6 +174,7 @@ class InstallmentData(object):
     def generate_token(self):
         """Gets the generate_token of this InstallmentData.  # noqa: E501
 
+        This attribute can be received only in first recurring request. In all requests with recurring_id card.token can't be generated. If set to 'true', Card token will be generated and returned in GET response. Will be generated only for successful transactions (not for declined).  # noqa: E501
 
         :return: The generate_token of this InstallmentData.  # noqa: E501
         :rtype: bool
@@ -182,6 +185,7 @@ class InstallmentData(object):
     def generate_token(self, generate_token):
         """Sets the generate_token of this InstallmentData.
 
+        This attribute can be received only in first recurring request. In all requests with recurring_id card.token can't be generated. If set to 'true', Card token will be generated and returned in GET response. Will be generated only for successful transactions (not for declined).  # noqa: E501
 
         :param generate_token: The generate_token of this InstallmentData.  # noqa: E501
         :type: bool
@@ -193,6 +197,7 @@ class InstallmentData(object):
     def initiator(self):
         """Gets the initiator of this InstallmentData.  # noqa: E501
 
+        Use `cit` for initiator attribute (cardholder initiated transaction).  # noqa: E501
 
         :return: The initiator of this InstallmentData.  # noqa: E501
         :rtype: str
@@ -203,6 +208,7 @@ class InstallmentData(object):
     def initiator(self, initiator):
         """Sets the initiator of this InstallmentData.
 
+        Use `cit` for initiator attribute (cardholder initiated transaction).  # noqa: E501
 
         :param initiator: The initiator of this InstallmentData.  # noqa: E501
         :type: str
@@ -243,6 +249,7 @@ class InstallmentData(object):
     def note(self):
         """Gets the note of this InstallmentData.  # noqa: E501
 
+        Note about the recurring that will not be displayed to customer.  # noqa: E501
 
         :return: The note of this InstallmentData.  # noqa: E501
         :rtype: str
@@ -253,6 +260,7 @@ class InstallmentData(object):
     def note(self, note):
         """Sets the note of this InstallmentData.
 
+        Note about the recurring that will not be displayed to customer.  # noqa: E501
 
         :param note: The note of this InstallmentData.  # noqa: E501
         :type: str

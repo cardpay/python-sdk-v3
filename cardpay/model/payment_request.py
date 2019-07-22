@@ -3,7 +3,7 @@
 """
     CardPay REST API
 
-    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a REST resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on OAuth 2.0 standard. For recent changes see changelog section.  # noqa: E501
+    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on [OAuth 2.0](https://oauth.net/2/) standard. For recent changes see changelog section.  # noqa: E501
 
     OpenAPI spec version: 3.0
     
@@ -168,7 +168,7 @@ class PaymentRequest(object):
     def customer(self):
         """Gets the customer of this PaymentRequest.  # noqa: E501
 
-        Information about Customer  # noqa: E501
+        Customer data  # noqa: E501
 
         :return: The customer of this PaymentRequest.  # noqa: E501
         :rtype: PaymentRequestCustomer
@@ -179,7 +179,7 @@ class PaymentRequest(object):
     def customer(self, customer):
         """Sets the customer of this PaymentRequest.
 
-        Information about Customer  # noqa: E501
+        Customer data  # noqa: E501
 
         :param customer: The customer of this PaymentRequest.  # noqa: E501
         :type: PaymentRequestCustomer
@@ -241,7 +241,7 @@ class PaymentRequest(object):
     def payment_data(self):
         """Gets the payment_data of this PaymentRequest.  # noqa: E501
 
-        Information for payment.  # noqa: E501
+        Payment data  # noqa: E501
 
         :return: The payment_data of this PaymentRequest.  # noqa: E501
         :rtype: PaymentRequestPaymentData
@@ -252,7 +252,7 @@ class PaymentRequest(object):
     def payment_data(self, payment_data):
         """Sets the payment_data of this PaymentRequest.
 
-        Information for payment.  # noqa: E501
+        Payment data  # noqa: E501
 
         :param payment_data: The payment_data of this PaymentRequest.  # noqa: E501
         :type: PaymentRequestPaymentData

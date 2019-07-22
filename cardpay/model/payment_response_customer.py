@@ -3,7 +3,7 @@
 """
     CardPay REST API
 
-    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a REST resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on OAuth 2.0 standard. For recent changes see changelog section.  # noqa: E501
+    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on [OAuth 2.0](https://oauth.net/2/) standard. For recent changes see changelog section.  # noqa: E501
 
     OpenAPI spec version: 3.0
     
@@ -76,7 +76,7 @@ class PaymentResponseCustomer(object):
     def email(self):
         """Gets the email of this PaymentResponseCustomer.  # noqa: E501
 
-        Email address of the customer (mandatory by default for 'Asia’, 'Latin America’, 'NETELLER', 'DIRECTBANKINGNGA', 'AQRCODE', 'AIRTEL', 'MPESA', 'MTN', 'UGANDAMOBILE', 'VODAFONE', 'TIGO' payment methods only)). Can be defined as optional by CardPay manager.  # noqa: E501
+        Email address of the customer (mandatory by default for 'Latin America', 'NETELLER', 'DIRECTBANKINGNGA', 'AQRCODE', 'AIRTEL', 'MPESA', 'MTN', 'UGANDAMOBILE', 'VODAFONE', 'TIGO' payment methods only)). Can be defined as optional by CardPay manager.  # noqa: E501
 
         :return: The email of this PaymentResponseCustomer.  # noqa: E501
         :rtype: str
@@ -87,7 +87,7 @@ class PaymentResponseCustomer(object):
     def email(self, email):
         """Sets the email of this PaymentResponseCustomer.
 
-        Email address of the customer (mandatory by default for 'Asia’, 'Latin America’, 'NETELLER', 'DIRECTBANKINGNGA', 'AQRCODE', 'AIRTEL', 'MPESA', 'MTN', 'UGANDAMOBILE', 'VODAFONE', 'TIGO' payment methods only)). Can be defined as optional by CardPay manager.  # noqa: E501
+        Email address of the customer (mandatory by default for 'Latin America', 'NETELLER', 'DIRECTBANKINGNGA', 'AQRCODE', 'AIRTEL', 'MPESA', 'MTN', 'UGANDAMOBILE', 'VODAFONE', 'TIGO' payment methods only)). Can be defined as optional by CardPay manager.  # noqa: E501
 
         :param email: The email of this PaymentResponseCustomer.  # noqa: E501
         :type: str
@@ -103,7 +103,7 @@ class PaymentResponseCustomer(object):
     def full_name(self):
         """Gets the full_name of this PaymentResponseCustomer.  # noqa: E501
 
-        Customer's full name (mandatory for 'Asia’ payment method only)  # noqa: E501
+        Customer's full name  # noqa: E501
 
         :return: The full_name of this PaymentResponseCustomer.  # noqa: E501
         :rtype: str
@@ -114,13 +114,13 @@ class PaymentResponseCustomer(object):
     def full_name(self, full_name):
         """Sets the full_name of this PaymentResponseCustomer.
 
-        Customer's full name (mandatory for 'Asia’ payment method only)  # noqa: E501
+        Customer's full name  # noqa: E501
 
         :param full_name: The full_name of this PaymentResponseCustomer.  # noqa: E501
         :type: str
         """
-        if full_name is not None and len(full_name) > 255:
-            raise ValueError("Invalid value for `full_name`, length must be less than or equal to `255`")  # noqa: E501
+        if full_name is not None and len(full_name) > 256:
+            raise ValueError("Invalid value for `full_name`, length must be less than or equal to `256`")  # noqa: E501
         if full_name is not None and len(full_name) < 1:
             raise ValueError("Invalid value for `full_name`, length must be greater than or equal to `1`")  # noqa: E501
 
@@ -157,7 +157,7 @@ class PaymentResponseCustomer(object):
     def ip(self):
         """Gets the ip of this PaymentResponseCustomer.  # noqa: E501
 
-        IP address of customer, present if wallet (terminal) settings has this option enabled. By default the option is not enabled  # noqa: E501
+        IP address of Customer  # noqa: E501
 
         :return: The ip of this PaymentResponseCustomer.  # noqa: E501
         :rtype: str
@@ -168,7 +168,7 @@ class PaymentResponseCustomer(object):
     def ip(self, ip):
         """Sets the ip of this PaymentResponseCustomer.
 
-        IP address of customer, present if wallet (terminal) settings has this option enabled. By default the option is not enabled  # noqa: E501
+        IP address of Customer  # noqa: E501
 
         :param ip: The ip of this PaymentResponseCustomer.  # noqa: E501
         :type: str
@@ -207,7 +207,7 @@ class PaymentResponseCustomer(object):
     def phone(self):
         """Gets the phone of this PaymentResponseCustomer.  # noqa: E501
 
-        Customer's phone number. Mandatory for 'Asia’ and DIRECTBANKINGNGA payment methods. For other payment methods: optional by default, can be defined as mandatory by CardPay manager.  # noqa: E501
+        Customer's phone number. Mandatory for DIRECTBANKINGNGA payment method. For other payment methods: optional by default, can be defined as mandatory by CardPay manager.  # noqa: E501
 
         :return: The phone of this PaymentResponseCustomer.  # noqa: E501
         :rtype: str
@@ -218,15 +218,15 @@ class PaymentResponseCustomer(object):
     def phone(self, phone):
         """Sets the phone of this PaymentResponseCustomer.
 
-        Customer's phone number. Mandatory for 'Asia’ and DIRECTBANKINGNGA payment methods. For other payment methods: optional by default, can be defined as mandatory by CardPay manager.  # noqa: E501
+        Customer's phone number. Mandatory for DIRECTBANKINGNGA payment method. For other payment methods: optional by default, can be defined as mandatory by CardPay manager.  # noqa: E501
 
         :param phone: The phone of this PaymentResponseCustomer.  # noqa: E501
         :type: str
         """
-        if phone is not None and len(phone) > 13:
-            raise ValueError("Invalid value for `phone`, length must be less than or equal to `13`")  # noqa: E501
-        if phone is not None and len(phone) < 10:
-            raise ValueError("Invalid value for `phone`, length must be greater than or equal to `10`")  # noqa: E501
+        if phone is not None and len(phone) > 12:
+            raise ValueError("Invalid value for `phone`, length must be less than or equal to `12`")  # noqa: E501
+        if phone is not None and len(phone) < 11:
+            raise ValueError("Invalid value for `phone`, length must be greater than or equal to `11`")  # noqa: E501
 
         self._phone = phone
 

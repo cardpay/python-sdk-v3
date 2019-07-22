@@ -3,7 +3,7 @@
 """
     CardPay REST API
 
-    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a REST resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on OAuth 2.0 standard. For recent changes see changelog section.  # noqa: E501
+    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on [OAuth 2.0](https://oauth.net/2/) standard. For recent changes see changelog section.  # noqa: E501
 
     OpenAPI spec version: 3.0
     
@@ -99,7 +99,7 @@ class PaymentRequestCustomer(object):
     def email(self):
         """Gets the email of this PaymentRequestCustomer.  # noqa: E501
 
-        Email address of Customer *(mandatory by default for BANKCARD, 'Asia', 'Latin America', AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE, TIGO, DIRECTBANKINGNGA and AQRCODE payment methods only)*. Can be defined as optional by CardPay manager.  # noqa: E501
+        Email address of Customer *(mandatory by default for BANKCARD, PAYPAL, 'Latin America', AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE, TIGO, DIRECTBANKINGNGA and AQRCODE payment methods only)*. Can be defined as optional by CardPay manager.  # noqa: E501
 
         :return: The email of this PaymentRequestCustomer.  # noqa: E501
         :rtype: str
@@ -110,7 +110,7 @@ class PaymentRequestCustomer(object):
     def email(self, email):
         """Sets the email of this PaymentRequestCustomer.
 
-        Email address of Customer *(mandatory by default for BANKCARD, 'Asia', 'Latin America', AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE, TIGO, DIRECTBANKINGNGA and AQRCODE payment methods only)*. Can be defined as optional by CardPay manager.  # noqa: E501
+        Email address of Customer *(mandatory by default for BANKCARD, PAYPAL, 'Latin America', AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE, TIGO, DIRECTBANKINGNGA and AQRCODE payment methods only)*. Can be defined as optional by CardPay manager.  # noqa: E501
 
         :param email: The email of this PaymentRequestCustomer.  # noqa: E501
         :type: str
@@ -126,7 +126,7 @@ class PaymentRequestCustomer(object):
     def full_name(self):
         """Gets the full_name of this PaymentRequestCustomer.  # noqa: E501
 
-        Customer full name *(mandatory for 'Latin America' and 'Asia' payment methods only)*  # noqa: E501
+        Customer full name *(mandatory for 'Latin America' payment methods only)*  # noqa: E501
 
         :return: The full_name of this PaymentRequestCustomer.  # noqa: E501
         :rtype: str
@@ -137,7 +137,7 @@ class PaymentRequestCustomer(object):
     def full_name(self, full_name):
         """Sets the full_name of this PaymentRequestCustomer.
 
-        Customer full name *(mandatory for 'Latin America' and 'Asia' payment methods only)*  # noqa: E501
+        Customer full name *(mandatory for 'Latin America' payment methods only)*  # noqa: E501
 
         :param full_name: The full_name of this PaymentRequestCustomer.  # noqa: E501
         :type: str
@@ -203,7 +203,7 @@ class PaymentRequestCustomer(object):
     def phone(self):
         """Gets the phone of this PaymentRequestCustomer.  # noqa: E501
 
-        Customer phone number. Format: `+` sign and 10 or 11 digits, example: `+12345678901` Mandatory for 'Asia' and DIRECTBANKINGNGA payment methods. For other payment methods: optional by default, can be defined as mandatory by CardPay manager.  # noqa: E501
+        Customer phone number. Format: `+` sign and 10 or 11 digits, example: `+12345678901` Mandatory for DIRECTBANKINGNGA payment method. For other payment methods: optional by default, can be defined as mandatory by CardPay manager.  # noqa: E501
 
         :return: The phone of this PaymentRequestCustomer.  # noqa: E501
         :rtype: str
@@ -214,7 +214,7 @@ class PaymentRequestCustomer(object):
     def phone(self, phone):
         """Sets the phone of this PaymentRequestCustomer.
 
-        Customer phone number. Format: `+` sign and 10 or 11 digits, example: `+12345678901` Mandatory for 'Asia' and DIRECTBANKINGNGA payment methods. For other payment methods: optional by default, can be defined as mandatory by CardPay manager.  # noqa: E501
+        Customer phone number. Format: `+` sign and 10 or 11 digits, example: `+12345678901` Mandatory for DIRECTBANKINGNGA payment method. For other payment methods: optional by default, can be defined as mandatory by CardPay manager.  # noqa: E501
 
         :param phone: The phone of this PaymentRequestCustomer.  # noqa: E501
         :type: str

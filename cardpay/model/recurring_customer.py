@@ -3,7 +3,7 @@
 """
     CardPay REST API
 
-    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a REST resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on OAuth 2.0 standard. For recent changes see changelog section.  # noqa: E501
+    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on [OAuth 2.0](https://oauth.net/2/) standard. For recent changes see changelog section.  # noqa: E501
 
     OpenAPI spec version: 3.0
     
@@ -33,6 +33,7 @@ class RecurringCustomer(object):
     swagger_types = {
         'email': 'str',
         'id': 'str',
+        'ip': 'str',
         'locale': 'str',
         'phone': 'str'
     }
@@ -40,21 +41,25 @@ class RecurringCustomer(object):
     attribute_map = {
         'email': 'email',
         'id': 'id',
+        'ip': 'ip',
         'locale': 'locale',
         'phone': 'phone'
     }
 
-    def __init__(self, email=None, id=None, locale=None, phone=None):  # noqa: E501
+    def __init__(self, email=None, id=None, ip=None, locale=None, phone=None):  # noqa: E501
         """RecurringCustomer - a model defined in Swagger"""  # noqa: E501
 
         self._email = None
         self._id = None
+        self._ip = None
         self._locale = None
         self._phone = None
         self.discriminator = None
 
         self.email = email
         self.id = id
+        if ip is not None:
+            self.ip = ip
         if locale is not None:
             self.locale = locale
         if phone is not None:
@@ -117,6 +122,33 @@ class RecurringCustomer(object):
             raise ValueError("Invalid value for `id`, length must be greater than or equal to `0`")  # noqa: E501
 
         self._id = id
+
+    @property
+    def ip(self):
+        """Gets the ip of this RecurringCustomer.  # noqa: E501
+
+        Customer IPv4  # noqa: E501
+
+        :return: The ip of this RecurringCustomer.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip
+
+    @ip.setter
+    def ip(self, ip):
+        """Sets the ip of this RecurringCustomer.
+
+        Customer IPv4  # noqa: E501
+
+        :param ip: The ip of this RecurringCustomer.  # noqa: E501
+        :type: str
+        """
+        if ip is not None and len(ip) > 15:
+            raise ValueError("Invalid value for `ip`, length must be less than or equal to `15`")  # noqa: E501
+        if ip is not None and len(ip) < 1:
+            raise ValueError("Invalid value for `ip`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._ip = ip
 
     class Locale(object):
         RU = "ru"

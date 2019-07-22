@@ -3,7 +3,7 @@
 """
     CardPay REST API
 
-    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a REST resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on OAuth 2.0 standard. For recent changes see changelog section.  # noqa: E501
+    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on [OAuth 2.0](https://oauth.net/2/) standard. For recent changes see changelog section.  # noqa: E501
 
     OpenAPI spec version: 3.0
     
@@ -50,7 +50,7 @@ class PayoutPaymentData(object):
     def id(self):
         """Gets the id of this PayoutPaymentData.  # noqa: E501
 
-        CardPay’s initial payment id (or recurring id), that can be used for payout creating instead of 'card_account’  # noqa: E501
+        CardPay's initial payment id (or recurring id), that can be used for payout creating instead of 'card_account’  # noqa: E501
 
         :return: The id of this PayoutPaymentData.  # noqa: E501
         :rtype: str
@@ -61,7 +61,7 @@ class PayoutPaymentData(object):
     def id(self, id):
         """Sets the id of this PayoutPaymentData.
 
-        CardPay’s initial payment id (or recurring id), that can be used for payout creating instead of 'card_account’  # noqa: E501
+        CardPay's initial payment id (or recurring id), that can be used for payout creating instead of 'card_account’  # noqa: E501
 
         :param id: The id of this PayoutPaymentData.  # noqa: E501
         :type: str

@@ -3,7 +3,7 @@
 """
     CardPay REST API
 
-    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a REST resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on OAuth 2.0 standard. For recent changes see changelog section.  # noqa: E501
+    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on [OAuth 2.0](https://oauth.net/2/) standard. For recent changes see changelog section.  # noqa: E501
 
     OpenAPI spec version: 3.0
     
@@ -226,7 +226,7 @@ class ResponseUpdatedTransactionData(object):
     def updated(self):
         """Gets the updated of this ResponseUpdatedTransactionData.  # noqa: E501
 
-        Transaction update date and time up to milliseconds in ISO 8601 format. Return only for successful updates operations.  # noqa: E501
+        Transaction update date and time up to milliseconds in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. Returned only for successful update operations.  # noqa: E501
 
         :return: The updated of this ResponseUpdatedTransactionData.  # noqa: E501
         :rtype: datetime
@@ -237,7 +237,7 @@ class ResponseUpdatedTransactionData(object):
     def updated(self, updated):
         """Sets the updated of this ResponseUpdatedTransactionData.
 
-        Transaction update date and time up to milliseconds in ISO 8601 format. Return only for successful updates operations.  # noqa: E501
+        Transaction update date and time up to milliseconds in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. Returned only for successful update operations.  # noqa: E501
 
         :param updated: The updated of this ResponseUpdatedTransactionData.  # noqa: E501
         :type: datetime

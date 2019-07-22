@@ -3,7 +3,7 @@
 """
     CardPay REST API
 
-    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a REST resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on OAuth 2.0 standard. For recent changes see changelog section.  # noqa: E501
+    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on [OAuth 2.0](https://oauth.net/2/) standard. For recent changes see changelog section.  # noqa: E501
 
     OpenAPI spec version: 3.0
     
@@ -35,7 +35,6 @@ class RecurringRequestRecurringData(object):
     """
     swagger_types = {
         'amount': 'float',
-        'begin': 'bool',
         'currency': 'str',
         'dynamic_descriptor': 'str',
         'filing': 'RecurringRequestFiling',
@@ -53,7 +52,6 @@ class RecurringRequestRecurringData(object):
 
     attribute_map = {
         'amount': 'amount',
-        'begin': 'begin',
         'currency': 'currency',
         'dynamic_descriptor': 'dynamic_descriptor',
         'filing': 'filing',
@@ -69,11 +67,10 @@ class RecurringRequestRecurringData(object):
         'subscription_start': 'subscription_start'
     }
 
-    def __init__(self, amount=None, begin=None, currency=None, dynamic_descriptor=None, filing=None, generate_token=None, initiator=None, interval=None, note=None, payments=None, period=None, plan=None, preauth=None, retries=None, subscription_start=None):  # noqa: E501
+    def __init__(self, amount=None, currency=None, dynamic_descriptor=None, filing=None, generate_token=None, initiator=None, interval=None, note=None, payments=None, period=None, plan=None, preauth=None, retries=None, subscription_start=None):  # noqa: E501
         """RecurringRequestRecurringData - a model defined in Swagger"""  # noqa: E501
 
         self._amount = None
-        self._begin = None
         self._currency = None
         self._dynamic_descriptor = None
         self._filing = None
@@ -91,8 +88,6 @@ class RecurringRequestRecurringData(object):
 
         if amount is not None:
             self.amount = amount
-        if begin is not None:
-            self.begin = begin
         if currency is not None:
             self.currency = currency
         if dynamic_descriptor is not None:
@@ -144,27 +139,6 @@ class RecurringRequestRecurringData(object):
         self._amount = amount
 
     @property
-    def begin(self):
-        """Gets the begin of this RecurringRequestRecurringData.  # noqa: E501
-
-
-        :return: The begin of this RecurringRequestRecurringData.  # noqa: E501
-        :rtype: bool
-        """
-        return self._begin
-
-    @begin.setter
-    def begin(self, begin):
-        """Sets the begin of this RecurringRequestRecurringData.
-
-
-        :param begin: The begin of this RecurringRequestRecurringData.  # noqa: E501
-        :type: bool
-        """
-
-        self._begin = begin
-
-    @property
     def currency(self):
         """Gets the currency of this RecurringRequestRecurringData.  # noqa: E501
 
@@ -191,7 +165,7 @@ class RecurringRequestRecurringData(object):
     def dynamic_descriptor(self):
         """Gets the dynamic_descriptor of this RecurringRequestRecurringData.  # noqa: E501
 
-        Short description of the service or product, must be enabled by CardPay manager to be used  # noqa: E501
+        Short description of the service or product, must be enabled by CardPay manager to be used.  # noqa: E501
 
         :return: The dynamic_descriptor of this RecurringRequestRecurringData.  # noqa: E501
         :rtype: str
@@ -202,7 +176,7 @@ class RecurringRequestRecurringData(object):
     def dynamic_descriptor(self, dynamic_descriptor):
         """Sets the dynamic_descriptor of this RecurringRequestRecurringData.
 
-        Short description of the service or product, must be enabled by CardPay manager to be used  # noqa: E501
+        Short description of the service or product, must be enabled by CardPay manager to be used.  # noqa: E501
 
         :param dynamic_descriptor: The dynamic_descriptor of this RecurringRequestRecurringData.  # noqa: E501
         :type: str
@@ -241,7 +215,7 @@ class RecurringRequestRecurringData(object):
     def generate_token(self):
         """Gets the generate_token of this RecurringRequestRecurringData.  # noqa: E501
 
-        If set to `true`, token will be generated and returned in the response  # noqa: E501
+        This attribute can be received only in first recurring request. In all requests with recurring_id card.token can't be generated. If set to 'true', card token will be generated and returned in GET response. Will be generated only for successful transactions (not for declined).  # noqa: E501
 
         :return: The generate_token of this RecurringRequestRecurringData.  # noqa: E501
         :rtype: bool
@@ -252,7 +226,7 @@ class RecurringRequestRecurringData(object):
     def generate_token(self, generate_token):
         """Sets the generate_token of this RecurringRequestRecurringData.
 
-        If set to `true`, token will be generated and returned in the response  # noqa: E501
+        This attribute can be received only in first recurring request. In all requests with recurring_id card.token can't be generated. If set to 'true', card token will be generated and returned in GET response. Will be generated only for successful transactions (not for declined).  # noqa: E501
 
         :param generate_token: The generate_token of this RecurringRequestRecurringData.  # noqa: E501
         :type: bool
@@ -314,7 +288,7 @@ class RecurringRequestRecurringData(object):
     def note(self):
         """Gets the note of this RecurringRequestRecurringData.  # noqa: E501
 
-        Note about the transaction that will not be displayed to customer  # noqa: E501
+        Note about the recurring that will not be displayed to customer.  # noqa: E501
 
         :return: The note of this RecurringRequestRecurringData.  # noqa: E501
         :rtype: str
@@ -325,7 +299,7 @@ class RecurringRequestRecurringData(object):
     def note(self, note):
         """Sets the note of this RecurringRequestRecurringData.
 
-        Note about the transaction that will not be displayed to customer  # noqa: E501
+        Note about the recurring that will not be displayed to customer.  # noqa: E501
 
         :param note: The note of this RecurringRequestRecurringData.  # noqa: E501
         :type: str

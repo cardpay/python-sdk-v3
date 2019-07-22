@@ -3,7 +3,7 @@
 """
     CardPay REST API
 
-    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a REST resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on OAuth 2.0 standard. For recent changes see changelog section.  # noqa: E501
+    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on [OAuth 2.0](https://oauth.net/2/) standard. For recent changes see changelog section.  # noqa: E501
 
     OpenAPI spec version: 3.0
     
@@ -214,7 +214,7 @@ class UpdatedSubscriptionData(object):
     def recurring_data(self):
         """Gets the recurring_data of this UpdatedSubscriptionData.  # noqa: E501
 
-        Payment data  # noqa: E501
+        Recurring data  # noqa: E501
 
         :return: The recurring_data of this UpdatedSubscriptionData.  # noqa: E501
         :rtype: UpdatedSubscriptionRecurringData
@@ -225,7 +225,7 @@ class UpdatedSubscriptionData(object):
     def recurring_data(self, recurring_data):
         """Sets the recurring_data of this UpdatedSubscriptionData.
 
-        Payment data  # noqa: E501
+        Recurring data  # noqa: E501
 
         :param recurring_data: The recurring_data of this UpdatedSubscriptionData.  # noqa: E501
         :type: UpdatedSubscriptionRecurringData

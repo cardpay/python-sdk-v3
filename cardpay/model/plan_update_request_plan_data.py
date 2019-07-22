@@ -3,7 +3,7 @@
 """
     CardPay REST API
 
-    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a REST resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on OAuth 2.0 standard. For recent changes see changelog section.  # noqa: E501
+    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on [OAuth 2.0](https://oauth.net/2/) standard. For recent changes see changelog section.  # noqa: E501
 
     OpenAPI spec version: 3.0
     
@@ -56,7 +56,7 @@ class PlanUpdateRequestPlanData(object):
     def name_to(self):
         """Gets the name_to of this PlanUpdateRequestPlanData.  # noqa: E501
 
-        New plan name -  for RENAME operation only  # noqa: E501
+        New plan name - for RENAME operation only  # noqa: E501
 
         :return: The name_to of this PlanUpdateRequestPlanData.  # noqa: E501
         :rtype: str
@@ -67,7 +67,7 @@ class PlanUpdateRequestPlanData(object):
     def name_to(self, name_to):
         """Sets the name_to of this PlanUpdateRequestPlanData.
 
-        New plan name -  for RENAME operation only  # noqa: E501
+        New plan name - for RENAME operation only  # noqa: E501
 
         :param name_to: The name_to of this PlanUpdateRequestPlanData.  # noqa: E501
         :type: str
@@ -88,7 +88,7 @@ class PlanUpdateRequestPlanData(object):
     def status_to(self):
         """Gets the status_to of this PlanUpdateRequestPlanData.  # noqa: E501
 
-        New state of plan (ACTIVE or INACTIVE) -  for CHANGE_STATUS operation only  # noqa: E501
+        New state of plan (ACTIVE or INACTIVE) - for CHANGE_STATUS operation only  # noqa: E501
 
         :return: The status_to of this PlanUpdateRequestPlanData.  # noqa: E501
         :rtype: str
@@ -99,7 +99,7 @@ class PlanUpdateRequestPlanData(object):
     def status_to(self, status_to):
         """Sets the status_to of this PlanUpdateRequestPlanData.
 
-        New state of plan (ACTIVE or INACTIVE) -  for CHANGE_STATUS operation only  # noqa: E501
+        New state of plan (ACTIVE or INACTIVE) - for CHANGE_STATUS operation only  # noqa: E501
 
         :param status_to: The status_to of this PlanUpdateRequestPlanData.  # noqa: E501
         :type: str

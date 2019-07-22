@@ -3,7 +3,7 @@
 """
     CardPay REST API
 
-    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a REST resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on OAuth 2.0 standard. For recent changes see changelog section.  # noqa: E501
+    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on [OAuth 2.0](https://oauth.net/2/) standard. For recent changes see changelog section.  # noqa: E501
 
     OpenAPI spec version: 3.0
     
@@ -71,7 +71,7 @@ class PaymentResponseCardAccount(object):
     def expiration(self):
         """Gets the expiration of this PaymentResponseCardAccount.  # noqa: E501
 
-        Customer’s card expiration date. Format: mm/yyyy. Returned only if setting 'Callback: card expiry' in a wallet in PM system is ON  # noqa: E501
+        Customer’s card expiration date. Format: `mm/yyyy`  # noqa: E501
 
         :return: The expiration of this PaymentResponseCardAccount.  # noqa: E501
         :rtype: str
@@ -82,7 +82,7 @@ class PaymentResponseCardAccount(object):
     def expiration(self, expiration):
         """Sets the expiration of this PaymentResponseCardAccount.
 
-        Customer’s card expiration date. Format: mm/yyyy. Returned only if setting 'Callback: card expiry' in a wallet in PM system is ON  # noqa: E501
+        Customer’s card expiration date. Format: `mm/yyyy`  # noqa: E501
 
         :param expiration: The expiration of this PaymentResponseCardAccount.  # noqa: E501
         :type: str
@@ -163,7 +163,7 @@ class PaymentResponseCardAccount(object):
     def token(self):
         """Gets the token of this PaymentResponseCardAccount.  # noqa: E501
 
-        Generated card token value. For payment: PaymentResponsePaymentData, for recurring: RecurringResponseRecurringData. Token can be returned only for successful transactions (not for declined transactions)  # noqa: E501
+        Generated card token value. Token can be returned only for successful transactions (not for declined transactions). For payment: PaymentResponsePaymentData, for recurring: RecurringResponseRecurringData.   # noqa: E501
 
         :return: The token of this PaymentResponseCardAccount.  # noqa: E501
         :rtype: str
@@ -174,7 +174,7 @@ class PaymentResponseCardAccount(object):
     def token(self, token):
         """Sets the token of this PaymentResponseCardAccount.
 
-        Generated card token value. For payment: PaymentResponsePaymentData, for recurring: RecurringResponseRecurringData. Token can be returned only for successful transactions (not for declined transactions)  # noqa: E501
+        Generated card token value. Token can be returned only for successful transactions (not for declined transactions). For payment: PaymentResponsePaymentData, for recurring: RecurringResponseRecurringData.   # noqa: E501
 
         :param token: The token of this PaymentResponseCardAccount.  # noqa: E501
         :type: str

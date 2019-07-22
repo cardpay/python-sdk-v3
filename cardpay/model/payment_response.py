@@ -3,7 +3,7 @@
 """
     CardPay REST API
 
-    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a REST resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on OAuth 2.0 standard. For recent changes see changelog section.  # noqa: E501
+    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on [OAuth 2.0](https://oauth.net/2/) standard. For recent changes see changelog section.  # noqa: E501
 
     OpenAPI spec version: 3.0
     
@@ -16,9 +16,9 @@ import re  # noqa: F401
 
 import six
 
+from cardpay.model.payment_request_customer import PaymentRequestCustomer  # noqa: F401,E501
 from cardpay.model.payment_response_card_account import PaymentResponseCardAccount  # noqa: F401,E501
 from cardpay.model.payment_response_cryptocurrency_account import PaymentResponseCryptocurrencyAccount  # noqa: F401,E501
-from cardpay.model.payment_response_customer import PaymentResponseCustomer  # noqa: F401,E501
 from cardpay.model.payment_response_payment_data import PaymentResponsePaymentData  # noqa: F401,E501
 from cardpay.model.transaction_response_e_wallet_account import TransactionResponseEWalletAccount  # noqa: F401,E501
 from cardpay.model.transaction_response_merchant_order import TransactionResponseMerchantOrder  # noqa: F401,E501
@@ -38,39 +38,39 @@ class PaymentResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'ewallet_account': 'TransactionResponseEWalletAccount',
+        'customer': 'PaymentRequestCustomer',
         'payment_method': 'str',
         'merchant_order': 'TransactionResponseMerchantOrder',
         'payment_data': 'PaymentResponsePaymentData',
         'card_account': 'PaymentResponseCardAccount',
         'cryptocurrency_account': 'PaymentResponseCryptocurrencyAccount',
-        'customer': 'PaymentResponseCustomer'
+        'ewallet_account': 'TransactionResponseEWalletAccount'
     }
 
     attribute_map = {
-        'ewallet_account': 'ewallet_account',
+        'customer': 'customer',
         'payment_method': 'payment_method',
         'merchant_order': 'merchant_order',
         'payment_data': 'payment_data',
         'card_account': 'card_account',
         'cryptocurrency_account': 'cryptocurrency_account',
-        'customer': 'customer'
+        'ewallet_account': 'ewallet_account'
     }
 
-    def __init__(self, ewallet_account=None, payment_method=None, merchant_order=None, payment_data=None, card_account=None, cryptocurrency_account=None, customer=None):  # noqa: E501
+    def __init__(self, customer=None, payment_method=None, merchant_order=None, payment_data=None, card_account=None, cryptocurrency_account=None, ewallet_account=None):  # noqa: E501
         """PaymentResponse - a model defined in Swagger"""  # noqa: E501
 
-        self._ewallet_account = None
+        self._customer = None
         self._payment_method = None
         self._merchant_order = None
         self._payment_data = None
         self._card_account = None
         self._cryptocurrency_account = None
-        self._customer = None
+        self._ewallet_account = None
         self.discriminator = None
 
-        if ewallet_account is not None:
-            self.ewallet_account = ewallet_account
+        if customer is not None:
+            self.customer = customer
         if payment_method is not None:
             self.payment_method = payment_method
         if merchant_order is not None:
@@ -81,37 +81,37 @@ class PaymentResponse(object):
             self.card_account = card_account
         if cryptocurrency_account is not None:
             self.cryptocurrency_account = cryptocurrency_account
-        if customer is not None:
-            self.customer = customer
+        if ewallet_account is not None:
+            self.ewallet_account = ewallet_account
 
     @property
-    def ewallet_account(self):
-        """Gets the ewallet_account of this PaymentResponse.  # noqa: E501
+    def customer(self):
+        """Gets the customer of this PaymentResponse.  # noqa: E501
 
-        eWallet account data *(for ALIPAY, QIWI, WEBMONEY, NETELLER, YANDEXMONEY, DIRECTBANKINGNGA, AQRCODE, AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE, TIGO and 'Latin America' payment methods only)*  # noqa: E501
+        Customer data  # noqa: E501
 
-        :return: The ewallet_account of this PaymentResponse.  # noqa: E501
-        :rtype: TransactionResponseEWalletAccount
+        :return: The customer of this PaymentResponse.  # noqa: E501
+        :rtype: PaymentRequestCustomer
         """
-        return self._ewallet_account
+        return self._customer
 
-    @ewallet_account.setter
-    def ewallet_account(self, ewallet_account):
-        """Sets the ewallet_account of this PaymentResponse.
+    @customer.setter
+    def customer(self, customer):
+        """Sets the customer of this PaymentResponse.
 
-        eWallet account data *(for ALIPAY, QIWI, WEBMONEY, NETELLER, YANDEXMONEY, DIRECTBANKINGNGA, AQRCODE, AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE, TIGO and 'Latin America' payment methods only)*  # noqa: E501
+        Customer data  # noqa: E501
 
-        :param ewallet_account: The ewallet_account of this PaymentResponse.  # noqa: E501
-        :type: TransactionResponseEWalletAccount
+        :param customer: The customer of this PaymentResponse.  # noqa: E501
+        :type: PaymentRequestCustomer
         """
 
-        self._ewallet_account = ewallet_account
+        self._customer = customer
 
     @property
     def payment_method(self):
         """Gets the payment_method of this PaymentResponse.  # noqa: E501
 
-        Used payment method type name from payment methods list  # noqa: E501
+        Payment method  # noqa: E501
 
         :return: The payment_method of this PaymentResponse.  # noqa: E501
         :rtype: str
@@ -122,7 +122,7 @@ class PaymentResponse(object):
     def payment_method(self, payment_method):
         """Sets the payment_method of this PaymentResponse.
 
-        Used payment method type name from payment methods list  # noqa: E501
+        Payment method  # noqa: E501
 
         :param payment_method: The payment_method of this PaymentResponse.  # noqa: E501
         :type: str
@@ -180,7 +180,7 @@ class PaymentResponse(object):
     def card_account(self):
         """Gets the card_account of this PaymentResponse.  # noqa: E501
 
-        Bank card data *(for BANKCARD payment method only)*  # noqa: E501
+        Card account data *(for BANKCARD payment method only)*  # noqa: E501
 
         :return: The card_account of this PaymentResponse.  # noqa: E501
         :rtype: PaymentResponseCardAccount
@@ -191,7 +191,7 @@ class PaymentResponse(object):
     def card_account(self, card_account):
         """Sets the card_account of this PaymentResponse.
 
-        Bank card data *(for BANKCARD payment method only)*  # noqa: E501
+        Card account data *(for BANKCARD payment method only)*  # noqa: E501
 
         :param card_account: The card_account of this PaymentResponse.  # noqa: E501
         :type: PaymentResponseCardAccount
@@ -223,27 +223,27 @@ class PaymentResponse(object):
         self._cryptocurrency_account = cryptocurrency_account
 
     @property
-    def customer(self):
-        """Gets the customer of this PaymentResponse.  # noqa: E501
+    def ewallet_account(self):
+        """Gets the ewallet_account of this PaymentResponse.  # noqa: E501
 
-        Customer data  # noqa: E501
+        eWallet account data *(for ALIPAY, QIWI, WEBMONEY, NETELLER, YANDEXMONEY, DIRECTBANKINGNGA, AQRCODE, AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE, TIGO and 'Latin America' payment methods only)*  # noqa: E501
 
-        :return: The customer of this PaymentResponse.  # noqa: E501
-        :rtype: PaymentResponseCustomer
+        :return: The ewallet_account of this PaymentResponse.  # noqa: E501
+        :rtype: TransactionResponseEWalletAccount
         """
-        return self._customer
+        return self._ewallet_account
 
-    @customer.setter
-    def customer(self, customer):
-        """Sets the customer of this PaymentResponse.
+    @ewallet_account.setter
+    def ewallet_account(self, ewallet_account):
+        """Sets the ewallet_account of this PaymentResponse.
 
-        Customer data  # noqa: E501
+        eWallet account data *(for ALIPAY, QIWI, WEBMONEY, NETELLER, YANDEXMONEY, DIRECTBANKINGNGA, AQRCODE, AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE, TIGO and 'Latin America' payment methods only)*  # noqa: E501
 
-        :param customer: The customer of this PaymentResponse.  # noqa: E501
-        :type: PaymentResponseCustomer
+        :param ewallet_account: The ewallet_account of this PaymentResponse.  # noqa: E501
+        :type: TransactionResponseEWalletAccount
         """
 
-        self._customer = customer
+        self._ewallet_account = ewallet_account
 
     def to_dict(self):
         """Returns the model properties as a dict"""

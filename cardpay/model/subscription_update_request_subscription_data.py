@@ -3,7 +3,7 @@
 """
     CardPay REST API
 
-    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a REST resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on OAuth 2.0 standard. For recent changes see changelog section.  # noqa: E501
+    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on [OAuth 2.0](https://oauth.net/2/) standard. For recent changes see changelog section.  # noqa: E501
 
     OpenAPI spec version: 3.0
     
@@ -15,8 +15,6 @@ import pprint
 import re  # noqa: F401
 
 import six
-
-from cardpay.model.recurring_request_filing import RecurringRequestFiling  # noqa: F401,E501
 
 
 class SubscriptionUpdateRequestSubscriptionData(object):
@@ -34,28 +32,23 @@ class SubscriptionUpdateRequestSubscriptionData(object):
     """
     swagger_types = {
         'amount': 'float',
-        'filing': 'RecurringRequestFiling',
         'status_to': 'str'
     }
 
     attribute_map = {
         'amount': 'amount',
-        'filing': 'filing',
         'status_to': 'status_to'
     }
 
-    def __init__(self, amount=None, filing=None, status_to=None):  # noqa: E501
+    def __init__(self, amount=None, status_to=None):  # noqa: E501
         """SubscriptionUpdateRequestSubscriptionData - a model defined in Swagger"""  # noqa: E501
 
         self._amount = None
-        self._filing = None
         self._status_to = None
         self.discriminator = None
 
         if amount is not None:
             self.amount = amount
-        if filing is not None:
-            self.filing = filing
         if status_to is not None:
             self.status_to = status_to
 
@@ -81,29 +74,6 @@ class SubscriptionUpdateRequestSubscriptionData(object):
         """
 
         self._amount = amount
-
-    @property
-    def filing(self):
-        """Gets the filing of this SubscriptionUpdateRequestSubscriptionData.  # noqa: E501
-
-        Filing data. Mandatory for `CHANGE_FILING` operation only.  # noqa: E501
-
-        :return: The filing of this SubscriptionUpdateRequestSubscriptionData.  # noqa: E501
-        :rtype: RecurringRequestFiling
-        """
-        return self._filing
-
-    @filing.setter
-    def filing(self, filing):
-        """Sets the filing of this SubscriptionUpdateRequestSubscriptionData.
-
-        Filing data. Mandatory for `CHANGE_FILING` operation only.  # noqa: E501
-
-        :param filing: The filing of this SubscriptionUpdateRequestSubscriptionData.  # noqa: E501
-        :type: RecurringRequestFiling
-        """
-
-        self._filing = filing
 
     class StatusTo(object):
         ACTIVE = "ACTIVE"

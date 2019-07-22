@@ -3,7 +3,7 @@
 """
     CardPay REST API
 
-    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a REST resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on OAuth 2.0 standard. For recent changes see changelog section.  # noqa: E501
+    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on [OAuth 2.0](https://oauth.net/2/) standard. For recent changes see changelog section.  # noqa: E501
 
     OpenAPI spec version: 3.0
     
@@ -229,7 +229,7 @@ class PaymentRequestPaymentData(object):
     def preauth(self):
         """Gets the preauth of this PaymentRequestPaymentData.  # noqa: E501
 
-        If set to `true`, the amount will not be captured but only blocked *(for BANKCARD payment method only)*.  # noqa: E501
+        If set to `true`, the amount will not be captured but only blocked. Payments with 'preauth' attribute will be captured automatically in 7 days from the time of creating the preauth transaction. *(for BANKCARD payment method only)*.  # noqa: E501
 
         :return: The preauth of this PaymentRequestPaymentData.  # noqa: E501
         :rtype: bool
@@ -240,7 +240,7 @@ class PaymentRequestPaymentData(object):
     def preauth(self, preauth):
         """Sets the preauth of this PaymentRequestPaymentData.
 
-        If set to `true`, the amount will not be captured but only blocked *(for BANKCARD payment method only)*.  # noqa: E501
+        If set to `true`, the amount will not be captured but only blocked. Payments with 'preauth' attribute will be captured automatically in 7 days from the time of creating the preauth transaction. *(for BANKCARD payment method only)*.  # noqa: E501
 
         :param preauth: The preauth of this PaymentRequestPaymentData.  # noqa: E501
         :type: bool

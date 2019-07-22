@@ -3,7 +3,7 @@
 """
     CardPay REST API
 
-    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a REST resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on OAuth 2.0 standard. For recent changes see changelog section.  # noqa: E501
+    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on [OAuth 2.0](https://oauth.net/2/) standard. For recent changes see changelog section.  # noqa: E501
 
     OpenAPI spec version: 3.0
     
@@ -121,7 +121,7 @@ class FilingRecurringData(object):
     def generate_token(self):
         """Gets the generate_token of this FilingRecurringData.  # noqa: E501
 
-        If set to `true`, token will be generated and returned in the response  # noqa: E501
+        This attribute can be received only in first recurring request. If set to 'true', Card token will be generated and returned in GET response for all successful transactions (can't be generated for declined transactions).  # noqa: E501
 
         :return: The generate_token of this FilingRecurringData.  # noqa: E501
         :rtype: bool
@@ -132,7 +132,7 @@ class FilingRecurringData(object):
     def generate_token(self, generate_token):
         """Sets the generate_token of this FilingRecurringData.
 
-        If set to `true`, token will be generated and returned in the response  # noqa: E501
+        This attribute can be received only in first recurring request. If set to 'true', Card token will be generated and returned in GET response for all successful transactions (can't be generated for declined transactions).  # noqa: E501
 
         :param generate_token: The generate_token of this FilingRecurringData.  # noqa: E501
         :type: bool

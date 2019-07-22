@@ -3,7 +3,7 @@
 """
     CardPay REST API
 
-    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a REST resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on OAuth 2.0 standard. For recent changes see changelog section.  # noqa: E501
+    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on [OAuth 2.0](https://oauth.net/2/) standard. For recent changes see changelog section.  # noqa: E501
 
     OpenAPI spec version: 3.0
     
@@ -124,7 +124,7 @@ class PayoutRequestCustomer(object):
     def city(self):
         """Gets the city of this PayoutRequestCustomer.  # noqa: E501
 
-        Customer city. For 'Asia' methods: <ul><li>mandatory</li><li>for `CNY` currency: must be in Simplified Chinese</li></ul>  # noqa: E501
+        Customer city.  # noqa: E501
 
         :return: The city of this PayoutRequestCustomer.  # noqa: E501
         :rtype: str
@@ -135,7 +135,7 @@ class PayoutRequestCustomer(object):
     def city(self, city):
         """Sets the city of this PayoutRequestCustomer.
 
-        Customer city. For 'Asia' methods: <ul><li>mandatory</li><li>for `CNY` currency: must be in Simplified Chinese</li></ul>  # noqa: E501
+        Customer city.  # noqa: E501
 
         :param city: The city of this PayoutRequestCustomer.  # noqa: E501
         :type: str
@@ -193,7 +193,7 @@ class PayoutRequestCustomer(object):
     def email(self):
         """Gets the email of this PayoutRequestCustomer.  # noqa: E501
 
-        Customer e-mail address *(mandatory for 'Latin America' and 'Asia' methods only)* For 'Latin America' is required for methods where country = CO  # noqa: E501
+        Customer e-mail address *(mandatory for 'Latin America' methods only)* For 'Latin America' is required for methods where country = CO  # noqa: E501
 
         :return: The email of this PayoutRequestCustomer.  # noqa: E501
         :rtype: str
@@ -204,7 +204,7 @@ class PayoutRequestCustomer(object):
     def email(self, email):
         """Sets the email of this PayoutRequestCustomer.
 
-        Customer e-mail address *(mandatory for 'Latin America' and 'Asia' methods only)* For 'Latin America' is required for methods where country = CO  # noqa: E501
+        Customer e-mail address *(mandatory for 'Latin America' methods only)* For 'Latin America' is required for methods where country = CO  # noqa: E501
 
         :param email: The email of this PayoutRequestCustomer.  # noqa: E501
         :type: str
@@ -239,7 +239,7 @@ class PayoutRequestCustomer(object):
     def full_name(self):
         """Gets the full_name of this PayoutRequestCustomer.  # noqa: E501
 
-        Customer full name. Mandatory for 'Asia' and DIRECTBANKINGNGA methods only: For 'Asia': for `CNY` currency only in Simplified Chinese For DIRECTBANKINGNGA: only for non NGN currency  # noqa: E501
+        Customer full name. Mandatory for DIRECTBANKINGNGA methods only: For DIRECTBANKINGNGA: only for non NGN currency  # noqa: E501
 
         :return: The full_name of this PayoutRequestCustomer.  # noqa: E501
         :rtype: str
@@ -250,7 +250,7 @@ class PayoutRequestCustomer(object):
     def full_name(self, full_name):
         """Sets the full_name of this PayoutRequestCustomer.
 
-        Customer full name. Mandatory for 'Asia' and DIRECTBANKINGNGA methods only: For 'Asia': for `CNY` currency only in Simplified Chinese For DIRECTBANKINGNGA: only for non NGN currency  # noqa: E501
+        Customer full name. Mandatory for DIRECTBANKINGNGA methods only: For DIRECTBANKINGNGA: only for non NGN currency  # noqa: E501
 
         :param full_name: The full_name of this PayoutRequestCustomer.  # noqa: E501
         :type: str
@@ -335,7 +335,7 @@ class PayoutRequestCustomer(object):
     def province(self):
         """Gets the province of this PayoutRequestCustomer.  # noqa: E501
 
-        Customer province. For 'Asia' methods: <ul><li>mandatory</li><li>must be in Simplified Chinese</li></ul>  # noqa: E501
+        Customer province.  # noqa: E501
 
         :return: The province of this PayoutRequestCustomer.  # noqa: E501
         :rtype: str
@@ -346,7 +346,7 @@ class PayoutRequestCustomer(object):
     def province(self, province):
         """Sets the province of this PayoutRequestCustomer.
 
-        Customer province. For 'Asia' methods: <ul><li>mandatory</li><li>must be in Simplified Chinese</li></ul>  # noqa: E501
+        Customer province.  # noqa: E501
 
         :param province: The province of this PayoutRequestCustomer.  # noqa: E501
         :type: str

@@ -3,7 +3,7 @@
 """
     CardPay REST API
 
-    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a REST resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on OAuth 2.0 standard. For recent changes see changelog section.  # noqa: E501
+    Welcome to the CardPay REST API. The CardPay API uses HTTP verbs and a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) resources endpoint structure (see more info about REST). Request and response payloads are formatted as JSON. Merchant uses API to create payments, refunds, payouts or recurrings, check or update transaction status and get information about created transactions. In API authentication process based on [OAuth 2.0](https://oauth.net/2/) standard. For recent changes see changelog section.  # noqa: E501
 
     OpenAPI spec version: 3.0
     
@@ -44,8 +44,7 @@ class RequestUpdatedTransactionData(object):
         self._status_to = None
         self.discriminator = None
 
-        if status_to is not None:
-            self.status_to = status_to
+        self.status_to = status_to
 
     class StatusTo(object):
         REVERSE = "REVERSE"
@@ -72,6 +71,8 @@ class RequestUpdatedTransactionData(object):
         :param status_to: The status_to of this RequestUpdatedTransactionData.  # noqa: E501
         :type: str
         """
+        if status_to is None:
+            raise ValueError("Invalid value for `status_to`, must not be `None`")  # noqa: E501
         allowed_values = ["REVERSE", "COMPLETE"]  # noqa: E501
         if status_to not in allowed_values:
             raise ValueError(
