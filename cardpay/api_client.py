@@ -18,7 +18,9 @@ import os
 import re
 import tempfile
 import time
+import types
 import uuid
+import hashlib
 from multiprocessing.pool import ThreadPool
 
 # python 2 and python 3 compatibility library
@@ -30,6 +32,12 @@ from cardpay.configuration import Configuration
 import cardpay.model
 from cardpay.model.request import Request
 
+from cardpay.model.payment_callback import PaymentCallback
+from cardpay.model.payout_callback import PayoutCallback
+from cardpay.model.refund_callback import RefundCallback
+from cardpay.model.recurring_callback import RecurringCallback
+
+
 from cardpay import rest
 
 from cardpay.rest import ApiException
@@ -37,24 +45,12 @@ from cardpay.rest import ApiException
 TOKEN_MIN_VALIDITY = 10000
 
 
-def is_expired(expires_at):
-    return expires_at - int(round(time.time() * 1000)) < TOKEN_MIN_VALIDITY
+class CallbackException(Exception):
+    pass
 
 
-def is_successful(status):
-    return 200 <= status < 300
-
-
-def is_bad_request(status):
-    return status == 400
-
-
-def is_invalid_credentials(data):
-    return data.get('name') == 'INVALID_GRANT' and data.get('message') == 'Invalid terminal credentials'
-
-
-def is_auth_call(path):
-    return path == "/api/auth/token"
+class InvalidSignatureException(Exception):
+    pass
 
 
 class ApiClient(object):
@@ -110,6 +106,46 @@ class ApiClient(object):
         if self._pool is not None:
             self._pool.close()
             self._pool.join()
+
+    def calc_signature(self, message):
+        sha512 = hashlib.sha512()
+        sha512.update(message.encode('utf-8'))
+        sha512.update(self.configuration.password.encode('utf-8'))
+        return sha512.hexdigest()
+
+    def is_valid_signature(self, message, signature):
+        return signature is not None \
+               and len(signature) > 0 \
+               and signature == self.calc_signature(message)
+
+    def from_json(self, data, data_type):
+        try:
+            data = json.loads(data)
+        except ValueError:
+            pass
+
+        return self.__deserialize(data, data_type)
+
+    def parse_callback(self, message):
+        if message is None or len(message) == 0:
+            raise CallbackException("Could not parse null or empty callback json.")
+
+        if "refund_data" in message:
+            return self.from_json(message, RefundCallback)
+
+        if "recurring_data" in message:
+            return self.from_json(message, RecurringCallback)
+
+        if "payout_data" in message:
+            return self.from_json(message, PayoutCallback)
+
+        if "payment_data" in message:
+            return self.from_json(message, PaymentCallback)
+
+        raise CallbackException("Could not parse callback json.")
+
+    def create_callback_processor(self):
+        return CallbackProcessor(self)
 
     @staticmethod
     def uuid_request():
@@ -714,3 +750,57 @@ class ApiClient(object):
             data.expires_in = data.expires_in * 1000 + now
             data.refresh_expires_in = data.refresh_expires_in * 1000 + now
             self.tokens = data
+
+
+def is_expired(expires_at):
+    return expires_at - int(round(time.time() * 1000)) < TOKEN_MIN_VALIDITY
+
+
+def is_successful(status):
+    return 200 <= status < 300
+
+
+def is_bad_request(status):
+    return status == 400
+
+
+def is_invalid_credentials(data):
+    return data.get('name') == 'INVALID_GRANT' and data.get('message') == 'Invalid terminal credentials'
+
+
+def is_auth_call(path):
+    return path == "/api/auth/token"
+
+
+class CallbackHandler(object):
+    def process(self, callback):
+        raise CallbackException("Please implement this method")
+
+
+class CallbackProcessor(object):
+
+    def __init__(self, client):
+        self.client = client
+        self.handlers = {}
+
+    def register_handler(self, callback_type, handler):
+        self.handlers[callback_type] = handler
+
+    def process(self, message, signature):
+        if not self.client.is_valid_signature(message, signature):
+            raise InvalidSignatureException("Invalid callback signature")
+
+        obj = self.client.parse_callback(message)
+
+        handler = self.handlers.get(type(obj))
+        if handler is None:
+            raise CallbackException("Not found handler for callback class " + str(type(obj)))
+
+        if isinstance(handler, types.LambdaType):
+            handler(obj)
+        else:
+            process_method = getattr(handler, "process", None)
+            if callable(process_method):
+                process_method(obj)
+            else:
+                raise CallbackException("Can not execute handler " + str(type(handler)))
