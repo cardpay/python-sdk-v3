@@ -83,6 +83,7 @@ class ClaimResponseSubscriptionData(object):
         PENDING = "PENDING"
         COMPLETED = "COMPLETED"
         CARD_EXPIRED = "CARD_EXPIRED"
+        ACTIVATION_FAILED = "ACTIVATION_FAILED"
         
 
     @property
@@ -107,7 +108,7 @@ class ClaimResponseSubscriptionData(object):
         """
         if status_to is None:
             raise ValueError("Invalid value for `status_to`, must not be `None`")  # noqa: E501
-        allowed_values = ["ACTIVE", "INACTIVE", "CANCELLED", "PAST_DUE", "PENDING", "COMPLETED", "CARD_EXPIRED"]  # noqa: E501
+        allowed_values = ["ACTIVE", "INACTIVE", "CANCELLED", "PAST_DUE", "PENDING", "COMPLETED", "CARD_EXPIRED", "ACTIVATION_FAILED"]  # noqa: E501
         if status_to not in allowed_values:
             raise ValueError(
                 "Invalid value for `status_to` ({0}), must be one of {1}"  # noqa: E501

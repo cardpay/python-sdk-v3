@@ -35,6 +35,7 @@ class ScheduledData(object):
     swagger_types = {
         'dynamic_descriptor': 'str',
         'generate_token': 'bool',
+        'initial_amount': 'float',
         'initiator': 'str',
         'note': 'str',
         'plan': 'Plan',
@@ -44,17 +45,19 @@ class ScheduledData(object):
     attribute_map = {
         'dynamic_descriptor': 'dynamic_descriptor',
         'generate_token': 'generate_token',
+        'initial_amount': 'initial_amount',
         'initiator': 'initiator',
         'note': 'note',
         'plan': 'plan',
         'subscription_start': 'subscription_start'
     }
 
-    def __init__(self, dynamic_descriptor=None, generate_token=None, initiator=None, note=None, plan=None, subscription_start=None):  # noqa: E501
+    def __init__(self, dynamic_descriptor=None, generate_token=None, initial_amount=None, initiator=None, note=None, plan=None, subscription_start=None):  # noqa: E501
         """ScheduledData - a model defined in Swagger"""  # noqa: E501
 
         self._dynamic_descriptor = None
         self._generate_token = None
+        self._initial_amount = None
         self._initiator = None
         self._note = None
         self._plan = None
@@ -65,6 +68,8 @@ class ScheduledData(object):
             self.dynamic_descriptor = dynamic_descriptor
         if generate_token is not None:
             self.generate_token = generate_token
+        if initial_amount is not None:
+            self.initial_amount = initial_amount
         self.initiator = initiator
         if note is not None:
             self.note = note
@@ -122,6 +127,29 @@ class ScheduledData(object):
         """
 
         self._generate_token = generate_token
+
+    @property
+    def initial_amount(self):
+        """Gets the initial_amount of this ScheduledData.  # noqa: E501
+
+        The amount of subscription initiated transaction in selected currency with dot as a decimal separator, must be less than 100 millions  # noqa: E501
+
+        :return: The initial_amount of this ScheduledData.  # noqa: E501
+        :rtype: float
+        """
+        return self._initial_amount
+
+    @initial_amount.setter
+    def initial_amount(self, initial_amount):
+        """Sets the initial_amount of this ScheduledData.
+
+        The amount of subscription initiated transaction in selected currency with dot as a decimal separator, must be less than 100 millions  # noqa: E501
+
+        :param initial_amount: The initial_amount of this ScheduledData.  # noqa: E501
+        :type: float
+        """
+
+        self._initial_amount = initial_amount
 
     @property
     def initiator(self):

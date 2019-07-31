@@ -335,6 +335,7 @@ class SubscriptionFilterParameters(object):
         PENDING = "PENDING"
         COMPLETED = "COMPLETED"
         CARD_EXPIRED = "CARD_EXPIRED"
+        ACTIVATION_FAILED = "ACTIVATION_FAILED"
         
 
     @property
@@ -357,7 +358,7 @@ class SubscriptionFilterParameters(object):
         :param status: The status of this SubscriptionFilterParameters.  # noqa: E501
         :type: str
         """
-        allowed_values = ["ACTIVE", "INACTIVE", "CANCELLED", "PAST_DUE", "PENDING", "COMPLETED", "CARD_EXPIRED"]  # noqa: E501
+        allowed_values = ["ACTIVE", "INACTIVE", "CANCELLED", "PAST_DUE", "PENDING", "COMPLETED", "CARD_EXPIRED", "ACTIVATION_FAILED"]  # noqa: E501
         if status not in allowed_values:
             raise ValueError(
                 "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
