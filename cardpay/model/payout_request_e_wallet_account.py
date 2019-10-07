@@ -31,22 +31,24 @@ class PayoutRequestEWalletAccount(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'bank_branch': 'str',
-        'bank_code': 'str',
-        'id': 'str',
-        'name': 'str',
-        'type': 'str'
+        "bank_branch": "str",
+        "bank_code": "str",
+        "id": "str",
+        "name": "str",
+        "type": "str",
     }
 
     attribute_map = {
-        'bank_branch': 'bank_branch',
-        'bank_code': 'bank_code',
-        'id': 'id',
-        'name': 'name',
-        'type': 'type'
+        "bank_branch": "bank_branch",
+        "bank_code": "bank_code",
+        "id": "id",
+        "name": "name",
+        "type": "type",
     }
 
-    def __init__(self, bank_branch=None, bank_code=None, id=None, name=None, type=None):  # noqa: E501
+    def __init__(
+        self, bank_branch=None, bank_code=None, id=None, name=None, type=None
+    ):  # noqa: E501
         """PayoutRequestEWalletAccount - a model defined in Swagger"""  # noqa: E501
 
         self._bank_branch = None
@@ -134,9 +136,13 @@ class PayoutRequestEWalletAccount(object):
         :type: str
         """
         if id is not None and len(id) > 256:
-            raise ValueError("Invalid value for `id`, length must be less than or equal to `256`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `id`, length must be less than or equal to `256`"
+            )  # noqa: E501
         if id is not None and len(id) < 1:
-            raise ValueError("Invalid value for `id`, length must be greater than or equal to `1`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `id`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._id = id
 
@@ -193,18 +199,20 @@ class PayoutRequestEWalletAccount(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

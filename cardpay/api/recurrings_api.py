@@ -41,7 +41,7 @@ class RecurringsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
 
         (data) = self.create_filing_with_http_info(**kwargs)  # noqa: E501
         return data
@@ -55,20 +55,20 @@ class RecurringsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['filing_request']  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["filing_request"]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method create_filing" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
         collection_formats = {}
 
@@ -82,28 +82,34 @@ class RecurringsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'filing_request' in params:
-            body_params = params['filing_request']
+        if "filing_request" in params:
+            body_params = params["filing_request"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/recurring_filings', 'POST',
+            "/api/recurring_filings",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PaymentCreationResponse',  # noqa: E501
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            response_type="PaymentCreationResponse",  # noqa: E501
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def create_plan(self, recurring_plan_request, **kwargs):  # noqa: E501
         """Create recurring plan  # noqa: E501
@@ -113,12 +119,16 @@ class RecurringsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
 
-        (data) = self.create_plan_with_http_info(recurring_plan_request, **kwargs)  # noqa: E501
+        (data) = self.create_plan_with_http_info(
+            recurring_plan_request, **kwargs
+        )  # noqa: E501
         return data
 
-    def create_plan_with_http_info(self, recurring_plan_request, **kwargs):  # noqa: E501
+    def create_plan_with_http_info(
+        self, recurring_plan_request, **kwargs
+    ):  # noqa: E501
         """Create recurring plan  # noqa: E501
 
         :param RecurringPlanRequest recurring_plan_request: recurringPlanRequest (required)
@@ -127,24 +137,28 @@ class RecurringsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['recurring_plan_request']  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["recurring_plan_request"]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method create_plan" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'recurring_plan_request' is set
-        if ('recurring_plan_request' not in params or
-                params['recurring_plan_request'] is None):
-            raise ValueError("Missing the required parameter `recurring_plan_request` when calling `create_plan`")  # noqa: E501
+        if (
+            "recurring_plan_request" not in params
+            or params["recurring_plan_request"] is None
+        ):
+            raise ValueError(
+                "Missing the required parameter `recurring_plan_request` when calling `create_plan`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -158,28 +172,34 @@ class RecurringsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'recurring_plan_request' in params:
-            body_params = params['recurring_plan_request']
+        if "recurring_plan_request" in params:
+            body_params = params["recurring_plan_request"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/recurring_plans', 'POST',
+            "/api/recurring_plans",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RecurringPlanResponse',  # noqa: E501
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            response_type="RecurringPlanResponse",  # noqa: E501
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def create_recurring(self, recurring_request, **kwargs):  # noqa: E501
         """Create recurring  # noqa: E501
@@ -189,12 +209,16 @@ class RecurringsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
 
-        (data) = self.create_recurring_with_http_info(recurring_request, **kwargs)  # noqa: E501
+        (data) = self.create_recurring_with_http_info(
+            recurring_request, **kwargs
+        )  # noqa: E501
         return data
 
-    def create_recurring_with_http_info(self, recurring_request, **kwargs):  # noqa: E501
+    def create_recurring_with_http_info(
+        self, recurring_request, **kwargs
+    ):  # noqa: E501
         """Create recurring  # noqa: E501
 
         :param RecurringCreationRequest recurring_request: Recurring Request (required)
@@ -203,24 +227,25 @@ class RecurringsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['recurring_request']  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["recurring_request"]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method create_recurring" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'recurring_request' is set
-        if ('recurring_request' not in params or
-                params['recurring_request'] is None):
-            raise ValueError("Missing the required parameter `recurring_request` when calling `create_recurring`")  # noqa: E501
+        if "recurring_request" not in params or params["recurring_request"] is None:
+            raise ValueError(
+                "Missing the required parameter `recurring_request` when calling `create_recurring`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -234,28 +259,34 @@ class RecurringsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'recurring_request' in params:
-            body_params = params['recurring_request']
+        if "recurring_request" in params:
+            body_params = params["recurring_request"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/recurrings', 'POST',
+            "/api/recurrings",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RecurringCreationResponse',  # noqa: E501
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            response_type="RecurringCreationResponse",  # noqa: E501
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def delete_plan(self, plan_id, **kwargs):  # noqa: E501
         """Delete plan  # noqa: E501
@@ -265,7 +296,7 @@ class RecurringsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
 
         (data) = self.delete_plan_with_http_info(plan_id, **kwargs)  # noqa: E501
         return data
@@ -279,30 +310,31 @@ class RecurringsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['plan_id']  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["plan_id"]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method delete_plan" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'plan_id' is set
-        if ('plan_id' not in params or
-                params['plan_id'] is None):
-            raise ValueError("Missing the required parameter `plan_id` when calling `delete_plan`")  # noqa: E501
+        if "plan_id" not in params or params["plan_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `plan_id` when calling `delete_plan`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'plan_id' in params:
-            path_params['plan_id'] = params['plan_id']  # noqa: E501
+        if "plan_id" in params:
+            path_params["plan_id"] = params["plan_id"]  # noqa: E501
 
         query_params = []
 
@@ -313,11 +345,13 @@ class RecurringsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['*/*'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["*/*"]
+        )  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/recurring_plans/{plan_id}', 'DELETE',
+            "/api/recurring_plans/{plan_id}",
+            "DELETE",
             path_params,
             query_params,
             header_params,
@@ -325,12 +359,15 @@ class RecurringsApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type=None,  # noqa: E501
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def get_change_status_claim(self, claim_id, subscription_id, **kwargs):  # noqa: E501
+    def get_change_status_claim(
+        self, claim_id, subscription_id, **kwargs
+    ):  # noqa: E501
         """Get information about Change subscription status claim  # noqa: E501
 
         :param str claim_id: claimId (required)
@@ -339,12 +376,16 @@ class RecurringsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
 
-        (data) = self.get_change_status_claim_with_http_info(claim_id, subscription_id, **kwargs)  # noqa: E501
+        (data) = self.get_change_status_claim_with_http_info(
+            claim_id, subscription_id, **kwargs
+        )  # noqa: E501
         return data
 
-    def get_change_status_claim_with_http_info(self, claim_id, subscription_id, **kwargs):  # noqa: E501
+    def get_change_status_claim_with_http_info(
+        self, claim_id, subscription_id, **kwargs
+    ):  # noqa: E501
         """Get information about Change subscription status claim  # noqa: E501
 
         :param str claim_id: claimId (required)
@@ -354,36 +395,38 @@ class RecurringsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['claim_id', 'subscription_id']  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["claim_id", "subscription_id"]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_change_status_claim" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'claim_id' is set
-        if ('claim_id' not in params or
-                params['claim_id'] is None):
-            raise ValueError("Missing the required parameter `claim_id` when calling `get_change_status_claim`")  # noqa: E501
+        if "claim_id" not in params or params["claim_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `claim_id` when calling `get_change_status_claim`"
+            )  # noqa: E501
         # verify the required parameter 'subscription_id' is set
-        if ('subscription_id' not in params or
-                params['subscription_id'] is None):
-            raise ValueError("Missing the required parameter `subscription_id` when calling `get_change_status_claim`")  # noqa: E501
+        if "subscription_id" not in params or params["subscription_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `subscription_id` when calling `get_change_status_claim`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'claim_id' in params:
-            path_params['claimId'] = params['claim_id']  # noqa: E501
-        if 'subscription_id' in params:
-            path_params['subscriptionId'] = params['subscription_id']  # noqa: E501
+        if "claim_id" in params:
+            path_params["claimId"] = params["claim_id"]  # noqa: E501
+        if "subscription_id" in params:
+            path_params["subscriptionId"] = params["subscription_id"]  # noqa: E501
 
         query_params = []
 
@@ -394,22 +437,25 @@ class RecurringsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/recurring_subscriptions/{subscriptionId}/change_status_claims/{claimId}', 'GET',
+            "/api/recurring_subscriptions/{subscriptionId}/change_status_claims/{claimId}",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ChangeSubscriptionStatusClaimResponse',  # noqa: E501
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            response_type="ChangeSubscriptionStatusClaimResponse",  # noqa: E501
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def get_filing(self, filing_id, **kwargs):  # noqa: E501
         """Get filing order information  # noqa: E501
@@ -419,7 +465,7 @@ class RecurringsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
 
         (data) = self.get_filing_with_http_info(filing_id, **kwargs)  # noqa: E501
         return data
@@ -433,30 +479,31 @@ class RecurringsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['filing_id']  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["filing_id"]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_filing" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'filing_id' is set
-        if ('filing_id' not in params or
-                params['filing_id'] is None):
-            raise ValueError("Missing the required parameter `filing_id` when calling `get_filing`")  # noqa: E501
+        if "filing_id" not in params or params["filing_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `filing_id` when calling `get_filing`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'filing_id' in params:
-            path_params['filingId'] = params['filing_id']  # noqa: E501
+        if "filing_id" in params:
+            path_params["filingId"] = params["filing_id"]  # noqa: E501
 
         query_params = []
 
@@ -467,22 +514,25 @@ class RecurringsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/recurring_filings/{filingId}', 'GET',
+            "/api/recurring_filings/{filingId}",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RecurringResponse',  # noqa: E501
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            response_type="RecurringResponse",  # noqa: E501
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def get_plan(self, plan_id, **kwargs):  # noqa: E501
         """Get plan information  # noqa: E501
@@ -492,7 +542,7 @@ class RecurringsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
 
         (data) = self.get_plan_with_http_info(plan_id, **kwargs)  # noqa: E501
         return data
@@ -506,30 +556,31 @@ class RecurringsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['plan_id']  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["plan_id"]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_plan" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'plan_id' is set
-        if ('plan_id' not in params or
-                params['plan_id'] is None):
-            raise ValueError("Missing the required parameter `plan_id` when calling `get_plan`")  # noqa: E501
+        if "plan_id" not in params or params["plan_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `plan_id` when calling `get_plan`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'plan_id' in params:
-            path_params['plan_id'] = params['plan_id']  # noqa: E501
+        if "plan_id" in params:
+            path_params["plan_id"] = params["plan_id"]  # noqa: E501
 
         query_params = []
 
@@ -540,22 +591,25 @@ class RecurringsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/recurring_plans/{plan_id}', 'GET',
+            "/api/recurring_plans/{plan_id}",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RecurringPlanResponse',  # noqa: E501
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            response_type="RecurringPlanResponse",  # noqa: E501
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def get_plans(self, request_id, **kwargs):  # noqa: E501
         """Get plans information  # noqa: E501
@@ -568,7 +622,7 @@ class RecurringsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
 
         (data) = self.get_plans_with_http_info(request_id, **kwargs)  # noqa: E501
         return data
@@ -585,48 +639,61 @@ class RecurringsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['request_id', 'max_count', 'offset', 'sort_order']  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["request_id", "max_count", "offset", "sort_order"]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_plans" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'request_id' is set
-        if ('request_id' not in params or
-                params['request_id'] is None):
-            raise ValueError("Missing the required parameter `request_id` when calling `get_plans`")  # noqa: E501
+        if "request_id" not in params or params["request_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `request_id` when calling `get_plans`"
+            )  # noqa: E501
 
-        if 'max_count' in params and params['max_count'] > 10000:  # noqa: E501
-            raise ValueError("Invalid value for parameter `max_count` when calling `get_plans`, must be a value less than or equal to `10000`")  # noqa: E501
-        if 'max_count' in params and params['max_count'] < 1:  # noqa: E501
-            raise ValueError("Invalid value for parameter `max_count` when calling `get_plans`, must be a value greater than or equal to `1`")  # noqa: E501
-        if 'offset' in params and params['offset'] > 10000:  # noqa: E501
-            raise ValueError("Invalid value for parameter `offset` when calling `get_plans`, must be a value less than or equal to `10000`")  # noqa: E501
-        if 'offset' in params and params['offset'] < 0:  # noqa: E501
-            raise ValueError("Invalid value for parameter `offset` when calling `get_plans`, must be a value greater than or equal to `0`")  # noqa: E501
-        if 'sort_order' in params and not re.search(r'asc|desc', params['sort_order']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `sort_order` when calling `get_plans`, must conform to the pattern `/asc|desc/`")  # noqa: E501
+        if "max_count" in params and params["max_count"] > 10000:  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `max_count` when calling `get_plans`, must be a value less than or equal to `10000`"
+            )  # noqa: E501
+        if "max_count" in params and params["max_count"] < 1:  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `max_count` when calling `get_plans`, must be a value greater than or equal to `1`"
+            )  # noqa: E501
+        if "offset" in params and params["offset"] > 10000:  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `offset` when calling `get_plans`, must be a value less than or equal to `10000`"
+            )  # noqa: E501
+        if "offset" in params and params["offset"] < 0:  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `offset` when calling `get_plans`, must be a value greater than or equal to `0`"
+            )  # noqa: E501
+        if "sort_order" in params and not re.search(
+            r"asc|desc", params["sort_order"]
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `sort_order` when calling `get_plans`, must conform to the pattern `/asc|desc/`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'max_count' in params:
-            query_params.append(('max_count', params['max_count']))  # noqa: E501
-        if 'offset' in params:
-            query_params.append(('offset', params['offset']))  # noqa: E501
-        if 'request_id' in params:
-            query_params.append(('request_id', params['request_id']))  # noqa: E501
-        if 'sort_order' in params:
-            query_params.append(('sort_order', params['sort_order']))  # noqa: E501
+        if "max_count" in params:
+            query_params.append(("max_count", params["max_count"]))  # noqa: E501
+        if "offset" in params:
+            query_params.append(("offset", params["offset"]))  # noqa: E501
+        if "request_id" in params:
+            query_params.append(("request_id", params["request_id"]))  # noqa: E501
+        if "sort_order" in params:
+            query_params.append(("sort_order", params["sort_order"]))  # noqa: E501
 
         header_params = {}
 
@@ -635,22 +702,25 @@ class RecurringsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/recurring_plans', 'GET',
+            "/api/recurring_plans",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PlanDataList',  # noqa: E501
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            response_type="PlanDataList",  # noqa: E501
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def get_recurring(self, recurring_id, **kwargs):  # noqa: E501
         """Get recurring information  # noqa: E501
@@ -660,7 +730,7 @@ class RecurringsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
 
         (data) = self.get_recurring_with_http_info(recurring_id, **kwargs)  # noqa: E501
         return data
@@ -674,30 +744,31 @@ class RecurringsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['recurring_id']  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["recurring_id"]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_recurring" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'recurring_id' is set
-        if ('recurring_id' not in params or
-                params['recurring_id'] is None):
-            raise ValueError("Missing the required parameter `recurring_id` when calling `get_recurring`")  # noqa: E501
+        if "recurring_id" not in params or params["recurring_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `recurring_id` when calling `get_recurring`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'recurring_id' in params:
-            path_params['recurringId'] = params['recurring_id']  # noqa: E501
+        if "recurring_id" in params:
+            path_params["recurringId"] = params["recurring_id"]  # noqa: E501
 
         query_params = []
 
@@ -708,22 +779,25 @@ class RecurringsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/recurrings/{recurringId}', 'GET',
+            "/api/recurrings/{recurringId}",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RecurringResponse',  # noqa: E501
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            response_type="RecurringResponse",  # noqa: E501
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def get_recurrings(self, request_id, **kwargs):  # noqa: E501
         """Get recurring list information  # noqa: E501
@@ -741,7 +815,7 @@ class RecurringsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
 
         (data) = self.get_recurrings_with_http_info(request_id, **kwargs)  # noqa: E501
         return data
@@ -763,70 +837,97 @@ class RecurringsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['request_id', 'currency', 'end_time', 'max_count', 'merchant_order_id', 'payment_method', 'sort_order', 'start_time', 'type']  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "request_id",
+            "currency",
+            "end_time",
+            "max_count",
+            "merchant_order_id",
+            "payment_method",
+            "sort_order",
+            "start_time",
+            "type",
+        ]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_recurrings" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'request_id' is set
-        if ('request_id' not in params or
-                params['request_id'] is None):
-            raise ValueError("Missing the required parameter `request_id` when calling `get_recurrings`")  # noqa: E501
+        if "request_id" not in params or params["request_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `request_id` when calling `get_recurrings`"
+            )  # noqa: E501
 
-        if ('request_id' in params and
-                len(params['request_id']) > 50):
-            raise ValueError("Invalid value for parameter `request_id` when calling `get_recurrings`, length must be less than or equal to `50`")  # noqa: E501
-        if ('request_id' in params and
-                len(params['request_id']) < 0):
-            raise ValueError("Invalid value for parameter `request_id` when calling `get_recurrings`, length must be greater than or equal to `0`")  # noqa: E501
-        if 'max_count' in params and params['max_count'] > 10000:  # noqa: E501
-            raise ValueError("Invalid value for parameter `max_count` when calling `get_recurrings`, must be a value less than or equal to `10000`")  # noqa: E501
-        if ('merchant_order_id' in params and
-                len(params['merchant_order_id']) > 50):
-            raise ValueError("Invalid value for parameter `merchant_order_id` when calling `get_recurrings`, length must be less than or equal to `50`")  # noqa: E501
-        if ('merchant_order_id' in params and
-                len(params['merchant_order_id']) < 0):
-            raise ValueError("Invalid value for parameter `merchant_order_id` when calling `get_recurrings`, length must be greater than or equal to `0`")  # noqa: E501
-        if ('payment_method' in params and
-                len(params['payment_method']) > 100):
-            raise ValueError("Invalid value for parameter `payment_method` when calling `get_recurrings`, length must be less than or equal to `100`")  # noqa: E501
-        if ('payment_method' in params and
-                len(params['payment_method']) < 0):
-            raise ValueError("Invalid value for parameter `payment_method` when calling `get_recurrings`, length must be greater than or equal to `0`")  # noqa: E501
-        if 'sort_order' in params and not re.search(r'asc|desc', params['sort_order']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `sort_order` when calling `get_recurrings`, must conform to the pattern `/asc|desc/`")  # noqa: E501
+        if "request_id" in params and len(params["request_id"]) > 50:
+            raise ValueError(
+                "Invalid value for parameter `request_id` when calling `get_recurrings`, length must be less than or equal to `50`"
+            )  # noqa: E501
+        if "request_id" in params and len(params["request_id"]) < 0:
+            raise ValueError(
+                "Invalid value for parameter `request_id` when calling `get_recurrings`, length must be greater than or equal to `0`"
+            )  # noqa: E501
+        if "max_count" in params and params["max_count"] > 10000:  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `max_count` when calling `get_recurrings`, must be a value less than or equal to `10000`"
+            )  # noqa: E501
+        if "merchant_order_id" in params and len(params["merchant_order_id"]) > 50:
+            raise ValueError(
+                "Invalid value for parameter `merchant_order_id` when calling `get_recurrings`, length must be less than or equal to `50`"
+            )  # noqa: E501
+        if "merchant_order_id" in params and len(params["merchant_order_id"]) < 0:
+            raise ValueError(
+                "Invalid value for parameter `merchant_order_id` when calling `get_recurrings`, length must be greater than or equal to `0`"
+            )  # noqa: E501
+        if "payment_method" in params and len(params["payment_method"]) > 100:
+            raise ValueError(
+                "Invalid value for parameter `payment_method` when calling `get_recurrings`, length must be less than or equal to `100`"
+            )  # noqa: E501
+        if "payment_method" in params and len(params["payment_method"]) < 0:
+            raise ValueError(
+                "Invalid value for parameter `payment_method` when calling `get_recurrings`, length must be greater than or equal to `0`"
+            )  # noqa: E501
+        if "sort_order" in params and not re.search(
+            r"asc|desc", params["sort_order"]
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `sort_order` when calling `get_recurrings`, must conform to the pattern `/asc|desc/`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'currency' in params:
-            query_params.append(('currency', params['currency']))  # noqa: E501
-        if 'end_time' in params:
-            query_params.append(('end_time', params['end_time']))  # noqa: E501
-        if 'max_count' in params:
-            query_params.append(('max_count', params['max_count']))  # noqa: E501
-        if 'merchant_order_id' in params:
-            query_params.append(('merchant_order_id', params['merchant_order_id']))  # noqa: E501
-        if 'payment_method' in params:
-            query_params.append(('payment_method', params['payment_method']))  # noqa: E501
-        if 'request_id' in params:
-            query_params.append(('request_id', params['request_id']))  # noqa: E501
-        if 'sort_order' in params:
-            query_params.append(('sort_order', params['sort_order']))  # noqa: E501
-        if 'start_time' in params:
-            query_params.append(('start_time', params['start_time']))  # noqa: E501
-        if 'type' in params:
-            query_params.append(('type', params['type']))  # noqa: E501
+        if "currency" in params:
+            query_params.append(("currency", params["currency"]))  # noqa: E501
+        if "end_time" in params:
+            query_params.append(("end_time", params["end_time"]))  # noqa: E501
+        if "max_count" in params:
+            query_params.append(("max_count", params["max_count"]))  # noqa: E501
+        if "merchant_order_id" in params:
+            query_params.append(
+                ("merchant_order_id", params["merchant_order_id"])
+            )  # noqa: E501
+        if "payment_method" in params:
+            query_params.append(
+                ("payment_method", params["payment_method"])
+            )  # noqa: E501
+        if "request_id" in params:
+            query_params.append(("request_id", params["request_id"]))  # noqa: E501
+        if "sort_order" in params:
+            query_params.append(("sort_order", params["sort_order"]))  # noqa: E501
+        if "start_time" in params:
+            query_params.append(("start_time", params["start_time"]))  # noqa: E501
+        if "type" in params:
+            query_params.append(("type", params["type"]))  # noqa: E501
 
         header_params = {}
 
@@ -835,22 +936,25 @@ class RecurringsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/recurrings', 'GET',
+            "/api/recurrings",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RecurringsList',  # noqa: E501
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            response_type="RecurringsList",  # noqa: E501
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def get_subscription(self, subscription_id, **kwargs):  # noqa: E501
         """Get subscription information  # noqa: E501
@@ -860,9 +964,11 @@ class RecurringsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
 
-        (data) = self.get_subscription_with_http_info(subscription_id, **kwargs)  # noqa: E501
+        (data) = self.get_subscription_with_http_info(
+            subscription_id, **kwargs
+        )  # noqa: E501
         return data
 
     def get_subscription_with_http_info(self, subscription_id, **kwargs):  # noqa: E501
@@ -874,30 +980,31 @@ class RecurringsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['subscription_id']  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["subscription_id"]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_subscription" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'subscription_id' is set
-        if ('subscription_id' not in params or
-                params['subscription_id'] is None):
-            raise ValueError("Missing the required parameter `subscription_id` when calling `get_subscription`")  # noqa: E501
+        if "subscription_id" not in params or params["subscription_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `subscription_id` when calling `get_subscription`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'subscription_id' in params:
-            path_params['subscriptionId'] = params['subscription_id']  # noqa: E501
+        if "subscription_id" in params:
+            path_params["subscriptionId"] = params["subscription_id"]  # noqa: E501
 
         query_params = []
 
@@ -908,22 +1015,25 @@ class RecurringsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/recurring_subscriptions/{subscriptionId}', 'GET',
+            "/api/recurring_subscriptions/{subscriptionId}",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='SubscriptionGetResponse',  # noqa: E501
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            response_type="SubscriptionGetResponse",  # noqa: E501
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def get_subscriptions(self, request_id, **kwargs):  # noqa: E501
         """Get subscription information  # noqa: E501
@@ -943,9 +1053,11 @@ class RecurringsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
 
-        (data) = self.get_subscriptions_with_http_info(request_id, **kwargs)  # noqa: E501
+        (data) = self.get_subscriptions_with_http_info(
+            request_id, **kwargs
+        )  # noqa: E501
         return data
 
     def get_subscriptions_with_http_info(self, request_id, **kwargs):  # noqa: E501
@@ -967,80 +1079,111 @@ class RecurringsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['request_id', 'account_id', 'currency', 'end_time', 'max_count', 'offset', 'plan_id', 'sort_order', 'start_time', 'status', 'type']  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "request_id",
+            "account_id",
+            "currency",
+            "end_time",
+            "max_count",
+            "offset",
+            "plan_id",
+            "sort_order",
+            "start_time",
+            "status",
+            "type",
+        ]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_subscriptions" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'request_id' is set
-        if ('request_id' not in params or
-                params['request_id'] is None):
-            raise ValueError("Missing the required parameter `request_id` when calling `get_subscriptions`")  # noqa: E501
+        if "request_id" not in params or params["request_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `request_id` when calling `get_subscriptions`"
+            )  # noqa: E501
 
-        if ('request_id' in params and
-                len(params['request_id']) > 50):
-            raise ValueError("Invalid value for parameter `request_id` when calling `get_subscriptions`, length must be less than or equal to `50`")  # noqa: E501
-        if ('request_id' in params and
-                len(params['request_id']) < 1):
-            raise ValueError("Invalid value for parameter `request_id` when calling `get_subscriptions`, length must be greater than or equal to `1`")  # noqa: E501
-        if ('account_id' in params and
-                len(params['account_id']) > 32):
-            raise ValueError("Invalid value for parameter `account_id` when calling `get_subscriptions`, length must be less than or equal to `32`")  # noqa: E501
-        if ('account_id' in params and
-                len(params['account_id']) < 0):
-            raise ValueError("Invalid value for parameter `account_id` when calling `get_subscriptions`, length must be greater than or equal to `0`")  # noqa: E501
-        if 'max_count' in params and params['max_count'] > 10000:  # noqa: E501
-            raise ValueError("Invalid value for parameter `max_count` when calling `get_subscriptions`, must be a value less than or equal to `10000`")  # noqa: E501
-        if 'max_count' in params and params['max_count'] < 1:  # noqa: E501
-            raise ValueError("Invalid value for parameter `max_count` when calling `get_subscriptions`, must be a value greater than or equal to `1`")  # noqa: E501
-        if 'offset' in params and params['offset'] > 10000:  # noqa: E501
-            raise ValueError("Invalid value for parameter `offset` when calling `get_subscriptions`, must be a value less than or equal to `10000`")  # noqa: E501
-        if 'offset' in params and params['offset'] < 0:  # noqa: E501
-            raise ValueError("Invalid value for parameter `offset` when calling `get_subscriptions`, must be a value greater than or equal to `0`")  # noqa: E501
-        if ('plan_id' in params and
-                len(params['plan_id']) > 32):
-            raise ValueError("Invalid value for parameter `plan_id` when calling `get_subscriptions`, length must be less than or equal to `32`")  # noqa: E501
-        if ('plan_id' in params and
-                len(params['plan_id']) < 0):
-            raise ValueError("Invalid value for parameter `plan_id` when calling `get_subscriptions`, length must be greater than or equal to `0`")  # noqa: E501
-        if 'sort_order' in params and not re.search(r'asc|desc', params['sort_order']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `sort_order` when calling `get_subscriptions`, must conform to the pattern `/asc|desc/`")  # noqa: E501
+        if "request_id" in params and len(params["request_id"]) > 50:
+            raise ValueError(
+                "Invalid value for parameter `request_id` when calling `get_subscriptions`, length must be less than or equal to `50`"
+            )  # noqa: E501
+        if "request_id" in params and len(params["request_id"]) < 1:
+            raise ValueError(
+                "Invalid value for parameter `request_id` when calling `get_subscriptions`, length must be greater than or equal to `1`"
+            )  # noqa: E501
+        if "account_id" in params and len(params["account_id"]) > 32:
+            raise ValueError(
+                "Invalid value for parameter `account_id` when calling `get_subscriptions`, length must be less than or equal to `32`"
+            )  # noqa: E501
+        if "account_id" in params and len(params["account_id"]) < 0:
+            raise ValueError(
+                "Invalid value for parameter `account_id` when calling `get_subscriptions`, length must be greater than or equal to `0`"
+            )  # noqa: E501
+        if "max_count" in params and params["max_count"] > 10000:  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `max_count` when calling `get_subscriptions`, must be a value less than or equal to `10000`"
+            )  # noqa: E501
+        if "max_count" in params and params["max_count"] < 1:  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `max_count` when calling `get_subscriptions`, must be a value greater than or equal to `1`"
+            )  # noqa: E501
+        if "offset" in params and params["offset"] > 10000:  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `offset` when calling `get_subscriptions`, must be a value less than or equal to `10000`"
+            )  # noqa: E501
+        if "offset" in params and params["offset"] < 0:  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `offset` when calling `get_subscriptions`, must be a value greater than or equal to `0`"
+            )  # noqa: E501
+        if "plan_id" in params and len(params["plan_id"]) > 32:
+            raise ValueError(
+                "Invalid value for parameter `plan_id` when calling `get_subscriptions`, length must be less than or equal to `32`"
+            )  # noqa: E501
+        if "plan_id" in params and len(params["plan_id"]) < 0:
+            raise ValueError(
+                "Invalid value for parameter `plan_id` when calling `get_subscriptions`, length must be greater than or equal to `0`"
+            )  # noqa: E501
+        if "sort_order" in params and not re.search(
+            r"asc|desc", params["sort_order"]
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `sort_order` when calling `get_subscriptions`, must conform to the pattern `/asc|desc/`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'account_id' in params:
-            query_params.append(('account_id', params['account_id']))  # noqa: E501
-        if 'currency' in params:
-            query_params.append(('currency', params['currency']))  # noqa: E501
-        if 'end_time' in params:
-            query_params.append(('end_time', params['end_time']))  # noqa: E501
-        if 'max_count' in params:
-            query_params.append(('max_count', params['max_count']))  # noqa: E501
-        if 'offset' in params:
-            query_params.append(('offset', params['offset']))  # noqa: E501
-        if 'plan_id' in params:
-            query_params.append(('plan_id', params['plan_id']))  # noqa: E501
-        if 'request_id' in params:
-            query_params.append(('request_id', params['request_id']))  # noqa: E501
-        if 'sort_order' in params:
-            query_params.append(('sort_order', params['sort_order']))  # noqa: E501
-        if 'start_time' in params:
-            query_params.append(('start_time', params['start_time']))  # noqa: E501
-        if 'status' in params:
-            query_params.append(('status', params['status']))  # noqa: E501
-        if 'type' in params:
-            query_params.append(('type', params['type']))  # noqa: E501
+        if "account_id" in params:
+            query_params.append(("account_id", params["account_id"]))  # noqa: E501
+        if "currency" in params:
+            query_params.append(("currency", params["currency"]))  # noqa: E501
+        if "end_time" in params:
+            query_params.append(("end_time", params["end_time"]))  # noqa: E501
+        if "max_count" in params:
+            query_params.append(("max_count", params["max_count"]))  # noqa: E501
+        if "offset" in params:
+            query_params.append(("offset", params["offset"]))  # noqa: E501
+        if "plan_id" in params:
+            query_params.append(("plan_id", params["plan_id"]))  # noqa: E501
+        if "request_id" in params:
+            query_params.append(("request_id", params["request_id"]))  # noqa: E501
+        if "sort_order" in params:
+            query_params.append(("sort_order", params["sort_order"]))  # noqa: E501
+        if "start_time" in params:
+            query_params.append(("start_time", params["start_time"]))  # noqa: E501
+        if "status" in params:
+            query_params.append(("status", params["status"]))  # noqa: E501
+        if "type" in params:
+            query_params.append(("type", params["type"]))  # noqa: E501
 
         header_params = {}
 
@@ -1049,22 +1192,25 @@ class RecurringsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/recurring_subscriptions', 'GET',
+            "/api/recurring_subscriptions",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='SubscriptionList',  # noqa: E501
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            response_type="SubscriptionList",  # noqa: E501
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def update_plan(self, plan_id, plan_update_request, **kwargs):  # noqa: E501
         """Update plan  # noqa: E501
@@ -1075,12 +1221,16 @@ class RecurringsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
 
-        (data) = self.update_plan_with_http_info(plan_id, plan_update_request, **kwargs)  # noqa: E501
+        (data) = self.update_plan_with_http_info(
+            plan_id, plan_update_request, **kwargs
+        )  # noqa: E501
         return data
 
-    def update_plan_with_http_info(self, plan_id, plan_update_request, **kwargs):  # noqa: E501
+    def update_plan_with_http_info(
+        self, plan_id, plan_update_request, **kwargs
+    ):  # noqa: E501
         """Update plan  # noqa: E501
 
         :param str plan_id: Plan ID (required)
@@ -1090,34 +1240,36 @@ class RecurringsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['plan_id', 'plan_update_request']  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["plan_id", "plan_update_request"]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method update_plan" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'plan_id' is set
-        if ('plan_id' not in params or
-                params['plan_id'] is None):
-            raise ValueError("Missing the required parameter `plan_id` when calling `update_plan`")  # noqa: E501
+        if "plan_id" not in params or params["plan_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `plan_id` when calling `update_plan`"
+            )  # noqa: E501
         # verify the required parameter 'plan_update_request' is set
-        if ('plan_update_request' not in params or
-                params['plan_update_request'] is None):
-            raise ValueError("Missing the required parameter `plan_update_request` when calling `update_plan`")  # noqa: E501
+        if "plan_update_request" not in params or params["plan_update_request"] is None:
+            raise ValueError(
+                "Missing the required parameter `plan_update_request` when calling `update_plan`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'plan_id' in params:
-            path_params['plan_id'] = params['plan_id']  # noqa: E501
+        if "plan_id" in params:
+            path_params["plan_id"] = params["plan_id"]  # noqa: E501
 
         query_params = []
 
@@ -1127,30 +1279,38 @@ class RecurringsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'plan_update_request' in params:
-            body_params = params['plan_update_request']
+        if "plan_update_request" in params:
+            body_params = params["plan_update_request"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/recurring_plans/{plan_id}', 'PATCH',
+            "/api/recurring_plans/{plan_id}",
+            "PATCH",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PlanUpdateResponse',  # noqa: E501
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            response_type="PlanUpdateResponse",  # noqa: E501
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def update_recurring(self, recurring_id, recurring_patch_request, **kwargs):  # noqa: E501
+    def update_recurring(
+        self, recurring_id, recurring_patch_request, **kwargs
+    ):  # noqa: E501
         """Update recurring  # noqa: E501
 
         :param str recurring_id: Recurring ID (required)
@@ -1159,12 +1319,16 @@ class RecurringsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
 
-        (data) = self.update_recurring_with_http_info(recurring_id, recurring_patch_request, **kwargs)  # noqa: E501
+        (data) = self.update_recurring_with_http_info(
+            recurring_id, recurring_patch_request, **kwargs
+        )  # noqa: E501
         return data
 
-    def update_recurring_with_http_info(self, recurring_id, recurring_patch_request, **kwargs):  # noqa: E501
+    def update_recurring_with_http_info(
+        self, recurring_id, recurring_patch_request, **kwargs
+    ):  # noqa: E501
         """Update recurring  # noqa: E501
 
         :param str recurring_id: Recurring ID (required)
@@ -1174,34 +1338,39 @@ class RecurringsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['recurring_id', 'recurring_patch_request']  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["recurring_id", "recurring_patch_request"]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method update_recurring" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'recurring_id' is set
-        if ('recurring_id' not in params or
-                params['recurring_id'] is None):
-            raise ValueError("Missing the required parameter `recurring_id` when calling `update_recurring`")  # noqa: E501
+        if "recurring_id" not in params or params["recurring_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `recurring_id` when calling `update_recurring`"
+            )  # noqa: E501
         # verify the required parameter 'recurring_patch_request' is set
-        if ('recurring_patch_request' not in params or
-                params['recurring_patch_request'] is None):
-            raise ValueError("Missing the required parameter `recurring_patch_request` when calling `update_recurring`")  # noqa: E501
+        if (
+            "recurring_patch_request" not in params
+            or params["recurring_patch_request"] is None
+        ):
+            raise ValueError(
+                "Missing the required parameter `recurring_patch_request` when calling `update_recurring`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'recurring_id' in params:
-            path_params['recurringId'] = params['recurring_id']  # noqa: E501
+        if "recurring_id" in params:
+            path_params["recurringId"] = params["recurring_id"]  # noqa: E501
 
         query_params = []
 
@@ -1211,30 +1380,38 @@ class RecurringsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'recurring_patch_request' in params:
-            body_params = params['recurring_patch_request']
+        if "recurring_patch_request" in params:
+            body_params = params["recurring_patch_request"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/recurrings/{recurringId}', 'PATCH',
+            "/api/recurrings/{recurringId}",
+            "PATCH",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RecurringUpdateResponse',  # noqa: E501
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            response_type="RecurringUpdateResponse",  # noqa: E501
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def update_subscription(self, subscription_id, subscription_update_request, **kwargs):  # noqa: E501
+    def update_subscription(
+        self, subscription_id, subscription_update_request, **kwargs
+    ):  # noqa: E501
         """Update subscription  # noqa: E501
 
         :param str subscription_id: Subscription ID (required)
@@ -1243,12 +1420,16 @@ class RecurringsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
 
-        (data) = self.update_subscription_with_http_info(subscription_id, subscription_update_request, **kwargs)  # noqa: E501
+        (data) = self.update_subscription_with_http_info(
+            subscription_id, subscription_update_request, **kwargs
+        )  # noqa: E501
         return data
 
-    def update_subscription_with_http_info(self, subscription_id, subscription_update_request, **kwargs):  # noqa: E501
+    def update_subscription_with_http_info(
+        self, subscription_id, subscription_update_request, **kwargs
+    ):  # noqa: E501
         """Update subscription  # noqa: E501
 
         :param str subscription_id: Subscription ID (required)
@@ -1258,34 +1439,39 @@ class RecurringsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['subscription_id', 'subscription_update_request']  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["subscription_id", "subscription_update_request"]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method update_subscription" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'subscription_id' is set
-        if ('subscription_id' not in params or
-                params['subscription_id'] is None):
-            raise ValueError("Missing the required parameter `subscription_id` when calling `update_subscription`")  # noqa: E501
+        if "subscription_id" not in params or params["subscription_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `subscription_id` when calling `update_subscription`"
+            )  # noqa: E501
         # verify the required parameter 'subscription_update_request' is set
-        if ('subscription_update_request' not in params or
-                params['subscription_update_request'] is None):
-            raise ValueError("Missing the required parameter `subscription_update_request` when calling `update_subscription`")  # noqa: E501
+        if (
+            "subscription_update_request" not in params
+            or params["subscription_update_request"] is None
+        ):
+            raise ValueError(
+                "Missing the required parameter `subscription_update_request` when calling `update_subscription`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'subscription_id' in params:
-            path_params['subscriptionId'] = params['subscription_id']  # noqa: E501
+        if "subscription_id" in params:
+            path_params["subscriptionId"] = params["subscription_id"]  # noqa: E501
 
         query_params = []
 
@@ -1295,25 +1481,31 @@ class RecurringsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'subscription_update_request' in params:
-            body_params = params['subscription_update_request']
+        if "subscription_update_request" in params:
+            body_params = params["subscription_update_request"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/recurring_subscriptions/{subscriptionId}', 'PATCH',
+            "/api/recurring_subscriptions/{subscriptionId}",
+            "PATCH",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='SubscriptionUpdateResponse',  # noqa: E501
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            response_type="SubscriptionUpdateResponse",  # noqa: E501
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )

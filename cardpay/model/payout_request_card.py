@@ -30,15 +30,9 @@ class PayoutRequestCard(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {
-        'expiration': 'str',
-        'pan': 'str'
-    }
+    swagger_types = {"expiration": "str", "pan": "str"}
 
-    attribute_map = {
-        'expiration': 'expiration',
-        'pan': 'pan'
-    }
+    attribute_map = {"expiration": "expiration", "pan": "pan"}
 
     def __init__(self, expiration=None, pan=None):  # noqa: E501
         """PayoutRequestCard - a model defined in Swagger"""  # noqa: E501
@@ -71,8 +65,12 @@ class PayoutRequestCard(object):
         :param expiration: The expiration of this PayoutRequestCard.  # noqa: E501
         :type: str
         """
-        if expiration is not None and not re.search(r'([0-9]{2}\/[0-9]{4})', expiration):  # noqa: E501
-            raise ValueError(r"Invalid value for `expiration`, must be a follow pattern or equal to `/([0-9]{2}\/[0-9]{4})/`")  # noqa: E501
+        if expiration is not None and not re.search(
+            r"([0-9]{2}\/[0-9]{4})", expiration
+        ):  # noqa: E501
+            raise ValueError(
+                r"Invalid value for `expiration`, must be a follow pattern or equal to `/([0-9]{2}\/[0-9]{4})/`"
+            )  # noqa: E501
 
         self._expiration = expiration
 
@@ -97,11 +95,17 @@ class PayoutRequestCard(object):
         :type: str
         """
         if pan is None:
-            raise ValueError("Invalid value for `pan`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `pan`, must not be `None`"
+            )  # noqa: E501
         if pan is not None and len(pan) > 19:
-            raise ValueError("Invalid value for `pan`, length must be less than or equal to `19`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `pan`, length must be less than or equal to `19`"
+            )  # noqa: E501
         if pan is not None and len(pan) < 13:
-            raise ValueError("Invalid value for `pan`, length must be greater than or equal to `13`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `pan`, length must be greater than or equal to `13`"
+            )  # noqa: E501
 
         self._pan = pan
 
@@ -112,18 +116,20 @@ class PayoutRequestCard(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

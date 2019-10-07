@@ -16,7 +16,9 @@ import re  # noqa: F401
 
 import six
 
-from cardpay.model.recurring_request_filing import RecurringRequestFiling  # noqa: F401,E501
+from cardpay.model.recurring_request_filing import (
+    RecurringRequestFiling,
+)  # noqa: F401,E501
 
 
 class OneclickData(object):
@@ -33,28 +35,41 @@ class OneclickData(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'amount': 'float',
-        'currency': 'str',
-        'dynamic_descriptor': 'str',
-        'filing': 'RecurringRequestFiling',
-        'generate_token': 'bool',
-        'initiator': 'str',
-        'note': 'str',
-        'preauth': 'bool'
+        "amount": "float",
+        "currency": "str",
+        "dynamic_descriptor": "str",
+        "filing": "RecurringRequestFiling",
+        "generate_token": "bool",
+        "initiator": "str",
+        "note": "str",
+        "preauth": "bool",
+        "trans_type": "str",
     }
 
     attribute_map = {
-        'amount': 'amount',
-        'currency': 'currency',
-        'dynamic_descriptor': 'dynamic_descriptor',
-        'filing': 'filing',
-        'generate_token': 'generate_token',
-        'initiator': 'initiator',
-        'note': 'note',
-        'preauth': 'preauth'
+        "amount": "amount",
+        "currency": "currency",
+        "dynamic_descriptor": "dynamic_descriptor",
+        "filing": "filing",
+        "generate_token": "generate_token",
+        "initiator": "initiator",
+        "note": "note",
+        "preauth": "preauth",
+        "trans_type": "trans_type",
     }
 
-    def __init__(self, amount=None, currency=None, dynamic_descriptor=None, filing=None, generate_token=None, initiator=None, note=None, preauth=None):  # noqa: E501
+    def __init__(
+        self,
+        amount=None,
+        currency=None,
+        dynamic_descriptor=None,
+        filing=None,
+        generate_token=None,
+        initiator=None,
+        note=None,
+        preauth=None,
+        trans_type=None,
+    ):  # noqa: E501
         """OneclickData - a model defined in Swagger"""  # noqa: E501
 
         self._amount = None
@@ -65,6 +80,7 @@ class OneclickData(object):
         self._initiator = None
         self._note = None
         self._preauth = None
+        self._trans_type = None
         self.discriminator = None
 
         if amount is not None:
@@ -81,6 +97,8 @@ class OneclickData(object):
             self.note = note
         if preauth is not None:
             self.preauth = preauth
+        if trans_type is not None:
+            self.trans_type = trans_type
 
     @property
     def amount(self):
@@ -126,7 +144,9 @@ class OneclickData(object):
         :type: str
         """
         if currency is None:
-            raise ValueError("Invalid value for `currency`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `currency`, must not be `None`"
+            )  # noqa: E501
 
         self._currency = currency
 
@@ -151,9 +171,13 @@ class OneclickData(object):
         :type: str
         """
         if dynamic_descriptor is not None and len(dynamic_descriptor) > 25:
-            raise ValueError("Invalid value for `dynamic_descriptor`, length must be less than or equal to `25`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `dynamic_descriptor`, length must be less than or equal to `25`"
+            )  # noqa: E501
         if dynamic_descriptor is not None and len(dynamic_descriptor) < 0:
-            raise ValueError("Invalid value for `dynamic_descriptor`, length must be greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `dynamic_descriptor`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._dynamic_descriptor = dynamic_descriptor
 
@@ -224,9 +248,13 @@ class OneclickData(object):
         :type: str
         """
         if initiator is None:
-            raise ValueError("Invalid value for `initiator`, must not be `None`")  # noqa: E501
-        if initiator is not None and not re.search(r'mit|cit', initiator):  # noqa: E501
-            raise ValueError(r"Invalid value for `initiator`, must be a follow pattern or equal to `/mit|cit/`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `initiator`, must not be `None`"
+            )  # noqa: E501
+        if initiator is not None and not re.search(r"mit|cit", initiator):  # noqa: E501
+            raise ValueError(
+                r"Invalid value for `initiator`, must be a follow pattern or equal to `/mit|cit/`"
+            )  # noqa: E501
 
         self._initiator = initiator
 
@@ -251,9 +279,13 @@ class OneclickData(object):
         :type: str
         """
         if note is not None and len(note) > 100:
-            raise ValueError("Invalid value for `note`, length must be less than or equal to `100`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `note`, length must be less than or equal to `100`"
+            )  # noqa: E501
         if note is not None and len(note) < 0:
-            raise ValueError("Invalid value for `note`, length must be greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `note`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._note = note
 
@@ -280,6 +312,41 @@ class OneclickData(object):
 
         self._preauth = preauth
 
+    class TransType(object):
+        _01 = "01"
+        _03 = "03"
+        _10 = "10"
+        _11 = "11"
+        _28 = "28"
+
+    @property
+    def trans_type(self):
+        """Gets the trans_type of this OneclickData.  # noqa: E501
+
+
+        :return: The trans_type of this OneclickData.  # noqa: E501
+        :rtype: str
+        """
+        return self._trans_type
+
+    @trans_type.setter
+    def trans_type(self, trans_type):
+        """Sets the trans_type of this OneclickData.
+
+
+        :param trans_type: The trans_type of this OneclickData.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["01", "03", "10", "11", "28"]  # noqa: E501
+        if trans_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `trans_type` ({0}), must be one of {1}".format(  # noqa: E501
+                    trans_type, allowed_values
+                )
+            )
+
+        self._trans_type = trans_type
+
     def to_dict(self):
         """Returns the model properties as a dict"""
         result = {}
@@ -287,18 +354,20 @@ class OneclickData(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

@@ -31,22 +31,32 @@ class FilingRecurringData(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'currency': 'str',
-        'dynamic_descriptor': 'str',
-        'generate_token': 'bool',
-        'initiator': 'str',
-        'note': 'str'
+        "currency": "str",
+        "dynamic_descriptor": "str",
+        "generate_token": "bool",
+        "initiator": "str",
+        "note": "str",
+        "trans_type": "str",
     }
 
     attribute_map = {
-        'currency': 'currency',
-        'dynamic_descriptor': 'dynamic_descriptor',
-        'generate_token': 'generate_token',
-        'initiator': 'initiator',
-        'note': 'note'
+        "currency": "currency",
+        "dynamic_descriptor": "dynamic_descriptor",
+        "generate_token": "generate_token",
+        "initiator": "initiator",
+        "note": "note",
+        "trans_type": "trans_type",
     }
 
-    def __init__(self, currency=None, dynamic_descriptor=None, generate_token=None, initiator=None, note=None):  # noqa: E501
+    def __init__(
+        self,
+        currency=None,
+        dynamic_descriptor=None,
+        generate_token=None,
+        initiator=None,
+        note=None,
+        trans_type=None,
+    ):  # noqa: E501
         """FilingRecurringData - a model defined in Swagger"""  # noqa: E501
 
         self._currency = None
@@ -54,6 +64,7 @@ class FilingRecurringData(object):
         self._generate_token = None
         self._initiator = None
         self._note = None
+        self._trans_type = None
         self.discriminator = None
 
         if currency is not None:
@@ -66,6 +77,8 @@ class FilingRecurringData(object):
             self.initiator = initiator
         if note is not None:
             self.note = note
+        if trans_type is not None:
+            self.trans_type = trans_type
 
     @property
     def currency(self):
@@ -111,9 +124,13 @@ class FilingRecurringData(object):
         :type: str
         """
         if dynamic_descriptor is not None and len(dynamic_descriptor) > 25:
-            raise ValueError("Invalid value for `dynamic_descriptor`, length must be less than or equal to `25`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `dynamic_descriptor`, length must be less than or equal to `25`"
+            )  # noqa: E501
         if dynamic_descriptor is not None and len(dynamic_descriptor) < 0:
-            raise ValueError("Invalid value for `dynamic_descriptor`, length must be greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `dynamic_descriptor`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._dynamic_descriptor = dynamic_descriptor
 
@@ -160,8 +177,10 @@ class FilingRecurringData(object):
         :param initiator: The initiator of this FilingRecurringData.  # noqa: E501
         :type: str
         """
-        if initiator is not None and not re.search(r'cit', initiator):  # noqa: E501
-            raise ValueError(r"Invalid value for `initiator`, must be a follow pattern or equal to `/cit/`")  # noqa: E501
+        if initiator is not None and not re.search(r"cit", initiator):  # noqa: E501
+            raise ValueError(
+                r"Invalid value for `initiator`, must be a follow pattern or equal to `/cit/`"
+            )  # noqa: E501
 
         self._initiator = initiator
 
@@ -186,11 +205,50 @@ class FilingRecurringData(object):
         :type: str
         """
         if note is not None and len(note) > 100:
-            raise ValueError("Invalid value for `note`, length must be less than or equal to `100`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `note`, length must be less than or equal to `100`"
+            )  # noqa: E501
         if note is not None and len(note) < 0:
-            raise ValueError("Invalid value for `note`, length must be greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `note`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._note = note
+
+    class TransType(object):
+        _01 = "01"
+        _03 = "03"
+        _10 = "10"
+        _11 = "11"
+        _28 = "28"
+
+    @property
+    def trans_type(self):
+        """Gets the trans_type of this FilingRecurringData.  # noqa: E501
+
+
+        :return: The trans_type of this FilingRecurringData.  # noqa: E501
+        :rtype: str
+        """
+        return self._trans_type
+
+    @trans_type.setter
+    def trans_type(self, trans_type):
+        """Sets the trans_type of this FilingRecurringData.
+
+
+        :param trans_type: The trans_type of this FilingRecurringData.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["01", "03", "10", "11", "28"]  # noqa: E501
+        if trans_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `trans_type` ({0}), must be one of {1}".format(  # noqa: E501
+                    trans_type, allowed_values
+                )
+            )
+
+        self._trans_type = trans_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""
@@ -199,18 +257,20 @@ class FilingRecurringData(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

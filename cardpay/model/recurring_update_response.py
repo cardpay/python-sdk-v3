@@ -16,8 +16,12 @@ import re  # noqa: F401
 
 import six
 
-from cardpay.model.response_updated_transaction_data import ResponseUpdatedTransactionData  # noqa: F401,E501
-from cardpay.model.transaction_response_merchant_order import TransactionResponseMerchantOrder  # noqa: F401,E501
+from cardpay.model.response_updated_transaction_data import (
+    ResponseUpdatedTransactionData,
+)  # noqa: F401,E501
+from cardpay.model.transaction_response_merchant_order import (
+    TransactionResponseMerchantOrder,
+)  # noqa: F401,E501
 
 
 class RecurringUpdateResponse(object):
@@ -34,18 +38,20 @@ class RecurringUpdateResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'operation': 'str',
-        'merchant_order': 'TransactionResponseMerchantOrder',
-        'recurring_data': 'ResponseUpdatedTransactionData'
+        "operation": "str",
+        "merchant_order": "TransactionResponseMerchantOrder",
+        "recurring_data": "ResponseUpdatedTransactionData",
     }
 
     attribute_map = {
-        'operation': 'operation',
-        'merchant_order': 'merchant_order',
-        'recurring_data': 'recurring_data'
+        "operation": "operation",
+        "merchant_order": "merchant_order",
+        "recurring_data": "recurring_data",
     }
 
-    def __init__(self, operation=None, merchant_order=None, recurring_data=None):  # noqa: E501
+    def __init__(
+        self, operation=None, merchant_order=None, recurring_data=None
+    ):  # noqa: E501
         """RecurringUpdateResponse - a model defined in Swagger"""  # noqa: E501
 
         self._operation = None
@@ -63,7 +69,6 @@ class RecurringUpdateResponse(object):
     class Operation(object):
         CHANGE_STATUS = "CHANGE_STATUS"
         CONFIRM_3DS = "CONFIRM_3DS"
-        
 
     @property
     def operation(self):
@@ -88,8 +93,9 @@ class RecurringUpdateResponse(object):
         allowed_values = ["CHANGE_STATUS", "CONFIRM_3DS"]  # noqa: E501
         if operation not in allowed_values:
             raise ValueError(
-                "Invalid value for `operation` ({0}), must be one of {1}"  # noqa: E501
-                .format(operation, allowed_values)
+                "Invalid value for `operation` ({0}), must be one of {1}".format(  # noqa: E501
+                    operation, allowed_values
+                )
             )
 
         self._operation = operation
@@ -147,18 +153,20 @@ class RecurringUpdateResponse(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

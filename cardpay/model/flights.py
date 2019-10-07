@@ -33,32 +33,47 @@ class Flights(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'computerized_res_system': 'str',
-        'credit_reason_indicator': 'str',
-        'departure_date': 'str',
-        'flight': 'list[Flight]',
-        'is_restricted': 'bool',
-        'origination_code': 'str',
-        'passenger_name': 'str',
-        'ticket_change_indicator': 'str',
-        'travel_agency_code': 'str',
-        'travel_agency_name': 'str'
+        "computerized_res_system": "str",
+        "credit_reason_indicator": "str",
+        "departure_date": "str",
+        "flight": "list[Flight]",
+        "is_restricted": "bool",
+        "origination_code": "str",
+        "passenger_name": "str",
+        "ticket_change_indicator": "str",
+        "ticket_number": "str",
+        "travel_agency_code": "str",
+        "travel_agency_name": "str",
     }
 
     attribute_map = {
-        'computerized_res_system': 'computerized_res_system',
-        'credit_reason_indicator': 'credit_reason_indicator',
-        'departure_date': 'departure_date',
-        'flight': 'flight',
-        'is_restricted': 'is_restricted',
-        'origination_code': 'origination_code',
-        'passenger_name': 'passenger_name',
-        'ticket_change_indicator': 'ticket_change_indicator',
-        'travel_agency_code': 'travel_agency_code',
-        'travel_agency_name': 'travel_agency_name'
+        "computerized_res_system": "computerized_res_system",
+        "credit_reason_indicator": "credit_reason_indicator",
+        "departure_date": "departure_date",
+        "flight": "flight",
+        "is_restricted": "is_restricted",
+        "origination_code": "origination_code",
+        "passenger_name": "passenger_name",
+        "ticket_change_indicator": "ticket_change_indicator",
+        "ticket_number": "ticket_number",
+        "travel_agency_code": "travel_agency_code",
+        "travel_agency_name": "travel_agency_name",
     }
 
-    def __init__(self, computerized_res_system=None, credit_reason_indicator=None, departure_date=None, flight=None, is_restricted=None, origination_code=None, passenger_name=None, ticket_change_indicator=None, travel_agency_code=None, travel_agency_name=None):  # noqa: E501
+    def __init__(
+        self,
+        computerized_res_system=None,
+        credit_reason_indicator=None,
+        departure_date=None,
+        flight=None,
+        is_restricted=None,
+        origination_code=None,
+        passenger_name=None,
+        ticket_change_indicator=None,
+        ticket_number=None,
+        travel_agency_code=None,
+        travel_agency_name=None,
+    ):  # noqa: E501
         """Flights - a model defined in Swagger"""  # noqa: E501
 
         self._computerized_res_system = None
@@ -69,6 +84,7 @@ class Flights(object):
         self._origination_code = None
         self._passenger_name = None
         self._ticket_change_indicator = None
+        self._ticket_number = None
         self._travel_agency_code = None
         self._travel_agency_name = None
         self.discriminator = None
@@ -89,6 +105,8 @@ class Flights(object):
             self.passenger_name = passenger_name
         if ticket_change_indicator is not None:
             self.ticket_change_indicator = ticket_change_indicator
+        if ticket_number is not None:
+            self.ticket_number = ticket_number
         if travel_agency_code is not None:
             self.travel_agency_code = travel_agency_code
         if travel_agency_name is not None:
@@ -115,9 +133,13 @@ class Flights(object):
         :type: str
         """
         if computerized_res_system is not None and len(computerized_res_system) > 4:
-            raise ValueError("Invalid value for `computerized_res_system`, length must be less than or equal to `4`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `computerized_res_system`, length must be less than or equal to `4`"
+            )  # noqa: E501
         if computerized_res_system is not None and len(computerized_res_system) < 0:
-            raise ValueError("Invalid value for `computerized_res_system`, length must be greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `computerized_res_system`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._computerized_res_system = computerized_res_system
 
@@ -142,9 +164,13 @@ class Flights(object):
         :type: str
         """
         if credit_reason_indicator is not None and len(credit_reason_indicator) > 1:
-            raise ValueError("Invalid value for `credit_reason_indicator`, length must be less than or equal to `1`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `credit_reason_indicator`, length must be less than or equal to `1`"
+            )  # noqa: E501
         if credit_reason_indicator is not None and len(credit_reason_indicator) < 1:
-            raise ValueError("Invalid value for `credit_reason_indicator`, length must be greater than or equal to `1`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `credit_reason_indicator`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._credit_reason_indicator = credit_reason_indicator
 
@@ -238,9 +264,13 @@ class Flights(object):
         :type: str
         """
         if origination_code is not None and len(origination_code) > 3:
-            raise ValueError("Invalid value for `origination_code`, length must be less than or equal to `3`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `origination_code`, length must be less than or equal to `3`"
+            )  # noqa: E501
         if origination_code is not None and len(origination_code) < 3:
-            raise ValueError("Invalid value for `origination_code`, length must be greater than or equal to `3`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `origination_code`, length must be greater than or equal to `3`"
+            )  # noqa: E501
 
         self._origination_code = origination_code
 
@@ -265,9 +295,13 @@ class Flights(object):
         :type: str
         """
         if passenger_name is not None and len(passenger_name) > 20:
-            raise ValueError("Invalid value for `passenger_name`, length must be less than or equal to `20`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `passenger_name`, length must be less than or equal to `20`"
+            )  # noqa: E501
         if passenger_name is not None and len(passenger_name) < 0:
-            raise ValueError("Invalid value for `passenger_name`, length must be greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `passenger_name`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._passenger_name = passenger_name
 
@@ -292,11 +326,46 @@ class Flights(object):
         :type: str
         """
         if ticket_change_indicator is not None and len(ticket_change_indicator) > 1:
-            raise ValueError("Invalid value for `ticket_change_indicator`, length must be less than or equal to `1`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `ticket_change_indicator`, length must be less than or equal to `1`"
+            )  # noqa: E501
         if ticket_change_indicator is not None and len(ticket_change_indicator) < 1:
-            raise ValueError("Invalid value for `ticket_change_indicator`, length must be greater than or equal to `1`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `ticket_change_indicator`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._ticket_change_indicator = ticket_change_indicator
+
+    @property
+    def ticket_number(self):
+        """Gets the ticket_number of this Flights.  # noqa: E501
+
+        Ticket number  # noqa: E501
+
+        :return: The ticket_number of this Flights.  # noqa: E501
+        :rtype: str
+        """
+        return self._ticket_number
+
+    @ticket_number.setter
+    def ticket_number(self, ticket_number):
+        """Sets the ticket_number of this Flights.
+
+        Ticket number  # noqa: E501
+
+        :param ticket_number: The ticket_number of this Flights.  # noqa: E501
+        :type: str
+        """
+        if ticket_number is not None and len(ticket_number) > 15:
+            raise ValueError(
+                "Invalid value for `ticket_number`, length must be less than or equal to `15`"
+            )  # noqa: E501
+        if ticket_number is not None and len(ticket_number) < 0:
+            raise ValueError(
+                "Invalid value for `ticket_number`, length must be greater than or equal to `0`"
+            )  # noqa: E501
+
+        self._ticket_number = ticket_number
 
     @property
     def travel_agency_code(self):
@@ -319,9 +388,13 @@ class Flights(object):
         :type: str
         """
         if travel_agency_code is not None and len(travel_agency_code) > 8:
-            raise ValueError("Invalid value for `travel_agency_code`, length must be less than or equal to `8`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `travel_agency_code`, length must be less than or equal to `8`"
+            )  # noqa: E501
         if travel_agency_code is not None and len(travel_agency_code) < 0:
-            raise ValueError("Invalid value for `travel_agency_code`, length must be greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `travel_agency_code`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._travel_agency_code = travel_agency_code
 
@@ -346,9 +419,13 @@ class Flights(object):
         :type: str
         """
         if travel_agency_name is not None and len(travel_agency_name) > 25:
-            raise ValueError("Invalid value for `travel_agency_name`, length must be less than or equal to `25`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `travel_agency_name`, length must be less than or equal to `25`"
+            )  # noqa: E501
         if travel_agency_name is not None and len(travel_agency_name) < 0:
-            raise ValueError("Invalid value for `travel_agency_name`, length must be greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `travel_agency_name`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._travel_agency_name = travel_agency_name
 
@@ -359,18 +436,20 @@ class Flights(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

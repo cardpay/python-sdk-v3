@@ -57,10 +57,10 @@ class Configuration(object):
         # Logging Settings
         self.logger = {
             "package_logger": logging.getLogger("cardpay"),
-            "urllib3_logger": logging.getLogger("urllib3")
+            "urllib3_logger": logging.getLogger("urllib3"),
         }
         # Log format
-        self.logger_format = '%(asctime)s %(levelname)s %(message)s'
+        self.logger_format = "%(asctime)s %(levelname)s %(message)s"
         # Log stream handler
         self.logger_stream_handler = None
         # Log file handler
@@ -93,7 +93,7 @@ class Configuration(object):
         # Proxy URL
         self.proxy = None
         # Safe chars for path_param
-        self.safe_chars_for_path_param = ''
+        self.safe_chars_for_path_param = ""
 
     @classmethod
     def set_default(cls, default):
@@ -200,9 +200,12 @@ class Configuration(object):
 
         :return: The report for debugging.
         """
-        return "Python SDK Debug Report:\n"\
-               "OS: {env}\n"\
-               "Python Version: {pyversion}\n"\
-               "Version of the API: 3.0\n"\
-               "SDK Package Version: 1.5.0.9".\
-               format(env=sys.platform, pyversion=sys.version)
+        return (
+            "Python SDK Debug Report:\n"
+            "OS: {env}\n"
+            "Python Version: {pyversion}\n"
+            "Version of the API: 3.0\n"
+            "SDK Package Version: 1.7.2.6".format(
+                env=sys.platform, pyversion=sys.version
+            )
+        )

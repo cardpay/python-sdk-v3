@@ -17,7 +17,9 @@ import re  # noqa: F401
 import six
 
 from cardpay.model.plan import Plan  # noqa: F401,E501
-from cardpay.model.recurring_request_filing import RecurringRequestFiling  # noqa: F401,E501
+from cardpay.model.recurring_request_filing import (
+    RecurringRequestFiling,
+)  # noqa: F401,E501
 
 
 class RecurringRequestRecurringData(object):
@@ -34,40 +36,56 @@ class RecurringRequestRecurringData(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'amount': 'float',
-        'currency': 'str',
-        'dynamic_descriptor': 'str',
-        'filing': 'RecurringRequestFiling',
-        'generate_token': 'bool',
-        'initiator': 'str',
-        'interval': 'int',
-        'note': 'str',
-        'payments': 'int',
-        'period': 'str',
-        'plan': 'Plan',
-        'preauth': 'bool',
-        'retries': 'int',
-        'subscription_start': 'datetime'
+        "amount": "float",
+        "currency": "str",
+        "dynamic_descriptor": "str",
+        "filing": "RecurringRequestFiling",
+        "generate_token": "bool",
+        "initiator": "str",
+        "interval": "int",
+        "note": "str",
+        "payments": "int",
+        "period": "str",
+        "plan": "Plan",
+        "preauth": "bool",
+        "retries": "int",
+        "subscription_start": "datetime",
     }
 
     attribute_map = {
-        'amount': 'amount',
-        'currency': 'currency',
-        'dynamic_descriptor': 'dynamic_descriptor',
-        'filing': 'filing',
-        'generate_token': 'generate_token',
-        'initiator': 'initiator',
-        'interval': 'interval',
-        'note': 'note',
-        'payments': 'payments',
-        'period': 'period',
-        'plan': 'plan',
-        'preauth': 'preauth',
-        'retries': 'retries',
-        'subscription_start': 'subscription_start'
+        "amount": "amount",
+        "currency": "currency",
+        "dynamic_descriptor": "dynamic_descriptor",
+        "filing": "filing",
+        "generate_token": "generate_token",
+        "initiator": "initiator",
+        "interval": "interval",
+        "note": "note",
+        "payments": "payments",
+        "period": "period",
+        "plan": "plan",
+        "preauth": "preauth",
+        "retries": "retries",
+        "subscription_start": "subscription_start",
     }
 
-    def __init__(self, amount=None, currency=None, dynamic_descriptor=None, filing=None, generate_token=None, initiator=None, interval=None, note=None, payments=None, period=None, plan=None, preauth=None, retries=None, subscription_start=None):  # noqa: E501
+    def __init__(
+        self,
+        amount=None,
+        currency=None,
+        dynamic_descriptor=None,
+        filing=None,
+        generate_token=None,
+        initiator=None,
+        interval=None,
+        note=None,
+        payments=None,
+        period=None,
+        plan=None,
+        preauth=None,
+        retries=None,
+        subscription_start=None,
+    ):  # noqa: E501
         """RecurringRequestRecurringData - a model defined in Swagger"""  # noqa: E501
 
         self._amount = None
@@ -182,9 +200,13 @@ class RecurringRequestRecurringData(object):
         :type: str
         """
         if dynamic_descriptor is not None and len(dynamic_descriptor) > 25:
-            raise ValueError("Invalid value for `dynamic_descriptor`, length must be less than or equal to `25`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `dynamic_descriptor`, length must be less than or equal to `25`"
+            )  # noqa: E501
         if dynamic_descriptor is not None and len(dynamic_descriptor) < 0:
-            raise ValueError("Invalid value for `dynamic_descriptor`, length must be greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `dynamic_descriptor`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._dynamic_descriptor = dynamic_descriptor
 
@@ -254,8 +276,10 @@ class RecurringRequestRecurringData(object):
         :param initiator: The initiator of this RecurringRequestRecurringData.  # noqa: E501
         :type: str
         """
-        if initiator is not None and not re.search(r'mit|cit', initiator):  # noqa: E501
-            raise ValueError(r"Invalid value for `initiator`, must be a follow pattern or equal to `/mit|cit/`")  # noqa: E501
+        if initiator is not None and not re.search(r"mit|cit", initiator):  # noqa: E501
+            raise ValueError(
+                r"Invalid value for `initiator`, must be a follow pattern or equal to `/mit|cit/`"
+            )  # noqa: E501
 
         self._initiator = initiator
 
@@ -280,7 +304,9 @@ class RecurringRequestRecurringData(object):
         :type: int
         """
         if interval is not None and interval < 1:  # noqa: E501
-            raise ValueError("Invalid value for `interval`, must be a value greater than or equal to `1`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `interval`, must be a value greater than or equal to `1`"
+            )  # noqa: E501
 
         self._interval = interval
 
@@ -305,9 +331,13 @@ class RecurringRequestRecurringData(object):
         :type: str
         """
         if note is not None and len(note) > 100:
-            raise ValueError("Invalid value for `note`, length must be less than or equal to `100`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `note`, length must be less than or equal to `100`"
+            )  # noqa: E501
         if note is not None and len(note) < 0:
-            raise ValueError("Invalid value for `note`, length must be greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `note`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._note = note
 
@@ -332,9 +362,13 @@ class RecurringRequestRecurringData(object):
         :type: int
         """
         if payments is not None and payments > 200:  # noqa: E501
-            raise ValueError("Invalid value for `payments`, must be a value less than or equal to `200`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `payments`, must be a value less than or equal to `200`"
+            )  # noqa: E501
         if payments is not None and payments < 2:  # noqa: E501
-            raise ValueError("Invalid value for `payments`, must be a value greater than or equal to `2`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `payments`, must be a value greater than or equal to `2`"
+            )  # noqa: E501
 
         self._payments = payments
 
@@ -344,7 +378,6 @@ class RecurringRequestRecurringData(object):
         WEEK = "week"
         MONTH = "month"
         YEAR = "year"
-        
 
     @property
     def period(self):
@@ -369,8 +402,9 @@ class RecurringRequestRecurringData(object):
         allowed_values = ["minute", "day", "week", "month", "year"]  # noqa: E501
         if period not in allowed_values:
             raise ValueError(
-                "Invalid value for `period` ({0}), must be one of {1}"  # noqa: E501
-                .format(period, allowed_values)
+                "Invalid value for `period` ({0}), must be one of {1}".format(  # noqa: E501
+                    period, allowed_values
+                )
             )
 
         self._period = period
@@ -442,9 +476,13 @@ class RecurringRequestRecurringData(object):
         :type: int
         """
         if retries is not None and retries > 15:  # noqa: E501
-            raise ValueError("Invalid value for `retries`, must be a value less than or equal to `15`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `retries`, must be a value less than or equal to `15`"
+            )  # noqa: E501
         if retries is not None and retries < 1:  # noqa: E501
-            raise ValueError("Invalid value for `retries`, must be a value greater than or equal to `1`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `retries`, must be a value greater than or equal to `1`"
+            )  # noqa: E501
 
         self._retries = retries
 
@@ -478,18 +516,20 @@ class RecurringRequestRecurringData(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

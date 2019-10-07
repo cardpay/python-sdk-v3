@@ -31,26 +31,35 @@ class Flight(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'carrier_code': 'str',
-        'destination_code': 'str',
-        'fare_basis_code': 'str',
-        'index': 'int',
-        'number': 'str',
-        'service_class_code': 'int',
-        'stop_over_code': 'str'
+        "carrier_code": "str",
+        "destination_code": "str",
+        "fare_basis_code": "str",
+        "index": "int",
+        "number": "str",
+        "service_class_code": "int",
+        "stop_over_code": "str",
     }
 
     attribute_map = {
-        'carrier_code': 'carrier_code',
-        'destination_code': 'destination_code',
-        'fare_basis_code': 'fare_basis_code',
-        'index': 'index',
-        'number': 'number',
-        'service_class_code': 'service_class_code',
-        'stop_over_code': 'stop_over_code'
+        "carrier_code": "carrier_code",
+        "destination_code": "destination_code",
+        "fare_basis_code": "fare_basis_code",
+        "index": "index",
+        "number": "number",
+        "service_class_code": "service_class_code",
+        "stop_over_code": "stop_over_code",
     }
 
-    def __init__(self, carrier_code=None, destination_code=None, fare_basis_code=None, index=None, number=None, service_class_code=None, stop_over_code=None):  # noqa: E501
+    def __init__(
+        self,
+        carrier_code=None,
+        destination_code=None,
+        fare_basis_code=None,
+        index=None,
+        number=None,
+        service_class_code=None,
+        stop_over_code=None,
+    ):  # noqa: E501
         """Flight - a model defined in Swagger"""  # noqa: E501
 
         self._carrier_code = None
@@ -98,9 +107,13 @@ class Flight(object):
         :type: str
         """
         if carrier_code is not None and len(carrier_code) > 2:
-            raise ValueError("Invalid value for `carrier_code`, length must be less than or equal to `2`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `carrier_code`, length must be less than or equal to `2`"
+            )  # noqa: E501
         if carrier_code is not None and len(carrier_code) < 2:
-            raise ValueError("Invalid value for `carrier_code`, length must be greater than or equal to `2`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `carrier_code`, length must be greater than or equal to `2`"
+            )  # noqa: E501
 
         self._carrier_code = carrier_code
 
@@ -125,9 +138,13 @@ class Flight(object):
         :type: str
         """
         if destination_code is not None and len(destination_code) > 3:
-            raise ValueError("Invalid value for `destination_code`, length must be less than or equal to `3`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `destination_code`, length must be less than or equal to `3`"
+            )  # noqa: E501
         if destination_code is not None and len(destination_code) < 3:
-            raise ValueError("Invalid value for `destination_code`, length must be greater than or equal to `3`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `destination_code`, length must be greater than or equal to `3`"
+            )  # noqa: E501
 
         self._destination_code = destination_code
 
@@ -152,9 +169,13 @@ class Flight(object):
         :type: str
         """
         if fare_basis_code is not None and len(fare_basis_code) > 6:
-            raise ValueError("Invalid value for `fare_basis_code`, length must be less than or equal to `6`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `fare_basis_code`, length must be less than or equal to `6`"
+            )  # noqa: E501
         if fare_basis_code is not None and len(fare_basis_code) < 0:
-            raise ValueError("Invalid value for `fare_basis_code`, length must be greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `fare_basis_code`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._fare_basis_code = fare_basis_code
 
@@ -202,9 +223,13 @@ class Flight(object):
         :type: str
         """
         if number is not None and len(number) > 5:
-            raise ValueError("Invalid value for `number`, length must be less than or equal to `5`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `number`, length must be less than or equal to `5`"
+            )  # noqa: E501
         if number is not None and len(number) < 0:
-            raise ValueError("Invalid value for `number`, length must be greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `number`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._number = number
 
@@ -252,9 +277,13 @@ class Flight(object):
         :type: str
         """
         if stop_over_code is not None and len(stop_over_code) > 1:
-            raise ValueError("Invalid value for `stop_over_code`, length must be less than or equal to `1`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `stop_over_code`, length must be less than or equal to `1`"
+            )  # noqa: E501
         if stop_over_code is not None and len(stop_over_code) < 1:
-            raise ValueError("Invalid value for `stop_over_code`, length must be greater than or equal to `1`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `stop_over_code`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._stop_over_code = stop_over_code
 
@@ -265,18 +294,20 @@ class Flight(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

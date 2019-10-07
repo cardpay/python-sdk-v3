@@ -16,12 +16,24 @@ import re  # noqa: F401
 
 import six
 
-from cardpay.model.refund_response_card_account import RefundResponseCardAccount  # noqa: F401,E501
-from cardpay.model.refund_response_customer import RefundResponseCustomer  # noqa: F401,E501
-from cardpay.model.refund_response_payment_data import RefundResponsePaymentData  # noqa: F401,E501
-from cardpay.model.refund_response_refund_data import RefundResponseRefundData  # noqa: F401,E501
-from cardpay.model.transaction_response_e_wallet_account import TransactionResponseEWalletAccount  # noqa: F401,E501
-from cardpay.model.transaction_response_merchant_order import TransactionResponseMerchantOrder  # noqa: F401,E501
+from cardpay.model.refund_response_card_account import (
+    RefundResponseCardAccount,
+)  # noqa: F401,E501
+from cardpay.model.refund_response_customer import (
+    RefundResponseCustomer,
+)  # noqa: F401,E501
+from cardpay.model.refund_response_payment_data import (
+    RefundResponsePaymentData,
+)  # noqa: F401,E501
+from cardpay.model.refund_response_refund_data import (
+    RefundResponseRefundData,
+)  # noqa: F401,E501
+from cardpay.model.transaction_response_e_wallet_account import (
+    TransactionResponseEWalletAccount,
+)  # noqa: F401,E501
+from cardpay.model.transaction_response_merchant_order import (
+    TransactionResponseMerchantOrder,
+)  # noqa: F401,E501
 
 
 class RefundCallback(object):
@@ -38,28 +50,38 @@ class RefundCallback(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'callback_time': 'str',
-        'card_account': 'RefundResponseCardAccount',
-        'customer': 'RefundResponseCustomer',
-        'ewallet_account': 'TransactionResponseEWalletAccount',
-        'merchant_order': 'TransactionResponseMerchantOrder',
-        'payment_data': 'RefundResponsePaymentData',
-        'payment_method': 'str',
-        'refund_data': 'RefundResponseRefundData'
+        "callback_time": "str",
+        "card_account": "RefundResponseCardAccount",
+        "customer": "RefundResponseCustomer",
+        "ewallet_account": "TransactionResponseEWalletAccount",
+        "merchant_order": "TransactionResponseMerchantOrder",
+        "payment_data": "RefundResponsePaymentData",
+        "payment_method": "str",
+        "refund_data": "RefundResponseRefundData",
     }
 
     attribute_map = {
-        'callback_time': 'callback_time',
-        'card_account': 'card_account',
-        'customer': 'customer',
-        'ewallet_account': 'ewallet_account',
-        'merchant_order': 'merchant_order',
-        'payment_data': 'payment_data',
-        'payment_method': 'payment_method',
-        'refund_data': 'refund_data'
+        "callback_time": "callback_time",
+        "card_account": "card_account",
+        "customer": "customer",
+        "ewallet_account": "ewallet_account",
+        "merchant_order": "merchant_order",
+        "payment_data": "payment_data",
+        "payment_method": "payment_method",
+        "refund_data": "refund_data",
     }
 
-    def __init__(self, callback_time=None, card_account=None, customer=None, ewallet_account=None, merchant_order=None, payment_data=None, payment_method=None, refund_data=None):  # noqa: E501
+    def __init__(
+        self,
+        callback_time=None,
+        card_account=None,
+        customer=None,
+        ewallet_account=None,
+        merchant_order=None,
+        payment_data=None,
+        payment_method=None,
+        refund_data=None,
+    ):  # noqa: E501
         """RefundCallback - a model defined in Swagger"""  # noqa: E501
 
         self._callback_time = None
@@ -198,7 +220,9 @@ class RefundCallback(object):
         :type: TransactionResponseMerchantOrder
         """
         if merchant_order is None:
-            raise ValueError("Invalid value for `merchant_order`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `merchant_order`, must not be `None`"
+            )  # noqa: E501
 
         self._merchant_order = merchant_order
 
@@ -223,7 +247,9 @@ class RefundCallback(object):
         :type: RefundResponsePaymentData
         """
         if payment_data is None:
-            raise ValueError("Invalid value for `payment_data`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `payment_data`, must not be `None`"
+            )  # noqa: E501
 
         self._payment_data = payment_data
 
@@ -248,7 +274,9 @@ class RefundCallback(object):
         :type: str
         """
         if payment_method is None:
-            raise ValueError("Invalid value for `payment_method`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `payment_method`, must not be `None`"
+            )  # noqa: E501
 
         self._payment_method = payment_method
 
@@ -273,7 +301,9 @@ class RefundCallback(object):
         :type: RefundResponseRefundData
         """
         if refund_data is None:
-            raise ValueError("Invalid value for `refund_data`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `refund_data`, must not be `None`"
+            )  # noqa: E501
 
         self._refund_data = refund_data
 
@@ -284,18 +314,20 @@ class RefundCallback(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

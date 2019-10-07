@@ -31,22 +31,29 @@ class ReturnUrls(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'cancel_url': 'str',
-        'decline_url': 'str',
-        'inprocess_url': 'str',
-        'return_url': 'str',
-        'success_url': 'str'
+        "cancel_url": "str",
+        "decline_url": "str",
+        "inprocess_url": "str",
+        "return_url": "str",
+        "success_url": "str",
     }
 
     attribute_map = {
-        'cancel_url': 'cancel_url',
-        'decline_url': 'decline_url',
-        'inprocess_url': 'inprocess_url',
-        'return_url': 'return_url',
-        'success_url': 'success_url'
+        "cancel_url": "cancel_url",
+        "decline_url": "decline_url",
+        "inprocess_url": "inprocess_url",
+        "return_url": "return_url",
+        "success_url": "success_url",
     }
 
-    def __init__(self, cancel_url=None, decline_url=None, inprocess_url=None, return_url=None, success_url=None):  # noqa: E501
+    def __init__(
+        self,
+        cancel_url=None,
+        decline_url=None,
+        inprocess_url=None,
+        return_url=None,
+        success_url=None,
+    ):  # noqa: E501
         """ReturnUrls - a model defined in Swagger"""  # noqa: E501
 
         self._cancel_url = None
@@ -189,18 +196,20 @@ class ReturnUrls(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

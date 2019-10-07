@@ -16,7 +16,9 @@ import re  # noqa: F401
 
 import six
 
-from cardpay.model.recurring_response_filing import RecurringResponseFiling  # noqa: F401,E501
+from cardpay.model.recurring_response_filing import (
+    RecurringResponseFiling,
+)  # noqa: F401,E501
 from cardpay.model.subscription import Subscription  # noqa: F401,E501
 
 
@@ -34,40 +36,59 @@ class RecurringResponseRecurringData(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'amount': 'float',
-        'auth_code': 'str',
-        'created': 'str',
-        'currency': 'str',
-        'decline_code': 'str',
-        'decline_reason': 'str',
-        'filing': 'RecurringResponseFiling',
-        'id': 'str',
-        'is_3d': 'bool',
-        'note': 'str',
-        'rrn': 'str',
-        'status': 'str',
-        'subscription': 'Subscription',
-        'type': 'str'
+        "amount": "float",
+        "auth_code": "str",
+        "created": "str",
+        "currency": "str",
+        "decline_code": "str",
+        "decline_reason": "str",
+        "filing": "RecurringResponseFiling",
+        "id": "str",
+        "is_3d": "bool",
+        "note": "str",
+        "rrn": "str",
+        "status": "str",
+        "subscription": "Subscription",
+        "trans_type": "str",
+        "type": "str",
     }
 
     attribute_map = {
-        'amount': 'amount',
-        'auth_code': 'auth_code',
-        'created': 'created',
-        'currency': 'currency',
-        'decline_code': 'decline_code',
-        'decline_reason': 'decline_reason',
-        'filing': 'filing',
-        'id': 'id',
-        'is_3d': 'is_3d',
-        'note': 'note',
-        'rrn': 'rrn',
-        'status': 'status',
-        'subscription': 'subscription',
-        'type': 'type'
+        "amount": "amount",
+        "auth_code": "auth_code",
+        "created": "created",
+        "currency": "currency",
+        "decline_code": "decline_code",
+        "decline_reason": "decline_reason",
+        "filing": "filing",
+        "id": "id",
+        "is_3d": "is_3d",
+        "note": "note",
+        "rrn": "rrn",
+        "status": "status",
+        "subscription": "subscription",
+        "trans_type": "trans_type",
+        "type": "type",
     }
 
-    def __init__(self, amount=None, auth_code=None, created=None, currency=None, decline_code=None, decline_reason=None, filing=None, id=None, is_3d=None, note=None, rrn=None, status=None, subscription=None, type=None):  # noqa: E501
+    def __init__(
+        self,
+        amount=None,
+        auth_code=None,
+        created=None,
+        currency=None,
+        decline_code=None,
+        decline_reason=None,
+        filing=None,
+        id=None,
+        is_3d=None,
+        note=None,
+        rrn=None,
+        status=None,
+        subscription=None,
+        trans_type=None,
+        type=None,
+    ):  # noqa: E501
         """RecurringResponseRecurringData - a model defined in Swagger"""  # noqa: E501
 
         self._amount = None
@@ -83,6 +104,7 @@ class RecurringResponseRecurringData(object):
         self._rrn = None
         self._status = None
         self._subscription = None
+        self._trans_type = None
         self._type = None
         self.discriminator = None
 
@@ -112,6 +134,8 @@ class RecurringResponseRecurringData(object):
             self.status = status
         if subscription is not None:
             self.subscription = subscription
+        if trans_type is not None:
+            self.trans_type = trans_type
         if type is not None:
             self.type = type
 
@@ -380,7 +404,6 @@ class RecurringResponseRecurringData(object):
         VOIDED = "VOIDED"
         CHARGED_BACK = "CHARGED_BACK"
         CHARGEBACK_RESOLVED = "CHARGEBACK_RESOLVED"
-        
 
     @property
     def status(self):
@@ -402,11 +425,24 @@ class RecurringResponseRecurringData(object):
         :param status: The status of this RecurringResponseRecurringData.  # noqa: E501
         :type: str
         """
-        allowed_values = ["NEW", "IN_PROGRESS", "DECLINED", "AUTHORIZED", "COMPLETED", "CANCELLED", "REFUNDED", "PARTIALLY_REFUNDED", "VOIDED", "CHARGED_BACK", "CHARGEBACK_RESOLVED"]  # noqa: E501
+        allowed_values = [
+            "NEW",
+            "IN_PROGRESS",
+            "DECLINED",
+            "AUTHORIZED",
+            "COMPLETED",
+            "CANCELLED",
+            "REFUNDED",
+            "PARTIALLY_REFUNDED",
+            "VOIDED",
+            "CHARGED_BACK",
+            "CHARGEBACK_RESOLVED",
+        ]  # noqa: E501
         if status not in allowed_values:
             raise ValueError(
-                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
-                .format(status, allowed_values)
+                "Invalid value for `status` ({0}), must be one of {1}".format(  # noqa: E501
+                    status, allowed_values
+                )
             )
 
         self._status = status
@@ -434,11 +470,45 @@ class RecurringResponseRecurringData(object):
 
         self._subscription = subscription
 
+    class TransType(object):
+        _01 = "01"
+        _03 = "03"
+        _10 = "10"
+        _11 = "11"
+        _28 = "28"
+
+    @property
+    def trans_type(self):
+        """Gets the trans_type of this RecurringResponseRecurringData.  # noqa: E501
+
+
+        :return: The trans_type of this RecurringResponseRecurringData.  # noqa: E501
+        :rtype: str
+        """
+        return self._trans_type
+
+    @trans_type.setter
+    def trans_type(self, trans_type):
+        """Sets the trans_type of this RecurringResponseRecurringData.
+
+
+        :param trans_type: The trans_type of this RecurringResponseRecurringData.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["01", "03", "10", "11", "28"]  # noqa: E501
+        if trans_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `trans_type` ({0}), must be one of {1}".format(  # noqa: E501
+                    trans_type, allowed_values
+                )
+            )
+
+        self._trans_type = trans_type
+
     class Type(object):
         ONECLICK = "ONECLICK"
         SCHEDULED = "SCHEDULED"
         INSTALLMENT = "INSTALLMENT"
-        
 
     @property
     def type(self):
@@ -463,8 +533,9 @@ class RecurringResponseRecurringData(object):
         allowed_values = ["ONECLICK", "SCHEDULED", "INSTALLMENT"]  # noqa: E501
         if type not in allowed_values:
             raise ValueError(
-                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
-                .format(type, allowed_values)
+                "Invalid value for `type` ({0}), must be one of {1}".format(  # noqa: E501
+                    type, allowed_values
+                )
             )
 
         self._type = type
@@ -476,18 +547,20 @@ class RecurringResponseRecurringData(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

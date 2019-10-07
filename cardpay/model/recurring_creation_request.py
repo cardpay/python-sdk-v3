@@ -16,10 +16,16 @@ import re  # noqa: F401
 
 import six
 
-from cardpay.model.payment_request_card_account import PaymentRequestCardAccount  # noqa: F401,E501
-from cardpay.model.payment_request_merchant_order import PaymentRequestMerchantOrder  # noqa: F401,E501
+from cardpay.model.payment_request_card_account import (
+    PaymentRequestCardAccount,
+)  # noqa: F401,E501
+from cardpay.model.payment_request_merchant_order import (
+    PaymentRequestMerchantOrder,
+)  # noqa: F401,E501
 from cardpay.model.recurring_customer import RecurringCustomer  # noqa: F401,E501
-from cardpay.model.recurring_request_recurring_data import RecurringRequestRecurringData  # noqa: F401,E501
+from cardpay.model.recurring_request_recurring_data import (
+    RecurringRequestRecurringData,
+)  # noqa: F401,E501
 from cardpay.model.request import Request  # noqa: F401,E501
 from cardpay.model.return_urls import ReturnUrls  # noqa: F401,E501
 
@@ -38,26 +44,35 @@ class RecurringCreationRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'request': 'Request',
-        'card_account': 'PaymentRequestCardAccount',
-        'customer': 'RecurringCustomer',
-        'merchant_order': 'PaymentRequestMerchantOrder',
-        'payment_method': 'str',
-        'recurring_data': 'RecurringRequestRecurringData',
-        'return_urls': 'ReturnUrls'
+        "request": "Request",
+        "card_account": "PaymentRequestCardAccount",
+        "customer": "RecurringCustomer",
+        "merchant_order": "PaymentRequestMerchantOrder",
+        "payment_method": "str",
+        "recurring_data": "RecurringRequestRecurringData",
+        "return_urls": "ReturnUrls",
     }
 
     attribute_map = {
-        'request': 'request',
-        'card_account': 'card_account',
-        'customer': 'customer',
-        'merchant_order': 'merchant_order',
-        'payment_method': 'payment_method',
-        'recurring_data': 'recurring_data',
-        'return_urls': 'return_urls'
+        "request": "request",
+        "card_account": "card_account",
+        "customer": "customer",
+        "merchant_order": "merchant_order",
+        "payment_method": "payment_method",
+        "recurring_data": "recurring_data",
+        "return_urls": "return_urls",
     }
 
-    def __init__(self, request=None, card_account=None, customer=None, merchant_order=None, payment_method=None, recurring_data=None, return_urls=None):  # noqa: E501
+    def __init__(
+        self,
+        request=None,
+        card_account=None,
+        customer=None,
+        merchant_order=None,
+        payment_method=None,
+        recurring_data=None,
+        return_urls=None,
+    ):  # noqa: E501
         """RecurringCreationRequest - a model defined in Swagger"""  # noqa: E501
 
         self._request = None
@@ -99,7 +114,9 @@ class RecurringCreationRequest(object):
         :type: Request
         """
         if request is None:
-            raise ValueError("Invalid value for `request`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `request`, must not be `None`"
+            )  # noqa: E501
 
         self._request = request
 
@@ -124,7 +141,9 @@ class RecurringCreationRequest(object):
         :type: PaymentRequestCardAccount
         """
         if card_account is None:
-            raise ValueError("Invalid value for `card_account`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `card_account`, must not be `None`"
+            )  # noqa: E501
 
         self._card_account = card_account
 
@@ -149,7 +168,9 @@ class RecurringCreationRequest(object):
         :type: RecurringCustomer
         """
         if customer is None:
-            raise ValueError("Invalid value for `customer`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `customer`, must not be `None`"
+            )  # noqa: E501
 
         self._customer = customer
 
@@ -174,7 +195,9 @@ class RecurringCreationRequest(object):
         :type: PaymentRequestMerchantOrder
         """
         if merchant_order is None:
-            raise ValueError("Invalid value for `merchant_order`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `merchant_order`, must not be `None`"
+            )  # noqa: E501
 
         self._merchant_order = merchant_order
 
@@ -199,7 +222,9 @@ class RecurringCreationRequest(object):
         :type: str
         """
         if payment_method is None:
-            raise ValueError("Invalid value for `payment_method`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `payment_method`, must not be `None`"
+            )  # noqa: E501
 
         self._payment_method = payment_method
 
@@ -224,7 +249,9 @@ class RecurringCreationRequest(object):
         :type: RecurringRequestRecurringData
         """
         if recurring_data is None:
-            raise ValueError("Invalid value for `recurring_data`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `recurring_data`, must not be `None`"
+            )  # noqa: E501
 
         self._recurring_data = recurring_data
 
@@ -258,18 +285,20 @@ class RecurringCreationRequest(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

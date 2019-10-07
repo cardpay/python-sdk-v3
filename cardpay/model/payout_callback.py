@@ -17,12 +17,24 @@ import re  # noqa: F401
 import six
 
 from cardpay.model.payout_payment_data import PayoutPaymentData  # noqa: F401,E501
-from cardpay.model.payout_response_card_account import PayoutResponseCardAccount  # noqa: F401,E501
-from cardpay.model.payout_response_cryptocurrency_account import PayoutResponseCryptocurrencyAccount  # noqa: F401,E501
-from cardpay.model.payout_response_customer import PayoutResponseCustomer  # noqa: F401,E501
-from cardpay.model.payout_response_e_wallet_account import PayoutResponseEWalletAccount  # noqa: F401,E501
-from cardpay.model.payout_response_payout_data import PayoutResponsePayoutData  # noqa: F401,E501
-from cardpay.model.transaction_response_merchant_order import TransactionResponseMerchantOrder  # noqa: F401,E501
+from cardpay.model.payout_response_card_account import (
+    PayoutResponseCardAccount,
+)  # noqa: F401,E501
+from cardpay.model.payout_response_cryptocurrency_account import (
+    PayoutResponseCryptocurrencyAccount,
+)  # noqa: F401,E501
+from cardpay.model.payout_response_customer import (
+    PayoutResponseCustomer,
+)  # noqa: F401,E501
+from cardpay.model.payout_response_e_wallet_account import (
+    PayoutResponseEWalletAccount,
+)  # noqa: F401,E501
+from cardpay.model.payout_response_payout_data import (
+    PayoutResponsePayoutData,
+)  # noqa: F401,E501
+from cardpay.model.transaction_response_merchant_order import (
+    TransactionResponseMerchantOrder,
+)  # noqa: F401,E501
 
 
 class PayoutCallback(object):
@@ -39,30 +51,41 @@ class PayoutCallback(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'callback_time': 'str',
-        'card_account': 'PayoutResponseCardAccount',
-        'cryptocurrency_account': 'PayoutResponseCryptocurrencyAccount',
-        'customer': 'PayoutResponseCustomer',
-        'ewallet_account': 'PayoutResponseEWalletAccount',
-        'merchant_order': 'TransactionResponseMerchantOrder',
-        'payment_data': 'PayoutPaymentData',
-        'payment_method': 'str',
-        'payout_data': 'PayoutResponsePayoutData'
+        "callback_time": "str",
+        "card_account": "PayoutResponseCardAccount",
+        "cryptocurrency_account": "PayoutResponseCryptocurrencyAccount",
+        "customer": "PayoutResponseCustomer",
+        "ewallet_account": "PayoutResponseEWalletAccount",
+        "merchant_order": "TransactionResponseMerchantOrder",
+        "payment_data": "PayoutPaymentData",
+        "payment_method": "str",
+        "payout_data": "PayoutResponsePayoutData",
     }
 
     attribute_map = {
-        'callback_time': 'callback_time',
-        'card_account': 'card_account',
-        'cryptocurrency_account': 'cryptocurrency_account',
-        'customer': 'customer',
-        'ewallet_account': 'ewallet_account',
-        'merchant_order': 'merchant_order',
-        'payment_data': 'payment_data',
-        'payment_method': 'payment_method',
-        'payout_data': 'payout_data'
+        "callback_time": "callback_time",
+        "card_account": "card_account",
+        "cryptocurrency_account": "cryptocurrency_account",
+        "customer": "customer",
+        "ewallet_account": "ewallet_account",
+        "merchant_order": "merchant_order",
+        "payment_data": "payment_data",
+        "payment_method": "payment_method",
+        "payout_data": "payout_data",
     }
 
-    def __init__(self, callback_time=None, card_account=None, cryptocurrency_account=None, customer=None, ewallet_account=None, merchant_order=None, payment_data=None, payment_method=None, payout_data=None):  # noqa: E501
+    def __init__(
+        self,
+        callback_time=None,
+        card_account=None,
+        cryptocurrency_account=None,
+        customer=None,
+        ewallet_account=None,
+        merchant_order=None,
+        payment_data=None,
+        payment_method=None,
+        payout_data=None,
+    ):  # noqa: E501
         """PayoutCallback - a model defined in Swagger"""  # noqa: E501
 
         self._callback_time = None
@@ -228,7 +251,9 @@ class PayoutCallback(object):
         :type: TransactionResponseMerchantOrder
         """
         if merchant_order is None:
-            raise ValueError("Invalid value for `merchant_order`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `merchant_order`, must not be `None`"
+            )  # noqa: E501
 
         self._merchant_order = merchant_order
 
@@ -276,7 +301,9 @@ class PayoutCallback(object):
         :type: str
         """
         if payment_method is None:
-            raise ValueError("Invalid value for `payment_method`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `payment_method`, must not be `None`"
+            )  # noqa: E501
 
         self._payment_method = payment_method
 
@@ -301,7 +328,9 @@ class PayoutCallback(object):
         :type: PayoutResponsePayoutData
         """
         if payout_data is None:
-            raise ValueError("Invalid value for `payout_data`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `payout_data`, must not be `None`"
+            )  # noqa: E501
 
         self._payout_data = payout_data
 
@@ -312,18 +341,20 @@ class PayoutCallback(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

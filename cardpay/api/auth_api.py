@@ -44,7 +44,7 @@ class AuthApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
 
         (data) = self.obtain_tokens_with_http_info(grant_type, **kwargs)  # noqa: E501
         return data
@@ -61,24 +61,30 @@ class AuthApi(object):
                  returns the request thread.
         """
 
-        all_params = ['grant_type', 'password', 'refresh_token', 'terminal_code']  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "grant_type",
+            "password",
+            "refresh_token",
+            "terminal_code",
+        ]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method obtain_tokens" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'grant_type' is set
-        if ('grant_type' not in params or
-                params['grant_type'] is None):
-            raise ValueError("Missing the required parameter `grant_type` when calling `obtain_tokens`")  # noqa: E501
+        if "grant_type" not in params or params["grant_type"] is None:
+            raise ValueError(
+                "Missing the required parameter `grant_type` when calling `obtain_tokens`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -90,33 +96,39 @@ class AuthApi(object):
 
         form_params = []
         local_var_files = {}
-        if 'grant_type' in params:
-            form_params.append(('grant_type', params['grant_type']))  # noqa: E501
-        if 'password' in params:
-            form_params.append(('password', params['password']))  # noqa: E501
-        if 'refresh_token' in params:
-            form_params.append(('refresh_token', params['refresh_token']))  # noqa: E501
-        if 'terminal_code' in params:
-            form_params.append(('terminal_code', params['terminal_code']))  # noqa: E501
+        if "grant_type" in params:
+            form_params.append(("grant_type", params["grant_type"]))  # noqa: E501
+        if "password" in params:
+            form_params.append(("password", params["password"]))  # noqa: E501
+        if "refresh_token" in params:
+            form_params.append(("refresh_token", params["refresh_token"]))  # noqa: E501
+        if "terminal_code" in params:
+            form_params.append(("terminal_code", params["terminal_code"]))  # noqa: E501
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/x-www-form-urlencoded'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/x-www-form-urlencoded"]
+        )  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/auth/token', 'POST',
+            "/api/auth/token",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ApiTokens',  # noqa: E501
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            response_type="ApiTokens",  # noqa: E501
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )

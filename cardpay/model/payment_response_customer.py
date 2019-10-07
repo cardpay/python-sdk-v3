@@ -31,24 +31,26 @@ class PaymentResponseCustomer(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'email': 'str',
-        'full_name': 'str',
-        'id': 'str',
-        'ip': 'str',
-        'locale': 'str',
-        'phone': 'str'
+        "email": "str",
+        "full_name": "str",
+        "id": "str",
+        "ip": "str",
+        "locale": "str",
+        "phone": "str",
     }
 
     attribute_map = {
-        'email': 'email',
-        'full_name': 'full_name',
-        'id': 'id',
-        'ip': 'ip',
-        'locale': 'locale',
-        'phone': 'phone'
+        "email": "email",
+        "full_name": "full_name",
+        "id": "id",
+        "ip": "ip",
+        "locale": "locale",
+        "phone": "phone",
     }
 
-    def __init__(self, email=None, full_name=None, id=None, ip=None, locale=None, phone=None):  # noqa: E501
+    def __init__(
+        self, email=None, full_name=None, id=None, ip=None, locale=None, phone=None
+    ):  # noqa: E501
         """PaymentResponseCustomer - a model defined in Swagger"""  # noqa: E501
 
         self._email = None
@@ -93,9 +95,13 @@ class PaymentResponseCustomer(object):
         :type: str
         """
         if email is not None and len(email) > 256:
-            raise ValueError("Invalid value for `email`, length must be less than or equal to `256`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `email`, length must be less than or equal to `256`"
+            )  # noqa: E501
         if email is not None and len(email) < 1:
-            raise ValueError("Invalid value for `email`, length must be greater than or equal to `1`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `email`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._email = email
 
@@ -120,9 +126,13 @@ class PaymentResponseCustomer(object):
         :type: str
         """
         if full_name is not None and len(full_name) > 256:
-            raise ValueError("Invalid value for `full_name`, length must be less than or equal to `256`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `full_name`, length must be less than or equal to `256`"
+            )  # noqa: E501
         if full_name is not None and len(full_name) < 1:
-            raise ValueError("Invalid value for `full_name`, length must be greater than or equal to `1`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `full_name`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._full_name = full_name
 
@@ -147,9 +157,13 @@ class PaymentResponseCustomer(object):
         :type: str
         """
         if id is not None and len(id) > 256:
-            raise ValueError("Invalid value for `id`, length must be less than or equal to `256`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `id`, length must be less than or equal to `256`"
+            )  # noqa: E501
         if id is not None and len(id) < 0:
-            raise ValueError("Invalid value for `id`, length must be greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `id`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._id = id
 
@@ -174,9 +188,13 @@ class PaymentResponseCustomer(object):
         :type: str
         """
         if ip is not None and len(ip) > 15:
-            raise ValueError("Invalid value for `ip`, length must be less than or equal to `15`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `ip`, length must be less than or equal to `15`"
+            )  # noqa: E501
         if ip is not None and len(ip) < 1:
-            raise ValueError("Invalid value for `ip`, length must be greater than or equal to `1`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `ip`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._ip = ip
 
@@ -224,9 +242,13 @@ class PaymentResponseCustomer(object):
         :type: str
         """
         if phone is not None and len(phone) > 12:
-            raise ValueError("Invalid value for `phone`, length must be less than or equal to `12`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `phone`, length must be less than or equal to `12`"
+            )  # noqa: E501
         if phone is not None and len(phone) < 11:
-            raise ValueError("Invalid value for `phone`, length must be greater than or equal to `11`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `phone`, length must be greater than or equal to `11`"
+            )  # noqa: E501
 
         self._phone = phone
 
@@ -237,18 +259,20 @@ class PaymentResponseCustomer(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

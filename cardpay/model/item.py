@@ -31,20 +31,22 @@ class Item(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'count': 'int',
-        'description': 'str',
-        'name': 'str',
-        'price': 'float'
+        "count": "int",
+        "description": "str",
+        "name": "str",
+        "price": "float",
     }
 
     attribute_map = {
-        'count': 'count',
-        'description': 'description',
-        'name': 'name',
-        'price': 'price'
+        "count": "count",
+        "description": "description",
+        "name": "name",
+        "price": "price",
     }
 
-    def __init__(self, count=None, description=None, name=None, price=None):  # noqa: E501
+    def __init__(
+        self, count=None, description=None, name=None, price=None
+    ):  # noqa: E501
         """Item - a model defined in Swagger"""  # noqa: E501
 
         self._count = None
@@ -105,9 +107,13 @@ class Item(object):
         :type: str
         """
         if description is not None and len(description) > 200:
-            raise ValueError("Invalid value for `description`, length must be less than or equal to `200`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `description`, length must be less than or equal to `200`"
+            )  # noqa: E501
         if description is not None and len(description) < 1:
-            raise ValueError("Invalid value for `description`, length must be greater than or equal to `1`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `description`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._description = description
 
@@ -132,11 +138,17 @@ class Item(object):
         :type: str
         """
         if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `name`, must not be `None`"
+            )  # noqa: E501
         if name is not None and len(name) > 50:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `50`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `name`, length must be less than or equal to `50`"
+            )  # noqa: E501
         if name is not None and len(name) < 1:
-            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `name`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._name = name
 
@@ -170,18 +182,20 @@ class Item(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

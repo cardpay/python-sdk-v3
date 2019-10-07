@@ -31,32 +31,49 @@ class RecurringCustomer(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'email': 'str',
-        'id': 'str',
-        'ip': 'str',
-        'locale': 'str',
-        'phone': 'str'
+        "email": "str",
+        "home_phone": "str",
+        "id": "str",
+        "ip": "str",
+        "locale": "str",
+        "phone": "str",
+        "work_phone": "str",
     }
 
     attribute_map = {
-        'email': 'email',
-        'id': 'id',
-        'ip': 'ip',
-        'locale': 'locale',
-        'phone': 'phone'
+        "email": "email",
+        "home_phone": "home_phone",
+        "id": "id",
+        "ip": "ip",
+        "locale": "locale",
+        "phone": "phone",
+        "work_phone": "work_phone",
     }
 
-    def __init__(self, email=None, id=None, ip=None, locale=None, phone=None):  # noqa: E501
+    def __init__(
+        self,
+        email=None,
+        home_phone=None,
+        id=None,
+        ip=None,
+        locale=None,
+        phone=None,
+        work_phone=None,
+    ):  # noqa: E501
         """RecurringCustomer - a model defined in Swagger"""  # noqa: E501
 
         self._email = None
+        self._home_phone = None
         self._id = None
         self._ip = None
         self._locale = None
         self._phone = None
+        self._work_phone = None
         self.discriminator = None
 
         self.email = email
+        if home_phone is not None:
+            self.home_phone = home_phone
         self.id = id
         if ip is not None:
             self.ip = ip
@@ -64,6 +81,8 @@ class RecurringCustomer(object):
             self.locale = locale
         if phone is not None:
             self.phone = phone
+        if work_phone is not None:
+            self.work_phone = work_phone
 
     @property
     def email(self):
@@ -86,13 +105,50 @@ class RecurringCustomer(object):
         :type: str
         """
         if email is None:
-            raise ValueError("Invalid value for `email`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `email`, must not be `None`"
+            )  # noqa: E501
         if email is not None and len(email) > 256:
-            raise ValueError("Invalid value for `email`, length must be less than or equal to `256`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `email`, length must be less than or equal to `256`"
+            )  # noqa: E501
         if email is not None and len(email) < 1:
-            raise ValueError("Invalid value for `email`, length must be greater than or equal to `1`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `email`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._email = email
+
+    @property
+    def home_phone(self):
+        """Gets the home_phone of this RecurringCustomer.  # noqa: E501
+
+        The work phone number provided by the Cardholder. Required (if available), unless market or regional mandate restricts sending this information. Characters Format: string (10-18 symbols) country code + Subscriber number. Refer to ITU-E.164 for additional information on format and length.  # noqa: E501
+
+        :return: The home_phone of this RecurringCustomer.  # noqa: E501
+        :rtype: str
+        """
+        return self._home_phone
+
+    @home_phone.setter
+    def home_phone(self, home_phone):
+        """Sets the home_phone of this RecurringCustomer.
+
+        The work phone number provided by the Cardholder. Required (if available), unless market or regional mandate restricts sending this information. Characters Format: string (10-18 symbols) country code + Subscriber number. Refer to ITU-E.164 for additional information on format and length.  # noqa: E501
+
+        :param home_phone: The home_phone of this RecurringCustomer.  # noqa: E501
+        :type: str
+        """
+        if home_phone is not None and len(home_phone) > 18:
+            raise ValueError(
+                "Invalid value for `home_phone`, length must be less than or equal to `18`"
+            )  # noqa: E501
+        if home_phone is not None and len(home_phone) < 8:
+            raise ValueError(
+                "Invalid value for `home_phone`, length must be greater than or equal to `8`"
+            )  # noqa: E501
+
+        self._home_phone = home_phone
 
     @property
     def id(self):
@@ -117,9 +173,13 @@ class RecurringCustomer(object):
         if id is None:
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
         if id is not None and len(id) > 256:
-            raise ValueError("Invalid value for `id`, length must be less than or equal to `256`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `id`, length must be less than or equal to `256`"
+            )  # noqa: E501
         if id is not None and len(id) < 0:
-            raise ValueError("Invalid value for `id`, length must be greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `id`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._id = id
 
@@ -144,9 +204,13 @@ class RecurringCustomer(object):
         :type: str
         """
         if ip is not None and len(ip) > 15:
-            raise ValueError("Invalid value for `ip`, length must be less than or equal to `15`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `ip`, length must be less than or equal to `15`"
+            )  # noqa: E501
         if ip is not None and len(ip) < 1:
-            raise ValueError("Invalid value for `ip`, length must be greater than or equal to `1`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `ip`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._ip = ip
 
@@ -155,7 +219,6 @@ class RecurringCustomer(object):
         EN = "en"
         ZH = "zh"
         JA = "ja"
-        
 
     @property
     def locale(self):
@@ -180,8 +243,9 @@ class RecurringCustomer(object):
         allowed_values = ["ru", "en", "zh", "ja"]  # noqa: E501
         if locale not in allowed_values:
             raise ValueError(
-                "Invalid value for `locale` ({0}), must be one of {1}"  # noqa: E501
-                .format(locale, allowed_values)
+                "Invalid value for `locale` ({0}), must be one of {1}".format(  # noqa: E501
+                    locale, allowed_values
+                )
             )
 
         self._locale = locale
@@ -206,8 +270,47 @@ class RecurringCustomer(object):
         :param phone: The phone of this RecurringCustomer.  # noqa: E501
         :type: str
         """
+        if phone is not None and len(phone) > 18:
+            raise ValueError(
+                "Invalid value for `phone`, length must be less than or equal to `18`"
+            )  # noqa: E501
+        if phone is not None and len(phone) < 8:
+            raise ValueError(
+                "Invalid value for `phone`, length must be greater than or equal to `8`"
+            )  # noqa: E501
 
         self._phone = phone
+
+    @property
+    def work_phone(self):
+        """Gets the work_phone of this RecurringCustomer.  # noqa: E501
+
+        The home phone number provided by the Cardholder. Required (if available) unless market or regional mandate restricts sending this information. Characters Format: string (10-18 symbols) country code + Subscriber number. Refer to ITU-E.164 for additional information on format and length.  # noqa: E501
+
+        :return: The work_phone of this RecurringCustomer.  # noqa: E501
+        :rtype: str
+        """
+        return self._work_phone
+
+    @work_phone.setter
+    def work_phone(self, work_phone):
+        """Sets the work_phone of this RecurringCustomer.
+
+        The home phone number provided by the Cardholder. Required (if available) unless market or regional mandate restricts sending this information. Characters Format: string (10-18 symbols) country code + Subscriber number. Refer to ITU-E.164 for additional information on format and length.  # noqa: E501
+
+        :param work_phone: The work_phone of this RecurringCustomer.  # noqa: E501
+        :type: str
+        """
+        if work_phone is not None and len(work_phone) > 18:
+            raise ValueError(
+                "Invalid value for `work_phone`, length must be less than or equal to `18`"
+            )  # noqa: E501
+        if work_phone is not None and len(work_phone) < 8:
+            raise ValueError(
+                "Invalid value for `work_phone`, length must be greater than or equal to `8`"
+            )  # noqa: E501
+
+        self._work_phone = work_phone
 
     def to_dict(self):
         """Returns the model properties as a dict"""
@@ -216,18 +319,20 @@ class RecurringCustomer(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

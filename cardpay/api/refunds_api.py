@@ -41,9 +41,11 @@ class RefundsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
 
-        (data) = self.create_refund_with_http_info(refund_request, **kwargs)  # noqa: E501
+        (data) = self.create_refund_with_http_info(
+            refund_request, **kwargs
+        )  # noqa: E501
         return data
 
     def create_refund_with_http_info(self, refund_request, **kwargs):  # noqa: E501
@@ -55,24 +57,25 @@ class RefundsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['refund_request']  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["refund_request"]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method create_refund" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'refund_request' is set
-        if ('refund_request' not in params or
-                params['refund_request'] is None):
-            raise ValueError("Missing the required parameter `refund_request` when calling `create_refund`")  # noqa: E501
+        if "refund_request" not in params or params["refund_request"] is None:
+            raise ValueError(
+                "Missing the required parameter `refund_request` when calling `create_refund`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -86,28 +89,34 @@ class RefundsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'refund_request' in params:
-            body_params = params['refund_request']
+        if "refund_request" in params:
+            body_params = params["refund_request"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/refunds', 'POST',
+            "/api/refunds",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RefundResponse',  # noqa: E501
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            response_type="RefundResponse",  # noqa: E501
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def get_refund(self, refund_id, **kwargs):  # noqa: E501
         """Get refund information  # noqa: E501
@@ -117,7 +126,7 @@ class RefundsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
 
         (data) = self.get_refund_with_http_info(refund_id, **kwargs)  # noqa: E501
         return data
@@ -131,30 +140,31 @@ class RefundsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['refund_id']  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["refund_id"]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_refund" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'refund_id' is set
-        if ('refund_id' not in params or
-                params['refund_id'] is None):
-            raise ValueError("Missing the required parameter `refund_id` when calling `get_refund`")  # noqa: E501
+        if "refund_id" not in params or params["refund_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `refund_id` when calling `get_refund`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'refund_id' in params:
-            path_params['refundId'] = params['refund_id']  # noqa: E501
+        if "refund_id" in params:
+            path_params["refundId"] = params["refund_id"]  # noqa: E501
 
         query_params = []
 
@@ -165,22 +175,25 @@ class RefundsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/refunds/{refundId}', 'GET',
+            "/api/refunds/{refundId}",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RefundResponse',  # noqa: E501
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            response_type="RefundResponse",  # noqa: E501
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def get_refunds(self, request_id, **kwargs):  # noqa: E501
         """Get list of refunds  # noqa: E501
@@ -197,7 +210,7 @@ class RefundsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
 
         (data) = self.get_refunds_with_http_info(request_id, **kwargs)  # noqa: E501
         return data
@@ -218,68 +231,94 @@ class RefundsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['request_id', 'currency', 'end_time', 'max_count', 'merchant_order_id', 'payment_method', 'sort_order', 'start_time']  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "request_id",
+            "currency",
+            "end_time",
+            "max_count",
+            "merchant_order_id",
+            "payment_method",
+            "sort_order",
+            "start_time",
+        ]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_refunds" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'request_id' is set
-        if ('request_id' not in params or
-                params['request_id'] is None):
-            raise ValueError("Missing the required parameter `request_id` when calling `get_refunds`")  # noqa: E501
+        if "request_id" not in params or params["request_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `request_id` when calling `get_refunds`"
+            )  # noqa: E501
 
-        if ('request_id' in params and
-                len(params['request_id']) > 50):
-            raise ValueError("Invalid value for parameter `request_id` when calling `get_refunds`, length must be less than or equal to `50`")  # noqa: E501
-        if ('request_id' in params and
-                len(params['request_id']) < 0):
-            raise ValueError("Invalid value for parameter `request_id` when calling `get_refunds`, length must be greater than or equal to `0`")  # noqa: E501
-        if 'max_count' in params and params['max_count'] > 10000:  # noqa: E501
-            raise ValueError("Invalid value for parameter `max_count` when calling `get_refunds`, must be a value less than or equal to `10000`")  # noqa: E501
-        if ('merchant_order_id' in params and
-                len(params['merchant_order_id']) > 50):
-            raise ValueError("Invalid value for parameter `merchant_order_id` when calling `get_refunds`, length must be less than or equal to `50`")  # noqa: E501
-        if ('merchant_order_id' in params and
-                len(params['merchant_order_id']) < 0):
-            raise ValueError("Invalid value for parameter `merchant_order_id` when calling `get_refunds`, length must be greater than or equal to `0`")  # noqa: E501
-        if ('payment_method' in params and
-                len(params['payment_method']) > 100):
-            raise ValueError("Invalid value for parameter `payment_method` when calling `get_refunds`, length must be less than or equal to `100`")  # noqa: E501
-        if ('payment_method' in params and
-                len(params['payment_method']) < 0):
-            raise ValueError("Invalid value for parameter `payment_method` when calling `get_refunds`, length must be greater than or equal to `0`")  # noqa: E501
-        if 'sort_order' in params and not re.search(r'asc|desc', params['sort_order']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `sort_order` when calling `get_refunds`, must conform to the pattern `/asc|desc/`")  # noqa: E501
+        if "request_id" in params and len(params["request_id"]) > 50:
+            raise ValueError(
+                "Invalid value for parameter `request_id` when calling `get_refunds`, length must be less than or equal to `50`"
+            )  # noqa: E501
+        if "request_id" in params and len(params["request_id"]) < 0:
+            raise ValueError(
+                "Invalid value for parameter `request_id` when calling `get_refunds`, length must be greater than or equal to `0`"
+            )  # noqa: E501
+        if "max_count" in params and params["max_count"] > 10000:  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `max_count` when calling `get_refunds`, must be a value less than or equal to `10000`"
+            )  # noqa: E501
+        if "merchant_order_id" in params and len(params["merchant_order_id"]) > 50:
+            raise ValueError(
+                "Invalid value for parameter `merchant_order_id` when calling `get_refunds`, length must be less than or equal to `50`"
+            )  # noqa: E501
+        if "merchant_order_id" in params and len(params["merchant_order_id"]) < 0:
+            raise ValueError(
+                "Invalid value for parameter `merchant_order_id` when calling `get_refunds`, length must be greater than or equal to `0`"
+            )  # noqa: E501
+        if "payment_method" in params and len(params["payment_method"]) > 100:
+            raise ValueError(
+                "Invalid value for parameter `payment_method` when calling `get_refunds`, length must be less than or equal to `100`"
+            )  # noqa: E501
+        if "payment_method" in params and len(params["payment_method"]) < 0:
+            raise ValueError(
+                "Invalid value for parameter `payment_method` when calling `get_refunds`, length must be greater than or equal to `0`"
+            )  # noqa: E501
+        if "sort_order" in params and not re.search(
+            r"asc|desc", params["sort_order"]
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `sort_order` when calling `get_refunds`, must conform to the pattern `/asc|desc/`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'currency' in params:
-            query_params.append(('currency', params['currency']))  # noqa: E501
-        if 'end_time' in params:
-            query_params.append(('end_time', params['end_time']))  # noqa: E501
-        if 'max_count' in params:
-            query_params.append(('max_count', params['max_count']))  # noqa: E501
-        if 'merchant_order_id' in params:
-            query_params.append(('merchant_order_id', params['merchant_order_id']))  # noqa: E501
-        if 'payment_method' in params:
-            query_params.append(('payment_method', params['payment_method']))  # noqa: E501
-        if 'request_id' in params:
-            query_params.append(('request_id', params['request_id']))  # noqa: E501
-        if 'sort_order' in params:
-            query_params.append(('sort_order', params['sort_order']))  # noqa: E501
-        if 'start_time' in params:
-            query_params.append(('start_time', params['start_time']))  # noqa: E501
+        if "currency" in params:
+            query_params.append(("currency", params["currency"]))  # noqa: E501
+        if "end_time" in params:
+            query_params.append(("end_time", params["end_time"]))  # noqa: E501
+        if "max_count" in params:
+            query_params.append(("max_count", params["max_count"]))  # noqa: E501
+        if "merchant_order_id" in params:
+            query_params.append(
+                ("merchant_order_id", params["merchant_order_id"])
+            )  # noqa: E501
+        if "payment_method" in params:
+            query_params.append(
+                ("payment_method", params["payment_method"])
+            )  # noqa: E501
+        if "request_id" in params:
+            query_params.append(("request_id", params["request_id"]))  # noqa: E501
+        if "sort_order" in params:
+            query_params.append(("sort_order", params["sort_order"]))  # noqa: E501
+        if "start_time" in params:
+            query_params.append(("start_time", params["start_time"]))  # noqa: E501
 
         header_params = {}
 
@@ -288,22 +327,25 @@ class RefundsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/refunds', 'GET',
+            "/api/refunds",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RefundsList',  # noqa: E501
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            response_type="RefundsList",  # noqa: E501
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def update_refund(self, refund_id, refund_update_request, **kwargs):  # noqa: E501
         """Update refund  # noqa: E501
@@ -314,12 +356,16 @@ class RefundsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
 
-        (data) = self.update_refund_with_http_info(refund_id, refund_update_request, **kwargs)  # noqa: E501
+        (data) = self.update_refund_with_http_info(
+            refund_id, refund_update_request, **kwargs
+        )  # noqa: E501
         return data
 
-    def update_refund_with_http_info(self, refund_id, refund_update_request, **kwargs):  # noqa: E501
+    def update_refund_with_http_info(
+        self, refund_id, refund_update_request, **kwargs
+    ):  # noqa: E501
         """Update refund  # noqa: E501
 
         :param str refund_id: Refund ID (required)
@@ -329,34 +375,39 @@ class RefundsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['refund_id', 'refund_update_request']  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["refund_id", "refund_update_request"]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method update_refund" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'refund_id' is set
-        if ('refund_id' not in params or
-                params['refund_id'] is None):
-            raise ValueError("Missing the required parameter `refund_id` when calling `update_refund`")  # noqa: E501
+        if "refund_id" not in params or params["refund_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `refund_id` when calling `update_refund`"
+            )  # noqa: E501
         # verify the required parameter 'refund_update_request' is set
-        if ('refund_update_request' not in params or
-                params['refund_update_request'] is None):
-            raise ValueError("Missing the required parameter `refund_update_request` when calling `update_refund`")  # noqa: E501
+        if (
+            "refund_update_request" not in params
+            or params["refund_update_request"] is None
+        ):
+            raise ValueError(
+                "Missing the required parameter `refund_update_request` when calling `update_refund`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'refund_id' in params:
-            path_params['refundId'] = params['refund_id']  # noqa: E501
+        if "refund_id" in params:
+            path_params["refundId"] = params["refund_id"]  # noqa: E501
 
         query_params = []
 
@@ -366,25 +417,31 @@ class RefundsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'refund_update_request' in params:
-            body_params = params['refund_update_request']
+        if "refund_update_request" in params:
+            body_params = params["refund_update_request"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/refunds/{refundId}', 'PATCH',
+            "/api/refunds/{refundId}",
+            "PATCH",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RefundUpdateResponse',  # noqa: E501
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            response_type="RefundUpdateResponse",  # noqa: E501
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )

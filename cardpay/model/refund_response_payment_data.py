@@ -30,15 +30,9 @@ class RefundResponsePaymentData(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {
-        'id': 'str',
-        'remaining_amount': 'float'
-    }
+    swagger_types = {"id": "str", "remaining_amount": "float"}
 
-    attribute_map = {
-        'id': 'id',
-        'remaining_amount': 'remaining_amount'
-    }
+    attribute_map = {"id": "id", "remaining_amount": "remaining_amount"}
 
     def __init__(self, id=None, remaining_amount=None):  # noqa: E501
         """RefundResponsePaymentData - a model defined in Swagger"""  # noqa: E501
@@ -96,7 +90,9 @@ class RefundResponsePaymentData(object):
         :type: float
         """
         if remaining_amount is None:
-            raise ValueError("Invalid value for `remaining_amount`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `remaining_amount`, must not be `None`"
+            )  # noqa: E501
 
         self._remaining_amount = remaining_amount
 
@@ -107,18 +103,20 @@ class RefundResponsePaymentData(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

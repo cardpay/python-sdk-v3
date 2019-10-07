@@ -16,10 +16,16 @@ import re  # noqa: F401
 
 import six
 
-from cardpay.model.payment_response_card_account import PaymentResponseCardAccount  # noqa: F401,E501
+from cardpay.model.payment_response_card_account import (
+    PaymentResponseCardAccount,
+)  # noqa: F401,E501
 from cardpay.model.recurring_customer import RecurringCustomer  # noqa: F401,E501
-from cardpay.model.recurring_response_merchant_order import RecurringResponseMerchantOrder  # noqa: F401,E501
-from cardpay.model.recurring_response_recurring_data import RecurringResponseRecurringData  # noqa: F401,E501
+from cardpay.model.recurring_response_merchant_order import (
+    RecurringResponseMerchantOrder,
+)  # noqa: F401,E501
+from cardpay.model.recurring_response_recurring_data import (
+    RecurringResponseRecurringData,
+)  # noqa: F401,E501
 
 
 class RecurringResponse(object):
@@ -36,22 +42,29 @@ class RecurringResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'payment_method': 'str',
-        'merchant_order': 'RecurringResponseMerchantOrder',
-        'recurring_data': 'RecurringResponseRecurringData',
-        'card_account': 'PaymentResponseCardAccount',
-        'customer': 'RecurringCustomer'
+        "payment_method": "str",
+        "merchant_order": "RecurringResponseMerchantOrder",
+        "recurring_data": "RecurringResponseRecurringData",
+        "card_account": "PaymentResponseCardAccount",
+        "customer": "RecurringCustomer",
     }
 
     attribute_map = {
-        'payment_method': 'payment_method',
-        'merchant_order': 'merchant_order',
-        'recurring_data': 'recurring_data',
-        'card_account': 'card_account',
-        'customer': 'customer'
+        "payment_method": "payment_method",
+        "merchant_order": "merchant_order",
+        "recurring_data": "recurring_data",
+        "card_account": "card_account",
+        "customer": "customer",
     }
 
-    def __init__(self, payment_method=None, merchant_order=None, recurring_data=None, card_account=None, customer=None):  # noqa: E501
+    def __init__(
+        self,
+        payment_method=None,
+        merchant_order=None,
+        recurring_data=None,
+        card_account=None,
+        customer=None,
+    ):  # noqa: E501
         """RecurringResponse - a model defined in Swagger"""  # noqa: E501
 
         self._payment_method = None
@@ -194,18 +207,20 @@ class RecurringResponse(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

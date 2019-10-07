@@ -16,7 +16,9 @@ import re  # noqa: F401
 
 import six
 
-from cardpay.model.updated_subscription_data import UpdatedSubscriptionData  # noqa: F401,E501
+from cardpay.model.updated_subscription_data import (
+    UpdatedSubscriptionData,
+)  # noqa: F401,E501
 
 
 class SubscriptionUpdateResponse(object):
@@ -32,13 +34,9 @@ class SubscriptionUpdateResponse(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {
-        'subscription_data': 'UpdatedSubscriptionData'
-    }
+    swagger_types = {"subscription_data": "UpdatedSubscriptionData"}
 
-    attribute_map = {
-        'subscription_data': 'subscription_data'
-    }
+    attribute_map = {"subscription_data": "subscription_data"}
 
     def __init__(self, subscription_data=None):  # noqa: E501
         """SubscriptionUpdateResponse - a model defined in Swagger"""  # noqa: E501
@@ -77,18 +75,20 @@ class SubscriptionUpdateResponse(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

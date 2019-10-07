@@ -31,24 +31,35 @@ class PaymentResponseCardAccount(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'expiration': 'str',
-        'holder': 'str',
-        'issuing_country_code': 'str',
-        'masked_pan': 'str',
-        'token': 'str'
+        "acct_type": "str",
+        "expiration": "str",
+        "holder": "str",
+        "issuing_country_code": "str",
+        "masked_pan": "str",
+        "token": "str",
     }
 
     attribute_map = {
-        'expiration': 'expiration',
-        'holder': 'holder',
-        'issuing_country_code': 'issuing_country_code',
-        'masked_pan': 'masked_pan',
-        'token': 'token'
+        "acct_type": "acct_type",
+        "expiration": "expiration",
+        "holder": "holder",
+        "issuing_country_code": "issuing_country_code",
+        "masked_pan": "masked_pan",
+        "token": "token",
     }
 
-    def __init__(self, expiration=None, holder=None, issuing_country_code=None, masked_pan=None, token=None):  # noqa: E501
+    def __init__(
+        self,
+        acct_type=None,
+        expiration=None,
+        holder=None,
+        issuing_country_code=None,
+        masked_pan=None,
+        token=None,
+    ):  # noqa: E501
         """PaymentResponseCardAccount - a model defined in Swagger"""  # noqa: E501
 
+        self._acct_type = None
         self._expiration = None
         self._holder = None
         self._issuing_country_code = None
@@ -56,6 +67,8 @@ class PaymentResponseCardAccount(object):
         self._token = None
         self.discriminator = None
 
+        if acct_type is not None:
+            self.acct_type = acct_type
         if expiration is not None:
             self.expiration = expiration
         if holder is not None:
@@ -66,6 +79,39 @@ class PaymentResponseCardAccount(object):
             self.masked_pan = masked_pan
         if token is not None:
             self.token = token
+
+    class AcctType(object):
+        _01 = "01"
+        _02 = "02"
+        _03 = "03"
+
+    @property
+    def acct_type(self):
+        """Gets the acct_type of this PaymentResponseCardAccount.  # noqa: E501
+
+
+        :return: The acct_type of this PaymentResponseCardAccount.  # noqa: E501
+        :rtype: str
+        """
+        return self._acct_type
+
+    @acct_type.setter
+    def acct_type(self, acct_type):
+        """Sets the acct_type of this PaymentResponseCardAccount.
+
+
+        :param acct_type: The acct_type of this PaymentResponseCardAccount.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["01", "02", "03"]  # noqa: E501
+        if acct_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `acct_type` ({0}), must be one of {1}".format(  # noqa: E501
+                    acct_type, allowed_values
+                )
+            )
+
+        self._acct_type = acct_type
 
     @property
     def expiration(self):
@@ -189,18 +235,20 @@ class PaymentResponseCardAccount(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

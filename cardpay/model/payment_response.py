@@ -16,12 +16,18 @@ import re  # noqa: F401
 
 import six
 
-from cardpay.model.payment_request_customer import PaymentRequestCustomer  # noqa: F401,E501
-from cardpay.model.payment_response_card_account import PaymentResponseCardAccount  # noqa: F401,E501
-from cardpay.model.payment_response_cryptocurrency_account import PaymentResponseCryptocurrencyAccount  # noqa: F401,E501
-from cardpay.model.payment_response_payment_data import PaymentResponsePaymentData  # noqa: F401,E501
-from cardpay.model.transaction_response_e_wallet_account import TransactionResponseEWalletAccount  # noqa: F401,E501
-from cardpay.model.transaction_response_merchant_order import TransactionResponseMerchantOrder  # noqa: F401,E501
+from cardpay.model.payment_request_customer import (
+    PaymentRequestCustomer,
+)  # noqa: F401,E501
+from cardpay.model.payment_response_card_account import (
+    PaymentResponseCardAccount,
+)  # noqa: F401,E501
+from cardpay.model.payment_response_payment_data import (
+    PaymentResponsePaymentData,
+)  # noqa: F401,E501
+from cardpay.model.transaction_response_merchant_order import (
+    TransactionResponseMerchantOrder,
+)  # noqa: F401,E501
 
 
 class PaymentResponse(object):
@@ -38,26 +44,29 @@ class PaymentResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'customer': 'PaymentRequestCustomer',
-        'payment_method': 'str',
-        'merchant_order': 'TransactionResponseMerchantOrder',
-        'payment_data': 'PaymentResponsePaymentData',
-        'card_account': 'PaymentResponseCardAccount',
-        'cryptocurrency_account': 'PaymentResponseCryptocurrencyAccount',
-        'ewallet_account': 'TransactionResponseEWalletAccount'
+        "customer": "PaymentRequestCustomer",
+        "payment_method": "str",
+        "merchant_order": "TransactionResponseMerchantOrder",
+        "payment_data": "PaymentResponsePaymentData",
+        "card_account": "PaymentResponseCardAccount",
     }
 
     attribute_map = {
-        'customer': 'customer',
-        'payment_method': 'payment_method',
-        'merchant_order': 'merchant_order',
-        'payment_data': 'payment_data',
-        'card_account': 'card_account',
-        'cryptocurrency_account': 'cryptocurrency_account',
-        'ewallet_account': 'ewallet_account'
+        "customer": "customer",
+        "payment_method": "payment_method",
+        "merchant_order": "merchant_order",
+        "payment_data": "payment_data",
+        "card_account": "card_account",
     }
 
-    def __init__(self, customer=None, payment_method=None, merchant_order=None, payment_data=None, card_account=None, cryptocurrency_account=None, ewallet_account=None):  # noqa: E501
+    def __init__(
+        self,
+        customer=None,
+        payment_method=None,
+        merchant_order=None,
+        payment_data=None,
+        card_account=None,
+    ):  # noqa: E501
         """PaymentResponse - a model defined in Swagger"""  # noqa: E501
 
         self._customer = None
@@ -65,8 +74,6 @@ class PaymentResponse(object):
         self._merchant_order = None
         self._payment_data = None
         self._card_account = None
-        self._cryptocurrency_account = None
-        self._ewallet_account = None
         self.discriminator = None
 
         if customer is not None:
@@ -79,10 +86,6 @@ class PaymentResponse(object):
             self.payment_data = payment_data
         if card_account is not None:
             self.card_account = card_account
-        if cryptocurrency_account is not None:
-            self.cryptocurrency_account = cryptocurrency_account
-        if ewallet_account is not None:
-            self.ewallet_account = ewallet_account
 
     @property
     def customer(self):
@@ -199,52 +202,6 @@ class PaymentResponse(object):
 
         self._card_account = card_account
 
-    @property
-    def cryptocurrency_account(self):
-        """Gets the cryptocurrency_account of this PaymentResponse.  # noqa: E501
-
-        Cryptocurrency account data *(for BITCOIN payment method only)*  # noqa: E501
-
-        :return: The cryptocurrency_account of this PaymentResponse.  # noqa: E501
-        :rtype: PaymentResponseCryptocurrencyAccount
-        """
-        return self._cryptocurrency_account
-
-    @cryptocurrency_account.setter
-    def cryptocurrency_account(self, cryptocurrency_account):
-        """Sets the cryptocurrency_account of this PaymentResponse.
-
-        Cryptocurrency account data *(for BITCOIN payment method only)*  # noqa: E501
-
-        :param cryptocurrency_account: The cryptocurrency_account of this PaymentResponse.  # noqa: E501
-        :type: PaymentResponseCryptocurrencyAccount
-        """
-
-        self._cryptocurrency_account = cryptocurrency_account
-
-    @property
-    def ewallet_account(self):
-        """Gets the ewallet_account of this PaymentResponse.  # noqa: E501
-
-        eWallet account data *(for ALIPAY, QIWI, WEBMONEY, NETELLER, YANDEXMONEY, DIRECTBANKINGNGA, AQRCODE, AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE, TIGO and 'Latin America' payment methods only)*  # noqa: E501
-
-        :return: The ewallet_account of this PaymentResponse.  # noqa: E501
-        :rtype: TransactionResponseEWalletAccount
-        """
-        return self._ewallet_account
-
-    @ewallet_account.setter
-    def ewallet_account(self, ewallet_account):
-        """Sets the ewallet_account of this PaymentResponse.
-
-        eWallet account data *(for ALIPAY, QIWI, WEBMONEY, NETELLER, YANDEXMONEY, DIRECTBANKINGNGA, AQRCODE, AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE, TIGO and 'Latin America' payment methods only)*  # noqa: E501
-
-        :param ewallet_account: The ewallet_account of this PaymentResponse.  # noqa: E501
-        :type: TransactionResponseEWalletAccount
-        """
-
-        self._ewallet_account = ewallet_account
-
     def to_dict(self):
         """Returns the model properties as a dict"""
         result = {}
@@ -252,18 +209,20 @@ class PaymentResponse(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

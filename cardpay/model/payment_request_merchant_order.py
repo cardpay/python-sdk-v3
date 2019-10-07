@@ -35,24 +35,35 @@ class PaymentRequestMerchantOrder(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'description': 'str',
-        'flights': 'Flights',
-        'id': 'str',
-        'items': 'list[Item]',
-        'shipping_address': 'ShippingAddress'
+        "cryptocurrency_indicator": "bool",
+        "description": "str",
+        "flights": "Flights",
+        "id": "str",
+        "items": "list[Item]",
+        "shipping_address": "ShippingAddress",
     }
 
     attribute_map = {
-        'description': 'description',
-        'flights': 'flights',
-        'id': 'id',
-        'items': 'items',
-        'shipping_address': 'shipping_address'
+        "cryptocurrency_indicator": "cryptocurrency_indicator",
+        "description": "description",
+        "flights": "flights",
+        "id": "id",
+        "items": "items",
+        "shipping_address": "shipping_address",
     }
 
-    def __init__(self, description=None, flights=None, id=None, items=None, shipping_address=None):  # noqa: E501
+    def __init__(
+        self,
+        cryptocurrency_indicator=None,
+        description=None,
+        flights=None,
+        id=None,
+        items=None,
+        shipping_address=None,
+    ):  # noqa: E501
         """PaymentRequestMerchantOrder - a model defined in Swagger"""  # noqa: E501
 
+        self._cryptocurrency_indicator = None
         self._description = None
         self._flights = None
         self._id = None
@@ -60,6 +71,8 @@ class PaymentRequestMerchantOrder(object):
         self._shipping_address = None
         self.discriminator = None
 
+        if cryptocurrency_indicator is not None:
+            self.cryptocurrency_indicator = cryptocurrency_indicator
         self.description = description
         if flights is not None:
             self.flights = flights
@@ -68,6 +81,29 @@ class PaymentRequestMerchantOrder(object):
             self.items = items
         if shipping_address is not None:
             self.shipping_address = shipping_address
+
+    @property
+    def cryptocurrency_indicator(self):
+        """Gets the cryptocurrency_indicator of this PaymentRequestMerchantOrder.  # noqa: E501
+
+        Indicator should be added if there will be cryptocurrency purchase in transaction  # noqa: E501
+
+        :return: The cryptocurrency_indicator of this PaymentRequestMerchantOrder.  # noqa: E501
+        :rtype: bool
+        """
+        return self._cryptocurrency_indicator
+
+    @cryptocurrency_indicator.setter
+    def cryptocurrency_indicator(self, cryptocurrency_indicator):
+        """Sets the cryptocurrency_indicator of this PaymentRequestMerchantOrder.
+
+        Indicator should be added if there will be cryptocurrency purchase in transaction  # noqa: E501
+
+        :param cryptocurrency_indicator: The cryptocurrency_indicator of this PaymentRequestMerchantOrder.  # noqa: E501
+        :type: bool
+        """
+
+        self._cryptocurrency_indicator = cryptocurrency_indicator
 
     @property
     def description(self):
@@ -90,11 +126,17 @@ class PaymentRequestMerchantOrder(object):
         :type: str
         """
         if description is None:
-            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `description`, must not be `None`"
+            )  # noqa: E501
         if description is not None and len(description) > 200:
-            raise ValueError("Invalid value for `description`, length must be less than or equal to `200`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `description`, length must be less than or equal to `200`"
+            )  # noqa: E501
         if description is not None and len(description) < 1:
-            raise ValueError("Invalid value for `description`, length must be greater than or equal to `1`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `description`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._description = description
 
@@ -144,9 +186,13 @@ class PaymentRequestMerchantOrder(object):
         if id is None:
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
         if id is not None and len(id) > 50:
-            raise ValueError("Invalid value for `id`, length must be less than or equal to `50`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `id`, length must be less than or equal to `50`"
+            )  # noqa: E501
         if id is not None and len(id) < 1:
-            raise ValueError("Invalid value for `id`, length must be greater than or equal to `1`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `id`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._id = id
 
@@ -203,18 +249,20 @@ class PaymentRequestMerchantOrder(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

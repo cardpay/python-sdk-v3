@@ -31,41 +31,102 @@ class BillingAddress(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'city': 'str',
-        'country': 'str',
-        'phone': 'str',
-        'state': 'str',
-        'street': 'str',
-        'zip': 'str'
+        "addr_line_1": "str",
+        "addr_line_2": "str",
+        "city": "str",
+        "country": "str",
+        "phone": "str",
+        "state": "str",
+        "zip": "str",
     }
 
     attribute_map = {
-        'city': 'city',
-        'country': 'country',
-        'phone': 'phone',
-        'state': 'state',
-        'street': 'street',
-        'zip': 'zip'
+        "addr_line_1": "addr_line_1",
+        "addr_line_2": "addr_line_2",
+        "city": "city",
+        "country": "country",
+        "phone": "phone",
+        "state": "state",
+        "zip": "zip",
     }
 
-    def __init__(self, city=None, country=None, phone=None, state=None, street=None, zip=None):  # noqa: E501
+    def __init__(
+        self,
+        addr_line_1=None,
+        addr_line_2=None,
+        city=None,
+        country=None,
+        phone=None,
+        state=None,
+        zip=None,
+    ):  # noqa: E501
         """BillingAddress - a model defined in Swagger"""  # noqa: E501
 
+        self._addr_line_1 = None
+        self._addr_line_2 = None
         self._city = None
         self._country = None
         self._phone = None
         self._state = None
-        self._street = None
         self._zip = None
         self.discriminator = None
 
+        if addr_line_1 is not None:
+            self.addr_line_1 = addr_line_1
+        if addr_line_2 is not None:
+            self.addr_line_2 = addr_line_2
         self.city = city
         self.country = country
         self.phone = phone
         if state is not None:
             self.state = state
-        self.street = street
         self.zip = zip
+
+    @property
+    def addr_line_1(self):
+        """Gets the addr_line_1 of this BillingAddress.  # noqa: E501
+
+        First line of the street address or equivalent local portion of the Cardholder billing address associated with the card used for this purchase.  # noqa: E501
+
+        :return: The addr_line_1 of this BillingAddress.  # noqa: E501
+        :rtype: str
+        """
+        return self._addr_line_1
+
+    @addr_line_1.setter
+    def addr_line_1(self, addr_line_1):
+        """Sets the addr_line_1 of this BillingAddress.
+
+        First line of the street address or equivalent local portion of the Cardholder billing address associated with the card used for this purchase.  # noqa: E501
+
+        :param addr_line_1: The addr_line_1 of this BillingAddress.  # noqa: E501
+        :type: str
+        """
+
+        self._addr_line_1 = addr_line_1
+
+    @property
+    def addr_line_2(self):
+        """Gets the addr_line_2 of this BillingAddress.  # noqa: E501
+
+        Second line of the street address or equivalent local portion of the Cardholder billing address associated with the card used for this purchase.  # noqa: E501
+
+        :return: The addr_line_2 of this BillingAddress.  # noqa: E501
+        :rtype: str
+        """
+        return self._addr_line_2
+
+    @addr_line_2.setter
+    def addr_line_2(self, addr_line_2):
+        """Sets the addr_line_2 of this BillingAddress.
+
+        Second line of the street address or equivalent local portion of the Cardholder billing address associated with the card used for this purchase.  # noqa: E501
+
+        :param addr_line_2: The addr_line_2 of this BillingAddress.  # noqa: E501
+        :type: str
+        """
+
+        self._addr_line_2 = addr_line_2
 
     @property
     def city(self):
@@ -88,11 +149,17 @@ class BillingAddress(object):
         :type: str
         """
         if city is None:
-            raise ValueError("Invalid value for `city`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `city`, must not be `None`"
+            )  # noqa: E501
         if city is not None and len(city) > 20:
-            raise ValueError("Invalid value for `city`, length must be less than or equal to `20`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `city`, length must be less than or equal to `20`"
+            )  # noqa: E501
         if city is not None and len(city) < 0:
-            raise ValueError("Invalid value for `city`, length must be greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `city`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._city = city
 
@@ -117,7 +184,9 @@ class BillingAddress(object):
         :type: str
         """
         if country is None:
-            raise ValueError("Invalid value for `country`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `country`, must not be `None`"
+            )  # noqa: E501
 
         self._country = country
 
@@ -142,13 +211,23 @@ class BillingAddress(object):
         :type: str
         """
         if phone is None:
-            raise ValueError("Invalid value for `phone`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `phone`, must not be `None`"
+            )  # noqa: E501
         if phone is not None and len(phone) > 20:
-            raise ValueError("Invalid value for `phone`, length must be less than or equal to `20`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `phone`, length must be less than or equal to `20`"
+            )  # noqa: E501
         if phone is not None and len(phone) < 5:
-            raise ValueError("Invalid value for `phone`, length must be greater than or equal to `5`")  # noqa: E501
-        if phone is not None and not re.search(r'[0-9|+|\\-|w|p|(|)|\\s]+', phone):  # noqa: E501
-            raise ValueError(r"Invalid value for `phone`, must be a follow pattern or equal to `/[0-9|+|\\-|w|p|(|)|\\s]+/`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `phone`, length must be greater than or equal to `5`"
+            )  # noqa: E501
+        if phone is not None and not re.search(
+            r"[0-9|+|\\-|w|p|(|)|\\s]+", phone
+        ):  # noqa: E501
+            raise ValueError(
+                r"Invalid value for `phone`, must be a follow pattern or equal to `/[0-9|+|\\-|w|p|(|)|\\s]+/`"
+            )  # noqa: E501
 
         self._phone = phone
 
@@ -173,40 +252,15 @@ class BillingAddress(object):
         :type: str
         """
         if state is not None and len(state) > 20:
-            raise ValueError("Invalid value for `state`, length must be less than or equal to `20`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `state`, length must be less than or equal to `20`"
+            )  # noqa: E501
         if state is not None and len(state) < 0:
-            raise ValueError("Invalid value for `state`, length must be greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `state`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._state = state
-
-    @property
-    def street(self):
-        """Gets the street of this BillingAddress.  # noqa: E501
-
-        Billing street address. May include whitespaces, hyphens, apostrophes, commas, quotes, dots, slashes and semicolons  # noqa: E501
-
-        :return: The street of this BillingAddress.  # noqa: E501
-        :rtype: str
-        """
-        return self._street
-
-    @street.setter
-    def street(self, street):
-        """Sets the street of this BillingAddress.
-
-        Billing street address. May include whitespaces, hyphens, apostrophes, commas, quotes, dots, slashes and semicolons  # noqa: E501
-
-        :param street: The street of this BillingAddress.  # noqa: E501
-        :type: str
-        """
-        if street is None:
-            raise ValueError("Invalid value for `street`, must not be `None`")  # noqa: E501
-        if street is not None and len(street) > 100:
-            raise ValueError("Invalid value for `street`, length must be less than or equal to `100`")  # noqa: E501
-        if street is not None and len(street) < 2:
-            raise ValueError("Invalid value for `street`, length must be greater than or equal to `2`")  # noqa: E501
-
-        self._street = street
 
     @property
     def zip(self):
@@ -229,11 +283,17 @@ class BillingAddress(object):
         :type: str
         """
         if zip is None:
-            raise ValueError("Invalid value for `zip`, must not be `None`")  # noqa: E501
-        if zip is not None and len(zip) > 12:
-            raise ValueError("Invalid value for `zip`, length must be less than or equal to `12`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `zip`, must not be `None`"
+            )  # noqa: E501
+        if zip is not None and len(zip) > 17:
+            raise ValueError(
+                "Invalid value for `zip`, length must be less than or equal to `17`"
+            )  # noqa: E501
         if zip is not None and len(zip) < 0:
-            raise ValueError("Invalid value for `zip`, length must be greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `zip`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._zip = zip
 
@@ -244,18 +304,20 @@ class BillingAddress(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

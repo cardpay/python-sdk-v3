@@ -31,32 +31,44 @@ class RefundResponseRefundData(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'amount': 'float',
-        'auth_code': 'str',
-        'created': 'str',
-        'currency': 'str',
-        'decline_code': 'str',
-        'decline_reason': 'str',
-        'id': 'str',
-        'is_3d': 'bool',
-        'rrn': 'str',
-        'status': 'str'
+        "amount": "float",
+        "auth_code": "str",
+        "created": "str",
+        "currency": "str",
+        "decline_code": "str",
+        "decline_reason": "str",
+        "id": "str",
+        "is_3d": "bool",
+        "rrn": "str",
+        "status": "str",
     }
 
     attribute_map = {
-        'amount': 'amount',
-        'auth_code': 'auth_code',
-        'created': 'created',
-        'currency': 'currency',
-        'decline_code': 'decline_code',
-        'decline_reason': 'decline_reason',
-        'id': 'id',
-        'is_3d': 'is_3d',
-        'rrn': 'rrn',
-        'status': 'status'
+        "amount": "amount",
+        "auth_code": "auth_code",
+        "created": "created",
+        "currency": "currency",
+        "decline_code": "decline_code",
+        "decline_reason": "decline_reason",
+        "id": "id",
+        "is_3d": "is_3d",
+        "rrn": "rrn",
+        "status": "status",
     }
 
-    def __init__(self, amount=None, auth_code=None, created=None, currency=None, decline_code=None, decline_reason=None, id=None, is_3d=None, rrn=None, status=None):  # noqa: E501
+    def __init__(
+        self,
+        amount=None,
+        auth_code=None,
+        created=None,
+        currency=None,
+        decline_code=None,
+        decline_reason=None,
+        id=None,
+        is_3d=None,
+        rrn=None,
+        status=None,
+    ):  # noqa: E501
         """RefundResponseRefundData - a model defined in Swagger"""  # noqa: E501
 
         self._amount = None
@@ -108,7 +120,9 @@ class RefundResponseRefundData(object):
         :type: float
         """
         if amount is None:
-            raise ValueError("Invalid value for `amount`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `amount`, must not be `None`"
+            )  # noqa: E501
 
         self._amount = amount
 
@@ -156,7 +170,9 @@ class RefundResponseRefundData(object):
         :type: str
         """
         if created is None:
-            raise ValueError("Invalid value for `created`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `created`, must not be `None`"
+            )  # noqa: E501
 
         self._created = created
 
@@ -181,11 +197,17 @@ class RefundResponseRefundData(object):
         :type: str
         """
         if currency is None:
-            raise ValueError("Invalid value for `currency`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `currency`, must not be `None`"
+            )  # noqa: E501
         if currency is not None and len(currency) > 3:
-            raise ValueError("Invalid value for `currency`, length must be less than or equal to `3`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `currency`, length must be less than or equal to `3`"
+            )  # noqa: E501
         if currency is not None and len(currency) < 3:
-            raise ValueError("Invalid value for `currency`, length must be greater than or equal to `3`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `currency`, length must be greater than or equal to `3`"
+            )  # noqa: E501
 
         self._currency = currency
 
@@ -318,7 +340,6 @@ class RefundResponseRefundData(object):
         VOIDED = "VOIDED"
         CHARGED_BACK = "CHARGED_BACK"
         CHARGEBACK_RESOLVED = "CHARGEBACK_RESOLVED"
-        
 
     @property
     def status(self):
@@ -341,12 +362,27 @@ class RefundResponseRefundData(object):
         :type: str
         """
         if status is None:
-            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
-        allowed_values = ["NEW", "IN_PROGRESS", "DECLINED", "AUTHORIZED", "COMPLETED", "CANCELLED", "REFUNDED", "PARTIALLY_REFUNDED", "VOIDED", "CHARGED_BACK", "CHARGEBACK_RESOLVED"]  # noqa: E501
+            raise ValueError(
+                "Invalid value for `status`, must not be `None`"
+            )  # noqa: E501
+        allowed_values = [
+            "NEW",
+            "IN_PROGRESS",
+            "DECLINED",
+            "AUTHORIZED",
+            "COMPLETED",
+            "CANCELLED",
+            "REFUNDED",
+            "PARTIALLY_REFUNDED",
+            "VOIDED",
+            "CHARGED_BACK",
+            "CHARGEBACK_RESOLVED",
+        ]  # noqa: E501
         if status not in allowed_values:
             raise ValueError(
-                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
-                .format(status, allowed_values)
+                "Invalid value for `status` ({0}), must be one of {1}".format(  # noqa: E501
+                    status, allowed_values
+                )
             )
 
         self._status = status
@@ -358,18 +394,20 @@ class RefundResponseRefundData(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

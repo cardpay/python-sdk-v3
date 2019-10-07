@@ -16,7 +16,9 @@ import re  # noqa: F401
 
 import six
 
-from cardpay.model.claim_response_subscription_data import ClaimResponseSubscriptionData  # noqa: F401,E501
+from cardpay.model.claim_response_subscription_data import (
+    ClaimResponseSubscriptionData,
+)  # noqa: F401,E501
 
 
 class ChangeSubscriptionStatusClaimResponse(object):
@@ -33,24 +35,32 @@ class ChangeSubscriptionStatusClaimResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'created': 'datetime',
-        'details': 'str',
-        'id': 'str',
-        'status': 'str',
-        'subscription_data': 'ClaimResponseSubscriptionData',
-        'updated': 'datetime'
+        "created": "datetime",
+        "details": "str",
+        "id": "str",
+        "status": "str",
+        "subscription_data": "ClaimResponseSubscriptionData",
+        "updated": "datetime",
     }
 
     attribute_map = {
-        'created': 'created',
-        'details': 'details',
-        'id': 'id',
-        'status': 'status',
-        'subscription_data': 'subscription_data',
-        'updated': 'updated'
+        "created": "created",
+        "details": "details",
+        "id": "id",
+        "status": "status",
+        "subscription_data": "subscription_data",
+        "updated": "updated",
     }
 
-    def __init__(self, created=None, details=None, id=None, status=None, subscription_data=None, updated=None):  # noqa: E501
+    def __init__(
+        self,
+        created=None,
+        details=None,
+        id=None,
+        status=None,
+        subscription_data=None,
+        updated=None,
+    ):  # noqa: E501
         """ChangeSubscriptionStatusClaimResponse - a model defined in Swagger"""  # noqa: E501
 
         self._created = None
@@ -90,7 +100,9 @@ class ChangeSubscriptionStatusClaimResponse(object):
         :type: datetime
         """
         if created is None:
-            raise ValueError("Invalid value for `created`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `created`, must not be `None`"
+            )  # noqa: E501
 
         self._created = created
 
@@ -115,7 +127,9 @@ class ChangeSubscriptionStatusClaimResponse(object):
         :type: str
         """
         if details is None:
-            raise ValueError("Invalid value for `details`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `details`, must not be `None`"
+            )  # noqa: E501
 
         self._details = details
 
@@ -148,7 +162,6 @@ class ChangeSubscriptionStatusClaimResponse(object):
         IN_PROCESS = "IN_PROCESS"
         STOPPED = "STOPPED"
         COMPLETED = "COMPLETED"
-        
 
     @property
     def status(self):
@@ -171,12 +184,15 @@ class ChangeSubscriptionStatusClaimResponse(object):
         :type: str
         """
         if status is None:
-            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `status`, must not be `None`"
+            )  # noqa: E501
         allowed_values = ["IN_PROCESS", "STOPPED", "COMPLETED"]  # noqa: E501
         if status not in allowed_values:
             raise ValueError(
-                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
-                .format(status, allowed_values)
+                "Invalid value for `status` ({0}), must be one of {1}".format(  # noqa: E501
+                    status, allowed_values
+                )
             )
 
         self._status = status
@@ -225,7 +241,9 @@ class ChangeSubscriptionStatusClaimResponse(object):
         :type: datetime
         """
         if updated is None:
-            raise ValueError("Invalid value for `updated`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `updated`, must not be `None`"
+            )  # noqa: E501
 
         self._updated = updated
 
@@ -236,18 +254,20 @@ class ChangeSubscriptionStatusClaimResponse(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

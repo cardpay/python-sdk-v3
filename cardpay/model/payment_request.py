@@ -16,12 +16,24 @@ import re  # noqa: F401
 
 import six
 
-from cardpay.model.payment_request_card_account import PaymentRequestCardAccount  # noqa: F401,E501
-from cardpay.model.payment_request_cryptocurrency_account import PaymentRequestCryptocurrencyAccount  # noqa: F401,E501
-from cardpay.model.payment_request_customer import PaymentRequestCustomer  # noqa: F401,E501
-from cardpay.model.payment_request_e_wallet_account import PaymentRequestEWalletAccount  # noqa: F401,E501
-from cardpay.model.payment_request_merchant_order import PaymentRequestMerchantOrder  # noqa: F401,E501
-from cardpay.model.payment_request_payment_data import PaymentRequestPaymentData  # noqa: F401,E501
+from cardpay.model.payment_request_card_account import (
+    PaymentRequestCardAccount,
+)  # noqa: F401,E501
+from cardpay.model.payment_request_cryptocurrency_account import (
+    PaymentRequestCryptocurrencyAccount,
+)  # noqa: F401,E501
+from cardpay.model.payment_request_customer import (
+    PaymentRequestCustomer,
+)  # noqa: F401,E501
+from cardpay.model.payment_request_e_wallet_account import (
+    PaymentRequestEWalletAccount,
+)  # noqa: F401,E501
+from cardpay.model.payment_request_merchant_order import (
+    PaymentRequestMerchantOrder,
+)  # noqa: F401,E501
+from cardpay.model.payment_request_payment_data import (
+    PaymentRequestPaymentData,
+)  # noqa: F401,E501
 from cardpay.model.request import Request  # noqa: F401,E501
 from cardpay.model.return_urls import ReturnUrls  # noqa: F401,E501
 
@@ -40,30 +52,44 @@ class PaymentRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'request': 'Request',
-        'card_account': 'PaymentRequestCardAccount',
-        'cryptocurrency_account': 'PaymentRequestCryptocurrencyAccount',
-        'customer': 'PaymentRequestCustomer',
-        'ewallet_account': 'PaymentRequestEWalletAccount',
-        'merchant_order': 'PaymentRequestMerchantOrder',
-        'payment_data': 'PaymentRequestPaymentData',
-        'payment_method': 'str',
-        'return_urls': 'ReturnUrls'
+        "request": "Request",
+        "card_account": "PaymentRequestCardAccount",
+        "cryptocurrency_account": "PaymentRequestCryptocurrencyAccount",
+        "customer": "PaymentRequestCustomer",
+        "ewallet_account": "PaymentRequestEWalletAccount",
+        "merchant_order": "PaymentRequestMerchantOrder",
+        "payment_data": "PaymentRequestPaymentData",
+        "payment_method": "str",
+        "payment_methods": "list[str]",
+        "return_urls": "ReturnUrls",
     }
 
     attribute_map = {
-        'request': 'request',
-        'card_account': 'card_account',
-        'cryptocurrency_account': 'cryptocurrency_account',
-        'customer': 'customer',
-        'ewallet_account': 'ewallet_account',
-        'merchant_order': 'merchant_order',
-        'payment_data': 'payment_data',
-        'payment_method': 'payment_method',
-        'return_urls': 'return_urls'
+        "request": "request",
+        "card_account": "card_account",
+        "cryptocurrency_account": "cryptocurrency_account",
+        "customer": "customer",
+        "ewallet_account": "ewallet_account",
+        "merchant_order": "merchant_order",
+        "payment_data": "payment_data",
+        "payment_method": "payment_method",
+        "payment_methods": "payment_methods",
+        "return_urls": "return_urls",
     }
 
-    def __init__(self, request=None, card_account=None, cryptocurrency_account=None, customer=None, ewallet_account=None, merchant_order=None, payment_data=None, payment_method=None, return_urls=None):  # noqa: E501
+    def __init__(
+        self,
+        request=None,
+        card_account=None,
+        cryptocurrency_account=None,
+        customer=None,
+        ewallet_account=None,
+        merchant_order=None,
+        payment_data=None,
+        payment_method=None,
+        payment_methods=None,
+        return_urls=None,
+    ):  # noqa: E501
         """PaymentRequest - a model defined in Swagger"""  # noqa: E501
 
         self._request = None
@@ -74,6 +100,7 @@ class PaymentRequest(object):
         self._merchant_order = None
         self._payment_data = None
         self._payment_method = None
+        self._payment_methods = None
         self._return_urls = None
         self.discriminator = None
 
@@ -88,6 +115,8 @@ class PaymentRequest(object):
         self.payment_data = payment_data
         if payment_method is not None:
             self.payment_method = payment_method
+        if payment_methods is not None:
+            self.payment_methods = payment_methods
         if return_urls is not None:
             self.return_urls = return_urls
 
@@ -112,7 +141,9 @@ class PaymentRequest(object):
         :type: Request
         """
         if request is None:
-            raise ValueError("Invalid value for `request`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `request`, must not be `None`"
+            )  # noqa: E501
 
         self._request = request
 
@@ -137,7 +168,9 @@ class PaymentRequest(object):
         :type: PaymentRequestCardAccount
         """
         if card_account is None:
-            raise ValueError("Invalid value for `card_account`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `card_account`, must not be `None`"
+            )  # noqa: E501
 
         self._card_account = card_account
 
@@ -185,7 +218,9 @@ class PaymentRequest(object):
         :type: PaymentRequestCustomer
         """
         if customer is None:
-            raise ValueError("Invalid value for `customer`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `customer`, must not be `None`"
+            )  # noqa: E501
 
         self._customer = customer
 
@@ -193,7 +228,7 @@ class PaymentRequest(object):
     def ewallet_account(self):
         """Gets the ewallet_account of this PaymentRequest.  # noqa: E501
 
-        eWallet account data  # noqa: E501
+        eWallet account data *(for all payment method, excluding BANKCARD, BITCOIN, DIRECTBANKINGEU)  # noqa: E501
 
         :return: The ewallet_account of this PaymentRequest.  # noqa: E501
         :rtype: PaymentRequestEWalletAccount
@@ -204,7 +239,7 @@ class PaymentRequest(object):
     def ewallet_account(self, ewallet_account):
         """Sets the ewallet_account of this PaymentRequest.
 
-        eWallet account data  # noqa: E501
+        eWallet account data *(for all payment method, excluding BANKCARD, BITCOIN, DIRECTBANKINGEU)  # noqa: E501
 
         :param ewallet_account: The ewallet_account of this PaymentRequest.  # noqa: E501
         :type: PaymentRequestEWalletAccount
@@ -233,7 +268,9 @@ class PaymentRequest(object):
         :type: PaymentRequestMerchantOrder
         """
         if merchant_order is None:
-            raise ValueError("Invalid value for `merchant_order`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `merchant_order`, must not be `None`"
+            )  # noqa: E501
 
         self._merchant_order = merchant_order
 
@@ -258,7 +295,9 @@ class PaymentRequest(object):
         :type: PaymentRequestPaymentData
         """
         if payment_data is None:
-            raise ValueError("Invalid value for `payment_data`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `payment_data`, must not be `None`"
+            )  # noqa: E501
 
         self._payment_data = payment_data
 
@@ -284,6 +323,29 @@ class PaymentRequest(object):
         """
 
         self._payment_method = payment_method
+
+    @property
+    def payment_methods(self):
+        """Gets the payment_methods of this PaymentRequest.  # noqa: E501
+
+        Array of payment methods to display on Checkout Page. If it is not set then all available methods will be displayed  # noqa: E501
+
+        :return: The payment_methods of this PaymentRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._payment_methods
+
+    @payment_methods.setter
+    def payment_methods(self, payment_methods):
+        """Sets the payment_methods of this PaymentRequest.
+
+        Array of payment methods to display on Checkout Page. If it is not set then all available methods will be displayed  # noqa: E501
+
+        :param payment_methods: The payment_methods of this PaymentRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._payment_methods = payment_methods
 
     @property
     def return_urls(self):
@@ -315,18 +377,20 @@ class PaymentRequest(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

@@ -41,9 +41,11 @@ class PayoutsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
 
-        (data) = self.create_payout_with_http_info(payout_request, **kwargs)  # noqa: E501
+        (data) = self.create_payout_with_http_info(
+            payout_request, **kwargs
+        )  # noqa: E501
         return data
 
     def create_payout_with_http_info(self, payout_request, **kwargs):  # noqa: E501
@@ -55,24 +57,25 @@ class PayoutsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['payout_request']  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["payout_request"]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method create_payout" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'payout_request' is set
-        if ('payout_request' not in params or
-                params['payout_request'] is None):
-            raise ValueError("Missing the required parameter `payout_request` when calling `create_payout`")  # noqa: E501
+        if "payout_request" not in params or params["payout_request"] is None:
+            raise ValueError(
+                "Missing the required parameter `payout_request` when calling `create_payout`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -86,28 +89,34 @@ class PayoutsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'payout_request' in params:
-            body_params = params['payout_request']
+        if "payout_request" in params:
+            body_params = params["payout_request"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/payouts', 'POST',
+            "/api/payouts",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PayoutResponse',  # noqa: E501
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            response_type="PayoutResponse",  # noqa: E501
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def get_payout(self, payout_id, **kwargs):  # noqa: E501
         """Read payout information  # noqa: E501
@@ -117,7 +126,7 @@ class PayoutsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
 
         (data) = self.get_payout_with_http_info(payout_id, **kwargs)  # noqa: E501
         return data
@@ -131,30 +140,31 @@ class PayoutsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['payout_id']  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["payout_id"]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_payout" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'payout_id' is set
-        if ('payout_id' not in params or
-                params['payout_id'] is None):
-            raise ValueError("Missing the required parameter `payout_id` when calling `get_payout`")  # noqa: E501
+        if "payout_id" not in params or params["payout_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `payout_id` when calling `get_payout`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'payout_id' in params:
-            path_params['payoutId'] = params['payout_id']  # noqa: E501
+        if "payout_id" in params:
+            path_params["payoutId"] = params["payout_id"]  # noqa: E501
 
         query_params = []
 
@@ -165,22 +175,25 @@ class PayoutsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/payouts/{payoutId}', 'GET',
+            "/api/payouts/{payoutId}",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PayoutResponse',  # noqa: E501
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            response_type="PayoutResponse",  # noqa: E501
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def get_payouts(self, request_id, **kwargs):  # noqa: E501
         """Get payouts information  # noqa: E501
@@ -197,7 +210,7 @@ class PayoutsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
 
         (data) = self.get_payouts_with_http_info(request_id, **kwargs)  # noqa: E501
         return data
@@ -218,68 +231,94 @@ class PayoutsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['request_id', 'currency', 'end_time', 'max_count', 'merchant_order_id', 'payment_method', 'sort_order', 'start_time']  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            "request_id",
+            "currency",
+            "end_time",
+            "max_count",
+            "merchant_order_id",
+            "payment_method",
+            "sort_order",
+            "start_time",
+        ]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method get_payouts" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'request_id' is set
-        if ('request_id' not in params or
-                params['request_id'] is None):
-            raise ValueError("Missing the required parameter `request_id` when calling `get_payouts`")  # noqa: E501
+        if "request_id" not in params or params["request_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `request_id` when calling `get_payouts`"
+            )  # noqa: E501
 
-        if ('request_id' in params and
-                len(params['request_id']) > 50):
-            raise ValueError("Invalid value for parameter `request_id` when calling `get_payouts`, length must be less than or equal to `50`")  # noqa: E501
-        if ('request_id' in params and
-                len(params['request_id']) < 0):
-            raise ValueError("Invalid value for parameter `request_id` when calling `get_payouts`, length must be greater than or equal to `0`")  # noqa: E501
-        if 'max_count' in params and params['max_count'] > 10000:  # noqa: E501
-            raise ValueError("Invalid value for parameter `max_count` when calling `get_payouts`, must be a value less than or equal to `10000`")  # noqa: E501
-        if ('merchant_order_id' in params and
-                len(params['merchant_order_id']) > 50):
-            raise ValueError("Invalid value for parameter `merchant_order_id` when calling `get_payouts`, length must be less than or equal to `50`")  # noqa: E501
-        if ('merchant_order_id' in params and
-                len(params['merchant_order_id']) < 0):
-            raise ValueError("Invalid value for parameter `merchant_order_id` when calling `get_payouts`, length must be greater than or equal to `0`")  # noqa: E501
-        if ('payment_method' in params and
-                len(params['payment_method']) > 100):
-            raise ValueError("Invalid value for parameter `payment_method` when calling `get_payouts`, length must be less than or equal to `100`")  # noqa: E501
-        if ('payment_method' in params and
-                len(params['payment_method']) < 0):
-            raise ValueError("Invalid value for parameter `payment_method` when calling `get_payouts`, length must be greater than or equal to `0`")  # noqa: E501
-        if 'sort_order' in params and not re.search(r'asc|desc', params['sort_order']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `sort_order` when calling `get_payouts`, must conform to the pattern `/asc|desc/`")  # noqa: E501
+        if "request_id" in params and len(params["request_id"]) > 50:
+            raise ValueError(
+                "Invalid value for parameter `request_id` when calling `get_payouts`, length must be less than or equal to `50`"
+            )  # noqa: E501
+        if "request_id" in params and len(params["request_id"]) < 0:
+            raise ValueError(
+                "Invalid value for parameter `request_id` when calling `get_payouts`, length must be greater than or equal to `0`"
+            )  # noqa: E501
+        if "max_count" in params and params["max_count"] > 10000:  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `max_count` when calling `get_payouts`, must be a value less than or equal to `10000`"
+            )  # noqa: E501
+        if "merchant_order_id" in params and len(params["merchant_order_id"]) > 50:
+            raise ValueError(
+                "Invalid value for parameter `merchant_order_id` when calling `get_payouts`, length must be less than or equal to `50`"
+            )  # noqa: E501
+        if "merchant_order_id" in params and len(params["merchant_order_id"]) < 0:
+            raise ValueError(
+                "Invalid value for parameter `merchant_order_id` when calling `get_payouts`, length must be greater than or equal to `0`"
+            )  # noqa: E501
+        if "payment_method" in params and len(params["payment_method"]) > 100:
+            raise ValueError(
+                "Invalid value for parameter `payment_method` when calling `get_payouts`, length must be less than or equal to `100`"
+            )  # noqa: E501
+        if "payment_method" in params and len(params["payment_method"]) < 0:
+            raise ValueError(
+                "Invalid value for parameter `payment_method` when calling `get_payouts`, length must be greater than or equal to `0`"
+            )  # noqa: E501
+        if "sort_order" in params and not re.search(
+            r"asc|desc", params["sort_order"]
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `sort_order` when calling `get_payouts`, must conform to the pattern `/asc|desc/`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'currency' in params:
-            query_params.append(('currency', params['currency']))  # noqa: E501
-        if 'end_time' in params:
-            query_params.append(('end_time', params['end_time']))  # noqa: E501
-        if 'max_count' in params:
-            query_params.append(('max_count', params['max_count']))  # noqa: E501
-        if 'merchant_order_id' in params:
-            query_params.append(('merchant_order_id', params['merchant_order_id']))  # noqa: E501
-        if 'payment_method' in params:
-            query_params.append(('payment_method', params['payment_method']))  # noqa: E501
-        if 'request_id' in params:
-            query_params.append(('request_id', params['request_id']))  # noqa: E501
-        if 'sort_order' in params:
-            query_params.append(('sort_order', params['sort_order']))  # noqa: E501
-        if 'start_time' in params:
-            query_params.append(('start_time', params['start_time']))  # noqa: E501
+        if "currency" in params:
+            query_params.append(("currency", params["currency"]))  # noqa: E501
+        if "end_time" in params:
+            query_params.append(("end_time", params["end_time"]))  # noqa: E501
+        if "max_count" in params:
+            query_params.append(("max_count", params["max_count"]))  # noqa: E501
+        if "merchant_order_id" in params:
+            query_params.append(
+                ("merchant_order_id", params["merchant_order_id"])
+            )  # noqa: E501
+        if "payment_method" in params:
+            query_params.append(
+                ("payment_method", params["payment_method"])
+            )  # noqa: E501
+        if "request_id" in params:
+            query_params.append(("request_id", params["request_id"]))  # noqa: E501
+        if "sort_order" in params:
+            query_params.append(("sort_order", params["sort_order"]))  # noqa: E501
+        if "start_time" in params:
+            query_params.append(("start_time", params["start_time"]))  # noqa: E501
 
         header_params = {}
 
@@ -288,22 +327,25 @@ class PayoutsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/payouts', 'GET',
+            "/api/payouts",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PayoutsList',  # noqa: E501
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            response_type="PayoutsList",  # noqa: E501
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def update_payout(self, payout_id, payout_update_request, **kwargs):  # noqa: E501
         """Update payout  # noqa: E501
@@ -314,12 +356,16 @@ class PayoutsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
 
-        (data) = self.update_payout_with_http_info(payout_id, payout_update_request, **kwargs)  # noqa: E501
+        (data) = self.update_payout_with_http_info(
+            payout_id, payout_update_request, **kwargs
+        )  # noqa: E501
         return data
 
-    def update_payout_with_http_info(self, payout_id, payout_update_request, **kwargs):  # noqa: E501
+    def update_payout_with_http_info(
+        self, payout_id, payout_update_request, **kwargs
+    ):  # noqa: E501
         """Update payout  # noqa: E501
 
         :param str payout_id: Payout ID (required)
@@ -329,34 +375,39 @@ class PayoutsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['payout_id', 'payout_update_request']  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["payout_id", "payout_update_request"]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(params["kwargs"]):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method update_payout" % key
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'payout_id' is set
-        if ('payout_id' not in params or
-                params['payout_id'] is None):
-            raise ValueError("Missing the required parameter `payout_id` when calling `update_payout`")  # noqa: E501
+        if "payout_id" not in params or params["payout_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `payout_id` when calling `update_payout`"
+            )  # noqa: E501
         # verify the required parameter 'payout_update_request' is set
-        if ('payout_update_request' not in params or
-                params['payout_update_request'] is None):
-            raise ValueError("Missing the required parameter `payout_update_request` when calling `update_payout`")  # noqa: E501
+        if (
+            "payout_update_request" not in params
+            or params["payout_update_request"] is None
+        ):
+            raise ValueError(
+                "Missing the required parameter `payout_update_request` when calling `update_payout`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'payout_id' in params:
-            path_params['payoutId'] = params['payout_id']  # noqa: E501
+        if "payout_id" in params:
+            path_params["payoutId"] = params["payout_id"]  # noqa: E501
 
         query_params = []
 
@@ -366,25 +417,31 @@ class PayoutsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'payout_update_request' in params:
-            body_params = params['payout_update_request']
+        if "payout_update_request" in params:
+            body_params = params["payout_update_request"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/payouts/{payoutId}', 'PATCH',
+            "/api/payouts/{payoutId}",
+            "PATCH",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PayoutUpdateResponse',  # noqa: E501
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            response_type="PayoutUpdateResponse",  # noqa: E501
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )

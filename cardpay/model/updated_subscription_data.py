@@ -16,8 +16,12 @@ import re  # noqa: F401
 
 import six
 
-from cardpay.model.recurring_response_filing import RecurringResponseFiling  # noqa: F401,E501
-from cardpay.model.updated_subscription_recurring_data import UpdatedSubscriptionRecurringData  # noqa: F401,E501
+from cardpay.model.recurring_response_filing import (
+    RecurringResponseFiling,
+)  # noqa: F401,E501
+from cardpay.model.updated_subscription_recurring_data import (
+    UpdatedSubscriptionRecurringData,
+)  # noqa: F401,E501
 
 
 class UpdatedSubscriptionData(object):
@@ -34,32 +38,44 @@ class UpdatedSubscriptionData(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'change_status_claim_id': 'str',
-        'details': 'str',
-        'filing': 'RecurringResponseFiling',
-        'id': 'str',
-        'is_executed': 'bool',
-        'recurring_data': 'UpdatedSubscriptionRecurringData',
-        'remaining_amount': 'float',
-        'status': 'str',
-        'status_to': 'str',
-        'updated': 'datetime'
+        "change_status_claim_id": "str",
+        "details": "str",
+        "filing": "RecurringResponseFiling",
+        "id": "str",
+        "is_executed": "bool",
+        "recurring_data": "UpdatedSubscriptionRecurringData",
+        "remaining_amount": "float",
+        "status": "str",
+        "status_to": "str",
+        "updated": "datetime",
     }
 
     attribute_map = {
-        'change_status_claim_id': 'change_status_claim_id',
-        'details': 'details',
-        'filing': 'filing',
-        'id': 'id',
-        'is_executed': 'is_executed',
-        'recurring_data': 'recurring_data',
-        'remaining_amount': 'remaining_amount',
-        'status': 'status',
-        'status_to': 'status_to',
-        'updated': 'updated'
+        "change_status_claim_id": "change_status_claim_id",
+        "details": "details",
+        "filing": "filing",
+        "id": "id",
+        "is_executed": "is_executed",
+        "recurring_data": "recurring_data",
+        "remaining_amount": "remaining_amount",
+        "status": "status",
+        "status_to": "status_to",
+        "updated": "updated",
     }
 
-    def __init__(self, change_status_claim_id=None, details=None, filing=None, id=None, is_executed=None, recurring_data=None, remaining_amount=None, status=None, status_to=None, updated=None):  # noqa: E501
+    def __init__(
+        self,
+        change_status_claim_id=None,
+        details=None,
+        filing=None,
+        id=None,
+        is_executed=None,
+        recurring_data=None,
+        remaining_amount=None,
+        status=None,
+        status_to=None,
+        updated=None,
+    ):  # noqa: E501
         """UpdatedSubscriptionData - a model defined in Swagger"""  # noqa: E501
 
         self._change_status_claim_id = None
@@ -265,7 +281,6 @@ class UpdatedSubscriptionData(object):
         COMPLETED = "COMPLETED"
         CARD_EXPIRED = "CARD_EXPIRED"
         ACTIVATION_FAILED = "ACTIVATION_FAILED"
-        
 
     @property
     def status(self):
@@ -287,11 +302,21 @@ class UpdatedSubscriptionData(object):
         :param status: The status of this UpdatedSubscriptionData.  # noqa: E501
         :type: str
         """
-        allowed_values = ["ACTIVE", "INACTIVE", "CANCELLED", "PAST_DUE", "PENDING", "COMPLETED", "CARD_EXPIRED", "ACTIVATION_FAILED"]  # noqa: E501
+        allowed_values = [
+            "ACTIVE",
+            "INACTIVE",
+            "CANCELLED",
+            "PAST_DUE",
+            "PENDING",
+            "COMPLETED",
+            "CARD_EXPIRED",
+            "ACTIVATION_FAILED",
+        ]  # noqa: E501
         if status not in allowed_values:
             raise ValueError(
-                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
-                .format(status, allowed_values)
+                "Invalid value for `status` ({0}), must be one of {1}".format(  # noqa: E501
+                    status, allowed_values
+                )
             )
 
         self._status = status
@@ -305,7 +330,6 @@ class UpdatedSubscriptionData(object):
         COMPLETED = "COMPLETED"
         CARD_EXPIRED = "CARD_EXPIRED"
         ACTIVATION_FAILED = "ACTIVATION_FAILED"
-        
 
     @property
     def status_to(self):
@@ -327,11 +351,21 @@ class UpdatedSubscriptionData(object):
         :param status_to: The status_to of this UpdatedSubscriptionData.  # noqa: E501
         :type: str
         """
-        allowed_values = ["ACTIVE", "INACTIVE", "CANCELLED", "PAST_DUE", "PENDING", "COMPLETED", "CARD_EXPIRED", "ACTIVATION_FAILED"]  # noqa: E501
+        allowed_values = [
+            "ACTIVE",
+            "INACTIVE",
+            "CANCELLED",
+            "PAST_DUE",
+            "PENDING",
+            "COMPLETED",
+            "CARD_EXPIRED",
+            "ACTIVATION_FAILED",
+        ]  # noqa: E501
         if status_to not in allowed_values:
             raise ValueError(
-                "Invalid value for `status_to` ({0}), must be one of {1}"  # noqa: E501
-                .format(status_to, allowed_values)
+                "Invalid value for `status_to` ({0}), must be one of {1}".format(  # noqa: E501
+                    status_to, allowed_values
+                )
             )
 
         self._status_to = status_to
@@ -366,18 +400,20 @@ class UpdatedSubscriptionData(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

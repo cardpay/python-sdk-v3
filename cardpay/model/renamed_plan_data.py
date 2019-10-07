@@ -31,28 +31,38 @@ class RenamedPlanData(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'id': 'str',
-        'details': 'str',
-        'updated': 'datetime',
-        'is_executed': 'bool',
-        'name_to': 'str',
-        'name': 'str',
-        'status_to': 'str',
-        'status': 'str'
+        "id": "str",
+        "details": "str",
+        "updated": "datetime",
+        "is_executed": "bool",
+        "name_to": "str",
+        "name": "str",
+        "status_to": "str",
+        "status": "str",
     }
 
     attribute_map = {
-        'id': 'id',
-        'details': 'details',
-        'updated': 'updated',
-        'is_executed': 'is_executed',
-        'name_to': 'name_to',
-        'name': 'name',
-        'status_to': 'status_to',
-        'status': 'status'
+        "id": "id",
+        "details": "details",
+        "updated": "updated",
+        "is_executed": "is_executed",
+        "name_to": "name_to",
+        "name": "name",
+        "status_to": "status_to",
+        "status": "status",
     }
 
-    def __init__(self, id=None, details=None, updated=None, is_executed=None, name_to=None, name=None, status_to=None, status=None):  # noqa: E501
+    def __init__(
+        self,
+        id=None,
+        details=None,
+        updated=None,
+        is_executed=None,
+        name_to=None,
+        name=None,
+        status_to=None,
+        status=None,
+    ):  # noqa: E501
         """RenamedPlanData - a model defined in Swagger"""  # noqa: E501
 
         self._id = None
@@ -223,7 +233,6 @@ class RenamedPlanData(object):
     class StatusTo(object):
         ACTIVE = "ACTIVE"
         INACTIVE = "INACTIVE"
-        
 
     @property
     def status_to(self):
@@ -248,8 +257,9 @@ class RenamedPlanData(object):
         allowed_values = ["ACTIVE", "INACTIVE"]  # noqa: E501
         if status_to not in allowed_values:
             raise ValueError(
-                "Invalid value for `status_to` ({0}), must be one of {1}"  # noqa: E501
-                .format(status_to, allowed_values)
+                "Invalid value for `status_to` ({0}), must be one of {1}".format(  # noqa: E501
+                    status_to, allowed_values
+                )
             )
 
         self._status_to = status_to
@@ -257,7 +267,6 @@ class RenamedPlanData(object):
     class Status(object):
         ACTIVE = "ACTIVE"
         INACTIVE = "INACTIVE"
-        
 
     @property
     def status(self):
@@ -282,8 +291,9 @@ class RenamedPlanData(object):
         allowed_values = ["ACTIVE", "INACTIVE"]  # noqa: E501
         if status not in allowed_values:
             raise ValueError(
-                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
-                .format(status, allowed_values)
+                "Invalid value for `status` ({0}), must be one of {1}".format(  # noqa: E501
+                    status, allowed_values
+                )
             )
 
         self._status = status
@@ -295,18 +305,20 @@ class RenamedPlanData(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

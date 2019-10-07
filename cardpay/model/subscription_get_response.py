@@ -16,8 +16,12 @@ import re  # noqa: F401
 
 import six
 
-from cardpay.model.next_subscription_payment import NextSubscriptionPayment  # noqa: F401,E501
-from cardpay.model.payout_response_customer import PayoutResponseCustomer  # noqa: F401,E501
+from cardpay.model.next_subscription_payment import (
+    NextSubscriptionPayment,
+)  # noqa: F401,E501
+from cardpay.model.payout_response_customer import (
+    PayoutResponseCustomer,
+)  # noqa: F401,E501
 from cardpay.model.plan import Plan  # noqa: F401,E501
 
 
@@ -35,46 +39,65 @@ class SubscriptionGetResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'amount_due': 'float',
-        'amount_total': 'float',
-        'created': 'datetime',
-        'currency': 'str',
-        'customer': 'PayoutResponseCustomer',
-        'description': 'str',
-        'id': 'str',
-        'interval': 'int',
-        'next_payment': 'NextSubscriptionPayment',
-        'payments_due': 'int',
-        'period': 'str',
-        'plan': 'Plan',
-        'retries': 'int',
-        'status': 'str',
-        'status_reason': 'str',
-        'subscription_start': 'datetime',
-        'type': 'str'
+        "amount_due": "float",
+        "amount_total": "float",
+        "created": "datetime",
+        "currency": "str",
+        "customer": "PayoutResponseCustomer",
+        "description": "str",
+        "id": "str",
+        "interval": "int",
+        "next_payment": "NextSubscriptionPayment",
+        "payments_due": "int",
+        "period": "str",
+        "plan": "Plan",
+        "retries": "int",
+        "status": "str",
+        "status_reason": "str",
+        "subscription_start": "datetime",
+        "type": "str",
     }
 
     attribute_map = {
-        'amount_due': 'amount_due',
-        'amount_total': 'amount_total',
-        'created': 'created',
-        'currency': 'currency',
-        'customer': 'customer',
-        'description': 'description',
-        'id': 'id',
-        'interval': 'interval',
-        'next_payment': 'next_payment',
-        'payments_due': 'payments_due',
-        'period': 'period',
-        'plan': 'plan',
-        'retries': 'retries',
-        'status': 'status',
-        'status_reason': 'status_reason',
-        'subscription_start': 'subscription_start',
-        'type': 'type'
+        "amount_due": "amount_due",
+        "amount_total": "amount_total",
+        "created": "created",
+        "currency": "currency",
+        "customer": "customer",
+        "description": "description",
+        "id": "id",
+        "interval": "interval",
+        "next_payment": "next_payment",
+        "payments_due": "payments_due",
+        "period": "period",
+        "plan": "plan",
+        "retries": "retries",
+        "status": "status",
+        "status_reason": "status_reason",
+        "subscription_start": "subscription_start",
+        "type": "type",
     }
 
-    def __init__(self, amount_due=None, amount_total=None, created=None, currency=None, customer=None, description=None, id=None, interval=None, next_payment=None, payments_due=None, period=None, plan=None, retries=None, status=None, status_reason=None, subscription_start=None, type=None):  # noqa: E501
+    def __init__(
+        self,
+        amount_due=None,
+        amount_total=None,
+        created=None,
+        currency=None,
+        customer=None,
+        description=None,
+        id=None,
+        interval=None,
+        next_payment=None,
+        payments_due=None,
+        period=None,
+        plan=None,
+        retries=None,
+        status=None,
+        status_reason=None,
+        subscription_start=None,
+        type=None,
+    ):  # noqa: E501
         """SubscriptionGetResponse - a model defined in Swagger"""  # noqa: E501
 
         self._amount_due = None
@@ -367,7 +390,6 @@ class SubscriptionGetResponse(object):
         WEEK = "week"
         MONTH = "month"
         YEAR = "year"
-        
 
     @property
     def period(self):
@@ -392,8 +414,9 @@ class SubscriptionGetResponse(object):
         allowed_values = ["minute", "day", "week", "month", "year"]  # noqa: E501
         if period not in allowed_values:
             raise ValueError(
-                "Invalid value for `period` ({0}), must be one of {1}"  # noqa: E501
-                .format(period, allowed_values)
+                "Invalid value for `period` ({0}), must be one of {1}".format(  # noqa: E501
+                    period, allowed_values
+                )
             )
 
         self._period = period
@@ -453,7 +476,6 @@ class SubscriptionGetResponse(object):
         COMPLETED = "COMPLETED"
         CARD_EXPIRED = "CARD_EXPIRED"
         ACTIVATION_FAILED = "ACTIVATION_FAILED"
-        
 
     @property
     def status(self):
@@ -475,11 +497,21 @@ class SubscriptionGetResponse(object):
         :param status: The status of this SubscriptionGetResponse.  # noqa: E501
         :type: str
         """
-        allowed_values = ["ACTIVE", "INACTIVE", "CANCELLED", "PAST_DUE", "PENDING", "COMPLETED", "CARD_EXPIRED", "ACTIVATION_FAILED"]  # noqa: E501
+        allowed_values = [
+            "ACTIVE",
+            "INACTIVE",
+            "CANCELLED",
+            "PAST_DUE",
+            "PENDING",
+            "COMPLETED",
+            "CARD_EXPIRED",
+            "ACTIVATION_FAILED",
+        ]  # noqa: E501
         if status not in allowed_values:
             raise ValueError(
-                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
-                .format(status, allowed_values)
+                "Invalid value for `status` ({0}), must be one of {1}".format(  # noqa: E501
+                    status, allowed_values
+                )
             )
 
         self._status = status
@@ -534,7 +566,6 @@ class SubscriptionGetResponse(object):
         ONECLICK = "ONECLICK"
         SCHEDULED = "SCHEDULED"
         INSTALLMENT = "INSTALLMENT"
-        
 
     @property
     def type(self):
@@ -559,8 +590,9 @@ class SubscriptionGetResponse(object):
         allowed_values = ["ONECLICK", "SCHEDULED", "INSTALLMENT"]  # noqa: E501
         if type not in allowed_values:
             raise ValueError(
-                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
-                .format(type, allowed_values)
+                "Invalid value for `type` ({0}), must be one of {1}".format(  # noqa: E501
+                    type, allowed_values
+                )
             )
 
         self._type = type
@@ -572,18 +604,20 @@ class SubscriptionGetResponse(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

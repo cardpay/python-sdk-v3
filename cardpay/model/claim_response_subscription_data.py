@@ -30,15 +30,9 @@ class ClaimResponseSubscriptionData(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {
-        'id': 'str',
-        'status_to': 'str'
-    }
+    swagger_types = {"id": "str", "status_to": "str"}
 
-    attribute_map = {
-        'id': 'id',
-        'status_to': 'status_to'
-    }
+    attribute_map = {"id": "id", "status_to": "status_to"}
 
     def __init__(self, id=None, status_to=None):  # noqa: E501
         """ClaimResponseSubscriptionData - a model defined in Swagger"""  # noqa: E501
@@ -84,7 +78,6 @@ class ClaimResponseSubscriptionData(object):
         COMPLETED = "COMPLETED"
         CARD_EXPIRED = "CARD_EXPIRED"
         ACTIVATION_FAILED = "ACTIVATION_FAILED"
-        
 
     @property
     def status_to(self):
@@ -107,12 +100,24 @@ class ClaimResponseSubscriptionData(object):
         :type: str
         """
         if status_to is None:
-            raise ValueError("Invalid value for `status_to`, must not be `None`")  # noqa: E501
-        allowed_values = ["ACTIVE", "INACTIVE", "CANCELLED", "PAST_DUE", "PENDING", "COMPLETED", "CARD_EXPIRED", "ACTIVATION_FAILED"]  # noqa: E501
+            raise ValueError(
+                "Invalid value for `status_to`, must not be `None`"
+            )  # noqa: E501
+        allowed_values = [
+            "ACTIVE",
+            "INACTIVE",
+            "CANCELLED",
+            "PAST_DUE",
+            "PENDING",
+            "COMPLETED",
+            "CARD_EXPIRED",
+            "ACTIVATION_FAILED",
+        ]  # noqa: E501
         if status_to not in allowed_values:
             raise ValueError(
-                "Invalid value for `status_to` ({0}), must be one of {1}"  # noqa: E501
-                .format(status_to, allowed_values)
+                "Invalid value for `status_to` ({0}), must be one of {1}".format(  # noqa: E501
+                    status_to, allowed_values
+                )
             )
 
         self._status_to = status_to
@@ -124,18 +129,20 @@ class ClaimResponseSubscriptionData(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

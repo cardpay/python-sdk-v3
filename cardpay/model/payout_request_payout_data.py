@@ -31,20 +31,22 @@ class PayoutRequestPayoutData(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'amount': 'float',
-        'currency': 'str',
-        'dynamic_descriptor': 'str',
-        'note': 'str'
+        "amount": "float",
+        "currency": "str",
+        "dynamic_descriptor": "str",
+        "note": "str",
     }
 
     attribute_map = {
-        'amount': 'amount',
-        'currency': 'currency',
-        'dynamic_descriptor': 'dynamic_descriptor',
-        'note': 'note'
+        "amount": "amount",
+        "currency": "currency",
+        "dynamic_descriptor": "dynamic_descriptor",
+        "note": "note",
     }
 
-    def __init__(self, amount=None, currency=None, dynamic_descriptor=None, note=None):  # noqa: E501
+    def __init__(
+        self, amount=None, currency=None, dynamic_descriptor=None, note=None
+    ):  # noqa: E501
         """PayoutRequestPayoutData - a model defined in Swagger"""  # noqa: E501
 
         self._amount = None
@@ -81,7 +83,9 @@ class PayoutRequestPayoutData(object):
         :type: float
         """
         if amount is None:
-            raise ValueError("Invalid value for `amount`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `amount`, must not be `None`"
+            )  # noqa: E501
 
         self._amount = amount
 
@@ -106,7 +110,9 @@ class PayoutRequestPayoutData(object):
         :type: str
         """
         if currency is None:
-            raise ValueError("Invalid value for `currency`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `currency`, must not be `None`"
+            )  # noqa: E501
 
         self._currency = currency
 
@@ -131,9 +137,13 @@ class PayoutRequestPayoutData(object):
         :type: str
         """
         if dynamic_descriptor is not None and len(dynamic_descriptor) > 25:
-            raise ValueError("Invalid value for `dynamic_descriptor`, length must be less than or equal to `25`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `dynamic_descriptor`, length must be less than or equal to `25`"
+            )  # noqa: E501
         if dynamic_descriptor is not None and len(dynamic_descriptor) < 0:
-            raise ValueError("Invalid value for `dynamic_descriptor`, length must be greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `dynamic_descriptor`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._dynamic_descriptor = dynamic_descriptor
 
@@ -158,9 +168,13 @@ class PayoutRequestPayoutData(object):
         :type: str
         """
         if note is not None and len(note) > 100:
-            raise ValueError("Invalid value for `note`, length must be less than or equal to `100`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `note`, length must be less than or equal to `100`"
+            )  # noqa: E501
         if note is not None and len(note) < 0:
-            raise ValueError("Invalid value for `note`, length must be greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `note`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._note = note
 
@@ -171,18 +185,20 @@ class PayoutRequestPayoutData(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

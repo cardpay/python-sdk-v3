@@ -31,20 +31,22 @@ class PaymentRequestEWalletAccount(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'bank_code': 'str',
-        'expiration': 'str',
-        'id': 'str',
-        'verification_code': 'str'
+        "bank_code": "str",
+        "expiration": "str",
+        "id": "str",
+        "verification_code": "str",
     }
 
     attribute_map = {
-        'bank_code': 'bank_code',
-        'expiration': 'expiration',
-        'id': 'id',
-        'verification_code': 'verification_code'
+        "bank_code": "bank_code",
+        "expiration": "expiration",
+        "id": "id",
+        "verification_code": "verification_code",
     }
 
-    def __init__(self, bank_code=None, expiration=None, id=None, verification_code=None):  # noqa: E501
+    def __init__(
+        self, bank_code=None, expiration=None, id=None, verification_code=None
+    ):  # noqa: E501
         """PaymentRequestEWalletAccount - a model defined in Swagger"""  # noqa: E501
 
         self._bank_code = None
@@ -105,8 +107,12 @@ class PaymentRequestEWalletAccount(object):
         :param expiration: The expiration of this PaymentRequestEWalletAccount.  # noqa: E501
         :type: str
         """
-        if expiration is not None and not re.search(r'^\\d{1,2}\/\\d{4}', expiration):  # noqa: E501
-            raise ValueError(r"Invalid value for `expiration`, must be a follow pattern or equal to `/^\\d{1,2}\/\\d{4}/`")  # noqa: E501
+        if expiration is not None and not re.search(
+            r"^\\d{1,2}\/\\d{4}", expiration
+        ):  # noqa: E501
+            raise ValueError(
+                r"Invalid value for `expiration`, must be a follow pattern or equal to `/^\\d{1,2}\/\\d{4}/`"
+            )  # noqa: E501
 
         self._expiration = expiration
 
@@ -163,18 +169,20 @@ class PaymentRequestEWalletAccount(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

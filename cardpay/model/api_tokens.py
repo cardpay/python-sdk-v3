@@ -31,22 +31,29 @@ class ApiTokens(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'access_token': 'str',
-        'expires_in': 'int',
-        'refresh_expires_in': 'int',
-        'refresh_token': 'str',
-        'token_type': 'str'
+        "access_token": "str",
+        "expires_in": "int",
+        "refresh_expires_in": "int",
+        "refresh_token": "str",
+        "token_type": "str",
     }
 
     attribute_map = {
-        'access_token': 'access_token',
-        'expires_in': 'expires_in',
-        'refresh_expires_in': 'refresh_expires_in',
-        'refresh_token': 'refresh_token',
-        'token_type': 'token_type'
+        "access_token": "access_token",
+        "expires_in": "expires_in",
+        "refresh_expires_in": "refresh_expires_in",
+        "refresh_token": "refresh_token",
+        "token_type": "token_type",
     }
 
-    def __init__(self, access_token=None, expires_in=None, refresh_expires_in=None, refresh_token=None, token_type=None):  # noqa: E501
+    def __init__(
+        self,
+        access_token=None,
+        expires_in=None,
+        refresh_expires_in=None,
+        refresh_token=None,
+        token_type=None,
+    ):  # noqa: E501
         """ApiTokens - a model defined in Swagger"""  # noqa: E501
 
         self._access_token = None
@@ -83,7 +90,9 @@ class ApiTokens(object):
         :type: str
         """
         if access_token is None:
-            raise ValueError("Invalid value for `access_token`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `access_token`, must not be `None`"
+            )  # noqa: E501
 
         self._access_token = access_token
 
@@ -108,7 +117,9 @@ class ApiTokens(object):
         :type: int
         """
         if expires_in is None:
-            raise ValueError("Invalid value for `expires_in`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `expires_in`, must not be `None`"
+            )  # noqa: E501
 
         self._expires_in = expires_in
 
@@ -133,7 +144,9 @@ class ApiTokens(object):
         :type: int
         """
         if refresh_expires_in is None:
-            raise ValueError("Invalid value for `refresh_expires_in`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `refresh_expires_in`, must not be `None`"
+            )  # noqa: E501
 
         self._refresh_expires_in = refresh_expires_in
 
@@ -158,7 +171,9 @@ class ApiTokens(object):
         :type: str
         """
         if refresh_token is None:
-            raise ValueError("Invalid value for `refresh_token`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `refresh_token`, must not be `None`"
+            )  # noqa: E501
 
         self._refresh_token = refresh_token
 
@@ -183,7 +198,9 @@ class ApiTokens(object):
         :type: str
         """
         if token_type is None:
-            raise ValueError("Invalid value for `token_type`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `token_type`, must not be `None`"
+            )  # noqa: E501
 
         self._token_type = token_type
 
@@ -194,18 +211,20 @@ class ApiTokens(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

@@ -16,8 +16,12 @@ import re  # noqa: F401
 
 import six
 
-from cardpay.model.response_updated_transaction_data import ResponseUpdatedTransactionData  # noqa: F401,E501
-from cardpay.model.transaction_response_merchant_order import TransactionResponseMerchantOrder  # noqa: F401,E501
+from cardpay.model.response_updated_transaction_data import (
+    ResponseUpdatedTransactionData,
+)  # noqa: F401,E501
+from cardpay.model.transaction_response_merchant_order import (
+    TransactionResponseMerchantOrder,
+)  # noqa: F401,E501
 
 
 class PayoutUpdateResponse(object):
@@ -34,14 +38,11 @@ class PayoutUpdateResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'merchant_order': 'TransactionResponseMerchantOrder',
-        'payout_data': 'ResponseUpdatedTransactionData'
+        "merchant_order": "TransactionResponseMerchantOrder",
+        "payout_data": "ResponseUpdatedTransactionData",
     }
 
-    attribute_map = {
-        'merchant_order': 'merchant_order',
-        'payout_data': 'payout_data'
-    }
+    attribute_map = {"merchant_order": "merchant_order", "payout_data": "payout_data"}
 
     def __init__(self, merchant_order=None, payout_data=None):  # noqa: E501
         """PayoutUpdateResponse - a model defined in Swagger"""  # noqa: E501
@@ -108,18 +109,20 @@ class PayoutUpdateResponse(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

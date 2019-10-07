@@ -31,34 +31,47 @@ class SubscriptionFilterParameters(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'request_id': 'str',
-        'max_count': 'int',
-        'offset': 'int',
-        'sort_order': 'str',
-        'customer_id': 'str',
-        'plan_id': 'str',
-        'start_time': 'datetime',
-        'end_time': 'datetime',
-        'currency': 'str',
-        'status': 'str',
-        'type': 'str'
+        "request_id": "str",
+        "max_count": "int",
+        "offset": "int",
+        "sort_order": "str",
+        "customer_id": "str",
+        "plan_id": "str",
+        "start_time": "datetime",
+        "end_time": "datetime",
+        "currency": "str",
+        "status": "str",
+        "type": "str",
     }
 
     attribute_map = {
-        'request_id': 'request_id',
-        'max_count': 'max_count',
-        'offset': 'offset',
-        'sort_order': 'sort_order',
-        'customer_id': 'customer_id',
-        'plan_id': 'plan_id',
-        'start_time': 'start_time',
-        'end_time': 'end_time',
-        'currency': 'currency',
-        'status': 'status',
-        'type': 'type'
+        "request_id": "request_id",
+        "max_count": "max_count",
+        "offset": "offset",
+        "sort_order": "sort_order",
+        "customer_id": "customer_id",
+        "plan_id": "plan_id",
+        "start_time": "start_time",
+        "end_time": "end_time",
+        "currency": "currency",
+        "status": "status",
+        "type": "type",
     }
 
-    def __init__(self, request_id=None, max_count=None, offset=None, sort_order=None, customer_id=None, plan_id=None, start_time=None, end_time=None, currency=None, status=None, type=None):  # noqa: E501
+    def __init__(
+        self,
+        request_id=None,
+        max_count=None,
+        offset=None,
+        sort_order=None,
+        customer_id=None,
+        plan_id=None,
+        start_time=None,
+        end_time=None,
+        currency=None,
+        status=None,
+        type=None,
+    ):  # noqa: E501
         """SubscriptionFilterParameters - a model defined in Swagger"""  # noqa: E501
 
         self._request_id = None
@@ -117,11 +130,17 @@ class SubscriptionFilterParameters(object):
         :type: str
         """
         if request_id is None:
-            raise ValueError("Invalid value for `request_id`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `request_id`, must not be `None`"
+            )  # noqa: E501
         if request_id is not None and len(request_id) > 50:
-            raise ValueError("Invalid value for `request_id`, length must be less than or equal to `50`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `request_id`, length must be less than or equal to `50`"
+            )  # noqa: E501
         if request_id is not None and len(request_id) < 1:
-            raise ValueError("Invalid value for `request_id`, length must be greater than or equal to `1`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `request_id`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._request_id = request_id
 
@@ -146,9 +165,13 @@ class SubscriptionFilterParameters(object):
         :type: int
         """
         if max_count is not None and max_count > 10000:  # noqa: E501
-            raise ValueError("Invalid value for `max_count`, must be a value less than or equal to `10000`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `max_count`, must be a value less than or equal to `10000`"
+            )  # noqa: E501
         if max_count is not None and max_count < 1:  # noqa: E501
-            raise ValueError("Invalid value for `max_count`, must be a value greater than or equal to `1`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `max_count`, must be a value greater than or equal to `1`"
+            )  # noqa: E501
 
         self._max_count = max_count
 
@@ -173,9 +196,13 @@ class SubscriptionFilterParameters(object):
         :type: int
         """
         if offset is not None and offset > 10000:  # noqa: E501
-            raise ValueError("Invalid value for `offset`, must be a value less than or equal to `10000`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `offset`, must be a value less than or equal to `10000`"
+            )  # noqa: E501
         if offset is not None and offset < 0:  # noqa: E501
-            raise ValueError("Invalid value for `offset`, must be a value greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `offset`, must be a value greater than or equal to `0`"
+            )  # noqa: E501
 
         self._offset = offset
 
@@ -199,8 +226,12 @@ class SubscriptionFilterParameters(object):
         :param sort_order: The sort_order of this SubscriptionFilterParameters.  # noqa: E501
         :type: str
         """
-        if sort_order is not None and not re.search(r'asc|desc', sort_order):  # noqa: E501
-            raise ValueError(r"Invalid value for `sort_order`, must be a follow pattern or equal to `/asc|desc/`")  # noqa: E501
+        if sort_order is not None and not re.search(
+            r"asc|desc", sort_order
+        ):  # noqa: E501
+            raise ValueError(
+                r"Invalid value for `sort_order`, must be a follow pattern or equal to `/asc|desc/`"
+            )  # noqa: E501
 
         self._sort_order = sort_order
 
@@ -225,9 +256,13 @@ class SubscriptionFilterParameters(object):
         :type: str
         """
         if customer_id is not None and len(customer_id) > 32:
-            raise ValueError("Invalid value for `customer_id`, length must be less than or equal to `32`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `customer_id`, length must be less than or equal to `32`"
+            )  # noqa: E501
         if customer_id is not None and len(customer_id) < 0:
-            raise ValueError("Invalid value for `customer_id`, length must be greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `customer_id`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._customer_id = customer_id
 
@@ -252,9 +287,13 @@ class SubscriptionFilterParameters(object):
         :type: str
         """
         if plan_id is not None and len(plan_id) > 32:
-            raise ValueError("Invalid value for `plan_id`, length must be less than or equal to `32`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `plan_id`, length must be less than or equal to `32`"
+            )  # noqa: E501
         if plan_id is not None and len(plan_id) < 0:
-            raise ValueError("Invalid value for `plan_id`, length must be greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `plan_id`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._plan_id = plan_id
 
@@ -336,7 +375,6 @@ class SubscriptionFilterParameters(object):
         COMPLETED = "COMPLETED"
         CARD_EXPIRED = "CARD_EXPIRED"
         ACTIVATION_FAILED = "ACTIVATION_FAILED"
-        
 
     @property
     def status(self):
@@ -358,11 +396,21 @@ class SubscriptionFilterParameters(object):
         :param status: The status of this SubscriptionFilterParameters.  # noqa: E501
         :type: str
         """
-        allowed_values = ["ACTIVE", "INACTIVE", "CANCELLED", "PAST_DUE", "PENDING", "COMPLETED", "CARD_EXPIRED", "ACTIVATION_FAILED"]  # noqa: E501
+        allowed_values = [
+            "ACTIVE",
+            "INACTIVE",
+            "CANCELLED",
+            "PAST_DUE",
+            "PENDING",
+            "COMPLETED",
+            "CARD_EXPIRED",
+            "ACTIVATION_FAILED",
+        ]  # noqa: E501
         if status not in allowed_values:
             raise ValueError(
-                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
-                .format(status, allowed_values)
+                "Invalid value for `status` ({0}), must be one of {1}".format(  # noqa: E501
+                    status, allowed_values
+                )
             )
 
         self._status = status
@@ -371,7 +419,6 @@ class SubscriptionFilterParameters(object):
         ONECLICK = "ONECLICK"
         SCHEDULED = "SCHEDULED"
         INSTALLMENT = "INSTALLMENT"
-        
 
     @property
     def type(self):
@@ -396,8 +443,9 @@ class SubscriptionFilterParameters(object):
         allowed_values = ["ONECLICK", "SCHEDULED", "INSTALLMENT"]  # noqa: E501
         if type not in allowed_values:
             raise ValueError(
-                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
-                .format(type, allowed_values)
+                "Invalid value for `type` ({0}), must be one of {1}".format(  # noqa: E501
+                    type, allowed_values
+                )
             )
 
         self._type = type
@@ -409,18 +457,20 @@ class SubscriptionFilterParameters(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

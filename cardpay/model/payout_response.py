@@ -17,12 +17,24 @@ import re  # noqa: F401
 import six
 
 from cardpay.model.payout_payment_data import PayoutPaymentData  # noqa: F401,E501
-from cardpay.model.payout_response_card_account import PayoutResponseCardAccount  # noqa: F401,E501
-from cardpay.model.payout_response_cryptocurrency_account import PayoutResponseCryptocurrencyAccount  # noqa: F401,E501
-from cardpay.model.payout_response_customer import PayoutResponseCustomer  # noqa: F401,E501
-from cardpay.model.payout_response_e_wallet_account import PayoutResponseEWalletAccount  # noqa: F401,E501
-from cardpay.model.payout_response_payout_data import PayoutResponsePayoutData  # noqa: F401,E501
-from cardpay.model.transaction_response_merchant_order import TransactionResponseMerchantOrder  # noqa: F401,E501
+from cardpay.model.payout_response_card_account import (
+    PayoutResponseCardAccount,
+)  # noqa: F401,E501
+from cardpay.model.payout_response_cryptocurrency_account import (
+    PayoutResponseCryptocurrencyAccount,
+)  # noqa: F401,E501
+from cardpay.model.payout_response_customer import (
+    PayoutResponseCustomer,
+)  # noqa: F401,E501
+from cardpay.model.payout_response_e_wallet_account import (
+    PayoutResponseEWalletAccount,
+)  # noqa: F401,E501
+from cardpay.model.payout_response_payout_data import (
+    PayoutResponsePayoutData,
+)  # noqa: F401,E501
+from cardpay.model.transaction_response_merchant_order import (
+    TransactionResponseMerchantOrder,
+)  # noqa: F401,E501
 
 
 class PayoutResponse(object):
@@ -39,28 +51,38 @@ class PayoutResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'card_account': 'PayoutResponseCardAccount',
-        'cryptocurrency_account': 'PayoutResponseCryptocurrencyAccount',
-        'customer': 'PayoutResponseCustomer',
-        'ewallet_account': 'PayoutResponseEWalletAccount',
-        'payment_data': 'PayoutPaymentData',
-        'payout_data': 'PayoutResponsePayoutData',
-        'payment_method': 'str',
-        'merchant_order': 'TransactionResponseMerchantOrder'
+        "card_account": "PayoutResponseCardAccount",
+        "cryptocurrency_account": "PayoutResponseCryptocurrencyAccount",
+        "customer": "PayoutResponseCustomer",
+        "ewallet_account": "PayoutResponseEWalletAccount",
+        "payment_data": "PayoutPaymentData",
+        "payout_data": "PayoutResponsePayoutData",
+        "payment_method": "str",
+        "merchant_order": "TransactionResponseMerchantOrder",
     }
 
     attribute_map = {
-        'card_account': 'card_account',
-        'cryptocurrency_account': 'cryptocurrency_account',
-        'customer': 'customer',
-        'ewallet_account': 'ewallet_account',
-        'payment_data': 'payment_data',
-        'payout_data': 'payout_data',
-        'payment_method': 'payment_method',
-        'merchant_order': 'merchant_order'
+        "card_account": "card_account",
+        "cryptocurrency_account": "cryptocurrency_account",
+        "customer": "customer",
+        "ewallet_account": "ewallet_account",
+        "payment_data": "payment_data",
+        "payout_data": "payout_data",
+        "payment_method": "payment_method",
+        "merchant_order": "merchant_order",
     }
 
-    def __init__(self, card_account=None, cryptocurrency_account=None, customer=None, ewallet_account=None, payment_data=None, payout_data=None, payment_method=None, merchant_order=None):  # noqa: E501
+    def __init__(
+        self,
+        card_account=None,
+        cryptocurrency_account=None,
+        customer=None,
+        ewallet_account=None,
+        payment_data=None,
+        payout_data=None,
+        payment_method=None,
+        merchant_order=None,
+    ):  # noqa: E501
         """PayoutResponse - a model defined in Swagger"""  # noqa: E501
 
         self._card_account = None
@@ -225,7 +247,9 @@ class PayoutResponse(object):
         :type: PayoutResponsePayoutData
         """
         if payout_data is None:
-            raise ValueError("Invalid value for `payout_data`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `payout_data`, must not be `None`"
+            )  # noqa: E501
 
         self._payout_data = payout_data
 
@@ -282,18 +306,20 @@ class PayoutResponse(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

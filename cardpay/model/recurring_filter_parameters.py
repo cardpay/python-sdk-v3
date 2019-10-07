@@ -31,30 +31,41 @@ class RecurringFilterParameters(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'request_id': 'str',
-        'merchant_order_id': 'str',
-        'payment_method': 'str',
-        'start_time': 'datetime',
-        'end_time': 'datetime',
-        'max_count': 'int',
-        'sort_order': 'str',
-        'currency': 'str',
-        'type': 'str'
+        "request_id": "str",
+        "merchant_order_id": "str",
+        "payment_method": "str",
+        "start_time": "datetime",
+        "end_time": "datetime",
+        "max_count": "int",
+        "sort_order": "str",
+        "currency": "str",
+        "type": "str",
     }
 
     attribute_map = {
-        'request_id': 'request_id',
-        'merchant_order_id': 'merchant_order_id',
-        'payment_method': 'payment_method',
-        'start_time': 'start_time',
-        'end_time': 'end_time',
-        'max_count': 'max_count',
-        'sort_order': 'sort_order',
-        'currency': 'currency',
-        'type': 'type'
+        "request_id": "request_id",
+        "merchant_order_id": "merchant_order_id",
+        "payment_method": "payment_method",
+        "start_time": "start_time",
+        "end_time": "end_time",
+        "max_count": "max_count",
+        "sort_order": "sort_order",
+        "currency": "currency",
+        "type": "type",
     }
 
-    def __init__(self, request_id=None, merchant_order_id=None, payment_method=None, start_time=None, end_time=None, max_count=None, sort_order=None, currency=None, type=None):  # noqa: E501
+    def __init__(
+        self,
+        request_id=None,
+        merchant_order_id=None,
+        payment_method=None,
+        start_time=None,
+        end_time=None,
+        max_count=None,
+        sort_order=None,
+        currency=None,
+        type=None,
+    ):  # noqa: E501
         """RecurringFilterParameters - a model defined in Swagger"""  # noqa: E501
 
         self._request_id = None
@@ -107,11 +118,17 @@ class RecurringFilterParameters(object):
         :type: str
         """
         if request_id is None:
-            raise ValueError("Invalid value for `request_id`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `request_id`, must not be `None`"
+            )  # noqa: E501
         if request_id is not None and len(request_id) > 50:
-            raise ValueError("Invalid value for `request_id`, length must be less than or equal to `50`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `request_id`, length must be less than or equal to `50`"
+            )  # noqa: E501
         if request_id is not None and len(request_id) < 0:
-            raise ValueError("Invalid value for `request_id`, length must be greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `request_id`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._request_id = request_id
 
@@ -136,9 +153,13 @@ class RecurringFilterParameters(object):
         :type: str
         """
         if merchant_order_id is not None and len(merchant_order_id) > 50:
-            raise ValueError("Invalid value for `merchant_order_id`, length must be less than or equal to `50`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `merchant_order_id`, length must be less than or equal to `50`"
+            )  # noqa: E501
         if merchant_order_id is not None and len(merchant_order_id) < 0:
-            raise ValueError("Invalid value for `merchant_order_id`, length must be greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `merchant_order_id`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._merchant_order_id = merchant_order_id
 
@@ -163,9 +184,13 @@ class RecurringFilterParameters(object):
         :type: str
         """
         if payment_method is not None and len(payment_method) > 100:
-            raise ValueError("Invalid value for `payment_method`, length must be less than or equal to `100`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `payment_method`, length must be less than or equal to `100`"
+            )  # noqa: E501
         if payment_method is not None and len(payment_method) < 0:
-            raise ValueError("Invalid value for `payment_method`, length must be greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `payment_method`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._payment_method = payment_method
 
@@ -236,14 +261,15 @@ class RecurringFilterParameters(object):
         :type: int
         """
         if max_count is not None and max_count > 10000:  # noqa: E501
-            raise ValueError("Invalid value for `max_count`, must be a value less than or equal to `10000`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `max_count`, must be a value less than or equal to `10000`"
+            )  # noqa: E501
 
         self._max_count = max_count
 
     class SortOrder(object):
         ASC = "asc"
         DESC = "desc"
-        
 
     @property
     def sort_order(self):
@@ -268,8 +294,9 @@ class RecurringFilterParameters(object):
         allowed_values = ["asc", "desc"]  # noqa: E501
         if sort_order not in allowed_values:
             raise ValueError(
-                "Invalid value for `sort_order` ({0}), must be one of {1}"  # noqa: E501
-                .format(sort_order, allowed_values)
+                "Invalid value for `sort_order` ({0}), must be one of {1}".format(  # noqa: E501
+                    sort_order, allowed_values
+                )
             )
 
         self._sort_order = sort_order
@@ -301,7 +328,6 @@ class RecurringFilterParameters(object):
         ONECLICK = "ONECLICK"
         SCHEDULED = "SCHEDULED"
         INSTALLMENT = "INSTALLMENT"
-        
 
     @property
     def type(self):
@@ -326,8 +352,9 @@ class RecurringFilterParameters(object):
         allowed_values = ["ONECLICK", "SCHEDULED", "INSTALLMENT"]  # noqa: E501
         if type not in allowed_values:
             raise ValueError(
-                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
-                .format(type, allowed_values)
+                "Invalid value for `type` ({0}), must be one of {1}".format(  # noqa: E501
+                    type, allowed_values
+                )
             )
 
         self._type = type
@@ -339,18 +366,20 @@ class RecurringFilterParameters(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

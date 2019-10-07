@@ -30,13 +30,9 @@ class PayoutRequestCryptocurrencyAccount(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {
-        'crypto_address': 'str'
-    }
+    swagger_types = {"crypto_address": "str"}
 
-    attribute_map = {
-        'crypto_address': 'crypto_address'
-    }
+    attribute_map = {"crypto_address": "crypto_address"}
 
     def __init__(self, crypto_address=None):  # noqa: E501
         """PayoutRequestCryptocurrencyAccount - a model defined in Swagger"""  # noqa: E501
@@ -68,9 +64,13 @@ class PayoutRequestCryptocurrencyAccount(object):
         :type: str
         """
         if crypto_address is not None and len(crypto_address) > 100:
-            raise ValueError("Invalid value for `crypto_address`, length must be less than or equal to `100`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `crypto_address`, length must be less than or equal to `100`"
+            )  # noqa: E501
         if crypto_address is not None and len(crypto_address) < 26:
-            raise ValueError("Invalid value for `crypto_address`, length must be greater than or equal to `26`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `crypto_address`, length must be greater than or equal to `26`"
+            )  # noqa: E501
 
         self._crypto_address = crypto_address
 
@@ -81,18 +81,20 @@ class PayoutRequestCryptocurrencyAccount(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

@@ -26,7 +26,9 @@ from cardpay.model.authentication_error import AuthenticationError
 from cardpay.model.bad_request_error import BadRequestError
 from cardpay.model.bank_card_payout_data import BankCardPayoutData
 from cardpay.model.billing_address import BillingAddress
-from cardpay.model.change_subscription_status_claim_response import ChangeSubscriptionStatusClaimResponse
+from cardpay.model.change_subscription_status_claim_response import (
+    ChangeSubscriptionStatusClaimResponse,
+)
 from cardpay.model.changed_plan_data import ChangedPlanData
 from cardpay.model.claim_response_subscription_data import ClaimResponseSubscriptionData
 from cardpay.model.confirm3ds_request import Confirm3dsRequest
@@ -49,14 +51,19 @@ from cardpay.model.payment_patch_request import PaymentPatchRequest
 from cardpay.model.payment_request import PaymentRequest
 from cardpay.model.payment_request_card import PaymentRequestCard
 from cardpay.model.payment_request_card_account import PaymentRequestCardAccount
-from cardpay.model.payment_request_cryptocurrency_account import PaymentRequestCryptocurrencyAccount
+from cardpay.model.payment_request_cryptocurrency_account import (
+    PaymentRequestCryptocurrencyAccount,
+)
 from cardpay.model.payment_request_customer import PaymentRequestCustomer
 from cardpay.model.payment_request_e_wallet_account import PaymentRequestEWalletAccount
+from cardpay.model.payment_request_living_address import PaymentRequestLivingAddress
 from cardpay.model.payment_request_merchant_order import PaymentRequestMerchantOrder
 from cardpay.model.payment_request_payment_data import PaymentRequestPaymentData
 from cardpay.model.payment_response import PaymentResponse
 from cardpay.model.payment_response_card_account import PaymentResponseCardAccount
-from cardpay.model.payment_response_cryptocurrency_account import PaymentResponseCryptocurrencyAccount
+from cardpay.model.payment_response_cryptocurrency_account import (
+    PaymentResponseCryptocurrencyAccount,
+)
 from cardpay.model.payment_response_customer import PaymentResponseCustomer
 from cardpay.model.payment_response_payment_data import PaymentResponsePaymentData
 from cardpay.model.payment_update_response import PaymentUpdateResponse
@@ -67,15 +74,20 @@ from cardpay.model.payout_payment_data import PayoutPaymentData
 from cardpay.model.payout_request import PayoutRequest
 from cardpay.model.payout_request_card import PayoutRequestCard
 from cardpay.model.payout_request_card_account import PayoutRequestCardAccount
-from cardpay.model.payout_request_cryptocurrency_account import PayoutRequestCryptocurrencyAccount
+from cardpay.model.payout_request_cryptocurrency_account import (
+    PayoutRequestCryptocurrencyAccount,
+)
 from cardpay.model.payout_request_customer import PayoutRequestCustomer
 from cardpay.model.payout_request_e_wallet_account import PayoutRequestEWalletAccount
+from cardpay.model.payout_request_living_address import PayoutRequestLivingAddress
 from cardpay.model.payout_request_merchant_order import PayoutRequestMerchantOrder
 from cardpay.model.payout_request_payout_data import PayoutRequestPayoutData
 from cardpay.model.payout_response import PayoutResponse
 from cardpay.model.payout_response_card import PayoutResponseCard
 from cardpay.model.payout_response_card_account import PayoutResponseCardAccount
-from cardpay.model.payout_response_cryptocurrency_account import PayoutResponseCryptocurrencyAccount
+from cardpay.model.payout_response_cryptocurrency_account import (
+    PayoutResponseCryptocurrencyAccount,
+)
 from cardpay.model.payout_response_customer import PayoutResponseCustomer
 from cardpay.model.payout_response_e_wallet_account import PayoutResponseEWalletAccount
 from cardpay.model.payout_response_payout_data import PayoutResponsePayoutData
@@ -100,8 +112,12 @@ from cardpay.model.recurring_request_filing import RecurringRequestFiling
 from cardpay.model.recurring_request_recurring_data import RecurringRequestRecurringData
 from cardpay.model.recurring_response import RecurringResponse
 from cardpay.model.recurring_response_filing import RecurringResponseFiling
-from cardpay.model.recurring_response_merchant_order import RecurringResponseMerchantOrder
-from cardpay.model.recurring_response_recurring_data import RecurringResponseRecurringData
+from cardpay.model.recurring_response_merchant_order import (
+    RecurringResponseMerchantOrder,
+)
+from cardpay.model.recurring_response_recurring_data import (
+    RecurringResponseRecurringData,
+)
 from cardpay.model.recurring_update_response import RecurringUpdateResponse
 from cardpay.model.recurrings_list import RecurringsList
 from cardpay.model.redirect_url_response import RedirectUrlResponse
@@ -124,7 +140,9 @@ from cardpay.model.renamed_plan_data import RenamedPlanData
 from cardpay.model.request import Request
 from cardpay.model.request_updated_transaction_data import RequestUpdatedTransactionData
 from cardpay.model.response_plan_data import ResponsePlanData
-from cardpay.model.response_updated_transaction_data import ResponseUpdatedTransactionData
+from cardpay.model.response_updated_transaction_data import (
+    ResponseUpdatedTransactionData,
+)
 from cardpay.model.return_urls import ReturnUrls
 from cardpay.model.scheduled_data import ScheduledData
 from cardpay.model.shipping_address import ShippingAddress
@@ -133,15 +151,23 @@ from cardpay.model.subscription_filter_parameters import SubscriptionFilterParam
 from cardpay.model.subscription_get_response import SubscriptionGetResponse
 from cardpay.model.subscription_list import SubscriptionList
 from cardpay.model.subscription_update_request import SubscriptionUpdateRequest
-from cardpay.model.subscription_update_request_subscription_data import SubscriptionUpdateRequestSubscriptionData
+from cardpay.model.subscription_update_request_subscription_data import (
+    SubscriptionUpdateRequestSubscriptionData,
+)
 from cardpay.model.subscription_update_response import SubscriptionUpdateResponse
 from cardpay.model.transaction_request import TransactionRequest
-from cardpay.model.transaction_response_e_wallet_account import TransactionResponseEWalletAccount
-from cardpay.model.transaction_response_merchant_order import TransactionResponseMerchantOrder
+from cardpay.model.transaction_response_e_wallet_account import (
+    TransactionResponseEWalletAccount,
+)
+from cardpay.model.transaction_response_merchant_order import (
+    TransactionResponseMerchantOrder,
+)
 from cardpay.model.transaction_update_request import TransactionUpdateRequest
 from cardpay.model.updated_plan_data import UpdatedPlanData
 from cardpay.model.updated_subscription_data import UpdatedSubscriptionData
-from cardpay.model.updated_subscription_recurring_data import UpdatedSubscriptionRecurringData
+from cardpay.model.updated_subscription_recurring_data import (
+    UpdatedSubscriptionRecurringData,
+)
 from cardpay.model.payment_confirm3ds_request import PaymentConfirm3dsRequest
 from cardpay.model.payment_update_request import PaymentUpdateRequest
 from cardpay.model.recurring_confirm3ds_request import RecurringConfirm3dsRequest
@@ -156,10 +182,9 @@ from cardpay.api.recurrings_api import RecurringsApi
 from cardpay.api.refunds_api import RefundsApi
 
 
-
 def formatExpirationDate(date):
-    return date.strftime('%m/%Y')
+    return date.strftime("%m/%Y")
 
 
 def formatBirthDate(date):
-    return date.strftime('%Y-%m-%d')
+    return date.strftime("%Y-%m-%d")

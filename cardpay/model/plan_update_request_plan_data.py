@@ -30,15 +30,9 @@ class PlanUpdateRequestPlanData(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {
-        'name_to': 'str',
-        'status_to': 'str'
-    }
+    swagger_types = {"name_to": "str", "status_to": "str"}
 
-    attribute_map = {
-        'name_to': 'name_to',
-        'status_to': 'status_to'
-    }
+    attribute_map = {"name_to": "name_to", "status_to": "status_to"}
 
     def __init__(self, name_to=None, status_to=None):  # noqa: E501
         """PlanUpdateRequestPlanData - a model defined in Swagger"""  # noqa: E501
@@ -73,16 +67,19 @@ class PlanUpdateRequestPlanData(object):
         :type: str
         """
         if name_to is not None and len(name_to) > 25:
-            raise ValueError("Invalid value for `name_to`, length must be less than or equal to `25`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `name_to`, length must be less than or equal to `25`"
+            )  # noqa: E501
         if name_to is not None and len(name_to) < 0:
-            raise ValueError("Invalid value for `name_to`, length must be greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `name_to`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._name_to = name_to
 
     class StatusTo(object):
         ACTIVE = "ACTIVE"
         INACTIVE = "INACTIVE"
-        
 
     @property
     def status_to(self):
@@ -107,8 +104,9 @@ class PlanUpdateRequestPlanData(object):
         allowed_values = ["ACTIVE", "INACTIVE"]  # noqa: E501
         if status_to not in allowed_values:
             raise ValueError(
-                "Invalid value for `status_to` ({0}), must be one of {1}"  # noqa: E501
-                .format(status_to, allowed_values)
+                "Invalid value for `status_to` ({0}), must be one of {1}".format(  # noqa: E501
+                    status_to, allowed_values
+                )
             )
 
         self._status_to = status_to
@@ -120,18 +118,20 @@ class PlanUpdateRequestPlanData(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

@@ -16,10 +16,16 @@ import re  # noqa: F401
 
 import six
 
-from cardpay.model.payment_response_card_account import PaymentResponseCardAccount  # noqa: F401,E501
+from cardpay.model.payment_response_card_account import (
+    PaymentResponseCardAccount,
+)  # noqa: F401,E501
 from cardpay.model.recurring_customer import RecurringCustomer  # noqa: F401,E501
-from cardpay.model.recurring_response_recurring_data import RecurringResponseRecurringData  # noqa: F401,E501
-from cardpay.model.transaction_response_merchant_order import TransactionResponseMerchantOrder  # noqa: F401,E501
+from cardpay.model.recurring_response_recurring_data import (
+    RecurringResponseRecurringData,
+)  # noqa: F401,E501
+from cardpay.model.transaction_response_merchant_order import (
+    TransactionResponseMerchantOrder,
+)  # noqa: F401,E501
 
 
 class RecurringCallback(object):
@@ -36,24 +42,32 @@ class RecurringCallback(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'callback_time': 'str',
-        'card_account': 'PaymentResponseCardAccount',
-        'customer': 'RecurringCustomer',
-        'merchant_order': 'TransactionResponseMerchantOrder',
-        'payment_method': 'str',
-        'recurring_data': 'RecurringResponseRecurringData'
+        "callback_time": "str",
+        "card_account": "PaymentResponseCardAccount",
+        "customer": "RecurringCustomer",
+        "merchant_order": "TransactionResponseMerchantOrder",
+        "payment_method": "str",
+        "recurring_data": "RecurringResponseRecurringData",
     }
 
     attribute_map = {
-        'callback_time': 'callback_time',
-        'card_account': 'card_account',
-        'customer': 'customer',
-        'merchant_order': 'merchant_order',
-        'payment_method': 'payment_method',
-        'recurring_data': 'recurring_data'
+        "callback_time": "callback_time",
+        "card_account": "card_account",
+        "customer": "customer",
+        "merchant_order": "merchant_order",
+        "payment_method": "payment_method",
+        "recurring_data": "recurring_data",
     }
 
-    def __init__(self, callback_time=None, card_account=None, customer=None, merchant_order=None, payment_method=None, recurring_data=None):  # noqa: E501
+    def __init__(
+        self,
+        callback_time=None,
+        card_account=None,
+        customer=None,
+        merchant_order=None,
+        payment_method=None,
+        recurring_data=None,
+    ):  # noqa: E501
         """RecurringCallback - a model defined in Swagger"""  # noqa: E501
 
         self._callback_time = None
@@ -164,7 +178,9 @@ class RecurringCallback(object):
         :type: TransactionResponseMerchantOrder
         """
         if merchant_order is None:
-            raise ValueError("Invalid value for `merchant_order`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `merchant_order`, must not be `None`"
+            )  # noqa: E501
 
         self._merchant_order = merchant_order
 
@@ -189,7 +205,9 @@ class RecurringCallback(object):
         :type: str
         """
         if payment_method is None:
-            raise ValueError("Invalid value for `payment_method`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `payment_method`, must not be `None`"
+            )  # noqa: E501
 
         self._payment_method = payment_method
 
@@ -214,7 +232,9 @@ class RecurringCallback(object):
         :type: RecurringResponseRecurringData
         """
         if recurring_data is None:
-            raise ValueError("Invalid value for `recurring_data`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `recurring_data`, must not be `None`"
+            )  # noqa: E501
 
         self._recurring_data = recurring_data
 
@@ -225,18 +245,20 @@ class RecurringCallback(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

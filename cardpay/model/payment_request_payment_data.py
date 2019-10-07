@@ -31,35 +31,52 @@ class PaymentRequestPaymentData(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'amount': 'float',
-        'authentication_request': 'bool',
-        'currency': 'str',
-        'dynamic_descriptor': 'str',
-        'generate_token': 'bool',
-        'note': 'str',
-        'preauth': 'bool'
+        "amount": "float",
+        "authentication_request": "bool",
+        "currency": "str",
+        "dynamic_descriptor": "str",
+        "encrypted_data": "str",
+        "generate_token": "bool",
+        "note": "str",
+        "preauth": "bool",
+        "trans_type": "str",
     }
 
     attribute_map = {
-        'amount': 'amount',
-        'authentication_request': 'authentication_request',
-        'currency': 'currency',
-        'dynamic_descriptor': 'dynamic_descriptor',
-        'generate_token': 'generate_token',
-        'note': 'note',
-        'preauth': 'preauth'
+        "amount": "amount",
+        "authentication_request": "authentication_request",
+        "currency": "currency",
+        "dynamic_descriptor": "dynamic_descriptor",
+        "encrypted_data": "encrypted_data",
+        "generate_token": "generate_token",
+        "note": "note",
+        "preauth": "preauth",
+        "trans_type": "trans_type",
     }
 
-    def __init__(self, amount=None, authentication_request=None, currency=None, dynamic_descriptor=None, generate_token=None, note=None, preauth=None):  # noqa: E501
+    def __init__(
+        self,
+        amount=None,
+        authentication_request=None,
+        currency=None,
+        dynamic_descriptor=None,
+        encrypted_data=None,
+        generate_token=None,
+        note=None,
+        preauth=None,
+        trans_type=None,
+    ):  # noqa: E501
         """PaymentRequestPaymentData - a model defined in Swagger"""  # noqa: E501
 
         self._amount = None
         self._authentication_request = None
         self._currency = None
         self._dynamic_descriptor = None
+        self._encrypted_data = None
         self._generate_token = None
         self._note = None
         self._preauth = None
+        self._trans_type = None
         self.discriminator = None
 
         self.amount = amount
@@ -68,12 +85,16 @@ class PaymentRequestPaymentData(object):
         self.currency = currency
         if dynamic_descriptor is not None:
             self.dynamic_descriptor = dynamic_descriptor
+        if encrypted_data is not None:
+            self.encrypted_data = encrypted_data
         if generate_token is not None:
             self.generate_token = generate_token
         if note is not None:
             self.note = note
         if preauth is not None:
             self.preauth = preauth
+        if trans_type is not None:
+            self.trans_type = trans_type
 
     @property
     def amount(self):
@@ -96,7 +117,9 @@ class PaymentRequestPaymentData(object):
         :type: float
         """
         if amount is None:
-            raise ValueError("Invalid value for `amount`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `amount`, must not be `None`"
+            )  # noqa: E501
 
         self._amount = amount
 
@@ -144,7 +167,9 @@ class PaymentRequestPaymentData(object):
         :type: str
         """
         if currency is None:
-            raise ValueError("Invalid value for `currency`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `currency`, must not be `None`"
+            )  # noqa: E501
 
         self._currency = currency
 
@@ -169,11 +194,46 @@ class PaymentRequestPaymentData(object):
         :type: str
         """
         if dynamic_descriptor is not None and len(dynamic_descriptor) > 25:
-            raise ValueError("Invalid value for `dynamic_descriptor`, length must be less than or equal to `25`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `dynamic_descriptor`, length must be less than or equal to `25`"
+            )  # noqa: E501
         if dynamic_descriptor is not None and len(dynamic_descriptor) < 0:
-            raise ValueError("Invalid value for `dynamic_descriptor`, length must be greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `dynamic_descriptor`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._dynamic_descriptor = dynamic_descriptor
+
+    @property
+    def encrypted_data(self):
+        """Gets the encrypted_data of this PaymentRequestPaymentData.  # noqa: E501
+
+        The encrypted payment credentials encoded in base64. *(for APPLEPAY payment method only)*  # noqa: E501
+
+        :return: The encrypted_data of this PaymentRequestPaymentData.  # noqa: E501
+        :rtype: str
+        """
+        return self._encrypted_data
+
+    @encrypted_data.setter
+    def encrypted_data(self, encrypted_data):
+        """Sets the encrypted_data of this PaymentRequestPaymentData.
+
+        The encrypted payment credentials encoded in base64. *(for APPLEPAY payment method only)*  # noqa: E501
+
+        :param encrypted_data: The encrypted_data of this PaymentRequestPaymentData.  # noqa: E501
+        :type: str
+        """
+        if encrypted_data is not None and len(encrypted_data) > 10000:
+            raise ValueError(
+                "Invalid value for `encrypted_data`, length must be less than or equal to `10000`"
+            )  # noqa: E501
+        if encrypted_data is not None and len(encrypted_data) < 0:
+            raise ValueError(
+                "Invalid value for `encrypted_data`, length must be greater than or equal to `0`"
+            )  # noqa: E501
+
+        self._encrypted_data = encrypted_data
 
     @property
     def generate_token(self):
@@ -219,9 +279,13 @@ class PaymentRequestPaymentData(object):
         :type: str
         """
         if note is not None and len(note) > 100:
-            raise ValueError("Invalid value for `note`, length must be less than or equal to `100`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `note`, length must be less than or equal to `100`"
+            )  # noqa: E501
         if note is not None and len(note) < 0:
-            raise ValueError("Invalid value for `note`, length must be greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `note`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._note = note
 
@@ -248,6 +312,41 @@ class PaymentRequestPaymentData(object):
 
         self._preauth = preauth
 
+    class TransType(object):
+        _01 = "01"
+        _03 = "03"
+        _10 = "10"
+        _11 = "11"
+        _28 = "28"
+
+    @property
+    def trans_type(self):
+        """Gets the trans_type of this PaymentRequestPaymentData.  # noqa: E501
+
+
+        :return: The trans_type of this PaymentRequestPaymentData.  # noqa: E501
+        :rtype: str
+        """
+        return self._trans_type
+
+    @trans_type.setter
+    def trans_type(self, trans_type):
+        """Sets the trans_type of this PaymentRequestPaymentData.
+
+
+        :param trans_type: The trans_type of this PaymentRequestPaymentData.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["01", "03", "10", "11", "28"]  # noqa: E501
+        if trans_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `trans_type` ({0}), must be one of {1}".format(  # noqa: E501
+                    trans_type, allowed_values
+                )
+            )
+
+        self._trans_type = trans_type
+
     def to_dict(self):
         """Returns the model properties as a dict"""
         result = {}
@@ -255,18 +354,20 @@ class PaymentRequestPaymentData(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

@@ -31,24 +31,32 @@ class RecurringPlanRequestPlanData(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'amount': 'float',
-        'currency': 'str',
-        'interval': 'int',
-        'name': 'str',
-        'period': 'str',
-        'retries': 'int'
+        "amount": "float",
+        "currency": "str",
+        "interval": "int",
+        "name": "str",
+        "period": "str",
+        "retries": "int",
     }
 
     attribute_map = {
-        'amount': 'amount',
-        'currency': 'currency',
-        'interval': 'interval',
-        'name': 'name',
-        'period': 'period',
-        'retries': 'retries'
+        "amount": "amount",
+        "currency": "currency",
+        "interval": "interval",
+        "name": "name",
+        "period": "period",
+        "retries": "retries",
     }
 
-    def __init__(self, amount=None, currency=None, interval=None, name=None, period=None, retries=None):  # noqa: E501
+    def __init__(
+        self,
+        amount=None,
+        currency=None,
+        interval=None,
+        name=None,
+        period=None,
+        retries=None,
+    ):  # noqa: E501
         """RecurringPlanRequestPlanData - a model defined in Swagger"""  # noqa: E501
 
         self._amount = None
@@ -88,7 +96,9 @@ class RecurringPlanRequestPlanData(object):
         :type: float
         """
         if amount is None:
-            raise ValueError("Invalid value for `amount`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `amount`, must not be `None`"
+            )  # noqa: E501
 
         self._amount = amount
 
@@ -113,7 +123,9 @@ class RecurringPlanRequestPlanData(object):
         :type: str
         """
         if currency is None:
-            raise ValueError("Invalid value for `currency`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `currency`, must not be `None`"
+            )  # noqa: E501
 
         self._currency = currency
 
@@ -138,9 +150,13 @@ class RecurringPlanRequestPlanData(object):
         :type: int
         """
         if interval is None:
-            raise ValueError("Invalid value for `interval`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `interval`, must not be `None`"
+            )  # noqa: E501
         if interval is not None and interval < 1:  # noqa: E501
-            raise ValueError("Invalid value for `interval`, must be a value greater than or equal to `1`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `interval`, must be a value greater than or equal to `1`"
+            )  # noqa: E501
 
         self._interval = interval
 
@@ -165,11 +181,17 @@ class RecurringPlanRequestPlanData(object):
         :type: str
         """
         if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `name`, must not be `None`"
+            )  # noqa: E501
         if name is not None and len(name) > 25:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `25`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `name`, length must be less than or equal to `25`"
+            )  # noqa: E501
         if name is not None and len(name) < 0:
-            raise ValueError("Invalid value for `name`, length must be greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `name`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._name = name
 
@@ -179,7 +201,6 @@ class RecurringPlanRequestPlanData(object):
         WEEK = "week"
         MONTH = "month"
         YEAR = "year"
-        
 
     @property
     def period(self):
@@ -202,12 +223,15 @@ class RecurringPlanRequestPlanData(object):
         :type: str
         """
         if period is None:
-            raise ValueError("Invalid value for `period`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `period`, must not be `None`"
+            )  # noqa: E501
         allowed_values = ["minute", "day", "week", "month", "year"]  # noqa: E501
         if period not in allowed_values:
             raise ValueError(
-                "Invalid value for `period` ({0}), must be one of {1}"  # noqa: E501
-                .format(period, allowed_values)
+                "Invalid value for `period` ({0}), must be one of {1}".format(  # noqa: E501
+                    period, allowed_values
+                )
             )
 
         self._period = period
@@ -233,9 +257,13 @@ class RecurringPlanRequestPlanData(object):
         :type: int
         """
         if retries is not None and retries > 15:  # noqa: E501
-            raise ValueError("Invalid value for `retries`, must be a value less than or equal to `15`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `retries`, must be a value less than or equal to `15`"
+            )  # noqa: E501
         if retries is not None and retries < 1:  # noqa: E501
-            raise ValueError("Invalid value for `retries`, must be a value greater than or equal to `1`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `retries`, must be a value greater than or equal to `1`"
+            )  # noqa: E501
 
         self._retries = retries
 
@@ -246,18 +274,20 @@ class RecurringPlanRequestPlanData(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

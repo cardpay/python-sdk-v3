@@ -16,7 +16,9 @@ import re  # noqa: F401
 
 import six
 
-from cardpay.model.payment_update_transaction_data import PaymentUpdateTransactionData  # noqa: F401,E501
+from cardpay.model.payment_update_transaction_data import (
+    PaymentUpdateTransactionData,
+)  # noqa: F401,E501
 from cardpay.model.request import Request  # noqa: F401,E501
 
 
@@ -34,15 +36,15 @@ class PaymentPatchRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'request': 'Request',
-        'operation': 'str',
-        'payment_data': 'PaymentUpdateTransactionData'
+        "request": "Request",
+        "operation": "str",
+        "payment_data": "PaymentUpdateTransactionData",
     }
 
     attribute_map = {
-        'request': 'request',
-        'operation': 'operation',
-        'payment_data': 'payment_data'
+        "request": "request",
+        "operation": "operation",
+        "payment_data": "payment_data",
     }
 
     def __init__(self, request=None, operation=None, payment_data=None):  # noqa: E501
@@ -79,13 +81,14 @@ class PaymentPatchRequest(object):
         :type: Request
         """
         if request is None:
-            raise ValueError("Invalid value for `request`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `request`, must not be `None`"
+            )  # noqa: E501
 
         self._request = request
 
     class Operation(object):
         CHANGE_STATUS = "CHANGE_STATUS"
-        
 
     @property
     def operation(self):
@@ -106,12 +109,15 @@ class PaymentPatchRequest(object):
         :type: str
         """
         if operation is None:
-            raise ValueError("Invalid value for `operation`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `operation`, must not be `None`"
+            )  # noqa: E501
         allowed_values = ["CHANGE_STATUS"]  # noqa: E501
         if operation not in allowed_values:
             raise ValueError(
-                "Invalid value for `operation` ({0}), must be one of {1}"  # noqa: E501
-                .format(operation, allowed_values)
+                "Invalid value for `operation` ({0}), must be one of {1}".format(  # noqa: E501
+                    operation, allowed_values
+                )
             )
 
         self._operation = operation
@@ -146,18 +152,20 @@ class PaymentPatchRequest(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

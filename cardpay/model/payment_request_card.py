@@ -31,32 +31,72 @@ class PaymentRequestCard(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'expiration': 'str',
-        'holder': 'str',
-        'pan': 'str',
-        'security_code': 'str'
+        "acct_type": "str",
+        "expiration": "str",
+        "holder": "str",
+        "pan": "str",
+        "security_code": "str",
     }
 
     attribute_map = {
-        'expiration': 'expiration',
-        'holder': 'holder',
-        'pan': 'pan',
-        'security_code': 'security_code'
+        "acct_type": "acct_type",
+        "expiration": "expiration",
+        "holder": "holder",
+        "pan": "pan",
+        "security_code": "security_code",
     }
 
-    def __init__(self, expiration=None, holder=None, pan=None, security_code=None):  # noqa: E501
+    def __init__(
+        self, acct_type=None, expiration=None, holder=None, pan=None, security_code=None
+    ):  # noqa: E501
         """PaymentRequestCard - a model defined in Swagger"""  # noqa: E501
 
+        self._acct_type = None
         self._expiration = None
         self._holder = None
         self._pan = None
         self._security_code = None
         self.discriminator = None
 
+        if acct_type is not None:
+            self.acct_type = acct_type
         self.expiration = expiration
         self.holder = holder
         self.pan = pan
         self.security_code = security_code
+
+    class AcctType(object):
+        _01 = "01"
+        _02 = "02"
+        _03 = "03"
+
+    @property
+    def acct_type(self):
+        """Gets the acct_type of this PaymentRequestCard.  # noqa: E501
+
+
+        :return: The acct_type of this PaymentRequestCard.  # noqa: E501
+        :rtype: str
+        """
+        return self._acct_type
+
+    @acct_type.setter
+    def acct_type(self, acct_type):
+        """Sets the acct_type of this PaymentRequestCard.
+
+
+        :param acct_type: The acct_type of this PaymentRequestCard.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["01", "02", "03"]  # noqa: E501
+        if acct_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `acct_type` ({0}), must be one of {1}".format(  # noqa: E501
+                    acct_type, allowed_values
+                )
+            )
+
+        self._acct_type = acct_type
 
     @property
     def expiration(self):
@@ -79,9 +119,15 @@ class PaymentRequestCard(object):
         :type: str
         """
         if expiration is None:
-            raise ValueError("Invalid value for `expiration`, must not be `None`")  # noqa: E501
-        if expiration is not None and not re.search(r'([0-9]{2}\/[0-9]{4})', expiration):  # noqa: E501
-            raise ValueError(r"Invalid value for `expiration`, must be a follow pattern or equal to `/([0-9]{2}\/[0-9]{4})/`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `expiration`, must not be `None`"
+            )  # noqa: E501
+        if expiration is not None and not re.search(
+            r"([0-9]{2}\/[0-9]{4})", expiration
+        ):  # noqa: E501
+            raise ValueError(
+                r"Invalid value for `expiration`, must be a follow pattern or equal to `/([0-9]{2}\/[0-9]{4})/`"
+            )  # noqa: E501
 
         self._expiration = expiration
 
@@ -106,11 +152,17 @@ class PaymentRequestCard(object):
         :type: str
         """
         if holder is None:
-            raise ValueError("Invalid value for `holder`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `holder`, must not be `None`"
+            )  # noqa: E501
         if holder is not None and len(holder) > 50:
-            raise ValueError("Invalid value for `holder`, length must be less than or equal to `50`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `holder`, length must be less than or equal to `50`"
+            )  # noqa: E501
         if holder is not None and len(holder) < 1:
-            raise ValueError("Invalid value for `holder`, length must be greater than or equal to `1`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `holder`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._holder = holder
 
@@ -135,11 +187,17 @@ class PaymentRequestCard(object):
         :type: str
         """
         if pan is None:
-            raise ValueError("Invalid value for `pan`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `pan`, must not be `None`"
+            )  # noqa: E501
         if pan is not None and len(pan) > 19:
-            raise ValueError("Invalid value for `pan`, length must be less than or equal to `19`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `pan`, length must be less than or equal to `19`"
+            )  # noqa: E501
         if pan is not None and len(pan) < 13:
-            raise ValueError("Invalid value for `pan`, length must be greater than or equal to `13`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `pan`, length must be greater than or equal to `13`"
+            )  # noqa: E501
 
         self._pan = pan
 
@@ -164,9 +222,15 @@ class PaymentRequestCard(object):
         :type: str
         """
         if security_code is None:
-            raise ValueError("Invalid value for `security_code`, must not be `None`")  # noqa: E501
-        if security_code is not None and not re.search(r'[0-9]{3,4}', security_code):  # noqa: E501
-            raise ValueError(r"Invalid value for `security_code`, must be a follow pattern or equal to `/[0-9]{3,4}/`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `security_code`, must not be `None`"
+            )  # noqa: E501
+        if security_code is not None and not re.search(
+            r"[0-9]{3,4}", security_code
+        ):  # noqa: E501
+            raise ValueError(
+                r"Invalid value for `security_code`, must be a follow pattern or equal to `/[0-9]{3,4}/`"
+            )  # noqa: E501
 
         self._security_code = security_code
 
@@ -177,18 +241,20 @@ class PaymentRequestCard(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

@@ -34,15 +34,15 @@ class PaymentRequestCardAccount(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'billing_address': 'BillingAddress',
-        'card': 'PaymentRequestCard',
-        'token': 'str'
+        "billing_address": "BillingAddress",
+        "card": "PaymentRequestCard",
+        "token": "str",
     }
 
     attribute_map = {
-        'billing_address': 'billing_address',
-        'card': 'card',
-        'token': 'token'
+        "billing_address": "billing_address",
+        "card": "card",
+        "token": "token",
     }
 
     def __init__(self, billing_address=None, card=None, token=None):  # noqa: E501
@@ -127,9 +127,13 @@ class PaymentRequestCardAccount(object):
         :type: str
         """
         if token is not None and len(token) > 36:
-            raise ValueError("Invalid value for `token`, length must be less than or equal to `36`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `token`, length must be less than or equal to `36`"
+            )  # noqa: E501
         if token is not None and len(token) < 0:
-            raise ValueError("Invalid value for `token`, length must be greater than or equal to `0`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `token`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._token = token
 
@@ -140,18 +144,20 @@ class PaymentRequestCardAccount(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value

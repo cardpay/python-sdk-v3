@@ -31,24 +31,32 @@ class ResponseUpdatedTransactionData(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'details': 'str',
-        'id': 'str',
-        'is_executed': 'bool',
-        'status': 'str',
-        'status_to': 'str',
-        'updated': 'datetime'
+        "details": "str",
+        "id": "str",
+        "is_executed": "bool",
+        "status": "str",
+        "status_to": "str",
+        "updated": "datetime",
     }
 
     attribute_map = {
-        'details': 'details',
-        'id': 'id',
-        'is_executed': 'is_executed',
-        'status': 'status',
-        'status_to': 'status_to',
-        'updated': 'updated'
+        "details": "details",
+        "id": "id",
+        "is_executed": "is_executed",
+        "status": "status",
+        "status_to": "status_to",
+        "updated": "updated",
     }
 
-    def __init__(self, details=None, id=None, is_executed=None, status=None, status_to=None, updated=None):  # noqa: E501
+    def __init__(
+        self,
+        details=None,
+        id=None,
+        is_executed=None,
+        status=None,
+        status_to=None,
+        updated=None,
+    ):  # noqa: E501
         """ResponseUpdatedTransactionData - a model defined in Swagger"""  # noqa: E501
 
         self._details = None
@@ -137,7 +145,9 @@ class ResponseUpdatedTransactionData(object):
         :type: bool
         """
         if is_executed is None:
-            raise ValueError("Invalid value for `is_executed`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `is_executed`, must not be `None`"
+            )  # noqa: E501
 
         self._is_executed = is_executed
 
@@ -153,7 +163,6 @@ class ResponseUpdatedTransactionData(object):
         VOIDED = "VOIDED"
         CHARGED_BACK = "CHARGED_BACK"
         CHARGEBACK_RESOLVED = "CHARGEBACK_RESOLVED"
-        
 
     @property
     def status(self):
@@ -176,12 +185,27 @@ class ResponseUpdatedTransactionData(object):
         :type: str
         """
         if status is None:
-            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
-        allowed_values = ["NEW", "IN_PROGRESS", "DECLINED", "AUTHORIZED", "COMPLETED", "CANCELLED", "REFUNDED", "PARTIALLY_REFUNDED", "VOIDED", "CHARGED_BACK", "CHARGEBACK_RESOLVED"]  # noqa: E501
+            raise ValueError(
+                "Invalid value for `status`, must not be `None`"
+            )  # noqa: E501
+        allowed_values = [
+            "NEW",
+            "IN_PROGRESS",
+            "DECLINED",
+            "AUTHORIZED",
+            "COMPLETED",
+            "CANCELLED",
+            "REFUNDED",
+            "PARTIALLY_REFUNDED",
+            "VOIDED",
+            "CHARGED_BACK",
+            "CHARGEBACK_RESOLVED",
+        ]  # noqa: E501
         if status not in allowed_values:
             raise ValueError(
-                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
-                .format(status, allowed_values)
+                "Invalid value for `status` ({0}), must be one of {1}".format(  # noqa: E501
+                    status, allowed_values
+                )
             )
 
         self._status = status
@@ -189,7 +213,6 @@ class ResponseUpdatedTransactionData(object):
     class StatusTo(object):
         REVERSE = "REVERSE"
         COMPLETE = "COMPLETE"
-        
 
     @property
     def status_to(self):
@@ -212,12 +235,15 @@ class ResponseUpdatedTransactionData(object):
         :type: str
         """
         if status_to is None:
-            raise ValueError("Invalid value for `status_to`, must not be `None`")  # noqa: E501
+            raise ValueError(
+                "Invalid value for `status_to`, must not be `None`"
+            )  # noqa: E501
         allowed_values = ["REVERSE", "COMPLETE"]  # noqa: E501
         if status_to not in allowed_values:
             raise ValueError(
-                "Invalid value for `status_to` ({0}), must be one of {1}"  # noqa: E501
-                .format(status_to, allowed_values)
+                "Invalid value for `status_to` ({0}), must be one of {1}".format(  # noqa: E501
+                    status_to, allowed_values
+                )
             )
 
         self._status_to = status_to
@@ -226,7 +252,7 @@ class ResponseUpdatedTransactionData(object):
     def updated(self):
         """Gets the updated of this ResponseUpdatedTransactionData.  # noqa: E501
 
-        Transaction update date and time up to milliseconds in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. Returned only for successful update operations.  # noqa: E501
+        Transaction update date and time in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. Returned only for successful update operations.  # noqa: E501
 
         :return: The updated of this ResponseUpdatedTransactionData.  # noqa: E501
         :rtype: datetime
@@ -237,7 +263,7 @@ class ResponseUpdatedTransactionData(object):
     def updated(self, updated):
         """Sets the updated of this ResponseUpdatedTransactionData.
 
-        Transaction update date and time up to milliseconds in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. Returned only for successful update operations.  # noqa: E501
+        Transaction update date and time in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. Returned only for successful update operations.  # noqa: E501
 
         :param updated: The updated of this ResponseUpdatedTransactionData.  # noqa: E501
         :type: datetime
@@ -252,18 +278,20 @@ class ResponseUpdatedTransactionData(object):
         for attr, _ in six.iteritems(self.swagger_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 if value is not None:
                     result[attr] = value
