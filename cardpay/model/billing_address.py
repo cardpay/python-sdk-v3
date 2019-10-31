@@ -286,9 +286,9 @@ class BillingAddress(object):
             raise ValueError(
                 "Invalid value for `zip`, must not be `None`"
             )  # noqa: E501
-        if zip is not None and len(zip) > 17:
+        if zip is not None and len(zip) > 12:
             raise ValueError(
-                "Invalid value for `zip`, length must be less than or equal to `17`"
+                "Invalid value for `zip`, length must be less than or equal to `12`"
             )  # noqa: E501
         if zip is not None and len(zip) < 0:
             raise ValueError(
