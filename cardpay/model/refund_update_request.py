@@ -84,7 +84,7 @@ class RefundUpdateRequest(object):
     def refund_data(self):
         """Gets the refund_data of this RefundUpdateRequest.  # noqa: E501
 
-        Refund data  # noqa: E501
+        Transaction data  # noqa: E501
 
         :return: The refund_data of this RefundUpdateRequest.  # noqa: E501
         :rtype: RequestUpdatedTransactionData
@@ -95,7 +95,7 @@ class RefundUpdateRequest(object):
     def refund_data(self, refund_data):
         """Sets the refund_data of this RefundUpdateRequest.
 
-        Refund data  # noqa: E501
+        Transaction data  # noqa: E501
 
         :param refund_data: The refund_data of this RefundUpdateRequest.  # noqa: E501
         :type: RequestUpdatedTransactionData

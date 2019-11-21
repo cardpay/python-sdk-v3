@@ -84,7 +84,7 @@ class PayoutUpdateRequest(object):
     def payout_data(self):
         """Gets the payout_data of this PayoutUpdateRequest.  # noqa: E501
 
-        Payout data  # noqa: E501
+        Transaction data  # noqa: E501
 
         :return: The payout_data of this PayoutUpdateRequest.  # noqa: E501
         :rtype: RequestUpdatedTransactionData
@@ -95,7 +95,7 @@ class PayoutUpdateRequest(object):
     def payout_data(self, payout_data):
         """Sets the payout_data of this PayoutUpdateRequest.
 
-        Payout data  # noqa: E501
+        Transaction data  # noqa: E501
 
         :param payout_data: The payout_data of this PayoutUpdateRequest.  # noqa: E501
         :type: RequestUpdatedTransactionData

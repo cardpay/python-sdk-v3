@@ -130,7 +130,7 @@ class PaymentUpdateRequest(object):
     def payment_data(self):
         """Gets the payment_data of this PaymentUpdateRequest.  # noqa: E501
 
-        Payment data  # noqa: E501
+        Transaction data  # noqa: E501
 
         :return: The payment_data of this PaymentUpdateRequest.  # noqa: E501
         :rtype: PaymentUpdateTransactionData
@@ -141,7 +141,7 @@ class PaymentUpdateRequest(object):
     def payment_data(self, payment_data):
         """Sets the payment_data of this PaymentUpdateRequest.
 
-        Payment data  # noqa: E501
+        Transaction data  # noqa: E501
 
         :param payment_data: The payment_data of this PaymentUpdateRequest.  # noqa: E501
         :type: PaymentUpdateTransactionData

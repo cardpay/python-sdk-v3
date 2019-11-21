@@ -35,7 +35,7 @@ class PaymentRequestCustomer(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        "birth_date": "str",
+        "birth_date": "datetime",
         "email": "str",
         "full_name": "str",
         "home_phone": "str",
@@ -109,7 +109,7 @@ class PaymentRequestCustomer(object):
         Customer birth date in format `YYYY-MM-DD`. For Zenith bank in DIRECTBANKINGNGA: Customer password in format date of birth. *(mandatory for DIRECTBANKINGNGA payment method only)*  # noqa: E501
 
         :return: The birth_date of this PaymentRequestCustomer.  # noqa: E501
-        :rtype: str
+        :rtype: datetime
         """
         return self._birth_date
 
@@ -120,7 +120,7 @@ class PaymentRequestCustomer(object):
         Customer birth date in format `YYYY-MM-DD`. For Zenith bank in DIRECTBANKINGNGA: Customer password in format date of birth. *(mandatory for DIRECTBANKINGNGA payment method only)*  # noqa: E501
 
         :param birth_date: The birth_date of this PaymentRequestCustomer.  # noqa: E501
-        :type: str
+        :type: datetime
         """
 
         self._birth_date = birth_date

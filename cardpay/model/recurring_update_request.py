@@ -132,7 +132,7 @@ class RecurringUpdateRequest(object):
     def recurring_data(self):
         """Gets the recurring_data of this RecurringUpdateRequest.  # noqa: E501
 
-        Recurring data  # noqa: E501
+        Transaction data  # noqa: E501
 
         :return: The recurring_data of this RecurringUpdateRequest.  # noqa: E501
         :rtype: PaymentUpdateTransactionData
@@ -143,7 +143,7 @@ class RecurringUpdateRequest(object):
     def recurring_data(self, recurring_data):
         """Sets the recurring_data of this RecurringUpdateRequest.
 
-        Recurring data  # noqa: E501
+        Transaction data  # noqa: E501
 
         :param recurring_data: The recurring_data of this RecurringUpdateRequest.  # noqa: E501
         :type: PaymentUpdateTransactionData
