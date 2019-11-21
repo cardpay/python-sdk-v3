@@ -79,7 +79,8 @@ class PaymentRequestPaymentData(object):
         self._trans_type = None
         self.discriminator = None
 
-        self.amount = amount
+        if amount is not None:
+            self.amount = amount
         if authentication_request is not None:
             self.authentication_request = authentication_request
         self.currency = currency
@@ -116,10 +117,6 @@ class PaymentRequestPaymentData(object):
         :param amount: The amount of this PaymentRequestPaymentData.  # noqa: E501
         :type: float
         """
-        if amount is None:
-            raise ValueError(
-                "Invalid value for `amount`, must not be `None`"
-            )  # noqa: E501
 
         self._amount = amount
 

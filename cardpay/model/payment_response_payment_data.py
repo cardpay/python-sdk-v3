@@ -94,7 +94,8 @@ class PaymentResponsePaymentData(object):
         self.amount = amount
         if auth_code is not None:
             self.auth_code = auth_code
-        self.created = created
+        if created is not None:
+            self.created = created
         self.currency = currency
         if decline_code is not None:
             self.decline_code = decline_code
@@ -182,10 +183,6 @@ class PaymentResponsePaymentData(object):
         :param created: The created of this PaymentResponsePaymentData.  # noqa: E501
         :type: str
         """
-        if created is None:
-            raise ValueError(
-                "Invalid value for `created`, must not be `None`"
-            )  # noqa: E501
 
         self._created = created
 
