@@ -19,10 +19,10 @@ setup(
     license="MIT",
     keywords=["cardpay", "APIv3", "CardPay REST API"],
     install_requires=[
-        "certifi>=2017.4.17",
-        "python-dateutil>=2.1",
-        "six>=1.10",
-        "urllib3>=1.23"
+        "certifi>=2019.6.16",
+        "python-dateutil>=2.8.0",
+        "six>=1.12.0",
+        "urllib3>=1.25.3"
     ],
     packages=find_packages(exclude=["tests", "tests.*"]),
     include_package_data=True,
