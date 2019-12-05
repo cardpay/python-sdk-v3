@@ -214,11 +214,9 @@ class ShippingAddress(object):
             raise ValueError(
                 "Invalid value for `phone`, length must be greater than or equal to `5`"
             )  # noqa: E501
-        if phone is not None and not re.search(
-            r"[0-9|+|\\-|w|p|(|)|\\s]+", phone
-        ):  # noqa: E501
+        if phone is not None and not re.search(r"[-+\\d()wp\\s]+", phone):  # noqa: E501
             raise ValueError(
-                r"Invalid value for `phone`, must be a follow pattern or equal to `/[0-9|+|\\-|w|p|(|)|\\s]+/`"
+                r"Invalid value for `phone`, must be a follow pattern or equal to `/[-+\\d()wp\\s]+/`"
             )  # noqa: E501
 
         self._phone = phone

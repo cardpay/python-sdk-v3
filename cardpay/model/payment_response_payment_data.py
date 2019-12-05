@@ -91,17 +91,20 @@ class PaymentResponsePaymentData(object):
         self._trans_type = None
         self.discriminator = None
 
-        self.amount = amount
+        if amount is not None:
+            self.amount = amount
         if auth_code is not None:
             self.auth_code = auth_code
         if created is not None:
             self.created = created
-        self.currency = currency
+        if currency is not None:
+            self.currency = currency
         if decline_code is not None:
             self.decline_code = decline_code
         if decline_reason is not None:
             self.decline_reason = decline_reason
-        self.id = id
+        if id is not None:
+            self.id = id
         if is_3d is not None:
             self.is_3d = is_3d
         if note is not None:
@@ -133,10 +136,6 @@ class PaymentResponsePaymentData(object):
         :param amount: The amount of this PaymentResponsePaymentData.  # noqa: E501
         :type: float
         """
-        if amount is None:
-            raise ValueError(
-                "Invalid value for `amount`, must not be `None`"
-            )  # noqa: E501
 
         self._amount = amount
 
@@ -206,10 +205,6 @@ class PaymentResponsePaymentData(object):
         :param currency: The currency of this PaymentResponsePaymentData.  # noqa: E501
         :type: str
         """
-        if currency is None:
-            raise ValueError(
-                "Invalid value for `currency`, must not be `None`"
-            )  # noqa: E501
 
         self._currency = currency
 
@@ -279,8 +274,6 @@ class PaymentResponsePaymentData(object):
         :param id: The id of this PaymentResponsePaymentData.  # noqa: E501
         :type: str
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

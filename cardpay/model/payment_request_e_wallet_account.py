@@ -32,33 +32,33 @@ class PaymentRequestEWalletAccount(object):
     """
     swagger_types = {
         "bank_code": "str",
-        "expiration": "str",
+        "expiration_date": "str",
         "id": "str",
         "verification_code": "str",
     }
 
     attribute_map = {
         "bank_code": "bank_code",
-        "expiration": "expiration",
+        "expiration_date": "expiration_date",
         "id": "id",
         "verification_code": "verification_code",
     }
 
     def __init__(
-        self, bank_code=None, expiration=None, id=None, verification_code=None
+        self, bank_code=None, expiration_date=None, id=None, verification_code=None
     ):  # noqa: E501
         """PaymentRequestEWalletAccount - a model defined in Swagger"""  # noqa: E501
 
         self._bank_code = None
-        self._expiration = None
+        self._expiration_date = None
         self._id = None
         self._verification_code = None
         self.discriminator = None
 
         if bank_code is not None:
             self.bank_code = bank_code
-        if expiration is not None:
-            self.expiration = expiration
+        if expiration_date is not None:
+            self.expiration_date = expiration_date
         if id is not None:
             self.id = id
         if verification_code is not None:
@@ -88,33 +88,33 @@ class PaymentRequestEWalletAccount(object):
         self._bank_code = bank_code
 
     @property
-    def expiration(self):
-        """Gets the expiration of this PaymentRequestEWalletAccount.  # noqa: E501
+    def expiration_date(self):
+        """Gets the expiration_date of this PaymentRequestEWalletAccount.  # noqa: E501
 
-        Card expiration date  # noqa: E501
+        Account expiration date  # noqa: E501
 
-        :return: The expiration of this PaymentRequestEWalletAccount.  # noqa: E501
+        :return: The expiration_date of this PaymentRequestEWalletAccount.  # noqa: E501
         :rtype: str
         """
-        return self._expiration
+        return self._expiration_date
 
-    @expiration.setter
-    def expiration(self, expiration):
-        """Sets the expiration of this PaymentRequestEWalletAccount.
+    @expiration_date.setter
+    def expiration_date(self, expiration_date):
+        """Sets the expiration_date of this PaymentRequestEWalletAccount.
 
-        Card expiration date  # noqa: E501
+        Account expiration date  # noqa: E501
 
-        :param expiration: The expiration of this PaymentRequestEWalletAccount.  # noqa: E501
+        :param expiration_date: The expiration_date of this PaymentRequestEWalletAccount.  # noqa: E501
         :type: str
         """
-        if expiration is not None and not re.search(
-            r"^\\d{1,2}\/\\d{4}", expiration
+        if expiration_date is not None and not re.search(
+            r"^.{2,10}$", expiration_date
         ):  # noqa: E501
             raise ValueError(
-                r"Invalid value for `expiration`, must be a follow pattern or equal to `/^\\d{1,2}\/\\d{4}/`"
+                r"Invalid value for `expiration_date`, must be a follow pattern or equal to `/^.{2,10}$/`"
             )  # noqa: E501
 
-        self._expiration = expiration
+        self._expiration_date = expiration_date
 
     @property
     def id(self):

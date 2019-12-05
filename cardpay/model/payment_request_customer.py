@@ -44,6 +44,7 @@ class PaymentRequestCustomer(object):
         "locale": "str",
         "phone": "str",
         "work_phone": "str",
+        "ip": "str",
     }
 
     attribute_map = {
@@ -56,6 +57,7 @@ class PaymentRequestCustomer(object):
         "locale": "locale",
         "phone": "phone",
         "work_phone": "work_phone",
+        "ip": "ip",
     }
 
     def __init__(
@@ -69,6 +71,7 @@ class PaymentRequestCustomer(object):
         locale=None,
         phone=None,
         work_phone=None,
+        ip=None,
     ):  # noqa: E501
         """PaymentRequestCustomer - a model defined in Swagger"""  # noqa: E501
 
@@ -81,6 +84,7 @@ class PaymentRequestCustomer(object):
         self._locale = None
         self._phone = None
         self._work_phone = None
+        self._ip = None
         self.discriminator = None
 
         if birth_date is not None:
@@ -101,6 +105,8 @@ class PaymentRequestCustomer(object):
             self.phone = phone
         if work_phone is not None:
             self.work_phone = work_phone
+        if ip is not None:
+            self.ip = ip
 
     @property
     def birth_date(self):
@@ -356,6 +362,29 @@ class PaymentRequestCustomer(object):
             )  # noqa: E501
 
         self._work_phone = work_phone
+
+    @property
+    def ip(self):
+        """Gets the ip of this PaymentRequestCustomer.  # noqa: E501
+
+        IP address of Customer  # noqa: E501
+
+        :return: The ip of this PaymentRequestCustomer.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip
+
+    @ip.setter
+    def ip(self, ip):
+        """Sets the ip of this PaymentRequestCustomer.
+
+        IP address of Customer  # noqa: E501
+
+        :param ip: The ip of this PaymentRequestCustomer.  # noqa: E501
+        :type: str
+        """
+
+        self._ip = ip
 
     def to_dict(self):
         """Returns the model properties as a dict"""
