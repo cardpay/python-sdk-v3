@@ -33,7 +33,6 @@ class FilingRecurringData(object):
     swagger_types = {
         "currency": "str",
         "dynamic_descriptor": "str",
-        "generate_token": "bool",
         "initiator": "str",
         "note": "str",
         "trans_type": "str",
@@ -42,7 +41,6 @@ class FilingRecurringData(object):
     attribute_map = {
         "currency": "currency",
         "dynamic_descriptor": "dynamic_descriptor",
-        "generate_token": "generate_token",
         "initiator": "initiator",
         "note": "note",
         "trans_type": "trans_type",
@@ -52,7 +50,6 @@ class FilingRecurringData(object):
         self,
         currency=None,
         dynamic_descriptor=None,
-        generate_token=None,
         initiator=None,
         note=None,
         trans_type=None,
@@ -61,7 +58,6 @@ class FilingRecurringData(object):
 
         self._currency = None
         self._dynamic_descriptor = None
-        self._generate_token = None
         self._initiator = None
         self._note = None
         self._trans_type = None
@@ -71,8 +67,6 @@ class FilingRecurringData(object):
             self.currency = currency
         if dynamic_descriptor is not None:
             self.dynamic_descriptor = dynamic_descriptor
-        if generate_token is not None:
-            self.generate_token = generate_token
         if initiator is not None:
             self.initiator = initiator
         if note is not None:
@@ -133,29 +127,6 @@ class FilingRecurringData(object):
             )  # noqa: E501
 
         self._dynamic_descriptor = dynamic_descriptor
-
-    @property
-    def generate_token(self):
-        """Gets the generate_token of this FilingRecurringData.  # noqa: E501
-
-        This attribute can be received only in first recurring request. If set to 'true', Card token will be generated and returned in GET response for all successful transactions (can't be generated for declined transactions).  # noqa: E501
-
-        :return: The generate_token of this FilingRecurringData.  # noqa: E501
-        :rtype: bool
-        """
-        return self._generate_token
-
-    @generate_token.setter
-    def generate_token(self, generate_token):
-        """Sets the generate_token of this FilingRecurringData.
-
-        This attribute can be received only in first recurring request. If set to 'true', Card token will be generated and returned in GET response for all successful transactions (can't be generated for declined transactions).  # noqa: E501
-
-        :param generate_token: The generate_token of this FilingRecurringData.  # noqa: E501
-        :type: bool
-        """
-
-        self._generate_token = generate_token
 
     @property
     def initiator(self):
