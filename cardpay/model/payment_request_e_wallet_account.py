@@ -32,6 +32,7 @@ class PaymentRequestEWalletAccount(object):
     """
     swagger_types = {
         "bank_code": "str",
+        "creation_date": "str",
         "expiration_date": "str",
         "id": "str",
         "verification_code": "str",
@@ -39,17 +40,24 @@ class PaymentRequestEWalletAccount(object):
 
     attribute_map = {
         "bank_code": "bank_code",
+        "creation_date": "creation_date",
         "expiration_date": "expiration_date",
         "id": "id",
         "verification_code": "verification_code",
     }
 
     def __init__(
-        self, bank_code=None, expiration_date=None, id=None, verification_code=None
+        self,
+        bank_code=None,
+        creation_date=None,
+        expiration_date=None,
+        id=None,
+        verification_code=None,
     ):  # noqa: E501
         """PaymentRequestEWalletAccount - a model defined in Swagger"""  # noqa: E501
 
         self._bank_code = None
+        self._creation_date = None
         self._expiration_date = None
         self._id = None
         self._verification_code = None
@@ -57,6 +65,8 @@ class PaymentRequestEWalletAccount(object):
 
         if bank_code is not None:
             self.bank_code = bank_code
+        if creation_date is not None:
+            self.creation_date = creation_date
         if expiration_date is not None:
             self.expiration_date = expiration_date
         if id is not None:
@@ -88,6 +98,35 @@ class PaymentRequestEWalletAccount(object):
         self._bank_code = bank_code
 
     @property
+    def creation_date(self):
+        """Gets the creation_date of this PaymentRequestEWalletAccount.  # noqa: E501
+
+        Card creation date  # noqa: E501
+
+        :return: The creation_date of this PaymentRequestEWalletAccount.  # noqa: E501
+        :rtype: str
+        """
+        return self._creation_date
+
+    @creation_date.setter
+    def creation_date(self, creation_date):
+        """Sets the creation_date of this PaymentRequestEWalletAccount.
+
+        Card creation date  # noqa: E501
+
+        :param creation_date: The creation_date of this PaymentRequestEWalletAccount.  # noqa: E501
+        :type: str
+        """
+        if creation_date is not None and not re.search(
+            r"^[\\d{2,4}|\/?|\\.?]{2,10}$", creation_date
+        ):  # noqa: E501
+            raise ValueError(
+                r"Invalid value for `creation_date`, must be a follow pattern or equal to `/^[\\d{2,4}|\/?|\\.?]{2,10}$/`"
+            )  # noqa: E501
+
+        self._creation_date = creation_date
+
+    @property
     def expiration_date(self):
         """Gets the expiration_date of this PaymentRequestEWalletAccount.  # noqa: E501
 
@@ -108,10 +147,10 @@ class PaymentRequestEWalletAccount(object):
         :type: str
         """
         if expiration_date is not None and not re.search(
-            r"^.{2,10}$", expiration_date
+            r"^[\\d{2,4}|\/?|\\.?]{2,10}$", expiration_date
         ):  # noqa: E501
             raise ValueError(
-                r"Invalid value for `expiration_date`, must be a follow pattern or equal to `/^.{2,10}$/`"
+                r"Invalid value for `expiration_date`, must be a follow pattern or equal to `/^[\\d{2,4}|\/?|\\.?]{2,10}$/`"
             )  # noqa: E501
 
         self._expiration_date = expiration_date
