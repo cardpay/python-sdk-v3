@@ -60,7 +60,8 @@ class PayoutRequestCardAccount(object):
 
         if billing_address is not None:
             self.billing_address = billing_address
-        self.card = card
+        if card is not None:
+            self.card = card
         self.recipient_info = recipient_info
         if token is not None:
             self.token = token
@@ -108,10 +109,6 @@ class PayoutRequestCardAccount(object):
         :param card: The card of this PayoutRequestCardAccount.  # noqa: E501
         :type: PayoutRequestCard
         """
-        if card is None:
-            raise ValueError(
-                "Invalid value for `card`, must not be `None`"
-            )  # noqa: E501
 
         self._card = card
 
