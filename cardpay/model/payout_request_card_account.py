@@ -62,7 +62,8 @@ class PayoutRequestCardAccount(object):
             self.billing_address = billing_address
         if card is not None:
             self.card = card
-        self.recipient_info = recipient_info
+        if recipient_info is not None:
+            self.recipient_info = recipient_info
         if token is not None:
             self.token = token
 
@@ -132,10 +133,6 @@ class PayoutRequestCardAccount(object):
         :param recipient_info: The recipient_info of this PayoutRequestCardAccount.  # noqa: E501
         :type: str
         """
-        if recipient_info is None:
-            raise ValueError(
-                "Invalid value for `recipient_info`, must not be `None`"
-            )  # noqa: E501
         if recipient_info is not None and len(recipient_info) > 500:
             raise ValueError(
                 "Invalid value for `recipient_info`, length must be less than or equal to `500`"
