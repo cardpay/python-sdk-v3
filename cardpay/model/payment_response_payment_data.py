@@ -32,6 +32,7 @@ class PaymentResponsePaymentData(object):
     """
     swagger_types = {
         "amount": "float",
+        "arn": "str",
         "auth_code": "str",
         "created": "str",
         "currency": "str",
@@ -47,6 +48,7 @@ class PaymentResponsePaymentData(object):
 
     attribute_map = {
         "amount": "amount",
+        "arn": "arn",
         "auth_code": "auth_code",
         "created": "created",
         "currency": "currency",
@@ -63,6 +65,7 @@ class PaymentResponsePaymentData(object):
     def __init__(
         self,
         amount=None,
+        arn=None,
         auth_code=None,
         created=None,
         currency=None,
@@ -78,6 +81,7 @@ class PaymentResponsePaymentData(object):
         """PaymentResponsePaymentData - a model defined in Swagger"""  # noqa: E501
 
         self._amount = None
+        self._arn = None
         self._auth_code = None
         self._created = None
         self._currency = None
@@ -93,6 +97,8 @@ class PaymentResponsePaymentData(object):
 
         if amount is not None:
             self.amount = amount
+        if arn is not None:
+            self.arn = arn
         if auth_code is not None:
             self.auth_code = auth_code
         if created is not None:
@@ -138,6 +144,29 @@ class PaymentResponsePaymentData(object):
         """
 
         self._amount = amount
+
+    @property
+    def arn(self):
+        """Gets the arn of this PaymentResponsePaymentData.  # noqa: E501
+
+        ARN (Acquirer Reference Number), supplied by the acquiring financial institution, return only after receiving ARN from bank acquirer *(for BANKCARD payment method only)*  # noqa: E501
+
+        :return: The arn of this PaymentResponsePaymentData.  # noqa: E501
+        :rtype: str
+        """
+        return self._arn
+
+    @arn.setter
+    def arn(self, arn):
+        """Sets the arn of this PaymentResponsePaymentData.
+
+        ARN (Acquirer Reference Number), supplied by the acquiring financial institution, return only after receiving ARN from bank acquirer *(for BANKCARD payment method only)*  # noqa: E501
+
+        :param arn: The arn of this PaymentResponsePaymentData.  # noqa: E501
+        :type: str
+        """
+
+        self._arn = arn
 
     @property
     def auth_code(self):

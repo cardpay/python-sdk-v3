@@ -16,6 +16,12 @@ import re  # noqa: F401
 
 import six
 
+from cardpay.model.refund_request_customer import (
+    RefundRequestCustomer,
+)  # noqa: F401,E501
+from cardpay.model.refund_request_e_wallet_account import (
+    RefundRequestEWalletAccount,
+)  # noqa: F401,E501
 from cardpay.model.refund_request_merchant_order import (
     RefundRequestMerchantOrder,
 )  # noqa: F401,E501
@@ -43,6 +49,8 @@ class RefundRequest(object):
     """
     swagger_types = {
         "request": "Request",
+        "customer": "RefundRequestCustomer",
+        "ewallet_account": "RefundRequestEWalletAccount",
         "merchant_order": "RefundRequestMerchantOrder",
         "payment_data": "RefundRequestPaymentData",
         "refund_data": "RefundRequestRefundData",
@@ -50,23 +58,37 @@ class RefundRequest(object):
 
     attribute_map = {
         "request": "request",
+        "customer": "customer",
+        "ewallet_account": "ewallet_account",
         "merchant_order": "merchant_order",
         "payment_data": "payment_data",
         "refund_data": "refund_data",
     }
 
     def __init__(
-        self, request=None, merchant_order=None, payment_data=None, refund_data=None
+        self,
+        request=None,
+        customer=None,
+        ewallet_account=None,
+        merchant_order=None,
+        payment_data=None,
+        refund_data=None,
     ):  # noqa: E501
         """RefundRequest - a model defined in Swagger"""  # noqa: E501
 
         self._request = None
+        self._customer = None
+        self._ewallet_account = None
         self._merchant_order = None
         self._payment_data = None
         self._refund_data = None
         self.discriminator = None
 
         self.request = request
+        if customer is not None:
+            self.customer = customer
+        if ewallet_account is not None:
+            self.ewallet_account = ewallet_account
         if merchant_order is not None:
             self.merchant_order = merchant_order
         self.payment_data = payment_data
@@ -99,6 +121,52 @@ class RefundRequest(object):
             )  # noqa: E501
 
         self._request = request
+
+    @property
+    def customer(self):
+        """Gets the customer of this RefundRequest.  # noqa: E501
+
+        Customer  # noqa: E501
+
+        :return: The customer of this RefundRequest.  # noqa: E501
+        :rtype: RefundRequestCustomer
+        """
+        return self._customer
+
+    @customer.setter
+    def customer(self, customer):
+        """Sets the customer of this RefundRequest.
+
+        Customer  # noqa: E501
+
+        :param customer: The customer of this RefundRequest.  # noqa: E501
+        :type: RefundRequestCustomer
+        """
+
+        self._customer = customer
+
+    @property
+    def ewallet_account(self):
+        """Gets the ewallet_account of this RefundRequest.  # noqa: E501
+
+        EWallet  # noqa: E501
+
+        :return: The ewallet_account of this RefundRequest.  # noqa: E501
+        :rtype: RefundRequestEWalletAccount
+        """
+        return self._ewallet_account
+
+    @ewallet_account.setter
+    def ewallet_account(self, ewallet_account):
+        """Sets the ewallet_account of this RefundRequest.
+
+        EWallet  # noqa: E501
+
+        :param ewallet_account: The ewallet_account of this RefundRequest.  # noqa: E501
+        :type: RefundRequestEWalletAccount
+        """
+
+        self._ewallet_account = ewallet_account
 
     @property
     def merchant_order(self):

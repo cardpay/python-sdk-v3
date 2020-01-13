@@ -123,6 +123,8 @@ from cardpay.model.recurrings_list import RecurringsList
 from cardpay.model.redirect_url_response import RedirectUrlResponse
 from cardpay.model.refund_callback import RefundCallback
 from cardpay.model.refund_request import RefundRequest
+from cardpay.model.refund_request_customer import RefundRequestCustomer
+from cardpay.model.refund_request_e_wallet_account import RefundRequestEWalletAccount
 from cardpay.model.refund_request_merchant_order import RefundRequestMerchantOrder
 from cardpay.model.refund_request_payment_data import RefundRequestPaymentData
 from cardpay.model.refund_request_refund_data import RefundRequestRefundData

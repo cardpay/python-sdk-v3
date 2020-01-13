@@ -32,6 +32,7 @@ class BankCardPayoutData(object):
     """
     swagger_types = {
         "amount": "float",
+        "arn": "str",
         "created": "str",
         "currency": "str",
         "decline_code": "str",
@@ -44,6 +45,7 @@ class BankCardPayoutData(object):
 
     attribute_map = {
         "amount": "amount",
+        "arn": "arn",
         "created": "created",
         "currency": "currency",
         "decline_code": "decline_code",
@@ -57,6 +59,7 @@ class BankCardPayoutData(object):
     def __init__(
         self,
         amount=None,
+        arn=None,
         created=None,
         currency=None,
         decline_code=None,
@@ -69,6 +72,7 @@ class BankCardPayoutData(object):
         """BankCardPayoutData - a model defined in Swagger"""  # noqa: E501
 
         self._amount = None
+        self._arn = None
         self._created = None
         self._currency = None
         self._decline_code = None
@@ -80,6 +84,8 @@ class BankCardPayoutData(object):
         self.discriminator = None
 
         self.amount = amount
+        if arn is not None:
+            self.arn = arn
         self.created = created
         self.currency = currency
         if decline_code is not None:
@@ -119,6 +125,29 @@ class BankCardPayoutData(object):
             )  # noqa: E501
 
         self._amount = amount
+
+    @property
+    def arn(self):
+        """Gets the arn of this BankCardPayoutData.  # noqa: E501
+
+        ARN (Acquirer Reference Number), supplied by the acquiring financial institution, return only after receiving ARN from bank acquirer *(for BANKCARD payment method only)*  # noqa: E501
+
+        :return: The arn of this BankCardPayoutData.  # noqa: E501
+        :rtype: str
+        """
+        return self._arn
+
+    @arn.setter
+    def arn(self, arn):
+        """Sets the arn of this BankCardPayoutData.
+
+        ARN (Acquirer Reference Number), supplied by the acquiring financial institution, return only after receiving ARN from bank acquirer *(for BANKCARD payment method only)*  # noqa: E501
+
+        :param arn: The arn of this BankCardPayoutData.  # noqa: E501
+        :type: str
+        """
+
+        self._arn = arn
 
     @property
     def created(self):
