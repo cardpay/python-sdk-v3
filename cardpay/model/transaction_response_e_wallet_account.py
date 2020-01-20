@@ -30,24 +30,50 @@ class TransactionResponseEWalletAccount(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"id": "str"}
+    swagger_types = {"holder": "str", "id": "str"}
 
-    attribute_map = {"id": "id"}
+    attribute_map = {"holder": "holder", "id": "id"}
 
-    def __init__(self, id=None):  # noqa: E501
+    def __init__(self, holder=None, id=None):  # noqa: E501
         """TransactionResponseEWalletAccount - a model defined in Swagger"""  # noqa: E501
 
+        self._holder = None
         self._id = None
         self.discriminator = None
 
+        if holder is not None:
+            self.holder = holder
         if id is not None:
             self.id = id
+
+    @property
+    def holder(self):
+        """Gets the holder of this TransactionResponseEWalletAccount.  # noqa: E501
+
+        Ewallet account holder name For DIRECTBANKINGEU - Account holder name (optional)  # noqa: E501
+
+        :return: The holder of this TransactionResponseEWalletAccount.  # noqa: E501
+        :rtype: str
+        """
+        return self._holder
+
+    @holder.setter
+    def holder(self, holder):
+        """Sets the holder of this TransactionResponseEWalletAccount.
+
+        Ewallet account holder name For DIRECTBANKINGEU - Account holder name (optional)  # noqa: E501
+
+        :param holder: The holder of this TransactionResponseEWalletAccount.  # noqa: E501
+        :type: str
+        """
+
+        self._holder = holder
 
     @property
     def id(self):
         """Gets the id of this TransactionResponseEWalletAccount.  # noqa: E501
 
-        For ALIPAY - 16 digits number For QIWI - Customer phone number (from 1 to 15 digits) For WEBMONEY - Customer account number For NETELLER - Email address of the customer For YANDEXMONEY - Customer wallet number, 11 to 16 digits, begins with 410 For DIRECTBANKINGNGA - Bank account number For AQRCODE - Customer account number For AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE, TIGO - Customer account number For 'Latin America' - Customer’s personal identification number  # noqa: E501
+        For ALIPAY - 16 digits number For QIWI - Customer phone number (from 1 to 15 digits) For WEBMONEY - Customer account number For NETELLER - Email address of the customer For YANDEXMONEY - Customer wallet number, 11 to 16 digits, begins with 410 For DIRECTBANKINGNGA - Bank account number For AQRCODE - Customer account number For AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE, TIGO - Customer account number For 'Latin America' - Customer’s personal identification number For DIRECTBANKINGEU - Sender IBAN (optional)  # noqa: E501
 
         :return: The id of this TransactionResponseEWalletAccount.  # noqa: E501
         :rtype: str
@@ -58,7 +84,7 @@ class TransactionResponseEWalletAccount(object):
     def id(self, id):
         """Sets the id of this TransactionResponseEWalletAccount.
 
-        For ALIPAY - 16 digits number For QIWI - Customer phone number (from 1 to 15 digits) For WEBMONEY - Customer account number For NETELLER - Email address of the customer For YANDEXMONEY - Customer wallet number, 11 to 16 digits, begins with 410 For DIRECTBANKINGNGA - Bank account number For AQRCODE - Customer account number For AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE, TIGO - Customer account number For 'Latin America' - Customer’s personal identification number  # noqa: E501
+        For ALIPAY - 16 digits number For QIWI - Customer phone number (from 1 to 15 digits) For WEBMONEY - Customer account number For NETELLER - Email address of the customer For YANDEXMONEY - Customer wallet number, 11 to 16 digits, begins with 410 For DIRECTBANKINGNGA - Bank account number For AQRCODE - Customer account number For AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE, TIGO - Customer account number For 'Latin America' - Customer’s personal identification number For DIRECTBANKINGEU - Sender IBAN (optional)  # noqa: E501
 
         :param id: The id of this TransactionResponseEWalletAccount.  # noqa: E501
         :type: str

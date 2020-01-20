@@ -808,6 +808,7 @@ class RecurringsApi(object):
         :param int max_count: Limit number of returned transactions (must be less than 10000, default is 1000)
         :param str merchant_order_id: Merchant order number from the merchant system
         :param str payment_method: Used payment method type name from payment methods list
+        :param list[str] recurring_types:
         :param str sort_order: Sort based on order of results. `asc` for ascending order or `desc` for descending order (default value)
         :param datetime start_time: Date and time up to milliseconds (in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format) when requested period starts (inclusive), UTC time, default is 24 hours before 'end_time' (format: yyyy-MM-dd'T'HH:mm:ss'Z')
         :param str type: Filter recurring payments by certain type (applicable to /api/recurrings endpoint only): `SCHEDULED` for scheduled recurring payments `ONECLICK` for one-click payments `INSTALLMENT` for installment payments
@@ -829,6 +830,7 @@ class RecurringsApi(object):
         :param int max_count: Limit number of returned transactions (must be less than 10000, default is 1000)
         :param str merchant_order_id: Merchant order number from the merchant system
         :param str payment_method: Used payment method type name from payment methods list
+        :param list[str] recurring_types:
         :param str sort_order: Sort based on order of results. `asc` for ascending order or `desc` for descending order (default value)
         :param datetime start_time: Date and time up to milliseconds (in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format) when requested period starts (inclusive), UTC time, default is 24 hours before 'end_time' (format: yyyy-MM-dd'T'HH:mm:ss'Z')
         :param str type: Filter recurring payments by certain type (applicable to /api/recurrings endpoint only): `SCHEDULED` for scheduled recurring payments `ONECLICK` for one-click payments `INSTALLMENT` for installment payments
@@ -844,6 +846,7 @@ class RecurringsApi(object):
             "max_count",
             "merchant_order_id",
             "payment_method",
+            "recurring_types",
             "sort_order",
             "start_time",
             "type",
@@ -920,6 +923,11 @@ class RecurringsApi(object):
             query_params.append(
                 ("payment_method", params["payment_method"])
             )  # noqa: E501
+        if "recurring_types" in params:
+            query_params.append(
+                ("recurring_types", params["recurring_types"])
+            )  # noqa: E501
+            collection_formats["recurring_types"] = "multi"  # noqa: E501
         if "request_id" in params:
             query_params.append(("request_id", params["request_id"]))  # noqa: E501
         if "sort_order" in params:
