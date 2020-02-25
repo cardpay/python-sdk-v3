@@ -35,6 +35,7 @@ class InstallmentData(object):
         "currency": "str",
         "dynamic_descriptor": "str",
         "generate_token": "bool",
+        "hold_rest_amount": "bool",
         "initiator": "str",
         "interval": "int",
         "note": "str",
@@ -50,6 +51,7 @@ class InstallmentData(object):
         "currency": "currency",
         "dynamic_descriptor": "dynamic_descriptor",
         "generate_token": "generate_token",
+        "hold_rest_amount": "hold_rest_amount",
         "initiator": "initiator",
         "interval": "interval",
         "note": "note",
@@ -66,6 +68,7 @@ class InstallmentData(object):
         currency=None,
         dynamic_descriptor=None,
         generate_token=None,
+        hold_rest_amount=None,
         initiator=None,
         interval=None,
         note=None,
@@ -81,6 +84,7 @@ class InstallmentData(object):
         self._currency = None
         self._dynamic_descriptor = None
         self._generate_token = None
+        self._hold_rest_amount = None
         self._initiator = None
         self._interval = None
         self._note = None
@@ -98,6 +102,8 @@ class InstallmentData(object):
             self.dynamic_descriptor = dynamic_descriptor
         if generate_token is not None:
             self.generate_token = generate_token
+        if hold_rest_amount is not None:
+            self.hold_rest_amount = hold_rest_amount
         self.initiator = initiator
         if interval is not None:
             self.interval = interval
@@ -219,6 +225,29 @@ class InstallmentData(object):
         self._generate_token = generate_token
 
     @property
+    def hold_rest_amount(self):
+        """Gets the hold_rest_amount of this InstallmentData.  # noqa: E501
+
+        For SplitPay subscription - \"true\"  # noqa: E501
+
+        :return: The hold_rest_amount of this InstallmentData.  # noqa: E501
+        :rtype: bool
+        """
+        return self._hold_rest_amount
+
+    @hold_rest_amount.setter
+    def hold_rest_amount(self, hold_rest_amount):
+        """Sets the hold_rest_amount of this InstallmentData.
+
+        For SplitPay subscription - \"true\"  # noqa: E501
+
+        :param hold_rest_amount: The hold_rest_amount of this InstallmentData.  # noqa: E501
+        :type: bool
+        """
+
+        self._hold_rest_amount = hold_rest_amount
+
+    @property
     def initiator(self):
         """Gets the initiator of this InstallmentData.  # noqa: E501
 
@@ -327,14 +356,6 @@ class InstallmentData(object):
         :param payments: The payments of this InstallmentData.  # noqa: E501
         :type: int
         """
-        if payments is not None and payments > 200:  # noqa: E501
-            raise ValueError(
-                "Invalid value for `payments`, must be a value less than or equal to `200`"
-            )  # noqa: E501
-        if payments is not None and payments < 2:  # noqa: E501
-            raise ValueError(
-                "Invalid value for `payments`, must be a value greater than or equal to `2`"
-            )  # noqa: E501
 
         self._payments = payments
 
