@@ -91,6 +91,7 @@ class ApiClient(object):
         baseUrl=None,
         terminal_code=None,
         password=None,
+        callback_secret=None,
         debug=False,
     ):
 
@@ -99,6 +100,7 @@ class ApiClient(object):
                 base_url=baseUrl,
                 terminal_code=terminal_code,
                 password=password,
+                callback_secret=callback_secret,
                 debug=debug,
             )
 
@@ -122,7 +124,7 @@ class ApiClient(object):
     def calc_signature(self, message):
         sha512 = hashlib.sha512()
         sha512.update(message.encode("utf-8"))
-        sha512.update(self.configuration.password.encode("utf-8"))
+        sha512.update(self.configuration.callback_secret.encode("utf-8"))
         return sha512.hexdigest()
 
     def is_valid_signature(self, message, signature):

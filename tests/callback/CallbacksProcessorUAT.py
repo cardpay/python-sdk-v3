@@ -13,7 +13,7 @@ from cardpay.api_client import CallbackHandler
 
 logger = create_logger(__name__)
 
-client = ApiClient(baseUrl=CARDPAY_API_URL, terminal_code="", password="pzQf529Wa0AV")
+client = ApiClient(baseUrl=CARDPAY_API_URL, terminal_code="", password="", callback_secret="pzQf529Wa0AV")
 callback_processor = client.create_callback_processor()
 
 

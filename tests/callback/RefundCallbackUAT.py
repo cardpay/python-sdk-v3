@@ -9,7 +9,7 @@ from config import *
 
 logger = create_logger(__name__)
 
-client = ApiClient(baseUrl=CARDPAY_API_URL, terminal_code="", password="pzQf529Wa0AV")
+client = ApiClient(baseUrl=CARDPAY_API_URL, terminal_code="", password="", callback_secret="pzQf529Wa0AV")
 
 
 def test_process_callback():

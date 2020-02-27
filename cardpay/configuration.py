@@ -32,7 +32,14 @@ class Configuration(object):
 
     _default = None
 
-    def __init__(self, base_url=None, terminal_code=None, password=None, debug=False):
+    def __init__(
+        self,
+        base_url=None,
+        terminal_code=None,
+        password=None,
+        callback_secret=None,
+        debug=False,
+    ):
         """Constructor"""
         if self._default:
             for key in self._default.__dict__.keys():
@@ -44,6 +51,7 @@ class Configuration(object):
 
         self.terminal_code = terminal_code
         self.password = password
+        self.callback_secret = callback_secret
 
         # Temp file folder for downloading files
         self.temp_folder_path = None
