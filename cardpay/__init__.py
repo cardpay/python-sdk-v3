@@ -41,6 +41,7 @@ from cardpay.model.flight import Flight
 from cardpay.model.flights import Flights
 from cardpay.model.installment_data import InstallmentData
 from cardpay.model.item import Item
+from cardpay.model.limit_info_response import LimitInfoResponse
 from cardpay.model.next_subscription_payment import NextSubscriptionPayment
 from cardpay.model.not_found_error import NotFoundError
 from cardpay.model.o_auth_error import OAuthError
@@ -178,6 +179,7 @@ from cardpay.model.recurring_update_request import RecurringUpdateRequest
 
 # import apis into api package
 from cardpay.api.auth_api import AuthApi
+from cardpay.api.limits_api import LimitsApi
 from cardpay.api.payments_api import PaymentsApi
 from cardpay.api.payouts_api import PayoutsApi
 from cardpay.api.recurrings_api import RecurringsApi

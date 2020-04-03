@@ -416,14 +416,6 @@ class InstallmentData(object):
         :param retries: The retries of this InstallmentData.  # noqa: E501
         :type: int
         """
-        if retries is not None and retries > 15:  # noqa: E501
-            raise ValueError(
-                "Invalid value for `retries`, must be a value less than or equal to `15`"
-            )  # noqa: E501
-        if retries is not None and retries < 1:  # noqa: E501
-            raise ValueError(
-                "Invalid value for `retries`, must be a value greater than or equal to `1`"
-            )  # noqa: E501
 
         self._retries = retries
 

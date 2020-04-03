@@ -272,14 +272,6 @@ class ShippingAddress(object):
         :param zip: The zip of this ShippingAddress.  # noqa: E501
         :type: str
         """
-        if zip is not None and len(zip) > 17:
-            raise ValueError(
-                "Invalid value for `zip`, length must be less than or equal to `17`"
-            )  # noqa: E501
-        if zip is not None and len(zip) < 0:
-            raise ValueError(
-                "Invalid value for `zip`, length must be greater than or equal to `0`"
-            )  # noqa: E501
 
         self._zip = zip
 
