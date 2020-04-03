@@ -15,6 +15,8 @@ limits = LimitsApi(ApiClient(config))
 
 def test_get_limits_info():
     response = limits.get_limits_info(request_id=str(uuid.uuid4()))
+
     logger.info(response)
+
     assert response is not None
     assert len(response.remaining_limits.keys()) > 0
