@@ -41,6 +41,7 @@ class PayoutRequestCustomer(object):
         "first_name": "str",
         "full_name": "str",
         "id": "str",
+        "identity": "str",
         "last_name": "str",
         "living_address": "PayoutRequestLivingAddress",
         "phone": "str",
@@ -53,6 +54,7 @@ class PayoutRequestCustomer(object):
         "first_name": "first_name",
         "full_name": "full_name",
         "id": "id",
+        "identity": "identity",
         "last_name": "last_name",
         "living_address": "living_address",
         "phone": "phone",
@@ -66,6 +68,7 @@ class PayoutRequestCustomer(object):
         first_name=None,
         full_name=None,
         id=None,
+        identity=None,
         last_name=None,
         living_address=None,
         phone=None,
@@ -78,6 +81,7 @@ class PayoutRequestCustomer(object):
         self._first_name = None
         self._full_name = None
         self._id = None
+        self._identity = None
         self._last_name = None
         self._living_address = None
         self._phone = None
@@ -95,6 +99,8 @@ class PayoutRequestCustomer(object):
             self.full_name = full_name
         if id is not None:
             self.id = id
+        if identity is not None:
+            self.identity = identity
         if last_name is not None:
             self.last_name = last_name
         if living_address is not None:
@@ -247,6 +253,29 @@ class PayoutRequestCustomer(object):
             )  # noqa: E501
 
         self._id = id
+
+    @property
+    def identity(self):
+        """Gets the identity of this PayoutRequestCustomer.  # noqa: E501
+
+        Customer identity  - Customer’s personal identification number: 'CPF' or 'CNPJ' for Brazil, 'DNI' for Argentina and ID for other countries.  For SPEI - Customer CPF or CURP  # noqa: E501
+
+        :return: The identity of this PayoutRequestCustomer.  # noqa: E501
+        :rtype: str
+        """
+        return self._identity
+
+    @identity.setter
+    def identity(self, identity):
+        """Sets the identity of this PayoutRequestCustomer.
+
+        Customer identity  - Customer’s personal identification number: 'CPF' or 'CNPJ' for Brazil, 'DNI' for Argentina and ID for other countries.  For SPEI - Customer CPF or CURP  # noqa: E501
+
+        :param identity: The identity of this PayoutRequestCustomer.  # noqa: E501
+        :type: str
+        """
+
+        self._identity = identity
 
     @property
     def last_name(self):

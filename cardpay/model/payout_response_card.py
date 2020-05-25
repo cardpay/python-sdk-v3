@@ -30,24 +30,128 @@ class PayoutResponseCard(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"issuing_country_code": "str", "masked_pan": "str"}
+    swagger_types = {
+        "acct_type": "str",
+        "expiration": "str",
+        "holder": "str",
+        "issuing_country_code": "str",
+        "masked_pan": "str",
+    }
 
     attribute_map = {
+        "acct_type": "acct_type",
+        "expiration": "expiration",
+        "holder": "holder",
         "issuing_country_code": "issuing_country_code",
         "masked_pan": "masked_pan",
     }
 
-    def __init__(self, issuing_country_code=None, masked_pan=None):  # noqa: E501
+    def __init__(
+        self,
+        acct_type=None,
+        expiration=None,
+        holder=None,
+        issuing_country_code=None,
+        masked_pan=None,
+    ):  # noqa: E501
         """PayoutResponseCard - a model defined in Swagger"""  # noqa: E501
 
+        self._acct_type = None
+        self._expiration = None
+        self._holder = None
         self._issuing_country_code = None
         self._masked_pan = None
         self.discriminator = None
 
+        if acct_type is not None:
+            self.acct_type = acct_type
+        if expiration is not None:
+            self.expiration = expiration
+        if holder is not None:
+            self.holder = holder
         if issuing_country_code is not None:
             self.issuing_country_code = issuing_country_code
         if masked_pan is not None:
             self.masked_pan = masked_pan
+
+    class AcctType(object):
+        _01 = "01"
+        _02 = "02"
+        _03 = "03"
+
+    @property
+    def acct_type(self):
+        """Gets the acct_type of this PayoutResponseCard.  # noqa: E501
+
+
+        :return: The acct_type of this PayoutResponseCard.  # noqa: E501
+        :rtype: str
+        """
+        return self._acct_type
+
+    @acct_type.setter
+    def acct_type(self, acct_type):
+        """Sets the acct_type of this PayoutResponseCard.
+
+
+        :param acct_type: The acct_type of this PayoutResponseCard.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["01", "02", "03"]  # noqa: E501
+        if acct_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `acct_type` ({0}), must be one of {1}".format(  # noqa: E501
+                    acct_type, allowed_values
+                )
+            )
+
+        self._acct_type = acct_type
+
+    @property
+    def expiration(self):
+        """Gets the expiration of this PayoutResponseCard.  # noqa: E501
+
+        Customer’s card expiration date. Format: `mm/yyyy`  # noqa: E501
+
+        :return: The expiration of this PayoutResponseCard.  # noqa: E501
+        :rtype: str
+        """
+        return self._expiration
+
+    @expiration.setter
+    def expiration(self, expiration):
+        """Sets the expiration of this PayoutResponseCard.
+
+        Customer’s card expiration date. Format: `mm/yyyy`  # noqa: E501
+
+        :param expiration: The expiration of this PayoutResponseCard.  # noqa: E501
+        :type: str
+        """
+
+        self._expiration = expiration
+
+    @property
+    def holder(self):
+        """Gets the holder of this PayoutResponseCard.  # noqa: E501
+
+        Customer's cardholder name. Any valid cardholder name. Not present by default, ask CardPay manager to enable it if needed.  # noqa: E501
+
+        :return: The holder of this PayoutResponseCard.  # noqa: E501
+        :rtype: str
+        """
+        return self._holder
+
+    @holder.setter
+    def holder(self, holder):
+        """Sets the holder of this PayoutResponseCard.
+
+        Customer's cardholder name. Any valid cardholder name. Not present by default, ask CardPay manager to enable it if needed.  # noqa: E501
+
+        :param holder: The holder of this PayoutResponseCard.  # noqa: E501
+        :type: str
+        """
+
+        self._holder = holder
 
     @property
     def issuing_country_code(self):

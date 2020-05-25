@@ -34,6 +34,7 @@ class PayoutRequestPayoutData(object):
         "amount": "float",
         "currency": "str",
         "dynamic_descriptor": "str",
+        "generate_token": "bool",
         "note": "str",
     }
 
@@ -41,17 +42,24 @@ class PayoutRequestPayoutData(object):
         "amount": "amount",
         "currency": "currency",
         "dynamic_descriptor": "dynamic_descriptor",
+        "generate_token": "generate_token",
         "note": "note",
     }
 
     def __init__(
-        self, amount=None, currency=None, dynamic_descriptor=None, note=None
+        self,
+        amount=None,
+        currency=None,
+        dynamic_descriptor=None,
+        generate_token=None,
+        note=None,
     ):  # noqa: E501
         """PayoutRequestPayoutData - a model defined in Swagger"""  # noqa: E501
 
         self._amount = None
         self._currency = None
         self._dynamic_descriptor = None
+        self._generate_token = None
         self._note = None
         self.discriminator = None
 
@@ -59,6 +67,8 @@ class PayoutRequestPayoutData(object):
         self.currency = currency
         if dynamic_descriptor is not None:
             self.dynamic_descriptor = dynamic_descriptor
+        if generate_token is not None:
+            self.generate_token = generate_token
         if note is not None:
             self.note = note
 
@@ -146,6 +156,29 @@ class PayoutRequestPayoutData(object):
             )  # noqa: E501
 
         self._dynamic_descriptor = dynamic_descriptor
+
+    @property
+    def generate_token(self):
+        """Gets the generate_token of this PayoutRequestPayoutData.  # noqa: E501
+
+        If set to `true`, token will be generated and returned in the response (callback). Token can be generated only for successful transactions (not for declined transactions) *(for BANKCARD payment method only)*  # noqa: E501
+
+        :return: The generate_token of this PayoutRequestPayoutData.  # noqa: E501
+        :rtype: bool
+        """
+        return self._generate_token
+
+    @generate_token.setter
+    def generate_token(self, generate_token):
+        """Sets the generate_token of this PayoutRequestPayoutData.
+
+        If set to `true`, token will be generated and returned in the response (callback). Token can be generated only for successful transactions (not for declined transactions) *(for BANKCARD payment method only)*  # noqa: E501
+
+        :param generate_token: The generate_token of this PayoutRequestPayoutData.  # noqa: E501
+        :type: bool
+        """
+
+        self._generate_token = generate_token
 
     @property
     def note(self):

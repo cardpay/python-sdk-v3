@@ -40,6 +40,9 @@ from cardpay.model.filter_parameters import FilterParameters
 from cardpay.model.flight import Flight
 from cardpay.model.flights import Flights
 from cardpay.model.installment_data import InstallmentData
+from cardpay.model.installment_subscription_request import (
+    InstallmentSubscriptionRequest,
+)
 from cardpay.model.item import Item
 from cardpay.model.limit_info_response import LimitInfoResponse
 from cardpay.model.next_subscription_payment import NextSubscriptionPayment
@@ -71,6 +74,7 @@ from cardpay.model.payment_update_response import PaymentUpdateResponse
 from cardpay.model.payment_update_transaction_data import PaymentUpdateTransactionData
 from cardpay.model.payments_list import PaymentsList
 from cardpay.model.payout_callback import PayoutCallback
+from cardpay.model.payout_creation_response import PayoutCreationResponse
 from cardpay.model.payout_payment_data import PayoutPaymentData
 from cardpay.model.payout_request import PayoutRequest
 from cardpay.model.payout_request_card import PayoutRequestCard
@@ -110,6 +114,7 @@ from cardpay.model.recurring_plan_request import RecurringPlanRequest
 from cardpay.model.recurring_plan_request_plan_data import RecurringPlanRequestPlanData
 from cardpay.model.recurring_plan_response import RecurringPlanResponse
 from cardpay.model.recurring_request_filing import RecurringRequestFiling
+from cardpay.model.recurring_request_merchant_order import RecurringRequestMerchantOrder
 from cardpay.model.recurring_request_recurring_data import RecurringRequestRecurringData
 from cardpay.model.recurring_response import RecurringResponse
 from cardpay.model.recurring_response_filing import RecurringResponseFiling
@@ -183,6 +188,7 @@ from cardpay.api.limits_api import LimitsApi
 from cardpay.api.payments_api import PaymentsApi
 from cardpay.api.payouts_api import PayoutsApi
 from cardpay.api.recurrings_api import RecurringsApi
+from cardpay.api.recurrings_installments_api import RecurringsInstallmentsApi
 from cardpay.api.refunds_api import RefundsApi
 
 

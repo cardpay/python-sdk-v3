@@ -36,6 +36,7 @@ class PayoutRequestCardAccount(object):
     swagger_types = {
         "billing_address": "BillingAddress",
         "card": "PayoutRequestCard",
+        "empty": "bool",
         "recipient_info": "str",
         "token": "str",
     }
@@ -43,17 +44,24 @@ class PayoutRequestCardAccount(object):
     attribute_map = {
         "billing_address": "billing_address",
         "card": "card",
+        "empty": "empty",
         "recipient_info": "recipient_info",
         "token": "token",
     }
 
     def __init__(
-        self, billing_address=None, card=None, recipient_info=None, token=None
+        self,
+        billing_address=None,
+        card=None,
+        empty=None,
+        recipient_info=None,
+        token=None,
     ):  # noqa: E501
         """PayoutRequestCardAccount - a model defined in Swagger"""  # noqa: E501
 
         self._billing_address = None
         self._card = None
+        self._empty = None
         self._recipient_info = None
         self._token = None
         self.discriminator = None
@@ -62,6 +70,8 @@ class PayoutRequestCardAccount(object):
             self.billing_address = billing_address
         if card is not None:
             self.card = card
+        if empty is not None:
+            self.empty = empty
         if recipient_info is not None:
             self.recipient_info = recipient_info
         if token is not None:
@@ -112,6 +122,27 @@ class PayoutRequestCardAccount(object):
         """
 
         self._card = card
+
+    @property
+    def empty(self):
+        """Gets the empty of this PayoutRequestCardAccount.  # noqa: E501
+
+
+        :return: The empty of this PayoutRequestCardAccount.  # noqa: E501
+        :rtype: bool
+        """
+        return self._empty
+
+    @empty.setter
+    def empty(self, empty):
+        """Sets the empty of this PayoutRequestCardAccount.
+
+
+        :param empty: The empty of this PayoutRequestCardAccount.  # noqa: E501
+        :type: bool
+        """
+
+        self._empty = empty
 
     @property
     def recipient_info(self):
