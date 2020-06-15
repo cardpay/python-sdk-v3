@@ -19,10 +19,10 @@ import six
 from cardpay.model.next_subscription_payment import (
     NextSubscriptionPayment,
 )  # noqa: F401,E501
-from cardpay.model.payout_response_customer import (
-    PayoutResponseCustomer,
-)  # noqa: F401,E501
 from cardpay.model.plan import Plan  # noqa: F401,E501
+from cardpay.model.recurring_response_customer import (
+    RecurringResponseCustomer,
+)  # noqa: F401,E501
 
 
 class SubscriptionGetResponse(object):
@@ -43,7 +43,7 @@ class SubscriptionGetResponse(object):
         "amount_total": "float",
         "created": "datetime",
         "currency": "str",
-        "customer": "PayoutResponseCustomer",
+        "customer": "RecurringResponseCustomer",
         "description": "str",
         "id": "str",
         "interval": "int",
@@ -253,7 +253,7 @@ class SubscriptionGetResponse(object):
         Customer data  # noqa: E501
 
         :return: The customer of this SubscriptionGetResponse.  # noqa: E501
-        :rtype: PayoutResponseCustomer
+        :rtype: RecurringResponseCustomer
         """
         return self._customer
 
@@ -264,7 +264,7 @@ class SubscriptionGetResponse(object):
         Customer data  # noqa: E501
 
         :param customer: The customer of this SubscriptionGetResponse.  # noqa: E501
-        :type: PayoutResponseCustomer
+        :type: RecurringResponseCustomer
         """
 
         self._customer = customer

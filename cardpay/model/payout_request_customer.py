@@ -35,7 +35,6 @@ class PayoutRequestCustomer(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        "document_number": "str",
         "document_type": "str",
         "email": "str",
         "first_name": "str",
@@ -48,7 +47,6 @@ class PayoutRequestCustomer(object):
     }
 
     attribute_map = {
-        "document_number": "document_number",
         "document_type": "document_type",
         "email": "email",
         "first_name": "first_name",
@@ -62,7 +60,6 @@ class PayoutRequestCustomer(object):
 
     def __init__(
         self,
-        document_number=None,
         document_type=None,
         email=None,
         first_name=None,
@@ -75,7 +72,6 @@ class PayoutRequestCustomer(object):
     ):  # noqa: E501
         """PayoutRequestCustomer - a model defined in Swagger"""  # noqa: E501
 
-        self._document_number = None
         self._document_type = None
         self._email = None
         self._first_name = None
@@ -87,8 +83,6 @@ class PayoutRequestCustomer(object):
         self._phone = None
         self.discriminator = None
 
-        if document_number is not None:
-            self.document_number = document_number
         if document_type is not None:
             self.document_type = document_type
         if email is not None:
@@ -107,29 +101,6 @@ class PayoutRequestCustomer(object):
             self.living_address = living_address
         if phone is not None:
             self.phone = phone
-
-    @property
-    def document_number(self):
-        """Gets the document_number of this PayoutRequestCustomer.  # noqa: E501
-
-        Customer document number *(mandatory for 'Latin America' methods only)* For 'Latin America' is required for methods where country = AR, BR, CL, CO, PE, UY  # noqa: E501
-
-        :return: The document_number of this PayoutRequestCustomer.  # noqa: E501
-        :rtype: str
-        """
-        return self._document_number
-
-    @document_number.setter
-    def document_number(self, document_number):
-        """Sets the document_number of this PayoutRequestCustomer.
-
-        Customer document number *(mandatory for 'Latin America' methods only)* For 'Latin America' is required for methods where country = AR, BR, CL, CO, PE, UY  # noqa: E501
-
-        :param document_number: The document_number of this PayoutRequestCustomer.  # noqa: E501
-        :type: str
-        """
-
-        self._document_number = document_number
 
     @property
     def document_type(self):

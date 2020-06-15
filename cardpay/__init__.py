@@ -117,6 +117,7 @@ from cardpay.model.recurring_request_filing import RecurringRequestFiling
 from cardpay.model.recurring_request_merchant_order import RecurringRequestMerchantOrder
 from cardpay.model.recurring_request_recurring_data import RecurringRequestRecurringData
 from cardpay.model.recurring_response import RecurringResponse
+from cardpay.model.recurring_response_customer import RecurringResponseCustomer
 from cardpay.model.recurring_response_filing import RecurringResponseFiling
 from cardpay.model.recurring_response_merchant_order import (
     RecurringResponseMerchantOrder,
