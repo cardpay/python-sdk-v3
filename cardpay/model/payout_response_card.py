@@ -31,7 +31,6 @@ class PayoutResponseCard(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        "acct_type": "str",
         "expiration": "str",
         "holder": "str",
         "issuing_country_code": "str",
@@ -39,7 +38,6 @@ class PayoutResponseCard(object):
     }
 
     attribute_map = {
-        "acct_type": "acct_type",
         "expiration": "expiration",
         "holder": "holder",
         "issuing_country_code": "issuing_country_code",
@@ -47,24 +45,16 @@ class PayoutResponseCard(object):
     }
 
     def __init__(
-        self,
-        acct_type=None,
-        expiration=None,
-        holder=None,
-        issuing_country_code=None,
-        masked_pan=None,
+        self, expiration=None, holder=None, issuing_country_code=None, masked_pan=None
     ):  # noqa: E501
         """PayoutResponseCard - a model defined in Swagger"""  # noqa: E501
 
-        self._acct_type = None
         self._expiration = None
         self._holder = None
         self._issuing_country_code = None
         self._masked_pan = None
         self.discriminator = None
 
-        if acct_type is not None:
-            self.acct_type = acct_type
         if expiration is not None:
             self.expiration = expiration
         if holder is not None:
@@ -73,39 +63,6 @@ class PayoutResponseCard(object):
             self.issuing_country_code = issuing_country_code
         if masked_pan is not None:
             self.masked_pan = masked_pan
-
-    class AcctType(object):
-        _01 = "01"
-        _02 = "02"
-        _03 = "03"
-
-    @property
-    def acct_type(self):
-        """Gets the acct_type of this PayoutResponseCard.  # noqa: E501
-
-
-        :return: The acct_type of this PayoutResponseCard.  # noqa: E501
-        :rtype: str
-        """
-        return self._acct_type
-
-    @acct_type.setter
-    def acct_type(self, acct_type):
-        """Sets the acct_type of this PayoutResponseCard.
-
-
-        :param acct_type: The acct_type of this PayoutResponseCard.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["01", "02", "03"]  # noqa: E501
-        if acct_type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `acct_type` ({0}), must be one of {1}".format(  # noqa: E501
-                    acct_type, allowed_values
-                )
-            )
-
-        self._acct_type = acct_type
 
     @property
     def expiration(self):

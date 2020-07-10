@@ -152,9 +152,9 @@ class BillingAddress(object):
         :param city: The city of this BillingAddress.  # noqa: E501
         :type: str
         """
-        if city is not None and len(city) > 20:
+        if city is not None and len(city) > 50:
             raise ValueError(
-                "Invalid value for `city`, length must be less than or equal to `20`"
+                "Invalid value for `city`, length must be less than or equal to `50`"
             )  # noqa: E501
         if city is not None and len(city) < 0:
             raise ValueError(
@@ -241,9 +241,9 @@ class BillingAddress(object):
         :param state: The state of this BillingAddress.  # noqa: E501
         :type: str
         """
-        if state is not None and len(state) > 20:
+        if state is not None and len(state) > 40:
             raise ValueError(
-                "Invalid value for `state`, length must be less than or equal to `20`"
+                "Invalid value for `state`, length must be less than or equal to `40`"
             )  # noqa: E501
         if state is not None and len(state) < 0:
             raise ValueError(

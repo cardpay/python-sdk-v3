@@ -33,6 +33,108 @@ class RecurringsInstallmentsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
+    def calculate_schedule(self, currency, request_id, **kwargs):  # noqa: E501
+        """Get calculation of installment payment options  # noqa: E501
+
+        :param str currency: [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code (required)
+        :param str request_id: Request ID (required)
+        :param float total_amount: Total amount of subscription to be calculated to options; can have dot as a decimal separator.
+        :return: ScheduleOptionsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+
+        (data) = self.calculate_schedule_with_http_info(
+            currency, request_id, **kwargs
+        )  # noqa: E501
+        return data
+
+    def calculate_schedule_with_http_info(
+        self, currency, request_id, **kwargs
+    ):  # noqa: E501
+        """Get calculation of installment payment options  # noqa: E501
+
+        :param str currency: [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code (required)
+        :param str request_id: Request ID (required)
+        :param float total_amount: Total amount of subscription to be calculated to options; can have dot as a decimal separator.
+        :return: ScheduleOptionsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ["currency", "request_id", "total_amount"]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
+
+        params = locals()
+        for key, val in six.iteritems(params["kwargs"]):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method calculate_schedule" % key
+                )
+            params[key] = val
+        del params["kwargs"]
+        # verify the required parameter 'currency' is set
+        if "currency" not in params or params["currency"] is None:
+            raise ValueError(
+                "Missing the required parameter `currency` when calling `calculate_schedule`"
+            )  # noqa: E501
+        # verify the required parameter 'request_id' is set
+        if "request_id" not in params or params["request_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `request_id` when calling `calculate_schedule`"
+            )  # noqa: E501
+
+        if "request_id" in params and len(params["request_id"]) > 50:
+            raise ValueError(
+                "Invalid value for parameter `request_id` when calling `calculate_schedule`, length must be less than or equal to `50`"
+            )  # noqa: E501
+        if "request_id" in params and len(params["request_id"]) < 0:
+            raise ValueError(
+                "Invalid value for parameter `request_id` when calling `calculate_schedule`, length must be greater than or equal to `0`"
+            )  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if "currency" in params:
+            query_params.append(("currency", params["currency"]))  # noqa: E501
+        if "request_id" in params:
+            query_params.append(("request_id", params["request_id"]))  # noqa: E501
+        if "total_amount" in params:
+            query_params.append(("totalAmount", params["total_amount"]))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
+
+        return self.api_client.call_api(
+            "/api/installments/options_calculator",
+            "GET",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type="ScheduleOptionsResponse",  # noqa: E501
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
     def create_installment(self, subscription_request, **kwargs):  # noqa: E501
         """Create installment  # noqa: E501
 

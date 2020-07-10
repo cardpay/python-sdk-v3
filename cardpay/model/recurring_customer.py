@@ -203,14 +203,6 @@ class RecurringCustomer(object):
         :param ip: The ip of this RecurringCustomer.  # noqa: E501
         :type: str
         """
-        if ip is not None and len(ip) > 15:
-            raise ValueError(
-                "Invalid value for `ip`, length must be less than or equal to `15`"
-            )  # noqa: E501
-        if ip is not None and len(ip) < 1:
-            raise ValueError(
-                "Invalid value for `ip`, length must be greater than or equal to `1`"
-            )  # noqa: E501
 
         self._ip = ip
 

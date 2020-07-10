@@ -29,6 +29,7 @@ from cardpay.model.payment_request_card_account import (
 from cardpay.model.recurring_customer import RecurringCustomer  # noqa: F401,E501
 from cardpay.model.request import Request  # noqa: F401,E501
 from cardpay.model.return_urls import ReturnUrls  # noqa: F401,E501
+from cardpay.model.three_d_secure_data import ThreeDSecureData  # noqa: F401,E501
 
 
 class FilingRequest(object):
@@ -53,6 +54,7 @@ class FilingRequest(object):
         "recurring_data": "FilingRecurringData",
         "return_urls": "ReturnUrls",
         "subscription_data": "FilingRequestSubscriptionData",
+        "three_d_secure": "ThreeDSecureData",
     }
 
     attribute_map = {
@@ -64,6 +66,7 @@ class FilingRequest(object):
         "recurring_data": "recurring_data",
         "return_urls": "return_urls",
         "subscription_data": "subscription_data",
+        "three_d_secure": "three_d_secure",
     }
 
     def __init__(
@@ -76,6 +79,7 @@ class FilingRequest(object):
         recurring_data=None,
         return_urls=None,
         subscription_data=None,
+        three_d_secure=None,
     ):  # noqa: E501
         """FilingRequest - a model defined in Swagger"""  # noqa: E501
 
@@ -87,6 +91,7 @@ class FilingRequest(object):
         self._recurring_data = None
         self._return_urls = None
         self._subscription_data = None
+        self._three_d_secure = None
         self.discriminator = None
 
         self.request = request
@@ -103,6 +108,8 @@ class FilingRequest(object):
             self.return_urls = return_urls
         if subscription_data is not None:
             self.subscription_data = subscription_data
+        if three_d_secure is not None:
+            self.three_d_secure = three_d_secure
 
     @property
     def request(self):
@@ -303,6 +310,27 @@ class FilingRequest(object):
         """
 
         self._subscription_data = subscription_data
+
+    @property
+    def three_d_secure(self):
+        """Gets the three_d_secure of this FilingRequest.  # noqa: E501
+
+
+        :return: The three_d_secure of this FilingRequest.  # noqa: E501
+        :rtype: ThreeDSecureData
+        """
+        return self._three_d_secure
+
+    @three_d_secure.setter
+    def three_d_secure(self, three_d_secure):
+        """Sets the three_d_secure of this FilingRequest.
+
+
+        :param three_d_secure: The three_d_secure of this FilingRequest.  # noqa: E501
+        :type: ThreeDSecureData
+        """
+
+        self._three_d_secure = three_d_secure
 
     def to_dict(self):
         """Returns the model properties as a dict"""

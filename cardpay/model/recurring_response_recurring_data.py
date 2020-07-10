@@ -51,8 +51,8 @@ class RecurringResponseRecurringData(object):
         "rrn": "str",
         "status": "str",
         "subscription": "Subscription",
-        "trans_type": "str",
         "type": "str",
+        "trans_type": "str",
     }
 
     attribute_map = {
@@ -71,8 +71,8 @@ class RecurringResponseRecurringData(object):
         "rrn": "rrn",
         "status": "status",
         "subscription": "subscription",
-        "trans_type": "trans_type",
         "type": "type",
+        "trans_type": "trans_type",
     }
 
     def __init__(
@@ -92,8 +92,8 @@ class RecurringResponseRecurringData(object):
         rrn=None,
         status=None,
         subscription=None,
-        trans_type=None,
         type=None,
+        trans_type=None,
     ):  # noqa: E501
         """RecurringResponseRecurringData - a model defined in Swagger"""  # noqa: E501
 
@@ -112,8 +112,8 @@ class RecurringResponseRecurringData(object):
         self._rrn = None
         self._status = None
         self._subscription = None
-        self._trans_type = None
         self._type = None
+        self._trans_type = None
         self.discriminator = None
 
         if amount is not None:
@@ -146,10 +146,10 @@ class RecurringResponseRecurringData(object):
             self.status = status
         if subscription is not None:
             self.subscription = subscription
-        if trans_type is not None:
-            self.trans_type = trans_type
         if type is not None:
             self.type = type
+        if trans_type is not None:
+            self.trans_type = trans_type
 
     @property
     def amount(self):
@@ -528,41 +528,6 @@ class RecurringResponseRecurringData(object):
 
         self._subscription = subscription
 
-    class TransType(object):
-        _01 = "01"
-        _03 = "03"
-        _10 = "10"
-        _11 = "11"
-        _28 = "28"
-
-    @property
-    def trans_type(self):
-        """Gets the trans_type of this RecurringResponseRecurringData.  # noqa: E501
-
-
-        :return: The trans_type of this RecurringResponseRecurringData.  # noqa: E501
-        :rtype: str
-        """
-        return self._trans_type
-
-    @trans_type.setter
-    def trans_type(self, trans_type):
-        """Sets the trans_type of this RecurringResponseRecurringData.
-
-
-        :param trans_type: The trans_type of this RecurringResponseRecurringData.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["01", "03", "10", "11", "28"]  # noqa: E501
-        if trans_type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `trans_type` ({0}), must be one of {1}".format(  # noqa: E501
-                    trans_type, allowed_values
-                )
-            )
-
-        self._trans_type = trans_type
-
     class Type(object):
         ONECLICK = "ONECLICK"
         SCHEDULED = "SCHEDULED"
@@ -597,6 +562,41 @@ class RecurringResponseRecurringData(object):
             )
 
         self._type = type
+
+    class TransType(object):
+        _01 = "01"
+        _03 = "03"
+        _10 = "10"
+        _11 = "11"
+        _28 = "28"
+
+    @property
+    def trans_type(self):
+        """Gets the trans_type of this RecurringResponseRecurringData.  # noqa: E501
+
+
+        :return: The trans_type of this RecurringResponseRecurringData.  # noqa: E501
+        :rtype: str
+        """
+        return self._trans_type
+
+    @trans_type.setter
+    def trans_type(self, trans_type):
+        """Sets the trans_type of this RecurringResponseRecurringData.
+
+
+        :param trans_type: The trans_type of this RecurringResponseRecurringData.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["01", "03", "10", "11", "28"]  # noqa: E501
+        if trans_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `trans_type` ({0}), must be one of {1}".format(  # noqa: E501
+                    trans_type, allowed_values
+                )
+            )
+
+        self._trans_type = trans_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""
