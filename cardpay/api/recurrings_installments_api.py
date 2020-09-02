@@ -139,7 +139,7 @@ class RecurringsInstallmentsApi(object):
         """Create installment  # noqa: E501
 
         :param InstallmentSubscriptionRequest subscription_request: subscriptionRequest (required)
-        :return: PaymentCreationResponse
+        :return: RecurringGatewayCreationResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -156,7 +156,7 @@ class RecurringsInstallmentsApi(object):
         """Create installment  # noqa: E501
 
         :param InstallmentSubscriptionRequest subscription_request: subscriptionRequest (required)
-        :return: PaymentCreationResponse
+        :return: RecurringGatewayCreationResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -218,7 +218,7 @@ class RecurringsInstallmentsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type="PaymentCreationResponse",  # noqa: E501
+            response_type="RecurringGatewayCreationResponse",  # noqa: E501
             _return_http_data_only=params.get("_return_http_data_only"),
             _preload_content=params.get("_preload_content", True),
             _request_timeout=params.get("_request_timeout"),

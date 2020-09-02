@@ -38,7 +38,7 @@ class PaymentsApi(object):
 
         Endpoint for creation payments. Request example presented for Gateway mode.  # noqa: E501
         :param PaymentRequest payment_request: paymentRequest (required)
-        :return: PaymentCreationResponse
+        :return: PaymentGatewayCreationResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -54,7 +54,7 @@ class PaymentsApi(object):
 
         Endpoint for creation payments. Request example presented for Gateway mode.  # noqa: E501
         :param PaymentRequest payment_request: paymentRequest (required)
-        :return: PaymentCreationResponse
+        :return: PaymentGatewayCreationResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -113,7 +113,7 @@ class PaymentsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type="PaymentCreationResponse",  # noqa: E501
+            response_type="PaymentGatewayCreationResponse",  # noqa: E501
             _return_http_data_only=params.get("_return_http_data_only"),
             _preload_content=params.get("_preload_content", True),
             _request_timeout=params.get("_request_timeout"),
@@ -343,6 +343,93 @@ class PaymentsApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type="PaymentsList",  # noqa: E501
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
+    def process3ds_verification(self, request, **kwargs):  # noqa: E501
+        """Process 3ds verification  # noqa: E501
+
+        Endpoint for process 3ds verification.  # noqa: E501
+        :param AuthenticationRequest request: request (required)
+        :return: AuthenticationResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+
+        (data) = self.process3ds_verification_with_http_info(
+            request, **kwargs
+        )  # noqa: E501
+        return data
+
+    def process3ds_verification_with_http_info(self, request, **kwargs):  # noqa: E501
+        """Process 3ds verification  # noqa: E501
+
+        Endpoint for process 3ds verification.  # noqa: E501
+        :param AuthenticationRequest request: request (required)
+        :return: AuthenticationResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ["request"]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
+
+        params = locals()
+        for key, val in six.iteritems(params["kwargs"]):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method process3ds_verification" % key
+                )
+            params[key] = val
+        del params["kwargs"]
+        # verify the required parameter 'request' is set
+        if "request" not in params or params["request"] is None:
+            raise ValueError(
+                "Missing the required parameter `request` when calling `process3ds_verification`"
+            )  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if "request" in params:
+            body_params = params["request"]
+        # HTTP header `Accept`
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
+        # HTTP header `Content-Type`
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
+
+        return self.api_client.call_api(
+            "/api/authentications/threedsecure",
+            "POST",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type="AuthenticationResponse",  # noqa: E501
             _return_http_data_only=params.get("_return_http_data_only"),
             _preload_content=params.get("_preload_content", True),
             _request_timeout=params.get("_request_timeout"),
