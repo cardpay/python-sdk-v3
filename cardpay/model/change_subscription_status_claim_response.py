@@ -71,13 +71,18 @@ class ChangeSubscriptionStatusClaimResponse(object):
         self._updated = None
         self.discriminator = None
 
-        self.created = created
-        self.details = details
-        self.id = id
-        self.status = status
+        if created is not None:
+            self.created = created
+        if details is not None:
+            self.details = details
+        if id is not None:
+            self.id = id
+        if status is not None:
+            self.status = status
         if subscription_data is not None:
             self.subscription_data = subscription_data
-        self.updated = updated
+        if updated is not None:
+            self.updated = updated
 
     @property
     def created(self):
@@ -99,10 +104,6 @@ class ChangeSubscriptionStatusClaimResponse(object):
         :param created: The created of this ChangeSubscriptionStatusClaimResponse.  # noqa: E501
         :type: datetime
         """
-        if created is None:
-            raise ValueError(
-                "Invalid value for `created`, must not be `None`"
-            )  # noqa: E501
 
         self._created = created
 
@@ -126,10 +127,6 @@ class ChangeSubscriptionStatusClaimResponse(object):
         :param details: The details of this ChangeSubscriptionStatusClaimResponse.  # noqa: E501
         :type: str
         """
-        if details is None:
-            raise ValueError(
-                "Invalid value for `details`, must not be `None`"
-            )  # noqa: E501
 
         self._details = details
 
@@ -153,8 +150,6 @@ class ChangeSubscriptionStatusClaimResponse(object):
         :param id: The id of this ChangeSubscriptionStatusClaimResponse.  # noqa: E501
         :type: str
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -183,10 +178,6 @@ class ChangeSubscriptionStatusClaimResponse(object):
         :param status: The status of this ChangeSubscriptionStatusClaimResponse.  # noqa: E501
         :type: str
         """
-        if status is None:
-            raise ValueError(
-                "Invalid value for `status`, must not be `None`"
-            )  # noqa: E501
         allowed_values = ["IN_PROCESS", "STOPPED", "COMPLETED"]  # noqa: E501
         if status not in allowed_values:
             raise ValueError(
@@ -240,10 +231,6 @@ class ChangeSubscriptionStatusClaimResponse(object):
         :param updated: The updated of this ChangeSubscriptionStatusClaimResponse.  # noqa: E501
         :type: datetime
         """
-        if updated is None:
-            raise ValueError(
-                "Invalid value for `updated`, must not be `None`"
-            )  # noqa: E501
 
         self._updated = updated
 

@@ -53,7 +53,6 @@ class MobilePaymentRequest(object):
         "mobile_token": "str",
         "payment_data": "PaymentRequestPaymentData",
         "payment_method": "str",
-        "payment_methods": "list[str]",
         "return_urls": "ReturnUrls",
     }
 
@@ -65,7 +64,6 @@ class MobilePaymentRequest(object):
         "mobile_token": "mobile_token",
         "payment_data": "payment_data",
         "payment_method": "payment_method",
-        "payment_methods": "payment_methods",
         "return_urls": "return_urls",
     }
 
@@ -78,7 +76,6 @@ class MobilePaymentRequest(object):
         mobile_token=None,
         payment_data=None,
         payment_method=None,
-        payment_methods=None,
         return_urls=None,
     ):  # noqa: E501
         """MobilePaymentRequest - a model defined in Swagger"""  # noqa: E501
@@ -90,7 +87,6 @@ class MobilePaymentRequest(object):
         self._mobile_token = None
         self._payment_data = None
         self._payment_method = None
-        self._payment_methods = None
         self._return_urls = None
         self.discriminator = None
 
@@ -103,8 +99,6 @@ class MobilePaymentRequest(object):
         self.payment_data = payment_data
         if payment_method is not None:
             self.payment_method = payment_method
-        if payment_methods is not None:
-            self.payment_methods = payment_methods
         if return_urls is not None:
             self.return_urls = return_urls
 
@@ -288,29 +282,6 @@ class MobilePaymentRequest(object):
         """
 
         self._payment_method = payment_method
-
-    @property
-    def payment_methods(self):
-        """Gets the payment_methods of this MobilePaymentRequest.  # noqa: E501
-
-        Array of payment methods to display on Checkout Page. If it is not set then all available methods will be displayed  # noqa: E501
-
-        :return: The payment_methods of this MobilePaymentRequest.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._payment_methods
-
-    @payment_methods.setter
-    def payment_methods(self, payment_methods):
-        """Sets the payment_methods of this MobilePaymentRequest.
-
-        Array of payment methods to display on Checkout Page. If it is not set then all available methods will be displayed  # noqa: E501
-
-        :param payment_methods: The payment_methods of this MobilePaymentRequest.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._payment_methods = payment_methods
 
     @property
     def return_urls(self):

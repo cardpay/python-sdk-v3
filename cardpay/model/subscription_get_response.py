@@ -19,9 +19,9 @@ import six
 from cardpay.model.next_subscription_payment import (
     NextSubscriptionPayment,
 )  # noqa: F401,E501
-from cardpay.model.plan import Plan  # noqa: F401,E501
-from cardpay.model.recurring_response_customer import (
-    RecurringResponseCustomer,
+from cardpay.model.subscription_customer import SubscriptionCustomer  # noqa: F401,E501
+from cardpay.model.subscription_get_response_plan import (
+    SubscriptionGetResponsePlan,
 )  # noqa: F401,E501
 
 
@@ -43,14 +43,14 @@ class SubscriptionGetResponse(object):
         "amount_total": "float",
         "created": "datetime",
         "currency": "str",
-        "customer": "RecurringResponseCustomer",
+        "customer": "SubscriptionCustomer",
         "description": "str",
         "id": "str",
         "interval": "int",
         "next_payment": "NextSubscriptionPayment",
         "payments_due": "int",
         "period": "str",
-        "plan": "Plan",
+        "plan": "SubscriptionGetResponsePlan",
         "retries": "int",
         "status": "str",
         "status_reason": "str",
@@ -253,7 +253,7 @@ class SubscriptionGetResponse(object):
         Customer data  # noqa: E501
 
         :return: The customer of this SubscriptionGetResponse.  # noqa: E501
-        :rtype: RecurringResponseCustomer
+        :rtype: SubscriptionCustomer
         """
         return self._customer
 
@@ -264,7 +264,7 @@ class SubscriptionGetResponse(object):
         Customer data  # noqa: E501
 
         :param customer: The customer of this SubscriptionGetResponse.  # noqa: E501
-        :type: RecurringResponseCustomer
+        :type: SubscriptionCustomer
         """
 
         self._customer = customer
@@ -428,7 +428,7 @@ class SubscriptionGetResponse(object):
         Plan data  # noqa: E501
 
         :return: The plan of this SubscriptionGetResponse.  # noqa: E501
-        :rtype: Plan
+        :rtype: SubscriptionGetResponsePlan
         """
         return self._plan
 
@@ -439,7 +439,7 @@ class SubscriptionGetResponse(object):
         Plan data  # noqa: E501
 
         :param plan: The plan of this SubscriptionGetResponse.  # noqa: E501
-        :type: Plan
+        :type: SubscriptionGetResponsePlan
         """
 
         self._plan = plan

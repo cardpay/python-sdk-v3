@@ -87,23 +87,28 @@ class RefundResponseRefundData(object):
         self._status = None
         self.discriminator = None
 
-        self.amount = amount
+        if amount is not None:
+            self.amount = amount
         if arn is not None:
             self.arn = arn
         if auth_code is not None:
             self.auth_code = auth_code
-        self.created = created
-        self.currency = currency
+        if created is not None:
+            self.created = created
+        if currency is not None:
+            self.currency = currency
         if decline_code is not None:
             self.decline_code = decline_code
         if decline_reason is not None:
             self.decline_reason = decline_reason
-        self.id = id
+        if id is not None:
+            self.id = id
         if is_3d is not None:
             self.is_3d = is_3d
         if rrn is not None:
             self.rrn = rrn
-        self.status = status
+        if status is not None:
+            self.status = status
 
     @property
     def amount(self):
@@ -125,10 +130,6 @@ class RefundResponseRefundData(object):
         :param amount: The amount of this RefundResponseRefundData.  # noqa: E501
         :type: float
         """
-        if amount is None:
-            raise ValueError(
-                "Invalid value for `amount`, must not be `None`"
-            )  # noqa: E501
 
         self._amount = amount
 
@@ -198,10 +199,6 @@ class RefundResponseRefundData(object):
         :param created: The created of this RefundResponseRefundData.  # noqa: E501
         :type: str
         """
-        if created is None:
-            raise ValueError(
-                "Invalid value for `created`, must not be `None`"
-            )  # noqa: E501
 
         self._created = created
 
@@ -225,18 +222,6 @@ class RefundResponseRefundData(object):
         :param currency: The currency of this RefundResponseRefundData.  # noqa: E501
         :type: str
         """
-        if currency is None:
-            raise ValueError(
-                "Invalid value for `currency`, must not be `None`"
-            )  # noqa: E501
-        if currency is not None and len(currency) > 3:
-            raise ValueError(
-                "Invalid value for `currency`, length must be less than or equal to `3`"
-            )  # noqa: E501
-        if currency is not None and len(currency) < 3:
-            raise ValueError(
-                "Invalid value for `currency`, length must be greater than or equal to `3`"
-            )  # noqa: E501
 
         self._currency = currency
 
@@ -306,8 +291,6 @@ class RefundResponseRefundData(object):
         :param id: The id of this RefundResponseRefundData.  # noqa: E501
         :type: str
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -390,10 +373,6 @@ class RefundResponseRefundData(object):
         :param status: The status of this RefundResponseRefundData.  # noqa: E501
         :type: str
         """
-        if status is None:
-            raise ValueError(
-                "Invalid value for `status`, must not be `None`"
-            )  # noqa: E501
         allowed_values = [
             "NEW",
             "IN_PROGRESS",

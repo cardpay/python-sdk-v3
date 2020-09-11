@@ -63,11 +63,16 @@ class ApiTokens(object):
         self._token_type = None
         self.discriminator = None
 
-        self.access_token = access_token
-        self.expires_in = expires_in
-        self.refresh_expires_in = refresh_expires_in
-        self.refresh_token = refresh_token
-        self.token_type = token_type
+        if access_token is not None:
+            self.access_token = access_token
+        if expires_in is not None:
+            self.expires_in = expires_in
+        if refresh_expires_in is not None:
+            self.refresh_expires_in = refresh_expires_in
+        if refresh_token is not None:
+            self.refresh_token = refresh_token
+        if token_type is not None:
+            self.token_type = token_type
 
     @property
     def access_token(self):
@@ -89,10 +94,6 @@ class ApiTokens(object):
         :param access_token: The access_token of this ApiTokens.  # noqa: E501
         :type: str
         """
-        if access_token is None:
-            raise ValueError(
-                "Invalid value for `access_token`, must not be `None`"
-            )  # noqa: E501
 
         self._access_token = access_token
 
@@ -116,10 +117,6 @@ class ApiTokens(object):
         :param expires_in: The expires_in of this ApiTokens.  # noqa: E501
         :type: int
         """
-        if expires_in is None:
-            raise ValueError(
-                "Invalid value for `expires_in`, must not be `None`"
-            )  # noqa: E501
 
         self._expires_in = expires_in
 
@@ -143,10 +140,6 @@ class ApiTokens(object):
         :param refresh_expires_in: The refresh_expires_in of this ApiTokens.  # noqa: E501
         :type: int
         """
-        if refresh_expires_in is None:
-            raise ValueError(
-                "Invalid value for `refresh_expires_in`, must not be `None`"
-            )  # noqa: E501
 
         self._refresh_expires_in = refresh_expires_in
 
@@ -170,10 +163,6 @@ class ApiTokens(object):
         :param refresh_token: The refresh_token of this ApiTokens.  # noqa: E501
         :type: str
         """
-        if refresh_token is None:
-            raise ValueError(
-                "Invalid value for `refresh_token`, must not be `None`"
-            )  # noqa: E501
 
         self._refresh_token = refresh_token
 
@@ -197,10 +186,6 @@ class ApiTokens(object):
         :param token_type: The token_type of this ApiTokens.  # noqa: E501
         :type: str
         """
-        if token_type is None:
-            raise ValueError(
-                "Invalid value for `token_type`, must not be `None`"
-            )  # noqa: E501
 
         self._token_type = token_type
 

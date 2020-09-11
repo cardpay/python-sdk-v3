@@ -44,7 +44,8 @@ class PayoutResponseCustomer(object):
 
         if email is not None:
             self.email = email
-        self.id = id
+        if id is not None:
+            self.id = id
         if phone is not None:
             self.phone = phone
 
@@ -91,8 +92,6 @@ class PayoutResponseCustomer(object):
         :param id: The id of this PayoutResponseCustomer.  # noqa: E501
         :type: str
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

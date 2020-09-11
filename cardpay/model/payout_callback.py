@@ -109,11 +109,14 @@ class PayoutCallback(object):
             self.customer = customer
         if ewallet_account is not None:
             self.ewallet_account = ewallet_account
-        self.merchant_order = merchant_order
+        if merchant_order is not None:
+            self.merchant_order = merchant_order
         if payment_data is not None:
             self.payment_data = payment_data
-        self.payment_method = payment_method
-        self.payout_data = payout_data
+        if payment_method is not None:
+            self.payment_method = payment_method
+        if payout_data is not None:
+            self.payout_data = payout_data
 
     @property
     def callback_time(self):
@@ -250,10 +253,6 @@ class PayoutCallback(object):
         :param merchant_order: The merchant_order of this PayoutCallback.  # noqa: E501
         :type: TransactionResponseMerchantOrder
         """
-        if merchant_order is None:
-            raise ValueError(
-                "Invalid value for `merchant_order`, must not be `None`"
-            )  # noqa: E501
 
         self._merchant_order = merchant_order
 
@@ -300,10 +299,6 @@ class PayoutCallback(object):
         :param payment_method: The payment_method of this PayoutCallback.  # noqa: E501
         :type: str
         """
-        if payment_method is None:
-            raise ValueError(
-                "Invalid value for `payment_method`, must not be `None`"
-            )  # noqa: E501
 
         self._payment_method = payment_method
 
@@ -327,10 +322,6 @@ class PayoutCallback(object):
         :param payout_data: The payout_data of this PayoutCallback.  # noqa: E501
         :type: PayoutResponsePayoutData
         """
-        if payout_data is None:
-            raise ValueError(
-                "Invalid value for `payout_data`, must not be `None`"
-            )  # noqa: E501
 
         self._payout_data = payout_data
 

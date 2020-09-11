@@ -45,8 +45,10 @@ class CardBindingRecurringDataResponse(object):
         self._id = None
         self.discriminator = None
 
-        self.filing = filing
-        self.id = id
+        if filing is not None:
+            self.filing = filing
+        if id is not None:
+            self.id = id
 
     @property
     def filing(self):
@@ -68,10 +70,6 @@ class CardBindingRecurringDataResponse(object):
         :param filing: The filing of this CardBindingRecurringDataResponse.  # noqa: E501
         :type: RecurringResponseFiling
         """
-        if filing is None:
-            raise ValueError(
-                "Invalid value for `filing`, must not be `None`"
-            )  # noqa: E501
 
         self._filing = filing
 
@@ -95,8 +93,6 @@ class CardBindingRecurringDataResponse(object):
         :param id: The id of this CardBindingRecurringDataResponse.  # noqa: E501
         :type: str
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

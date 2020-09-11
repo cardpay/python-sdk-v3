@@ -33,38 +33,54 @@ class PaymentResponseCustomer(object):
     swagger_types = {
         "email": "str",
         "full_name": "str",
+        "home_phone": "str",
         "id": "str",
         "ip": "str",
         "locale": "str",
         "phone": "str",
+        "work_phone": "str",
     }
 
     attribute_map = {
         "email": "email",
         "full_name": "full_name",
+        "home_phone": "home_phone",
         "id": "id",
         "ip": "ip",
         "locale": "locale",
         "phone": "phone",
+        "work_phone": "work_phone",
     }
 
     def __init__(
-        self, email=None, full_name=None, id=None, ip=None, locale=None, phone=None
+        self,
+        email=None,
+        full_name=None,
+        home_phone=None,
+        id=None,
+        ip=None,
+        locale=None,
+        phone=None,
+        work_phone=None,
     ):  # noqa: E501
         """PaymentResponseCustomer - a model defined in Swagger"""  # noqa: E501
 
         self._email = None
         self._full_name = None
+        self._home_phone = None
         self._id = None
         self._ip = None
         self._locale = None
         self._phone = None
+        self._work_phone = None
         self.discriminator = None
 
         if email is not None:
             self.email = email
         if full_name is not None:
             self.full_name = full_name
+        if home_phone is not None:
+            self.home_phone = home_phone
         if id is not None:
             self.id = id
         if ip is not None:
@@ -73,6 +89,8 @@ class PaymentResponseCustomer(object):
             self.locale = locale
         if phone is not None:
             self.phone = phone
+        if work_phone is not None:
+            self.work_phone = work_phone
 
     @property
     def email(self):
@@ -94,14 +112,6 @@ class PaymentResponseCustomer(object):
         :param email: The email of this PaymentResponseCustomer.  # noqa: E501
         :type: str
         """
-        if email is not None and len(email) > 256:
-            raise ValueError(
-                "Invalid value for `email`, length must be less than or equal to `256`"
-            )  # noqa: E501
-        if email is not None and len(email) < 1:
-            raise ValueError(
-                "Invalid value for `email`, length must be greater than or equal to `1`"
-            )  # noqa: E501
 
         self._email = email
 
@@ -125,16 +135,31 @@ class PaymentResponseCustomer(object):
         :param full_name: The full_name of this PaymentResponseCustomer.  # noqa: E501
         :type: str
         """
-        if full_name is not None and len(full_name) > 256:
-            raise ValueError(
-                "Invalid value for `full_name`, length must be less than or equal to `256`"
-            )  # noqa: E501
-        if full_name is not None and len(full_name) < 1:
-            raise ValueError(
-                "Invalid value for `full_name`, length must be greater than or equal to `1`"
-            )  # noqa: E501
 
         self._full_name = full_name
+
+    @property
+    def home_phone(self):
+        """Gets the home_phone of this PaymentResponseCustomer.  # noqa: E501
+
+        The home phone number provided by the Cardholder. Required (if available), unless market or regional mandate restricts sending this information. Characters Format: string (10-18 symbols) country code + Subscriber number. Refer to ITU-E.164 for additional information on format and length.  # noqa: E501
+
+        :return: The home_phone of this PaymentResponseCustomer.  # noqa: E501
+        :rtype: str
+        """
+        return self._home_phone
+
+    @home_phone.setter
+    def home_phone(self, home_phone):
+        """Sets the home_phone of this PaymentResponseCustomer.
+
+        The home phone number provided by the Cardholder. Required (if available), unless market or regional mandate restricts sending this information. Characters Format: string (10-18 symbols) country code + Subscriber number. Refer to ITU-E.164 for additional information on format and length.  # noqa: E501
+
+        :param home_phone: The home_phone of this PaymentResponseCustomer.  # noqa: E501
+        :type: str
+        """
+
+        self._home_phone = home_phone
 
     @property
     def id(self):
@@ -156,14 +181,6 @@ class PaymentResponseCustomer(object):
         :param id: The id of this PaymentResponseCustomer.  # noqa: E501
         :type: str
         """
-        if id is not None and len(id) > 256:
-            raise ValueError(
-                "Invalid value for `id`, length must be less than or equal to `256`"
-            )  # noqa: E501
-        if id is not None and len(id) < 0:
-            raise ValueError(
-                "Invalid value for `id`, length must be greater than or equal to `0`"
-            )  # noqa: E501
 
         self._id = id
 
@@ -171,7 +188,7 @@ class PaymentResponseCustomer(object):
     def ip(self):
         """Gets the ip of this PaymentResponseCustomer.  # noqa: E501
 
-        IP address of Customer  # noqa: E501
+        IP address of customer  # noqa: E501
 
         :return: The ip of this PaymentResponseCustomer.  # noqa: E501
         :rtype: str
@@ -182,19 +199,11 @@ class PaymentResponseCustomer(object):
     def ip(self, ip):
         """Sets the ip of this PaymentResponseCustomer.
 
-        IP address of Customer  # noqa: E501
+        IP address of customer  # noqa: E501
 
         :param ip: The ip of this PaymentResponseCustomer.  # noqa: E501
         :type: str
         """
-        if ip is not None and len(ip) > 15:
-            raise ValueError(
-                "Invalid value for `ip`, length must be less than or equal to `15`"
-            )  # noqa: E501
-        if ip is not None and len(ip) < 1:
-            raise ValueError(
-                "Invalid value for `ip`, length must be greater than or equal to `1`"
-            )  # noqa: E501
 
         self._ip = ip
 
@@ -241,16 +250,31 @@ class PaymentResponseCustomer(object):
         :param phone: The phone of this PaymentResponseCustomer.  # noqa: E501
         :type: str
         """
-        if phone is not None and len(phone) > 12:
-            raise ValueError(
-                "Invalid value for `phone`, length must be less than or equal to `12`"
-            )  # noqa: E501
-        if phone is not None and len(phone) < 11:
-            raise ValueError(
-                "Invalid value for `phone`, length must be greater than or equal to `11`"
-            )  # noqa: E501
 
         self._phone = phone
+
+    @property
+    def work_phone(self):
+        """Gets the work_phone of this PaymentResponseCustomer.  # noqa: E501
+
+        The work phone number provided by the Cardholder. Required (if available) unless market or regional mandate restricts sending this information. Characters Format: string (10-18 symbols) country code + Subscriber number. Refer to ITU-E.164 for additional information on format and length.  # noqa: E501
+
+        :return: The work_phone of this PaymentResponseCustomer.  # noqa: E501
+        :rtype: str
+        """
+        return self._work_phone
+
+    @work_phone.setter
+    def work_phone(self, work_phone):
+        """Sets the work_phone of this PaymentResponseCustomer.
+
+        The work phone number provided by the Cardholder. Required (if available) unless market or regional mandate restricts sending this information. Characters Format: string (10-18 symbols) country code + Subscriber number. Refer to ITU-E.164 for additional information on format and length.  # noqa: E501
+
+        :param work_phone: The work_phone of this PaymentResponseCustomer.  # noqa: E501
+        :type: str
+        """
+
+        self._work_phone = work_phone
 
     def to_dict(self):
         """Returns the model properties as a dict"""

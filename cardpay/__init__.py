@@ -144,7 +144,6 @@ from cardpay.model.recurring_request_filing import RecurringRequestFiling
 from cardpay.model.recurring_request_merchant_order import RecurringRequestMerchantOrder
 from cardpay.model.recurring_request_recurring_data import RecurringRequestRecurringData
 from cardpay.model.recurring_response import RecurringResponse
-from cardpay.model.recurring_response_customer import RecurringResponseCustomer
 from cardpay.model.recurring_response_filing import RecurringResponseFiling
 from cardpay.model.recurring_response_merchant_order import (
     RecurringResponseMerchantOrder,
@@ -185,8 +184,10 @@ from cardpay.model.schedule_options_response import ScheduleOptionsResponse
 from cardpay.model.scheduled_data import ScheduledData
 from cardpay.model.shipping_address import ShippingAddress
 from cardpay.model.subscription import Subscription
+from cardpay.model.subscription_customer import SubscriptionCustomer
 from cardpay.model.subscription_filter_parameters import SubscriptionFilterParameters
 from cardpay.model.subscription_get_response import SubscriptionGetResponse
+from cardpay.model.subscription_get_response_plan import SubscriptionGetResponsePlan
 from cardpay.model.subscription_list import SubscriptionList
 from cardpay.model.subscription_update_request import SubscriptionUpdateRequest
 from cardpay.model.subscription_update_request_subscription_data import (

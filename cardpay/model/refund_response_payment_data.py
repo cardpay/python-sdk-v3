@@ -41,8 +41,10 @@ class RefundResponsePaymentData(object):
         self._remaining_amount = None
         self.discriminator = None
 
-        self.id = id
-        self.remaining_amount = remaining_amount
+        if id is not None:
+            self.id = id
+        if remaining_amount is not None:
+            self.remaining_amount = remaining_amount
 
     @property
     def id(self):
@@ -64,8 +66,6 @@ class RefundResponsePaymentData(object):
         :param id: The id of this RefundResponsePaymentData.  # noqa: E501
         :type: str
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -89,10 +89,6 @@ class RefundResponsePaymentData(object):
         :param remaining_amount: The remaining_amount of this RefundResponsePaymentData.  # noqa: E501
         :type: float
         """
-        if remaining_amount is None:
-            raise ValueError(
-                "Invalid value for `remaining_amount`, must not be `None`"
-            )  # noqa: E501
 
         self._remaining_amount = remaining_amount
 

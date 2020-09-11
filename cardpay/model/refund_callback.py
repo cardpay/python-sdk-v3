@@ -102,10 +102,14 @@ class RefundCallback(object):
             self.customer = customer
         if ewallet_account is not None:
             self.ewallet_account = ewallet_account
-        self.merchant_order = merchant_order
-        self.payment_data = payment_data
-        self.payment_method = payment_method
-        self.refund_data = refund_data
+        if merchant_order is not None:
+            self.merchant_order = merchant_order
+        if payment_data is not None:
+            self.payment_data = payment_data
+        if payment_method is not None:
+            self.payment_method = payment_method
+        if refund_data is not None:
+            self.refund_data = refund_data
 
     @property
     def callback_time(self):
@@ -219,10 +223,6 @@ class RefundCallback(object):
         :param merchant_order: The merchant_order of this RefundCallback.  # noqa: E501
         :type: TransactionResponseMerchantOrder
         """
-        if merchant_order is None:
-            raise ValueError(
-                "Invalid value for `merchant_order`, must not be `None`"
-            )  # noqa: E501
 
         self._merchant_order = merchant_order
 
@@ -246,10 +246,6 @@ class RefundCallback(object):
         :param payment_data: The payment_data of this RefundCallback.  # noqa: E501
         :type: RefundResponsePaymentData
         """
-        if payment_data is None:
-            raise ValueError(
-                "Invalid value for `payment_data`, must not be `None`"
-            )  # noqa: E501
 
         self._payment_data = payment_data
 
@@ -273,10 +269,6 @@ class RefundCallback(object):
         :param payment_method: The payment_method of this RefundCallback.  # noqa: E501
         :type: str
         """
-        if payment_method is None:
-            raise ValueError(
-                "Invalid value for `payment_method`, must not be `None`"
-            )  # noqa: E501
 
         self._payment_method = payment_method
 
@@ -300,10 +292,6 @@ class RefundCallback(object):
         :param refund_data: The refund_data of this RefundCallback.  # noqa: E501
         :type: RefundResponseRefundData
         """
-        if refund_data is None:
-            raise ValueError(
-                "Invalid value for `refund_data`, must not be `None`"
-            )  # noqa: E501
 
         self._refund_data = refund_data
 

@@ -41,8 +41,10 @@ class ClaimResponseSubscriptionData(object):
         self._status_to = None
         self.discriminator = None
 
-        self.id = id
-        self.status_to = status_to
+        if id is not None:
+            self.id = id
+        if status_to is not None:
+            self.status_to = status_to
 
     @property
     def id(self):
@@ -64,8 +66,6 @@ class ClaimResponseSubscriptionData(object):
         :param id: The id of this ClaimResponseSubscriptionData.  # noqa: E501
         :type: str
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -99,10 +99,6 @@ class ClaimResponseSubscriptionData(object):
         :param status_to: The status_to of this ClaimResponseSubscriptionData.  # noqa: E501
         :type: str
         """
-        if status_to is None:
-            raise ValueError(
-                "Invalid value for `status_to`, must not be `None`"
-            )  # noqa: E501
         allowed_values = [
             "ACTIVE",
             "INACTIVE",

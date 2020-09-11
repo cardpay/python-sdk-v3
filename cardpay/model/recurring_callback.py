@@ -84,9 +84,12 @@ class RecurringCallback(object):
             self.card_account = card_account
         if customer is not None:
             self.customer = customer
-        self.merchant_order = merchant_order
-        self.payment_method = payment_method
-        self.recurring_data = recurring_data
+        if merchant_order is not None:
+            self.merchant_order = merchant_order
+        if payment_method is not None:
+            self.payment_method = payment_method
+        if recurring_data is not None:
+            self.recurring_data = recurring_data
 
     @property
     def callback_time(self):
@@ -177,10 +180,6 @@ class RecurringCallback(object):
         :param merchant_order: The merchant_order of this RecurringCallback.  # noqa: E501
         :type: TransactionResponseMerchantOrder
         """
-        if merchant_order is None:
-            raise ValueError(
-                "Invalid value for `merchant_order`, must not be `None`"
-            )  # noqa: E501
 
         self._merchant_order = merchant_order
 
@@ -204,10 +203,6 @@ class RecurringCallback(object):
         :param payment_method: The payment_method of this RecurringCallback.  # noqa: E501
         :type: str
         """
-        if payment_method is None:
-            raise ValueError(
-                "Invalid value for `payment_method`, must not be `None`"
-            )  # noqa: E501
 
         self._payment_method = payment_method
 
@@ -231,10 +226,6 @@ class RecurringCallback(object):
         :param recurring_data: The recurring_data of this RecurringCallback.  # noqa: E501
         :type: RecurringResponseRecurringData
         """
-        if recurring_data is None:
-            raise ValueError(
-                "Invalid value for `recurring_data`, must not be `None`"
-            )  # noqa: E501
 
         self._recurring_data = recurring_data
 

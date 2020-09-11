@@ -83,21 +83,26 @@ class BankCardPayoutData(object):
         self._status = None
         self.discriminator = None
 
-        self.amount = amount
+        if amount is not None:
+            self.amount = amount
         if arn is not None:
             self.arn = arn
-        self.created = created
-        self.currency = currency
+        if created is not None:
+            self.created = created
+        if currency is not None:
+            self.currency = currency
         if decline_code is not None:
             self.decline_code = decline_code
         if decline_reason is not None:
             self.decline_reason = decline_reason
-        self.id = id
+        if id is not None:
+            self.id = id
         if note is not None:
             self.note = note
         if rrn is not None:
             self.rrn = rrn
-        self.status = status
+        if status is not None:
+            self.status = status
 
     @property
     def amount(self):
@@ -119,10 +124,6 @@ class BankCardPayoutData(object):
         :param amount: The amount of this BankCardPayoutData.  # noqa: E501
         :type: float
         """
-        if amount is None:
-            raise ValueError(
-                "Invalid value for `amount`, must not be `None`"
-            )  # noqa: E501
 
         self._amount = amount
 
@@ -169,10 +170,6 @@ class BankCardPayoutData(object):
         :param created: The created of this BankCardPayoutData.  # noqa: E501
         :type: str
         """
-        if created is None:
-            raise ValueError(
-                "Invalid value for `created`, must not be `None`"
-            )  # noqa: E501
 
         self._created = created
 
@@ -196,18 +193,6 @@ class BankCardPayoutData(object):
         :param currency: The currency of this BankCardPayoutData.  # noqa: E501
         :type: str
         """
-        if currency is None:
-            raise ValueError(
-                "Invalid value for `currency`, must not be `None`"
-            )  # noqa: E501
-        if currency is not None and len(currency) > 3:
-            raise ValueError(
-                "Invalid value for `currency`, length must be less than or equal to `3`"
-            )  # noqa: E501
-        if currency is not None and len(currency) < 3:
-            raise ValueError(
-                "Invalid value for `currency`, length must be greater than or equal to `3`"
-            )  # noqa: E501
 
         self._currency = currency
 
@@ -277,8 +262,6 @@ class BankCardPayoutData(object):
         :param id: The id of this BankCardPayoutData.  # noqa: E501
         :type: str
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -302,14 +285,6 @@ class BankCardPayoutData(object):
         :param note: The note of this BankCardPayoutData.  # noqa: E501
         :type: str
         """
-        if note is not None and len(note) > 100:
-            raise ValueError(
-                "Invalid value for `note`, length must be less than or equal to `100`"
-            )  # noqa: E501
-        if note is not None and len(note) < 0:
-            raise ValueError(
-                "Invalid value for `note`, length must be greater than or equal to `0`"
-            )  # noqa: E501
 
         self._note = note
 
@@ -369,10 +344,6 @@ class BankCardPayoutData(object):
         :param status: The status of this BankCardPayoutData.  # noqa: E501
         :type: str
         """
-        if status is None:
-            raise ValueError(
-                "Invalid value for `status`, must not be `None`"
-            )  # noqa: E501
         allowed_values = [
             "NEW",
             "IN_PROGRESS",

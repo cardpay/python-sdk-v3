@@ -42,8 +42,10 @@ class ApiError(object):
         self._request_id = None
         self.discriminator = None
 
-        self.message = message
-        self.name = name
+        if message is not None:
+            self.message = message
+        if name is not None:
+            self.name = name
         if request_id is not None:
             self.request_id = request_id
 
@@ -67,10 +69,6 @@ class ApiError(object):
         :param message: The message of this ApiError.  # noqa: E501
         :type: str
         """
-        if message is None:
-            raise ValueError(
-                "Invalid value for `message`, must not be `None`"
-            )  # noqa: E501
 
         self._message = message
 
@@ -94,10 +92,6 @@ class ApiError(object):
         :param name: The name of this ApiError.  # noqa: E501
         :type: str
         """
-        if name is None:
-            raise ValueError(
-                "Invalid value for `name`, must not be `None`"
-            )  # noqa: E501
 
         self._name = name
 

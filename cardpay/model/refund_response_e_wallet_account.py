@@ -40,7 +40,8 @@ class RefundResponseEWalletAccount(object):
         self._id = None
         self.discriminator = None
 
-        self.id = id
+        if id is not None:
+            self.id = id
 
     @property
     def id(self):
@@ -62,8 +63,6 @@ class RefundResponseEWalletAccount(object):
         :param id: The id of this RefundResponseEWalletAccount.  # noqa: E501
         :type: str
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

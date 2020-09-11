@@ -41,7 +41,8 @@ class RecurringResponseMerchantOrder(object):
         self._id = None
         self.discriminator = None
 
-        self.description = description
+        if description is not None:
+            self.description = description
         self.id = id
 
     @property
@@ -64,18 +65,6 @@ class RecurringResponseMerchantOrder(object):
         :param description: The description of this RecurringResponseMerchantOrder.  # noqa: E501
         :type: str
         """
-        if description is None:
-            raise ValueError(
-                "Invalid value for `description`, must not be `None`"
-            )  # noqa: E501
-        if description is not None and len(description) > 200:
-            raise ValueError(
-                "Invalid value for `description`, length must be less than or equal to `200`"
-            )  # noqa: E501
-        if description is not None and len(description) < 1:
-            raise ValueError(
-                "Invalid value for `description`, length must be greater than or equal to `1`"
-            )  # noqa: E501
 
         self._description = description
 

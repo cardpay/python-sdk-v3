@@ -79,14 +79,22 @@ class ResponsePlanData(object):
         self._retries = None
         self.discriminator = None
 
-        self.id = id
-        self.name = name
-        self.created = created
-        self.status = status
-        self.period = period
-        self.interval = interval
-        self.currency = currency
-        self.amount = amount
+        if id is not None:
+            self.id = id
+        if name is not None:
+            self.name = name
+        if created is not None:
+            self.created = created
+        if status is not None:
+            self.status = status
+        if period is not None:
+            self.period = period
+        if interval is not None:
+            self.interval = interval
+        if currency is not None:
+            self.currency = currency
+        if amount is not None:
+            self.amount = amount
         if retries is not None:
             self.retries = retries
 
@@ -110,8 +118,6 @@ class ResponsePlanData(object):
         :param id: The id of this ResponsePlanData.  # noqa: E501
         :type: str
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -135,10 +141,6 @@ class ResponsePlanData(object):
         :param name: The name of this ResponsePlanData.  # noqa: E501
         :type: str
         """
-        if name is None:
-            raise ValueError(
-                "Invalid value for `name`, must not be `None`"
-            )  # noqa: E501
 
         self._name = name
 
@@ -162,10 +164,6 @@ class ResponsePlanData(object):
         :param created: The created of this ResponsePlanData.  # noqa: E501
         :type: datetime
         """
-        if created is None:
-            raise ValueError(
-                "Invalid value for `created`, must not be `None`"
-            )  # noqa: E501
 
         self._created = created
 
@@ -193,10 +191,6 @@ class ResponsePlanData(object):
         :param status: The status of this ResponsePlanData.  # noqa: E501
         :type: str
         """
-        if status is None:
-            raise ValueError(
-                "Invalid value for `status`, must not be `None`"
-            )  # noqa: E501
         allowed_values = ["ACTIVE", "INACTIVE"]  # noqa: E501
         if status not in allowed_values:
             raise ValueError(
@@ -234,10 +228,6 @@ class ResponsePlanData(object):
         :param period: The period of this ResponsePlanData.  # noqa: E501
         :type: str
         """
-        if period is None:
-            raise ValueError(
-                "Invalid value for `period`, must not be `None`"
-            )  # noqa: E501
         allowed_values = ["minute", "day", "week", "month", "year"]  # noqa: E501
         if period not in allowed_values:
             raise ValueError(
@@ -268,10 +258,6 @@ class ResponsePlanData(object):
         :param interval: The interval of this ResponsePlanData.  # noqa: E501
         :type: int
         """
-        if interval is None:
-            raise ValueError(
-                "Invalid value for `interval`, must not be `None`"
-            )  # noqa: E501
 
         self._interval = interval
 
@@ -295,10 +281,6 @@ class ResponsePlanData(object):
         :param currency: The currency of this ResponsePlanData.  # noqa: E501
         :type: str
         """
-        if currency is None:
-            raise ValueError(
-                "Invalid value for `currency`, must not be `None`"
-            )  # noqa: E501
 
         self._currency = currency
 
@@ -322,10 +304,6 @@ class ResponsePlanData(object):
         :param amount: The amount of this ResponsePlanData.  # noqa: E501
         :type: float
         """
-        if amount is None:
-            raise ValueError(
-                "Invalid value for `amount`, must not be `None`"
-            )  # noqa: E501
 
         self._amount = amount
 

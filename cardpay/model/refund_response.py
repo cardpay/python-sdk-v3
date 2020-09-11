@@ -96,8 +96,10 @@ class RefundResponse(object):
             self.customer = customer
         if ewallet_account is not None:
             self.ewallet_account = ewallet_account
-        self.payment_data = payment_data
-        self.refund_data = refund_data
+        if payment_data is not None:
+            self.payment_data = payment_data
+        if refund_data is not None:
+            self.refund_data = refund_data
         if payment_method is not None:
             self.payment_method = payment_method
         if merchant_order is not None:
@@ -192,10 +194,6 @@ class RefundResponse(object):
         :param payment_data: The payment_data of this RefundResponse.  # noqa: E501
         :type: RefundResponsePaymentData
         """
-        if payment_data is None:
-            raise ValueError(
-                "Invalid value for `payment_data`, must not be `None`"
-            )  # noqa: E501
 
         self._payment_data = payment_data
 
@@ -219,10 +217,6 @@ class RefundResponse(object):
         :param refund_data: The refund_data of this RefundResponse.  # noqa: E501
         :type: RefundResponseRefundData
         """
-        if refund_data is None:
-            raise ValueError(
-                "Invalid value for `refund_data`, must not be `None`"
-            )  # noqa: E501
 
         self._refund_data = refund_data
 
