@@ -36,10 +36,13 @@ class PaymentRequestCustomer(object):
     """
     swagger_types = {
         "birth_date": "datetime",
+        "document_type": "str",
         "email": "str",
+        "first_name": "str",
         "full_name": "str",
         "home_phone": "str",
         "id": "str",
+        "last_name": "str",
         "living_address": "PaymentRequestLivingAddress",
         "locale": "str",
         "phone": "str",
@@ -49,10 +52,13 @@ class PaymentRequestCustomer(object):
 
     attribute_map = {
         "birth_date": "birth_date",
+        "document_type": "document_type",
         "email": "email",
+        "first_name": "first_name",
         "full_name": "full_name",
         "home_phone": "home_phone",
         "id": "id",
+        "last_name": "last_name",
         "living_address": "living_address",
         "locale": "locale",
         "phone": "phone",
@@ -63,10 +69,13 @@ class PaymentRequestCustomer(object):
     def __init__(
         self,
         birth_date=None,
+        document_type=None,
         email=None,
+        first_name=None,
         full_name=None,
         home_phone=None,
         id=None,
+        last_name=None,
         living_address=None,
         locale=None,
         phone=None,
@@ -76,10 +85,13 @@ class PaymentRequestCustomer(object):
         """PaymentRequestCustomer - a model defined in Swagger"""  # noqa: E501
 
         self._birth_date = None
+        self._document_type = None
         self._email = None
+        self._first_name = None
         self._full_name = None
         self._home_phone = None
         self._id = None
+        self._last_name = None
         self._living_address = None
         self._locale = None
         self._phone = None
@@ -89,14 +101,20 @@ class PaymentRequestCustomer(object):
 
         if birth_date is not None:
             self.birth_date = birth_date
+        if document_type is not None:
+            self.document_type = document_type
         if email is not None:
             self.email = email
+        if first_name is not None:
+            self.first_name = first_name
         if full_name is not None:
             self.full_name = full_name
         if home_phone is not None:
             self.home_phone = home_phone
         if id is not None:
             self.id = id
+        if last_name is not None:
+            self.last_name = last_name
         if living_address is not None:
             self.living_address = living_address
         if locale is not None:
@@ -132,6 +150,29 @@ class PaymentRequestCustomer(object):
         self._birth_date = birth_date
 
     @property
+    def document_type(self):
+        """Gets the document_type of this PaymentRequestCustomer.  # noqa: E501
+
+        Customer document type *(mandatory for 'PAGOEFECTIVO' methods only)*  # noqa: E501
+
+        :return: The document_type of this PaymentRequestCustomer.  # noqa: E501
+        :rtype: str
+        """
+        return self._document_type
+
+    @document_type.setter
+    def document_type(self, document_type):
+        """Sets the document_type of this PaymentRequestCustomer.
+
+        Customer document type *(mandatory for 'PAGOEFECTIVO' methods only)*  # noqa: E501
+
+        :param document_type: The document_type of this PaymentRequestCustomer.  # noqa: E501
+        :type: str
+        """
+
+        self._document_type = document_type
+
+    @property
     def email(self):
         """Gets the email of this PaymentRequestCustomer.  # noqa: E501
 
@@ -161,6 +202,37 @@ class PaymentRequestCustomer(object):
             )  # noqa: E501
 
         self._email = email
+
+    @property
+    def first_name(self):
+        """Gets the first_name of this PaymentRequestCustomer.  # noqa: E501
+
+        Customer first name *(mandatory for 'PAGOEFECTIVO' payment methods only)*  # noqa: E501
+
+        :return: The first_name of this PaymentRequestCustomer.  # noqa: E501
+        :rtype: str
+        """
+        return self._first_name
+
+    @first_name.setter
+    def first_name(self, first_name):
+        """Sets the first_name of this PaymentRequestCustomer.
+
+        Customer first name *(mandatory for 'PAGOEFECTIVO' payment methods only)*  # noqa: E501
+
+        :param first_name: The first_name of this PaymentRequestCustomer.  # noqa: E501
+        :type: str
+        """
+        if first_name is not None and len(first_name) > 256:
+            raise ValueError(
+                "Invalid value for `first_name`, length must be less than or equal to `256`"
+            )  # noqa: E501
+        if first_name is not None and len(first_name) < 1:
+            raise ValueError(
+                "Invalid value for `first_name`, length must be greater than or equal to `1`"
+            )  # noqa: E501
+
+        self._first_name = first_name
 
     @property
     def full_name(self):
@@ -254,6 +326,37 @@ class PaymentRequestCustomer(object):
             )  # noqa: E501
 
         self._id = id
+
+    @property
+    def last_name(self):
+        """Gets the last_name of this PaymentRequestCustomer.  # noqa: E501
+
+        Customer last name *(mandatory for 'PAGOEFECTIVO' payment methods only)*  # noqa: E501
+
+        :return: The last_name of this PaymentRequestCustomer.  # noqa: E501
+        :rtype: str
+        """
+        return self._last_name
+
+    @last_name.setter
+    def last_name(self, last_name):
+        """Sets the last_name of this PaymentRequestCustomer.
+
+        Customer last name *(mandatory for 'PAGOEFECTIVO' payment methods only)*  # noqa: E501
+
+        :param last_name: The last_name of this PaymentRequestCustomer.  # noqa: E501
+        :type: str
+        """
+        if last_name is not None and len(last_name) > 256:
+            raise ValueError(
+                "Invalid value for `last_name`, length must be less than or equal to `256`"
+            )  # noqa: E501
+        if last_name is not None and len(last_name) < 1:
+            raise ValueError(
+                "Invalid value for `last_name`, length must be greater than or equal to `1`"
+            )  # noqa: E501
+
+        self._last_name = last_name
 
     @property
     def living_address(self):

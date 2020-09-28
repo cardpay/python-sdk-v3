@@ -94,6 +94,14 @@ class ReturnUrls(object):
         :param cancel_url: The cancel_url of this ReturnUrls.  # noqa: E501
         :type: str
         """
+        if cancel_url is not None and len(cancel_url) > 512:
+            raise ValueError(
+                "Invalid value for `cancel_url`, length must be less than or equal to `512`"
+            )  # noqa: E501
+        if cancel_url is not None and len(cancel_url) < 0:
+            raise ValueError(
+                "Invalid value for `cancel_url`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._cancel_url = cancel_url
 
@@ -117,6 +125,14 @@ class ReturnUrls(object):
         :param decline_url: The decline_url of this ReturnUrls.  # noqa: E501
         :type: str
         """
+        if decline_url is not None and len(decline_url) > 512:
+            raise ValueError(
+                "Invalid value for `decline_url`, length must be less than or equal to `512`"
+            )  # noqa: E501
+        if decline_url is not None and len(decline_url) < 0:
+            raise ValueError(
+                "Invalid value for `decline_url`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._decline_url = decline_url
 
@@ -140,6 +156,14 @@ class ReturnUrls(object):
         :param inprocess_url: The inprocess_url of this ReturnUrls.  # noqa: E501
         :type: str
         """
+        if inprocess_url is not None and len(inprocess_url) > 512:
+            raise ValueError(
+                "Invalid value for `inprocess_url`, length must be less than or equal to `512`"
+            )  # noqa: E501
+        if inprocess_url is not None and len(inprocess_url) < 0:
+            raise ValueError(
+                "Invalid value for `inprocess_url`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._inprocess_url = inprocess_url
 
@@ -147,7 +171,7 @@ class ReturnUrls(object):
     def return_url(self):
         """Gets the return_url of this ReturnUrls.  # noqa: E501
 
-        Overrides default success URL and cancel URL. return_url can be used separately or together with other URL parameters  # noqa: E501
+        Overrides default success URL, decline URL, cancel URL (only in Payment page mode), in process URL. return_url can be used separately or together with other URL parameters.  # noqa: E501
 
         :return: The return_url of this ReturnUrls.  # noqa: E501
         :rtype: str
@@ -158,11 +182,19 @@ class ReturnUrls(object):
     def return_url(self, return_url):
         """Sets the return_url of this ReturnUrls.
 
-        Overrides default success URL and cancel URL. return_url can be used separately or together with other URL parameters  # noqa: E501
+        Overrides default success URL, decline URL, cancel URL (only in Payment page mode), in process URL. return_url can be used separately or together with other URL parameters.  # noqa: E501
 
         :param return_url: The return_url of this ReturnUrls.  # noqa: E501
         :type: str
         """
+        if return_url is not None and len(return_url) > 512:
+            raise ValueError(
+                "Invalid value for `return_url`, length must be less than or equal to `512`"
+            )  # noqa: E501
+        if return_url is not None and len(return_url) < 0:
+            raise ValueError(
+                "Invalid value for `return_url`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._return_url = return_url
 
@@ -186,6 +218,14 @@ class ReturnUrls(object):
         :param success_url: The success_url of this ReturnUrls.  # noqa: E501
         :type: str
         """
+        if success_url is not None and len(success_url) > 512:
+            raise ValueError(
+                "Invalid value for `success_url`, length must be less than or equal to `512`"
+            )  # noqa: E501
+        if success_url is not None and len(success_url) < 0:
+            raise ValueError(
+                "Invalid value for `success_url`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._success_url = success_url
 
