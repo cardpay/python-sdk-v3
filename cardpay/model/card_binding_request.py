@@ -46,7 +46,6 @@ class CardBindingRequest(object):
         "card_account": "CardBindingCardAccount",
         "customer": "RecurringCustomer",
         "merchant_order": "CardBindingMerchantOrder",
-        "mobile_token": "str",
         "recurring_data": "CardBindingData",
         "return_urls": "ReturnUrls",
     }
@@ -56,7 +55,6 @@ class CardBindingRequest(object):
         "card_account": "card_account",
         "customer": "customer",
         "merchant_order": "merchant_order",
-        "mobile_token": "mobile_token",
         "recurring_data": "recurring_data",
         "return_urls": "return_urls",
     }
@@ -67,7 +65,6 @@ class CardBindingRequest(object):
         card_account=None,
         customer=None,
         merchant_order=None,
-        mobile_token=None,
         recurring_data=None,
         return_urls=None,
     ):  # noqa: E501
@@ -77,7 +74,6 @@ class CardBindingRequest(object):
         self._card_account = None
         self._customer = None
         self._merchant_order = None
-        self._mobile_token = None
         self._recurring_data = None
         self._return_urls = None
         self.discriminator = None
@@ -88,8 +84,6 @@ class CardBindingRequest(object):
             self.customer = customer
         if merchant_order is not None:
             self.merchant_order = merchant_order
-        if mobile_token is not None:
-            self.mobile_token = mobile_token
         if recurring_data is not None:
             self.recurring_data = recurring_data
         if return_urls is not None:
@@ -194,29 +188,6 @@ class CardBindingRequest(object):
         """
 
         self._merchant_order = merchant_order
-
-    @property
-    def mobile_token(self):
-        """Gets the mobile_token of this CardBindingRequest.  # noqa: E501
-
-        Mobile token  # noqa: E501
-
-        :return: The mobile_token of this CardBindingRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._mobile_token
-
-    @mobile_token.setter
-    def mobile_token(self, mobile_token):
-        """Sets the mobile_token of this CardBindingRequest.
-
-        Mobile token  # noqa: E501
-
-        :param mobile_token: The mobile_token of this CardBindingRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._mobile_token = mobile_token
 
     @property
     def recurring_data(self):

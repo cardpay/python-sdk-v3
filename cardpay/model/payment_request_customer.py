@@ -42,6 +42,7 @@ class PaymentRequestCustomer(object):
         "full_name": "str",
         "home_phone": "str",
         "id": "str",
+        "identity": "str",
         "last_name": "str",
         "living_address": "PaymentRequestLivingAddress",
         "locale": "str",
@@ -58,6 +59,7 @@ class PaymentRequestCustomer(object):
         "full_name": "full_name",
         "home_phone": "home_phone",
         "id": "id",
+        "identity": "identity",
         "last_name": "last_name",
         "living_address": "living_address",
         "locale": "locale",
@@ -75,6 +77,7 @@ class PaymentRequestCustomer(object):
         full_name=None,
         home_phone=None,
         id=None,
+        identity=None,
         last_name=None,
         living_address=None,
         locale=None,
@@ -91,6 +94,7 @@ class PaymentRequestCustomer(object):
         self._full_name = None
         self._home_phone = None
         self._id = None
+        self._identity = None
         self._last_name = None
         self._living_address = None
         self._locale = None
@@ -113,6 +117,8 @@ class PaymentRequestCustomer(object):
             self.home_phone = home_phone
         if id is not None:
             self.id = id
+        if identity is not None:
+            self.identity = identity
         if last_name is not None:
             self.last_name = last_name
         if living_address is not None:
@@ -326,6 +332,37 @@ class PaymentRequestCustomer(object):
             )  # noqa: E501
 
         self._id = id
+
+    @property
+    def identity(self):
+        """Gets the identity of this PaymentRequestCustomer.  # noqa: E501
+
+        Customer identity string value  # noqa: E501
+
+        :return: The identity of this PaymentRequestCustomer.  # noqa: E501
+        :rtype: str
+        """
+        return self._identity
+
+    @identity.setter
+    def identity(self, identity):
+        """Sets the identity of this PaymentRequestCustomer.
+
+        Customer identity string value  # noqa: E501
+
+        :param identity: The identity of this PaymentRequestCustomer.  # noqa: E501
+        :type: str
+        """
+        if identity is not None and len(identity) > 256:
+            raise ValueError(
+                "Invalid value for `identity`, length must be less than or equal to `256`"
+            )  # noqa: E501
+        if identity is not None and len(identity) < 0:
+            raise ValueError(
+                "Invalid value for `identity`, length must be greater than or equal to `0`"
+            )  # noqa: E501
+
+        self._identity = identity
 
     @property
     def last_name(self):

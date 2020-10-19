@@ -50,7 +50,6 @@ class MobilePaymentRequest(object):
         "card_account": "PaymentRequestCardAccount",
         "customer": "PaymentRequestCustomer",
         "merchant_order": "MobilePaymentMerchantOrder",
-        "mobile_token": "str",
         "payment_data": "PaymentRequestPaymentData",
         "payment_method": "str",
         "return_urls": "ReturnUrls",
@@ -61,7 +60,6 @@ class MobilePaymentRequest(object):
         "card_account": "card_account",
         "customer": "customer",
         "merchant_order": "merchant_order",
-        "mobile_token": "mobile_token",
         "payment_data": "payment_data",
         "payment_method": "payment_method",
         "return_urls": "return_urls",
@@ -73,7 +71,6 @@ class MobilePaymentRequest(object):
         card_account=None,
         customer=None,
         merchant_order=None,
-        mobile_token=None,
         payment_data=None,
         payment_method=None,
         return_urls=None,
@@ -84,7 +81,6 @@ class MobilePaymentRequest(object):
         self._card_account = None
         self._customer = None
         self._merchant_order = None
-        self._mobile_token = None
         self._payment_data = None
         self._payment_method = None
         self._return_urls = None
@@ -94,8 +90,6 @@ class MobilePaymentRequest(object):
         self.card_account = card_account
         self.customer = customer
         self.merchant_order = merchant_order
-        if mobile_token is not None:
-            self.mobile_token = mobile_token
         self.payment_data = payment_data
         if payment_method is not None:
             self.payment_method = payment_method
@@ -209,29 +203,6 @@ class MobilePaymentRequest(object):
             )  # noqa: E501
 
         self._merchant_order = merchant_order
-
-    @property
-    def mobile_token(self):
-        """Gets the mobile_token of this MobilePaymentRequest.  # noqa: E501
-
-        Unique identifier, max 128 symbols  # noqa: E501
-
-        :return: The mobile_token of this MobilePaymentRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._mobile_token
-
-    @mobile_token.setter
-    def mobile_token(self, mobile_token):
-        """Sets the mobile_token of this MobilePaymentRequest.
-
-        Unique identifier, max 128 symbols  # noqa: E501
-
-        :param mobile_token: The mobile_token of this MobilePaymentRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._mobile_token = mobile_token
 
     @property
     def payment_data(self):

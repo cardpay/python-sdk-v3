@@ -264,9 +264,9 @@ class RefundsApi(object):
             raise ValueError(
                 "Invalid value for parameter `request_id` when calling `get_refunds`, length must be less than or equal to `50`"
             )  # noqa: E501
-        if "request_id" in params and len(params["request_id"]) < 0:
+        if "request_id" in params and len(params["request_id"]) < 1:
             raise ValueError(
-                "Invalid value for parameter `request_id` when calling `get_refunds`, length must be greater than or equal to `0`"
+                "Invalid value for parameter `request_id` when calling `get_refunds`, length must be greater than or equal to `1`"
             )  # noqa: E501
         if "max_count" in params and params["max_count"] > 10000:  # noqa: E501
             raise ValueError(
