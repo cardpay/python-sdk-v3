@@ -1,6 +1,6 @@
-# Cardpay APIv3 Python SDK
+# Unlimint APIv3 Python SDK
 
-You can sign up for a Cardpay account at https://www.cardpay.com.
+You can sign up for an Unlimint account at https://www.unlimint.com
 
 ## Getting Started
 
