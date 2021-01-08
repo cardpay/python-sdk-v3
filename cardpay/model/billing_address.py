@@ -35,7 +35,6 @@ class BillingAddress(object):
         "addr_line_2": "str",
         "city": "str",
         "country": "str",
-        "phone": "str",
         "state": "str",
         "zip": "str",
     }
@@ -45,7 +44,6 @@ class BillingAddress(object):
         "addr_line_2": "addr_line_2",
         "city": "city",
         "country": "country",
-        "phone": "phone",
         "state": "state",
         "zip": "zip",
     }
@@ -56,7 +54,6 @@ class BillingAddress(object):
         addr_line_2=None,
         city=None,
         country=None,
-        phone=None,
         state=None,
         zip=None,
     ):  # noqa: E501
@@ -66,31 +63,24 @@ class BillingAddress(object):
         self._addr_line_2 = None
         self._city = None
         self._country = None
-        self._phone = None
         self._state = None
         self._zip = None
         self.discriminator = None
 
-        if addr_line_1 is not None:
-            self.addr_line_1 = addr_line_1
+        self.addr_line_1 = addr_line_1
         if addr_line_2 is not None:
             self.addr_line_2 = addr_line_2
-        if city is not None:
-            self.city = city
-        if country is not None:
-            self.country = country
-        if phone is not None:
-            self.phone = phone
+        self.city = city
+        self.country = country
         if state is not None:
             self.state = state
-        if zip is not None:
-            self.zip = zip
+        self.zip = zip
 
     @property
     def addr_line_1(self):
         """Gets the addr_line_1 of this BillingAddress.  # noqa: E501
 
-        Street address. May include whitespaces, hyphens, apostrophes, commas, quotes, dots, slashes and semicolons  # noqa: E501
+        First line of the street address or equivalent local portion of the Cardholder billing address associated with the card used for this purchase. Should include street and house number. May include whitespaces, hyphens, apostrophes, commas, quotes, dots, slashes and semicolons. Required (if available) unless market or regional mandate restricts sending this information. For recurring: field will be ignored if 'filing.id' is presented in request (continue one-click scenario) *Length: 0 - 50*  # noqa: E501
 
         :return: The addr_line_1 of this BillingAddress.  # noqa: E501
         :rtype: str
@@ -101,11 +91,15 @@ class BillingAddress(object):
     def addr_line_1(self, addr_line_1):
         """Sets the addr_line_1 of this BillingAddress.
 
-        Street address. May include whitespaces, hyphens, apostrophes, commas, quotes, dots, slashes and semicolons  # noqa: E501
+        First line of the street address or equivalent local portion of the Cardholder billing address associated with the card used for this purchase. Should include street and house number. May include whitespaces, hyphens, apostrophes, commas, quotes, dots, slashes and semicolons. Required (if available) unless market or regional mandate restricts sending this information. For recurring: field will be ignored if 'filing.id' is presented in request (continue one-click scenario) *Length: 0 - 50*  # noqa: E501
 
         :param addr_line_1: The addr_line_1 of this BillingAddress.  # noqa: E501
         :type: str
         """
+        if addr_line_1 is None:
+            raise ValueError(
+                "Invalid value for `addr_line_1`, must not be `None`"
+            )  # noqa: E501
 
         self._addr_line_1 = addr_line_1
 
@@ -113,7 +107,7 @@ class BillingAddress(object):
     def addr_line_2(self):
         """Gets the addr_line_2 of this BillingAddress.  # noqa: E501
 
-        Second line of the street address or equivalent local portion of the Cardholder billing address associated with the card used for this purchase.  # noqa: E501
+        Second line of the street address or equivalent local portion of the Cardholder billing address associated with the card used for this purchase. Required (if available) unless market or regional mandate restricts sending this information. For recurring: field will be ignored if 'filing.id' is presented in request (continue one-click scenario) *Length: 0 - 50*  # noqa: E501
 
         :return: The addr_line_2 of this BillingAddress.  # noqa: E501
         :rtype: str
@@ -124,7 +118,7 @@ class BillingAddress(object):
     def addr_line_2(self, addr_line_2):
         """Sets the addr_line_2 of this BillingAddress.
 
-        Second line of the street address or equivalent local portion of the Cardholder billing address associated with the card used for this purchase.  # noqa: E501
+        Second line of the street address or equivalent local portion of the Cardholder billing address associated with the card used for this purchase. Required (if available) unless market or regional mandate restricts sending this information. For recurring: field will be ignored if 'filing.id' is presented in request (continue one-click scenario) *Length: 0 - 50*  # noqa: E501
 
         :param addr_line_2: The addr_line_2 of this BillingAddress.  # noqa: E501
         :type: str
@@ -136,7 +130,7 @@ class BillingAddress(object):
     def city(self):
         """Gets the city of this BillingAddress.  # noqa: E501
 
-        Delivery city. May include whitespaces, hyphens, apostrophes, commas and dots  # noqa: E501
+        Billing city. May include whitespaces, hyphens, apostrophes, commas and dots  # noqa: E501
 
         :return: The city of this BillingAddress.  # noqa: E501
         :rtype: str
@@ -147,11 +141,15 @@ class BillingAddress(object):
     def city(self, city):
         """Sets the city of this BillingAddress.
 
-        Delivery city. May include whitespaces, hyphens, apostrophes, commas and dots  # noqa: E501
+        Billing city. May include whitespaces, hyphens, apostrophes, commas and dots  # noqa: E501
 
         :param city: The city of this BillingAddress.  # noqa: E501
         :type: str
         """
+        if city is None:
+            raise ValueError(
+                "Invalid value for `city`, must not be `None`"
+            )  # noqa: E501
         if city is not None and len(city) > 50:
             raise ValueError(
                 "Invalid value for `city`, length must be less than or equal to `50`"
@@ -167,7 +165,7 @@ class BillingAddress(object):
     def country(self):
         """Gets the country of this BillingAddress.  # noqa: E501
 
-        [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1) code of country: 2 or 3 latin letters or numeric code. Mandatory if 'shipping_address' is presented.  # noqa: E501
+        [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1) code of billing country: 2 or 3 latin letters or numeric code   # noqa: E501
 
         :return: The country of this BillingAddress.  # noqa: E501
         :rtype: str
@@ -178,54 +176,23 @@ class BillingAddress(object):
     def country(self, country):
         """Sets the country of this BillingAddress.
 
-        [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1) code of country: 2 or 3 latin letters or numeric code. Mandatory if 'shipping_address' is presented.  # noqa: E501
+        [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1) code of billing country: 2 or 3 latin letters or numeric code   # noqa: E501
 
         :param country: The country of this BillingAddress.  # noqa: E501
         :type: str
         """
+        if country is None:
+            raise ValueError(
+                "Invalid value for `country`, must not be `None`"
+            )  # noqa: E501
 
         self._country = country
-
-    @property
-    def phone(self):
-        """Gets the phone of this BillingAddress.  # noqa: E501
-
-        Valid customer phone number  # noqa: E501
-
-        :return: The phone of this BillingAddress.  # noqa: E501
-        :rtype: str
-        """
-        return self._phone
-
-    @phone.setter
-    def phone(self, phone):
-        """Sets the phone of this BillingAddress.
-
-        Valid customer phone number  # noqa: E501
-
-        :param phone: The phone of this BillingAddress.  # noqa: E501
-        :type: str
-        """
-        if phone is not None and len(phone) > 20:
-            raise ValueError(
-                "Invalid value for `phone`, length must be less than or equal to `20`"
-            )  # noqa: E501
-        if phone is not None and len(phone) < 5:
-            raise ValueError(
-                "Invalid value for `phone`, length must be greater than or equal to `5`"
-            )  # noqa: E501
-        if phone is not None and not re.search(r"[-+\\d()wp\\s]+", phone):  # noqa: E501
-            raise ValueError(
-                r"Invalid value for `phone`, must be a follow pattern or equal to `/[-+\\d()wp\\s]+/`"
-            )  # noqa: E501
-
-        self._phone = phone
 
     @property
     def state(self):
         """Gets the state of this BillingAddress.  # noqa: E501
 
-        Delivery state or province. May include whitespaces, hyphens, apostrophes, commas and dots  # noqa: E501
+        The state or province of the billing address associated with the card being used for this purchase. It's recommended to send in following format: the country subdivision code defined in [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). May include whitespaces, hyphens, apostrophes, commas and dots  # noqa: E501
 
         :return: The state of this BillingAddress.  # noqa: E501
         :rtype: str
@@ -236,7 +203,7 @@ class BillingAddress(object):
     def state(self, state):
         """Sets the state of this BillingAddress.
 
-        Delivery state or province. May include whitespaces, hyphens, apostrophes, commas and dots  # noqa: E501
+        The state or province of the billing address associated with the card being used for this purchase. It's recommended to send in following format: the country subdivision code defined in [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). May include whitespaces, hyphens, apostrophes, commas and dots  # noqa: E501
 
         :param state: The state of this BillingAddress.  # noqa: E501
         :type: str
@@ -256,7 +223,7 @@ class BillingAddress(object):
     def zip(self):
         """Gets the zip of this BillingAddress.  # noqa: E501
 
-        Delivery postal code  # noqa: E501
+        Billing postal code  # noqa: E501
 
         :return: The zip of this BillingAddress.  # noqa: E501
         :rtype: str
@@ -267,11 +234,15 @@ class BillingAddress(object):
     def zip(self, zip):
         """Sets the zip of this BillingAddress.
 
-        Delivery postal code  # noqa: E501
+        Billing postal code  # noqa: E501
 
         :param zip: The zip of this BillingAddress.  # noqa: E501
         :type: str
         """
+        if zip is None:
+            raise ValueError(
+                "Invalid value for `zip`, must not be `None`"
+            )  # noqa: E501
         if zip is not None and len(zip) > 12:
             raise ValueError(
                 "Invalid value for `zip`, length must be less than or equal to `12`"

@@ -159,6 +159,7 @@ class ResponseUpdatedTransactionData(object):
         REFUNDED = "REFUNDED"
         PARTIALLY_REFUNDED = "PARTIALLY_REFUNDED"
         VOIDED = "VOIDED"
+        TERMINATED = "TERMINATED"
         CHARGED_BACK = "CHARGED_BACK"
         CHARGEBACK_RESOLVED = "CHARGEBACK_RESOLVED"
 
@@ -192,6 +193,7 @@ class ResponseUpdatedTransactionData(object):
             "REFUNDED",
             "PARTIALLY_REFUNDED",
             "VOIDED",
+            "TERMINATED",
             "CHARGED_BACK",
             "CHARGEBACK_RESOLVED",
         ]  # noqa: E501
@@ -207,6 +209,7 @@ class ResponseUpdatedTransactionData(object):
     class StatusTo(object):
         REVERSE = "REVERSE"
         COMPLETE = "COMPLETE"
+        TERMINATE = "TERMINATE"
 
     @property
     def status_to(self):
@@ -228,7 +231,7 @@ class ResponseUpdatedTransactionData(object):
         :param status_to: The status_to of this ResponseUpdatedTransactionData.  # noqa: E501
         :type: str
         """
-        allowed_values = ["REVERSE", "COMPLETE"]  # noqa: E501
+        allowed_values = ["REVERSE", "COMPLETE", "TERMINATE"]  # noqa: E501
         if status_to not in allowed_values:
             raise ValueError(
                 "Invalid value for `status_to` ({0}), must be one of {1}".format(  # noqa: E501

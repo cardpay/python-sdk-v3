@@ -22,10 +22,10 @@ from cardpay.configuration import Configuration
 # import models into sdk package
 from cardpay.model.api_error import ApiError
 from cardpay.model.api_tokens import ApiTokens
+from cardpay.model.authentication_customer import AuthenticationCustomer
 from cardpay.model.authentication_data import AuthenticationData
+from cardpay.model.authentication_data_response import AuthenticationDataResponse
 from cardpay.model.authentication_error import AuthenticationError
-from cardpay.model.authentication_request import AuthenticationRequest
-from cardpay.model.authentication_response import AuthenticationResponse
 from cardpay.model.bad_request_error import BadRequestError
 from cardpay.model.bank_card_payout_data import BankCardPayoutData
 from cardpay.model.billing_address import BillingAddress
@@ -207,6 +207,7 @@ from cardpay.model.subscription_update_request_subscription_data import (
 )
 from cardpay.model.subscription_update_response import SubscriptionUpdateResponse
 from cardpay.model.three_d_secure_data import ThreeDSecureData
+from cardpay.model.three_d_secure_response import ThreeDSecureResponse
 from cardpay.model.transaction_request import TransactionRequest
 from cardpay.model.transaction_response_e_wallet_account import (
     TransactionResponseEWalletAccount,
@@ -221,8 +222,10 @@ from cardpay.model.updated_subscription_recurring_data import (
     UpdatedSubscriptionRecurringData,
 )
 from cardpay.model.payment_confirm3ds_request import PaymentConfirm3dsRequest
+from cardpay.model.payment_execute_request import PaymentExecuteRequest
 from cardpay.model.payment_update_request import PaymentUpdateRequest
 from cardpay.model.recurring_confirm3ds_request import RecurringConfirm3dsRequest
+from cardpay.model.recurring_execute_request import RecurringExecuteRequest
 from cardpay.model.recurring_update_request import RecurringUpdateRequest
 
 

@@ -61,8 +61,7 @@ class PaymentRequestCard(object):
         if acct_type is not None:
             self.acct_type = acct_type
         self.expiration = expiration
-        if holder is not None:
-            self.holder = holder
+        self.holder = holder
         self.pan = pan
         self.security_code = security_code
 
@@ -152,6 +151,10 @@ class PaymentRequestCard(object):
         :param holder: The holder of this PaymentRequestCard.  # noqa: E501
         :type: str
         """
+        if holder is None:
+            raise ValueError(
+                "Invalid value for `holder`, must not be `None`"
+            )  # noqa: E501
         if holder is not None and len(holder) > 50:
             raise ValueError(
                 "Invalid value for `holder`, length must be less than or equal to `50`"

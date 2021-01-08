@@ -85,4 +85,4 @@ def test_create_payment_gateway_mode_with_3ds():
     logger.info(payment)
 
     data = payment.payment_data
-    assert data.Status.IN_PROGRESS == data.status
+    assert data.Status.COMPLETED == data.status

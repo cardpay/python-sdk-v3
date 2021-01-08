@@ -37,6 +37,8 @@ class InstallmentData(object):
         "generate_token": "bool",
         "hold_rest_amount": "bool",
         "initiator": "str",
+        "installment_amount": "float",
+        "installment_type": "str",
         "interval": "int",
         "note": "str",
         "payments": "int",
@@ -53,6 +55,8 @@ class InstallmentData(object):
         "generate_token": "generate_token",
         "hold_rest_amount": "hold_rest_amount",
         "initiator": "initiator",
+        "installment_amount": "installment_amount",
+        "installment_type": "installment_type",
         "interval": "interval",
         "note": "note",
         "payments": "payments",
@@ -70,6 +74,8 @@ class InstallmentData(object):
         generate_token=None,
         hold_rest_amount=None,
         initiator=None,
+        installment_amount=None,
+        installment_type=None,
         interval=None,
         note=None,
         payments=None,
@@ -86,6 +92,8 @@ class InstallmentData(object):
         self._generate_token = None
         self._hold_rest_amount = None
         self._initiator = None
+        self._installment_amount = None
+        self._installment_type = None
         self._interval = None
         self._note = None
         self._payments = None
@@ -105,6 +113,10 @@ class InstallmentData(object):
         if hold_rest_amount is not None:
             self.hold_rest_amount = hold_rest_amount
         self.initiator = initiator
+        if installment_amount is not None:
+            self.installment_amount = installment_amount
+        if installment_type is not None:
+            self.installment_type = installment_type
         if interval is not None:
             self.interval = interval
         if note is not None:
@@ -279,6 +291,58 @@ class InstallmentData(object):
         self._initiator = initiator
 
     @property
+    def installment_amount(self):
+        """Gets the installment_amount of this InstallmentData.  # noqa: E501
+
+        Amount of 1 installment payment, should be less or equal to total amount of subscription, can have dot as a decimal separator. Mandatory for Payment Page Mode only.  # noqa: E501
+
+        :return: The installment_amount of this InstallmentData.  # noqa: E501
+        :rtype: float
+        """
+        return self._installment_amount
+
+    @installment_amount.setter
+    def installment_amount(self, installment_amount):
+        """Sets the installment_amount of this InstallmentData.
+
+        Amount of 1 installment payment, should be less or equal to total amount of subscription, can have dot as a decimal separator. Mandatory for Payment Page Mode only.  # noqa: E501
+
+        :param installment_amount: The installment_amount of this InstallmentData.  # noqa: E501
+        :type: float
+        """
+
+        self._installment_amount = installment_amount
+
+    @property
+    def installment_type(self):
+        """Gets the installment_type of this InstallmentData.  # noqa: E501
+
+        Installment type, 2 possible values: `IF` - issuer financed `MF` - merchant financed For installments by merchant should be only `MF` installment_type  # noqa: E501
+
+        :return: The installment_type of this InstallmentData.  # noqa: E501
+        :rtype: str
+        """
+        return self._installment_type
+
+    @installment_type.setter
+    def installment_type(self, installment_type):
+        """Sets the installment_type of this InstallmentData.
+
+        Installment type, 2 possible values: `IF` - issuer financed `MF` - merchant financed For installments by merchant should be only `MF` installment_type  # noqa: E501
+
+        :param installment_type: The installment_type of this InstallmentData.  # noqa: E501
+        :type: str
+        """
+        if installment_type is not None and not re.search(
+            r"IF|MF", installment_type
+        ):  # noqa: E501
+            raise ValueError(
+                r"Invalid value for `installment_type`, must be a follow pattern or equal to `/IF|MF/`"
+            )  # noqa: E501
+
+        self._installment_type = installment_type
+
+    @property
     def interval(self):
         """Gets the interval of this InstallmentData.  # noqa: E501
 
@@ -340,7 +404,7 @@ class InstallmentData(object):
     def payments(self):
         """Gets the payments of this InstallmentData.  # noqa: E501
 
-        Number of total payments to be charged per defined interval, can be 2-200.  # noqa: E501
+        Number of total payments to be charged per defined interval, can be 2-200. For Mexican installment subscription (installment_type = `IF`) should be 1-99.  # noqa: E501
 
         :return: The payments of this InstallmentData.  # noqa: E501
         :rtype: int
@@ -351,7 +415,7 @@ class InstallmentData(object):
     def payments(self, payments):
         """Sets the payments of this InstallmentData.
 
-        Number of total payments to be charged per defined interval, can be 2-200.  # noqa: E501
+        Number of total payments to be charged per defined interval, can be 2-200. For Mexican installment subscription (installment_type = `IF`) should be 1-99.  # noqa: E501
 
         :param payments: The payments of this InstallmentData.  # noqa: E501
         :type: int

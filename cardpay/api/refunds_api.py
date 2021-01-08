@@ -280,9 +280,9 @@ class RefundsApi(object):
             raise ValueError(
                 "Invalid value for parameter `merchant_order_id` when calling `get_refunds`, length must be greater than or equal to `0`"
             )  # noqa: E501
-        if "payment_method" in params and len(params["payment_method"]) > 100:
+        if "payment_method" in params and len(params["payment_method"]) > 50:
             raise ValueError(
-                "Invalid value for parameter `payment_method` when calling `get_refunds`, length must be less than or equal to `100`"
+                "Invalid value for parameter `payment_method` when calling `get_refunds`, length must be less than or equal to `50`"
             )  # noqa: E501
         if "payment_method" in params and len(params["payment_method"]) < 0:
             raise ValueError(

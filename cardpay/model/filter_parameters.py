@@ -177,9 +177,9 @@ class FilterParameters(object):
         :param payment_method: The payment_method of this FilterParameters.  # noqa: E501
         :type: str
         """
-        if payment_method is not None and len(payment_method) > 100:
+        if payment_method is not None and len(payment_method) > 50:
             raise ValueError(
-                "Invalid value for `payment_method`, length must be less than or equal to `100`"
+                "Invalid value for `payment_method`, length must be less than or equal to `50`"
             )  # noqa: E501
         if payment_method is not None and len(payment_method) < 0:
             raise ValueError(

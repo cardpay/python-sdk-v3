@@ -16,7 +16,6 @@ import re  # noqa: F401
 
 import six
 
-from cardpay.model.authentication_data import AuthenticationData  # noqa: F401,E501
 from cardpay.model.payment_request_card_account import (
     PaymentRequestCardAccount,
 )  # noqa: F401,E501
@@ -54,13 +53,11 @@ class PaymentRequest(object):
     """
     swagger_types = {
         "request": "Request",
-        "authentication_data": "AuthenticationData",
         "card_account": "PaymentRequestCardAccount",
         "cryptocurrency_account": "PaymentRequestCryptocurrencyAccount",
         "customer": "PaymentRequestCustomer",
         "ewallet_account": "PaymentRequestEWalletAccount",
         "merchant_order": "PaymentRequestMerchantOrder",
-        "payment_by_authentication": "bool",
         "payment_data": "PaymentRequestPaymentData",
         "payment_method": "str",
         "payment_methods": "list[str]",
@@ -69,13 +66,11 @@ class PaymentRequest(object):
 
     attribute_map = {
         "request": "request",
-        "authentication_data": "authentication_data",
         "card_account": "card_account",
         "cryptocurrency_account": "cryptocurrency_account",
         "customer": "customer",
         "ewallet_account": "ewallet_account",
         "merchant_order": "merchant_order",
-        "payment_by_authentication": "payment_by_authentication",
         "payment_data": "payment_data",
         "payment_method": "payment_method",
         "payment_methods": "payment_methods",
@@ -85,13 +80,11 @@ class PaymentRequest(object):
     def __init__(
         self,
         request=None,
-        authentication_data=None,
         card_account=None,
         cryptocurrency_account=None,
         customer=None,
         ewallet_account=None,
         merchant_order=None,
-        payment_by_authentication=None,
         payment_data=None,
         payment_method=None,
         payment_methods=None,
@@ -100,13 +93,11 @@ class PaymentRequest(object):
         """PaymentRequest - a model defined in Swagger"""  # noqa: E501
 
         self._request = None
-        self._authentication_data = None
         self._card_account = None
         self._cryptocurrency_account = None
         self._customer = None
         self._ewallet_account = None
         self._merchant_order = None
-        self._payment_by_authentication = None
         self._payment_data = None
         self._payment_method = None
         self._payment_methods = None
@@ -114,8 +105,6 @@ class PaymentRequest(object):
         self.discriminator = None
 
         self.request = request
-        if authentication_data is not None:
-            self.authentication_data = authentication_data
         self.card_account = card_account
         if cryptocurrency_account is not None:
             self.cryptocurrency_account = cryptocurrency_account
@@ -123,8 +112,6 @@ class PaymentRequest(object):
         if ewallet_account is not None:
             self.ewallet_account = ewallet_account
         self.merchant_order = merchant_order
-        if payment_by_authentication is not None:
-            self.payment_by_authentication = payment_by_authentication
         self.payment_data = payment_data
         if payment_method is not None:
             self.payment_method = payment_method
@@ -159,29 +146,6 @@ class PaymentRequest(object):
             )  # noqa: E501
 
         self._request = request
-
-    @property
-    def authentication_data(self):
-        """Gets the authentication_data of this PaymentRequest.  # noqa: E501
-
-        Authentication data  # noqa: E501
-
-        :return: The authentication_data of this PaymentRequest.  # noqa: E501
-        :rtype: AuthenticationData
-        """
-        return self._authentication_data
-
-    @authentication_data.setter
-    def authentication_data(self, authentication_data):
-        """Sets the authentication_data of this PaymentRequest.
-
-        Authentication data  # noqa: E501
-
-        :param authentication_data: The authentication_data of this PaymentRequest.  # noqa: E501
-        :type: AuthenticationData
-        """
-
-        self._authentication_data = authentication_data
 
     @property
     def card_account(self):
@@ -311,27 +275,6 @@ class PaymentRequest(object):
         self._merchant_order = merchant_order
 
     @property
-    def payment_by_authentication(self):
-        """Gets the payment_by_authentication of this PaymentRequest.  # noqa: E501
-
-
-        :return: The payment_by_authentication of this PaymentRequest.  # noqa: E501
-        :rtype: bool
-        """
-        return self._payment_by_authentication
-
-    @payment_by_authentication.setter
-    def payment_by_authentication(self, payment_by_authentication):
-        """Sets the payment_by_authentication of this PaymentRequest.
-
-
-        :param payment_by_authentication: The payment_by_authentication of this PaymentRequest.  # noqa: E501
-        :type: bool
-        """
-
-        self._payment_by_authentication = payment_by_authentication
-
-    @property
     def payment_data(self):
         """Gets the payment_data of this PaymentRequest.  # noqa: E501
 
@@ -378,6 +321,14 @@ class PaymentRequest(object):
         :param payment_method: The payment_method of this PaymentRequest.  # noqa: E501
         :type: str
         """
+        if payment_method is not None and len(payment_method) > 50:
+            raise ValueError(
+                "Invalid value for `payment_method`, length must be less than or equal to `50`"
+            )  # noqa: E501
+        if payment_method is not None and len(payment_method) < 0:
+            raise ValueError(
+                "Invalid value for `payment_method`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._payment_method = payment_method
 

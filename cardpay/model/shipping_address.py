@@ -90,7 +90,7 @@ class ShippingAddress(object):
     def addr_line_1(self):
         """Gets the addr_line_1 of this ShippingAddress.  # noqa: E501
 
-        Street address. May include whitespaces, hyphens, apostrophes, commas, quotes, dots, slashes and semicolons  # noqa: E501
+        First line of the street address or equivalent local portion of the Cardholder shipping address associated with the card used for this purchase. Can include street and house number. *Length: 0 - 50*  # noqa: E501
 
         :return: The addr_line_1 of this ShippingAddress.  # noqa: E501
         :rtype: str
@@ -101,7 +101,7 @@ class ShippingAddress(object):
     def addr_line_1(self, addr_line_1):
         """Sets the addr_line_1 of this ShippingAddress.
 
-        Street address. May include whitespaces, hyphens, apostrophes, commas, quotes, dots, slashes and semicolons  # noqa: E501
+        First line of the street address or equivalent local portion of the Cardholder shipping address associated with the card used for this purchase. Can include street and house number. *Length: 0 - 50*  # noqa: E501
 
         :param addr_line_1: The addr_line_1 of this ShippingAddress.  # noqa: E501
         :type: str
@@ -113,7 +113,7 @@ class ShippingAddress(object):
     def addr_line_2(self):
         """Gets the addr_line_2 of this ShippingAddress.  # noqa: E501
 
-        Second line of the street address or equivalent local portion of the Cardholder billing address associated with the card used for this purchase.  # noqa: E501
+        Second line of the street address or equivalent local portion of the Cardholder shipping address associated with the card used for this purchase. *Length: 0 - 50*  # noqa: E501
 
         :return: The addr_line_2 of this ShippingAddress.  # noqa: E501
         :rtype: str
@@ -124,7 +124,7 @@ class ShippingAddress(object):
     def addr_line_2(self, addr_line_2):
         """Sets the addr_line_2 of this ShippingAddress.
 
-        Second line of the street address or equivalent local portion of the Cardholder billing address associated with the card used for this purchase.  # noqa: E501
+        Second line of the street address or equivalent local portion of the Cardholder shipping address associated with the card used for this purchase. *Length: 0 - 50*  # noqa: E501
 
         :param addr_line_2: The addr_line_2 of this ShippingAddress.  # noqa: E501
         :type: str
@@ -167,7 +167,7 @@ class ShippingAddress(object):
     def country(self):
         """Gets the country of this ShippingAddress.  # noqa: E501
 
-        [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1) code of country: 2 or 3 latin letters or numeric code. Mandatory if 'shipping_address' is presented.  # noqa: E501
+        [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1) code of delivery country: 2 or 3 latin letters or numeric code. Required for BANKCARD payment method if 'shipping_address' is presented.  # noqa: E501
 
         :return: The country of this ShippingAddress.  # noqa: E501
         :rtype: str
@@ -178,7 +178,7 @@ class ShippingAddress(object):
     def country(self, country):
         """Sets the country of this ShippingAddress.
 
-        [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1) code of country: 2 or 3 latin letters or numeric code. Mandatory if 'shipping_address' is presented.  # noqa: E501
+        [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1) code of delivery country: 2 or 3 latin letters or numeric code. Required for BANKCARD payment method if 'shipping_address' is presented.  # noqa: E501
 
         :param country: The country of this ShippingAddress.  # noqa: E501
         :type: str
@@ -225,7 +225,7 @@ class ShippingAddress(object):
     def state(self):
         """Gets the state of this ShippingAddress.  # noqa: E501
 
-        Delivery state or province. May include whitespaces, hyphens, apostrophes, commas and dots  # noqa: E501
+        The state or province of the shipping address associated with the card being used for this purchase. It's recommended to send in following format: the country subdivision code defined in [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). May include whitespaces, hyphens, apostrophes, commas and dots.  # noqa: E501
 
         :return: The state of this ShippingAddress.  # noqa: E501
         :rtype: str
@@ -236,7 +236,7 @@ class ShippingAddress(object):
     def state(self, state):
         """Sets the state of this ShippingAddress.
 
-        Delivery state or province. May include whitespaces, hyphens, apostrophes, commas and dots  # noqa: E501
+        The state or province of the shipping address associated with the card being used for this purchase. It's recommended to send in following format: the country subdivision code defined in [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). May include whitespaces, hyphens, apostrophes, commas and dots.  # noqa: E501
 
         :param state: The state of this ShippingAddress.  # noqa: E501
         :type: str
@@ -256,7 +256,7 @@ class ShippingAddress(object):
     def zip(self):
         """Gets the zip of this ShippingAddress.  # noqa: E501
 
-        Delivery postal code  # noqa: E501
+        Delivery postal code. For BANKCARD payment method max length: 12 Mandatory for BOLETO and LOTERICA payment methods only.  # noqa: E501
 
         :return: The zip of this ShippingAddress.  # noqa: E501
         :rtype: str
@@ -267,7 +267,7 @@ class ShippingAddress(object):
     def zip(self, zip):
         """Sets the zip of this ShippingAddress.
 
-        Delivery postal code  # noqa: E501
+        Delivery postal code. For BANKCARD payment method max length: 12 Mandatory for BOLETO and LOTERICA payment methods only.  # noqa: E501
 
         :param zip: The zip of this ShippingAddress.  # noqa: E501
         :type: str

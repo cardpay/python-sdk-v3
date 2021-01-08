@@ -45,9 +45,12 @@ class RecurringResponseRecurringData(object):
         "decline_reason": "str",
         "filing": "RecurringResponseFiling",
         "id": "str",
+        "installment_amount": "float",
+        "installment_type": "str",
         "invalid_data": "list[str]",
         "is_3d": "bool",
         "note": "str",
+        "payments": "str",
         "rrn": "str",
         "status": "str",
         "subscription": "Subscription",
@@ -65,9 +68,12 @@ class RecurringResponseRecurringData(object):
         "decline_reason": "decline_reason",
         "filing": "filing",
         "id": "id",
+        "installment_amount": "installment_amount",
+        "installment_type": "installment_type",
         "invalid_data": "invalid_data",
         "is_3d": "is_3d",
         "note": "note",
+        "payments": "payments",
         "rrn": "rrn",
         "status": "status",
         "subscription": "subscription",
@@ -86,9 +92,12 @@ class RecurringResponseRecurringData(object):
         decline_reason=None,
         filing=None,
         id=None,
+        installment_amount=None,
+        installment_type=None,
         invalid_data=None,
         is_3d=None,
         note=None,
+        payments=None,
         rrn=None,
         status=None,
         subscription=None,
@@ -106,9 +115,12 @@ class RecurringResponseRecurringData(object):
         self._decline_reason = None
         self._filing = None
         self._id = None
+        self._installment_amount = None
+        self._installment_type = None
         self._invalid_data = None
         self._is_3d = None
         self._note = None
+        self._payments = None
         self._rrn = None
         self._status = None
         self._subscription = None
@@ -134,12 +146,18 @@ class RecurringResponseRecurringData(object):
             self.filing = filing
         if id is not None:
             self.id = id
+        if installment_amount is not None:
+            self.installment_amount = installment_amount
+        if installment_type is not None:
+            self.installment_type = installment_type
         if invalid_data is not None:
             self.invalid_data = invalid_data
         if is_3d is not None:
             self.is_3d = is_3d
         if note is not None:
             self.note = note
+        if payments is not None:
+            self.payments = payments
         if rrn is not None:
             self.rrn = rrn
         if status is not None:
@@ -359,6 +377,52 @@ class RecurringResponseRecurringData(object):
         self._id = id
 
     @property
+    def installment_amount(self):
+        """Gets the installment_amount of this RecurringResponseRecurringData.  # noqa: E501
+
+        Amount of 1 installment payment, will be returned if presented in request (for payment page mode only)  # noqa: E501
+
+        :return: The installment_amount of this RecurringResponseRecurringData.  # noqa: E501
+        :rtype: float
+        """
+        return self._installment_amount
+
+    @installment_amount.setter
+    def installment_amount(self, installment_amount):
+        """Sets the installment_amount of this RecurringResponseRecurringData.
+
+        Amount of 1 installment payment, will be returned if presented in request (for payment page mode only)  # noqa: E501
+
+        :param installment_amount: The installment_amount of this RecurringResponseRecurringData.  # noqa: E501
+        :type: float
+        """
+
+        self._installment_amount = installment_amount
+
+    @property
+    def installment_type(self):
+        """Gets the installment_type of this RecurringResponseRecurringData.  # noqa: E501
+
+        Selected installment type  # noqa: E501
+
+        :return: The installment_type of this RecurringResponseRecurringData.  # noqa: E501
+        :rtype: str
+        """
+        return self._installment_type
+
+    @installment_type.setter
+    def installment_type(self, installment_type):
+        """Sets the installment_type of this RecurringResponseRecurringData.
+
+        Selected installment type  # noqa: E501
+
+        :param installment_type: The installment_type of this RecurringResponseRecurringData.  # noqa: E501
+        :type: str
+        """
+
+        self._installment_type = installment_type
+
+    @property
     def invalid_data(self):
         """Gets the invalid_data of this RecurringResponseRecurringData.  # noqa: E501
 
@@ -428,6 +492,29 @@ class RecurringResponseRecurringData(object):
         self._note = note
 
     @property
+    def payments(self):
+        """Gets the payments of this RecurringResponseRecurringData.  # noqa: E501
+
+        Number of total payments, to be charged  # noqa: E501
+
+        :return: The payments of this RecurringResponseRecurringData.  # noqa: E501
+        :rtype: str
+        """
+        return self._payments
+
+    @payments.setter
+    def payments(self, payments):
+        """Sets the payments of this RecurringResponseRecurringData.
+
+        Number of total payments, to be charged  # noqa: E501
+
+        :param payments: The payments of this RecurringResponseRecurringData.  # noqa: E501
+        :type: str
+        """
+
+        self._payments = payments
+
+    @property
     def rrn(self):
         """Gets the rrn of this RecurringResponseRecurringData.  # noqa: E501
 
@@ -460,6 +547,7 @@ class RecurringResponseRecurringData(object):
         REFUNDED = "REFUNDED"
         PARTIALLY_REFUNDED = "PARTIALLY_REFUNDED"
         VOIDED = "VOIDED"
+        TERMINATED = "TERMINATED"
         CHARGED_BACK = "CHARGED_BACK"
         CHARGEBACK_RESOLVED = "CHARGEBACK_RESOLVED"
 
@@ -493,6 +581,7 @@ class RecurringResponseRecurringData(object):
             "REFUNDED",
             "PARTIALLY_REFUNDED",
             "VOIDED",
+            "TERMINATED",
             "CHARGED_BACK",
             "CHARGEBACK_RESOLVED",
         ]  # noqa: E501

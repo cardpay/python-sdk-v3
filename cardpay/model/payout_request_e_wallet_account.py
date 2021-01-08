@@ -33,6 +33,7 @@ class PayoutRequestEWalletAccount(object):
     swagger_types = {
         "bank_branch": "str",
         "bank_code": "str",
+        "bank_name": "str",
         "id": "str",
         "name": "str",
         "type": "str",
@@ -41,18 +42,26 @@ class PayoutRequestEWalletAccount(object):
     attribute_map = {
         "bank_branch": "bank_branch",
         "bank_code": "bank_code",
+        "bank_name": "bank_name",
         "id": "id",
         "name": "name",
         "type": "type",
     }
 
     def __init__(
-        self, bank_branch=None, bank_code=None, id=None, name=None, type=None
+        self,
+        bank_branch=None,
+        bank_code=None,
+        bank_name=None,
+        id=None,
+        name=None,
+        type=None,
     ):  # noqa: E501
         """PayoutRequestEWalletAccount - a model defined in Swagger"""  # noqa: E501
 
         self._bank_branch = None
         self._bank_code = None
+        self._bank_name = None
         self._id = None
         self._name = None
         self._type = None
@@ -62,6 +71,8 @@ class PayoutRequestEWalletAccount(object):
             self.bank_branch = bank_branch
         if bank_code is not None:
             self.bank_code = bank_code
+        if bank_name is not None:
+            self.bank_name = bank_name
         if id is not None:
             self.id = id
         if name is not None:
@@ -114,6 +125,29 @@ class PayoutRequestEWalletAccount(object):
         """
 
         self._bank_code = bank_code
+
+    @property
+    def bank_name(self):
+        """Gets the bank_name of this PayoutRequestEWalletAccount.  # noqa: E501
+
+        Customer bank name Customer bank name (string)  # noqa: E501
+
+        :return: The bank_name of this PayoutRequestEWalletAccount.  # noqa: E501
+        :rtype: str
+        """
+        return self._bank_name
+
+    @bank_name.setter
+    def bank_name(self, bank_name):
+        """Sets the bank_name of this PayoutRequestEWalletAccount.
+
+        Customer bank name Customer bank name (string)  # noqa: E501
+
+        :param bank_name: The bank_name of this PayoutRequestEWalletAccount.  # noqa: E501
+        :type: str
+        """
+
+        self._bank_name = bank_name
 
     @property
     def id(self):

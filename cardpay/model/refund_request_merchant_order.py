@@ -73,9 +73,9 @@ class RefundRequestMerchantOrder(object):
             raise ValueError(
                 "Invalid value for `description`, length must be less than or equal to `200`"
             )  # noqa: E501
-        if description is not None and len(description) < 0:
+        if description is not None and len(description) < 1:
             raise ValueError(
-                "Invalid value for `description`, length must be greater than or equal to `0`"
+                "Invalid value for `description`, length must be greater than or equal to `1`"
             )  # noqa: E501
 
         self._description = description

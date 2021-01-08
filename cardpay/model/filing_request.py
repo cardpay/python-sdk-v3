@@ -231,9 +231,9 @@ class FilingRequest(object):
             raise ValueError(
                 "Invalid value for `payment_method`, must not be `None`"
             )  # noqa: E501
-        if payment_method is not None and len(payment_method) > 100:
+        if payment_method is not None and len(payment_method) > 50:
             raise ValueError(
-                "Invalid value for `payment_method`, length must be less than or equal to `100`"
+                "Invalid value for `payment_method`, length must be less than or equal to `50`"
             )  # noqa: E501
         if payment_method is not None and len(payment_method) < 1:
             raise ValueError(

@@ -45,6 +45,7 @@ class RequestUpdatedTransactionData(object):
     class StatusTo(object):
         REVERSE = "REVERSE"
         COMPLETE = "COMPLETE"
+        TERMINATE = "TERMINATE"
 
     @property
     def status_to(self):
@@ -70,7 +71,7 @@ class RequestUpdatedTransactionData(object):
             raise ValueError(
                 "Invalid value for `status_to`, must not be `None`"
             )  # noqa: E501
-        allowed_values = ["REVERSE", "COMPLETE"]  # noqa: E501
+        allowed_values = ["REVERSE", "COMPLETE", "TERMINATE"]  # noqa: E501
         if status_to not in allowed_values:
             raise ValueError(
                 "Invalid value for `status_to` ({0}), must be one of {1}".format(  # noqa: E501

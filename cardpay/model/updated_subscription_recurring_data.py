@@ -30,18 +30,21 @@ class UpdatedSubscriptionRecurringData(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"id": "str"}
+    swagger_types = {"id": "str", "separate_auth": "bool"}
 
-    attribute_map = {"id": "id"}
+    attribute_map = {"id": "id", "separate_auth": "separate_auth"}
 
-    def __init__(self, id=None):  # noqa: E501
+    def __init__(self, id=None, separate_auth=None):  # noqa: E501
         """UpdatedSubscriptionRecurringData - a model defined in Swagger"""  # noqa: E501
 
         self._id = None
+        self._separate_auth = None
         self.discriminator = None
 
         if id is not None:
             self.id = id
+        if separate_auth is not None:
+            self.separate_auth = separate_auth
 
     @property
     def id(self):
@@ -65,6 +68,29 @@ class UpdatedSubscriptionRecurringData(object):
         """
 
         self._id = id
+
+    @property
+    def separate_auth(self):
+        """Gets the separate_auth of this UpdatedSubscriptionRecurringData.  # noqa: E501
+
+        Means that authentication can be carried separately from the payment. Possible values: true -  authentication can be carried separately, false -  authentication can not be carried separately  # noqa: E501
+
+        :return: The separate_auth of this UpdatedSubscriptionRecurringData.  # noqa: E501
+        :rtype: bool
+        """
+        return self._separate_auth
+
+    @separate_auth.setter
+    def separate_auth(self, separate_auth):
+        """Sets the separate_auth of this UpdatedSubscriptionRecurringData.
+
+        Means that authentication can be carried separately from the payment. Possible values: true -  authentication can be carried separately, false -  authentication can not be carried separately  # noqa: E501
+
+        :param separate_auth: The separate_auth of this UpdatedSubscriptionRecurringData.  # noqa: E501
+        :type: bool
+        """
+
+        self._separate_auth = separate_auth
 
     def to_dict(self):
         """Returns the model properties as a dict"""

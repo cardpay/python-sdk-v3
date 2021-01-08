@@ -12,8 +12,8 @@ with open(os.path.join(here, "README.md"), "r", encoding="utf-8") as fp:
 
 setup(
     name="cardpay",
-    version="2.18.5",
-    description="Cardpay APIv3 Python SDK",
+    version="2.26.3",
+    description="Unlimint APIv3 Python SDK",
     author_email="",
     url="https://github.com/cardpay/python-sdk-v3.git",
     license="MIT",
@@ -38,7 +38,7 @@ setup(
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
     project_urls={
-        "Documentation": "https://integration.cardpay.com/",
+        "Documentation": "https://integration.unlimint.com/",
         "Source Code": "https://github.com/cardpay/python-sdk-v3",
     }
 )
