@@ -83,6 +83,10 @@ class Item(object):
         :param count: The count of this Item.  # noqa: E501
         :type: int
         """
+        if count is not None and count < 1:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `count`, must be a value greater than or equal to `1`"
+            )  # noqa: E501
 
         self._count = count
 

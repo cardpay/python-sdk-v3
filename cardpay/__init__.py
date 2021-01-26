@@ -85,6 +85,8 @@ from cardpay.model.payment_gateway_creation_response import (
 from cardpay.model.payment_gateway_response_payment_data import (
     PaymentGatewayResponsePaymentData,
 )
+from cardpay.model.payment_methods_list import PaymentMethodsList
+from cardpay.model.payment_methods_response import PaymentMethodsResponse
 from cardpay.model.payment_patch_request import PaymentPatchRequest
 from cardpay.model.payment_request import PaymentRequest
 from cardpay.model.payment_request_card import PaymentRequestCard
