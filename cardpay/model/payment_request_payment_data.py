@@ -101,7 +101,7 @@ class PaymentRequestPaymentData(object):
     def amount(self):
         """Gets the amount of this PaymentRequestPaymentData.  # noqa: E501
 
-        The total transaction amount in selected currency with dot as a decimal separator, must be less than 100 millions If 'payment_method' = `BITCOIN` then minimum order amount is approximately 0.003 bitcoins or its equivalent. The exact value should be provided by the account manager.  # noqa: E501
+        The total transaction amount in selected currency with dot as a decimal separator, must be less than 10 billion If 'payment_method' = `BITCOIN` then minimum order amount is approximately 0.003 bitcoins or its equivalent. The exact value should be provided by the account manager.  # noqa: E501
 
         :return: The amount of this PaymentRequestPaymentData.  # noqa: E501
         :rtype: float
@@ -112,7 +112,7 @@ class PaymentRequestPaymentData(object):
     def amount(self, amount):
         """Sets the amount of this PaymentRequestPaymentData.
 
-        The total transaction amount in selected currency with dot as a decimal separator, must be less than 100 millions If 'payment_method' = `BITCOIN` then minimum order amount is approximately 0.003 bitcoins or its equivalent. The exact value should be provided by the account manager.  # noqa: E501
+        The total transaction amount in selected currency with dot as a decimal separator, must be less than 10 billion If 'payment_method' = `BITCOIN` then minimum order amount is approximately 0.003 bitcoins or its equivalent. The exact value should be provided by the account manager.  # noqa: E501
 
         :param amount: The amount of this PaymentRequestPaymentData.  # noqa: E501
         :type: float

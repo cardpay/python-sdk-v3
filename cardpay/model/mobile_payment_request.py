@@ -87,7 +87,8 @@ class MobilePaymentRequest(object):
         self.discriminator = None
 
         self.request = request
-        self.card_account = card_account
+        if card_account is not None:
+            self.card_account = card_account
         self.customer = customer
         self.merchant_order = merchant_order
         self.payment_data = payment_data
@@ -143,10 +144,6 @@ class MobilePaymentRequest(object):
         :param card_account: The card_account of this MobilePaymentRequest.  # noqa: E501
         :type: PaymentRequestCardAccount
         """
-        if card_account is None:
-            raise ValueError(
-                "Invalid value for `card_account`, must not be `None`"
-            )  # noqa: E501
 
         self._card_account = card_account
 

@@ -60,10 +60,14 @@ class PaymentRequestCard(object):
 
         if acct_type is not None:
             self.acct_type = acct_type
-        self.expiration = expiration
-        self.holder = holder
-        self.pan = pan
-        self.security_code = security_code
+        if expiration is not None:
+            self.expiration = expiration
+        if holder is not None:
+            self.holder = holder
+        if pan is not None:
+            self.pan = pan
+        if security_code is not None:
+            self.security_code = security_code
 
     class AcctType(object):
         _01 = "01"
@@ -118,10 +122,6 @@ class PaymentRequestCard(object):
         :param expiration: The expiration of this PaymentRequestCard.  # noqa: E501
         :type: str
         """
-        if expiration is None:
-            raise ValueError(
-                "Invalid value for `expiration`, must not be `None`"
-            )  # noqa: E501
         if expiration is not None and not re.search(
             r"([0-9]{2}\/[0-9]{4})", expiration
         ):  # noqa: E501
@@ -151,10 +151,6 @@ class PaymentRequestCard(object):
         :param holder: The holder of this PaymentRequestCard.  # noqa: E501
         :type: str
         """
-        if holder is None:
-            raise ValueError(
-                "Invalid value for `holder`, must not be `None`"
-            )  # noqa: E501
         if holder is not None and len(holder) > 50:
             raise ValueError(
                 "Invalid value for `holder`, length must be less than or equal to `50`"
@@ -186,10 +182,6 @@ class PaymentRequestCard(object):
         :param pan: The pan of this PaymentRequestCard.  # noqa: E501
         :type: str
         """
-        if pan is None:
-            raise ValueError(
-                "Invalid value for `pan`, must not be `None`"
-            )  # noqa: E501
         if pan is not None and len(pan) > 19:
             raise ValueError(
                 "Invalid value for `pan`, length must be less than or equal to `19`"
@@ -221,10 +213,6 @@ class PaymentRequestCard(object):
         :param security_code: The security_code of this PaymentRequestCard.  # noqa: E501
         :type: str
         """
-        if security_code is None:
-            raise ValueError(
-                "Invalid value for `security_code`, must not be `None`"
-            )  # noqa: E501
         if security_code is not None and not re.search(
             r"[0-9]{3,4}", security_code
         ):  # noqa: E501

@@ -35,7 +35,6 @@ class InstallmentData(object):
         "currency": "str",
         "dynamic_descriptor": "str",
         "generate_token": "bool",
-        "hold_rest_amount": "bool",
         "initiator": "str",
         "installment_amount": "float",
         "installment_type": "str",
@@ -53,7 +52,6 @@ class InstallmentData(object):
         "currency": "currency",
         "dynamic_descriptor": "dynamic_descriptor",
         "generate_token": "generate_token",
-        "hold_rest_amount": "hold_rest_amount",
         "initiator": "initiator",
         "installment_amount": "installment_amount",
         "installment_type": "installment_type",
@@ -72,7 +70,6 @@ class InstallmentData(object):
         currency=None,
         dynamic_descriptor=None,
         generate_token=None,
-        hold_rest_amount=None,
         initiator=None,
         installment_amount=None,
         installment_type=None,
@@ -90,7 +87,6 @@ class InstallmentData(object):
         self._currency = None
         self._dynamic_descriptor = None
         self._generate_token = None
-        self._hold_rest_amount = None
         self._initiator = None
         self._installment_amount = None
         self._installment_type = None
@@ -110,8 +106,6 @@ class InstallmentData(object):
             self.dynamic_descriptor = dynamic_descriptor
         if generate_token is not None:
             self.generate_token = generate_token
-        if hold_rest_amount is not None:
-            self.hold_rest_amount = hold_rest_amount
         self.initiator = initiator
         if installment_amount is not None:
             self.installment_amount = installment_amount
@@ -237,29 +231,6 @@ class InstallmentData(object):
         self._generate_token = generate_token
 
     @property
-    def hold_rest_amount(self):
-        """Gets the hold_rest_amount of this InstallmentData.  # noqa: E501
-
-        For SplitPay subscription - \"true\"  # noqa: E501
-
-        :return: The hold_rest_amount of this InstallmentData.  # noqa: E501
-        :rtype: bool
-        """
-        return self._hold_rest_amount
-
-    @hold_rest_amount.setter
-    def hold_rest_amount(self, hold_rest_amount):
-        """Sets the hold_rest_amount of this InstallmentData.
-
-        For SplitPay subscription - \"true\"  # noqa: E501
-
-        :param hold_rest_amount: The hold_rest_amount of this InstallmentData.  # noqa: E501
-        :type: bool
-        """
-
-        self._hold_rest_amount = hold_rest_amount
-
-    @property
     def initiator(self):
         """Gets the initiator of this InstallmentData.  # noqa: E501
 
@@ -317,7 +288,7 @@ class InstallmentData(object):
     def installment_type(self):
         """Gets the installment_type of this InstallmentData.  # noqa: E501
 
-        Installment type, 2 possible values: `IF` - issuer financed `MF` - merchant financed For installments by merchant should be only `MF` installment_type  # noqa: E501
+        Installment type, 4 possible values: `IF` - issuer financed `MF_HOLD' - merchant financed hold `MF_HOLD_SPLIT' - merchant financed split `MF_WITHOUT_HOLD' - merchant financed without hold   # noqa: E501
 
         :return: The installment_type of this InstallmentData.  # noqa: E501
         :rtype: str
@@ -328,16 +299,16 @@ class InstallmentData(object):
     def installment_type(self, installment_type):
         """Sets the installment_type of this InstallmentData.
 
-        Installment type, 2 possible values: `IF` - issuer financed `MF` - merchant financed For installments by merchant should be only `MF` installment_type  # noqa: E501
+        Installment type, 4 possible values: `IF` - issuer financed `MF_HOLD' - merchant financed hold `MF_HOLD_SPLIT' - merchant financed split `MF_WITHOUT_HOLD' - merchant financed without hold   # noqa: E501
 
         :param installment_type: The installment_type of this InstallmentData.  # noqa: E501
         :type: str
         """
         if installment_type is not None and not re.search(
-            r"IF|MF", installment_type
+            r"IF|MF_HOLD|MF_HOLD_SPLIT|MF_WITHOUT_HOLD", installment_type
         ):  # noqa: E501
             raise ValueError(
-                r"Invalid value for `installment_type`, must be a follow pattern or equal to `/IF|MF/`"
+                r"Invalid value for `installment_type`, must be a follow pattern or equal to `/IF|MF_HOLD|MF_HOLD_SPLIT|MF_WITHOUT_HOLD/`"
             )  # noqa: E501
 
         self._installment_type = installment_type

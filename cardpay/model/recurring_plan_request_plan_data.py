@@ -153,6 +153,10 @@ class RecurringPlanRequestPlanData(object):
             raise ValueError(
                 "Invalid value for `interval`, must not be `None`"
             )  # noqa: E501
+        if interval is not None and interval > 365:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `interval`, must be a value less than or equal to `365`"
+            )  # noqa: E501
         if interval is not None and interval < 1:  # noqa: E501
             raise ValueError(
                 "Invalid value for `interval`, must be a value greater than or equal to `1`"

@@ -122,6 +122,14 @@ class PayoutRequestCustomer(object):
         :param document_type: The document_type of this PayoutRequestCustomer.  # noqa: E501
         :type: str
         """
+        if document_type is not None and len(document_type) > 10:
+            raise ValueError(
+                "Invalid value for `document_type`, length must be less than or equal to `10`"
+            )  # noqa: E501
+        if document_type is not None and len(document_type) < 0:
+            raise ValueError(
+                "Invalid value for `document_type`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._document_type = document_type
 
@@ -145,6 +153,14 @@ class PayoutRequestCustomer(object):
         :param email: The email of this PayoutRequestCustomer.  # noqa: E501
         :type: str
         """
+        if email is not None and len(email) > 256:
+            raise ValueError(
+                "Invalid value for `email`, length must be less than or equal to `256`"
+            )  # noqa: E501
+        if email is not None and len(email) < 0:
+            raise ValueError(
+                "Invalid value for `email`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._email = email
 
@@ -168,6 +184,14 @@ class PayoutRequestCustomer(object):
         :param first_name: The first_name of this PayoutRequestCustomer.  # noqa: E501
         :type: str
         """
+        if first_name is not None and len(first_name) > 100:
+            raise ValueError(
+                "Invalid value for `first_name`, length must be less than or equal to `100`"
+            )  # noqa: E501
+        if first_name is not None and len(first_name) < 0:
+            raise ValueError(
+                "Invalid value for `first_name`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._first_name = first_name
 
@@ -191,6 +215,14 @@ class PayoutRequestCustomer(object):
         :param full_name: The full_name of this PayoutRequestCustomer.  # noqa: E501
         :type: str
         """
+        if full_name is not None and len(full_name) > 100:
+            raise ValueError(
+                "Invalid value for `full_name`, length must be less than or equal to `100`"
+            )  # noqa: E501
+        if full_name is not None and len(full_name) < 0:
+            raise ValueError(
+                "Invalid value for `full_name`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._full_name = full_name
 
@@ -268,6 +300,14 @@ class PayoutRequestCustomer(object):
         :param last_name: The last_name of this PayoutRequestCustomer.  # noqa: E501
         :type: str
         """
+        if last_name is not None and len(last_name) > 100:
+            raise ValueError(
+                "Invalid value for `last_name`, length must be less than or equal to `100`"
+            )  # noqa: E501
+        if last_name is not None and len(last_name) < 0:
+            raise ValueError(
+                "Invalid value for `last_name`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._last_name = last_name
 
@@ -314,6 +354,14 @@ class PayoutRequestCustomer(object):
         :param phone: The phone of this PayoutRequestCustomer.  # noqa: E501
         :type: str
         """
+        if phone is not None and len(phone) > 18:
+            raise ValueError(
+                "Invalid value for `phone`, length must be less than or equal to `18`"
+            )  # noqa: E501
+        if phone is not None and len(phone) < 5:
+            raise ValueError(
+                "Invalid value for `phone`, length must be greater than or equal to `5`"
+            )  # noqa: E501
 
         self._phone = phone
 

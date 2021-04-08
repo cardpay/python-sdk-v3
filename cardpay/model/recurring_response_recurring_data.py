@@ -45,6 +45,7 @@ class RecurringResponseRecurringData(object):
         "decline_reason": "str",
         "filing": "RecurringResponseFiling",
         "id": "str",
+        "initiator": "str",
         "installment_amount": "float",
         "installment_type": "str",
         "invalid_data": "list[str]",
@@ -52,6 +53,7 @@ class RecurringResponseRecurringData(object):
         "note": "str",
         "payments": "str",
         "rrn": "str",
+        "scheduled_type": "str",
         "status": "str",
         "subscription": "Subscription",
         "type": "str",
@@ -68,6 +70,7 @@ class RecurringResponseRecurringData(object):
         "decline_reason": "decline_reason",
         "filing": "filing",
         "id": "id",
+        "initiator": "initiator",
         "installment_amount": "installment_amount",
         "installment_type": "installment_type",
         "invalid_data": "invalid_data",
@@ -75,6 +78,7 @@ class RecurringResponseRecurringData(object):
         "note": "note",
         "payments": "payments",
         "rrn": "rrn",
+        "scheduled_type": "scheduled_type",
         "status": "status",
         "subscription": "subscription",
         "type": "type",
@@ -92,6 +96,7 @@ class RecurringResponseRecurringData(object):
         decline_reason=None,
         filing=None,
         id=None,
+        initiator=None,
         installment_amount=None,
         installment_type=None,
         invalid_data=None,
@@ -99,6 +104,7 @@ class RecurringResponseRecurringData(object):
         note=None,
         payments=None,
         rrn=None,
+        scheduled_type=None,
         status=None,
         subscription=None,
         type=None,
@@ -115,6 +121,7 @@ class RecurringResponseRecurringData(object):
         self._decline_reason = None
         self._filing = None
         self._id = None
+        self._initiator = None
         self._installment_amount = None
         self._installment_type = None
         self._invalid_data = None
@@ -122,6 +129,7 @@ class RecurringResponseRecurringData(object):
         self._note = None
         self._payments = None
         self._rrn = None
+        self._scheduled_type = None
         self._status = None
         self._subscription = None
         self._type = None
@@ -146,6 +154,8 @@ class RecurringResponseRecurringData(object):
             self.filing = filing
         if id is not None:
             self.id = id
+        if initiator is not None:
+            self.initiator = initiator
         if installment_amount is not None:
             self.installment_amount = installment_amount
         if installment_type is not None:
@@ -160,6 +170,8 @@ class RecurringResponseRecurringData(object):
             self.payments = payments
         if rrn is not None:
             self.rrn = rrn
+        if scheduled_type is not None:
+            self.scheduled_type = scheduled_type
         if status is not None:
             self.status = status
         if subscription is not None:
@@ -377,6 +389,29 @@ class RecurringResponseRecurringData(object):
         self._id = id
 
     @property
+    def initiator(self):
+        """Gets the initiator of this RecurringResponseRecurringData.  # noqa: E501
+
+        Initiator of scheduled transaction (applicable only for scheduled by merchant payments)  # noqa: E501
+
+        :return: The initiator of this RecurringResponseRecurringData.  # noqa: E501
+        :rtype: str
+        """
+        return self._initiator
+
+    @initiator.setter
+    def initiator(self, initiator):
+        """Sets the initiator of this RecurringResponseRecurringData.
+
+        Initiator of scheduled transaction (applicable only for scheduled by merchant payments)  # noqa: E501
+
+        :param initiator: The initiator of this RecurringResponseRecurringData.  # noqa: E501
+        :type: str
+        """
+
+        self._initiator = initiator
+
+    @property
     def installment_amount(self):
         """Gets the installment_amount of this RecurringResponseRecurringData.  # noqa: E501
 
@@ -536,6 +571,40 @@ class RecurringResponseRecurringData(object):
         """
 
         self._rrn = rrn
+
+    class ScheduledType(object):
+        SA = "SA"
+        SM = "SM"
+
+    @property
+    def scheduled_type(self):
+        """Gets the scheduled_type of this RecurringResponseRecurringData.  # noqa: E501
+
+        Scheduled payment type attribute. `SM` - value for scheduled by merchant case `SA` - value for scheduled by acquirer case  # noqa: E501
+
+        :return: The scheduled_type of this RecurringResponseRecurringData.  # noqa: E501
+        :rtype: str
+        """
+        return self._scheduled_type
+
+    @scheduled_type.setter
+    def scheduled_type(self, scheduled_type):
+        """Sets the scheduled_type of this RecurringResponseRecurringData.
+
+        Scheduled payment type attribute. `SM` - value for scheduled by merchant case `SA` - value for scheduled by acquirer case  # noqa: E501
+
+        :param scheduled_type: The scheduled_type of this RecurringResponseRecurringData.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["SA", "SM"]  # noqa: E501
+        if scheduled_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `scheduled_type` ({0}), must be one of {1}".format(  # noqa: E501
+                    scheduled_type, allowed_values
+                )
+            )
+
+        self._scheduled_type = scheduled_type
 
     class Status(object):
         NEW = "NEW"

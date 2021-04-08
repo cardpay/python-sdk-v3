@@ -76,7 +76,7 @@ class PayoutRequestPayoutData(object):
     def amount(self):
         """Gets the amount of this PayoutRequestPayoutData.  # noqa: E501
 
-        Represents the amount to be transferred to Customer's card, must be less than 100 millions.  # noqa: E501
+        Represents the amount to be transferred to Customer's card, must be less than 10 billion.  # noqa: E501
 
         :return: The amount of this PayoutRequestPayoutData.  # noqa: E501
         :rtype: float
@@ -87,7 +87,7 @@ class PayoutRequestPayoutData(object):
     def amount(self, amount):
         """Sets the amount of this PayoutRequestPayoutData.
 
-        Represents the amount to be transferred to Customer's card, must be less than 100 millions.  # noqa: E501
+        Represents the amount to be transferred to Customer's card, must be less than 10 billion.  # noqa: E501
 
         :param amount: The amount of this PayoutRequestPayoutData.  # noqa: E501
         :type: float

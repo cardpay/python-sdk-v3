@@ -74,6 +74,8 @@ from cardpay.model.mobile_payment_request import MobilePaymentRequest
 from cardpay.model.mobile_payment_response import MobilePaymentResponse
 from cardpay.model.mobile_token_request import MobileTokenRequest
 from cardpay.model.mobile_token_response import MobileTokenResponse
+from cardpay.model.mobile_verification_request import MobileVerificationRequest
+from cardpay.model.mobile_verification_response import MobileVerificationResponse
 from cardpay.model.next_subscription_payment import NextSubscriptionPayment
 from cardpay.model.not_found_error import NotFoundError
 from cardpay.model.o_auth_error import OAuthError
@@ -195,6 +197,7 @@ from cardpay.model.response_updated_transaction_data import (
 from cardpay.model.return_urls import ReturnUrls
 from cardpay.model.schedule_option import ScheduleOption
 from cardpay.model.schedule_options_response import ScheduleOptionsResponse
+from cardpay.model.scheduled_by_merchant_data import ScheduledByMerchantData
 from cardpay.model.scheduled_data import ScheduledData
 from cardpay.model.shipping_address import ShippingAddress
 from cardpay.model.subscription import Subscription

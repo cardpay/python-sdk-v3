@@ -148,6 +148,14 @@ class FilingRecurringData(object):
         :param initiator: The initiator of this FilingRecurringData.  # noqa: E501
         :type: str
         """
+        if initiator is not None and len(initiator) > 3:
+            raise ValueError(
+                "Invalid value for `initiator`, length must be less than or equal to `3`"
+            )  # noqa: E501
+        if initiator is not None and len(initiator) < 0:
+            raise ValueError(
+                "Invalid value for `initiator`, length must be greater than or equal to `0`"
+            )  # noqa: E501
         if initiator is not None and not re.search(r"cit", initiator):  # noqa: E501
             raise ValueError(
                 r"Invalid value for `initiator`, must be a follow pattern or equal to `/cit/`"
