@@ -34,6 +34,7 @@ class RecurringCustomer(object):
         "email": "str",
         "home_phone": "str",
         "id": "str",
+        "identity": "str",
         "ip": "str",
         "locale": "str",
         "phone": "str",
@@ -44,6 +45,7 @@ class RecurringCustomer(object):
         "email": "email",
         "home_phone": "home_phone",
         "id": "id",
+        "identity": "identity",
         "ip": "ip",
         "locale": "locale",
         "phone": "phone",
@@ -55,6 +57,7 @@ class RecurringCustomer(object):
         email=None,
         home_phone=None,
         id=None,
+        identity=None,
         ip=None,
         locale=None,
         phone=None,
@@ -65,6 +68,7 @@ class RecurringCustomer(object):
         self._email = None
         self._home_phone = None
         self._id = None
+        self._identity = None
         self._ip = None
         self._locale = None
         self._phone = None
@@ -75,6 +79,8 @@ class RecurringCustomer(object):
         if home_phone is not None:
             self.home_phone = home_phone
         self.id = id
+        if identity is not None:
+            self.identity = identity
         if ip is not None:
             self.ip = ip
         if locale is not None:
@@ -182,6 +188,37 @@ class RecurringCustomer(object):
             )  # noqa: E501
 
         self._id = id
+
+    @property
+    def identity(self):
+        """Gets the identity of this RecurringCustomer.  # noqa: E501
+
+        Customer's identity in Merchant's system required for Brazil Installments  # noqa: E501
+
+        :return: The identity of this RecurringCustomer.  # noqa: E501
+        :rtype: str
+        """
+        return self._identity
+
+    @identity.setter
+    def identity(self, identity):
+        """Sets the identity of this RecurringCustomer.
+
+        Customer's identity in Merchant's system required for Brazil Installments  # noqa: E501
+
+        :param identity: The identity of this RecurringCustomer.  # noqa: E501
+        :type: str
+        """
+        if identity is not None and len(identity) > 256:
+            raise ValueError(
+                "Invalid value for `identity`, length must be less than or equal to `256`"
+            )  # noqa: E501
+        if identity is not None and len(identity) < 0:
+            raise ValueError(
+                "Invalid value for `identity`, length must be greater than or equal to `0`"
+            )  # noqa: E501
+
+        self._identity = identity
 
     @property
     def ip(self):

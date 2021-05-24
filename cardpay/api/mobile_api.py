@@ -482,7 +482,7 @@ class MobileApi(object):
         )
 
     def verify(self, authorization, request, **kwargs):  # noqa: E501
-        """Verify Attestation Statement  # noqa: E501
+        """Verify attestation statement  # noqa: E501
 
         :param str authorization: Authorization (required)
         :param MobileVerificationRequest request: request (required)
@@ -498,7 +498,7 @@ class MobileApi(object):
         return data
 
     def verify_with_http_info(self, authorization, request, **kwargs):  # noqa: E501
-        """Verify Attestation Statement  # noqa: E501
+        """Verify attestation statement  # noqa: E501
 
         :param str authorization: Authorization (required)
         :param MobileVerificationRequest request: request (required)
