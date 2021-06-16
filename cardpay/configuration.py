@@ -16,8 +16,8 @@ from __future__ import absolute_import
 import copy
 import logging
 import multiprocessing
+import os
 import sys
-import urllib3
 
 import six
 from six.moves import http_client as httplib
@@ -99,7 +99,7 @@ class Configuration(object):
         self.connection_pool_maxsize = multiprocessing.cpu_count() * 5
 
         # Proxy URL
-        self.proxy = None
+        self.proxy = os.getenv("HTTPS_PROXY", os.getenv("HTTP_PROXY"))
         # Safe chars for path_param
         self.safe_chars_for_path_param = ""
 
@@ -213,7 +213,5 @@ class Configuration(object):
             "OS: {env}\n"
             "Python Version: {pyversion}\n"
             "Version of the API: 3.0\n"
-            "SDK Package Version: 2.34.7".format(
-                env=sys.platform, pyversion=sys.version
-            )
+            "SDK Package Version: 3.0.5".format(env=sys.platform, pyversion=sys.version)
         )

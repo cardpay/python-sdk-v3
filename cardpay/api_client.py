@@ -11,6 +11,7 @@
 
 from __future__ import absolute_import
 
+import copy
 import datetime
 import json
 import mimetypes
@@ -43,6 +44,8 @@ from cardpay import rest
 from cardpay.rest import ApiException
 
 TOKEN_MIN_VALIDITY = 10000
+NO_PROXY = os.getenv("NO_PROXY")
+NO_PROXY_HOSTS = NO_PROXY.replace("*", "").split(",") if NO_PROXY else []
 
 
 class CallbackException(Exception):
@@ -51,6 +54,68 @@ class CallbackException(Exception):
 
 class InvalidSignatureException(Exception):
     pass
+
+
+def is_no_proxy_case(url):
+    dest = url.replace("http://", "").replace("https://", "")
+    hostname = dest.split("/")[0].split(":")[0]
+    return any([hostname.endswith(no_proxy_host) for no_proxy_host in NO_PROXY_HOSTS])
+
+
+class ProxyRestClient(rest.RESTClientObject):
+    def __init__(self, configuration, pool_size=4, maxsize=None):
+        super().__init__(configuration, pool_size, maxsize)
+        self.no_proxy_rest = rest.RESTClientObject(
+            self._no_proxy_config(configuration), pool_size, maxsize
+        )
+
+    @classmethod
+    def create(cls, configuration, pools_size=4, maxsize=None):
+        if not configuration.proxy or not os.getenv("NO_PROXY"):
+            return rest.RESTClientObject(configuration, pools_size, maxsize)
+        else:
+            return cls(configuration, pools_size, maxsize)
+
+    def request(
+        self,
+        method,
+        url,
+        query_params=None,
+        headers=None,
+        body=None,
+        post_params=None,
+        _preload_content=True,
+        _request_timeout=None,
+    ):
+
+        if is_no_proxy_case(url):
+            return self.no_proxy_rest.request(
+                method,
+                url,
+                query_params,
+                headers,
+                body,
+                post_params,
+                _preload_content,
+                _request_timeout,
+            )
+        else:
+            return super().request(
+                method,
+                url,
+                query_params,
+                headers,
+                body,
+                post_params,
+                _preload_content,
+                _request_timeout,
+            )
+
+    @staticmethod
+    def _no_proxy_config(configuration):
+        res = copy.copy(configuration)
+        res.proxy = None
+        return res
 
 
 class ApiClient(object):
@@ -108,13 +173,13 @@ class ApiClient(object):
 
         # Use the pool property to lazily initialize the ThreadPool.
         self._pool = None
-        self.rest_client = rest.RESTClientObject(configuration)
+        self.rest_client = ProxyRestClient.create(configuration)
         self.default_headers = {}
         self.tokens = None
         self.cookie = None
 
         # Set default User-Agent.
-        self.user_agent = "CardpaySdk/2.34.7/Python"
+        self.user_agent = "CardpaySdk/3.0.5/Python"
 
     def __del__(self):
         if self._pool is not None:

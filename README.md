@@ -22,7 +22,7 @@ pip install git+https://github.com/cardpay/python-sdk-v3.git --upgrade
 or
 
 ```sh
-pip install 'cardpay>=2.34.7' --upgrade
+pip install 'cardpay>=3.0.5' --upgrade
 ```
 
 Then import the package:
@@ -42,3 +42,10 @@ Then import the package:
 ```python
 from cardpay import *
 ```
+
+## Proxy usage
+
+The SDK will automatically use a proxy if the `HTTPS_PROXY` or `HTTP_PROXY` environment variable is set.
+
+If the `NO_PROXY` env variable is set, the SDK won't use the proxy for hosts from this variable. The format of
+`NO_PROXY`: comma separated domain names (e.g. "cardpay.com,.example.com").
