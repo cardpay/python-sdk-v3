@@ -85,4 +85,4 @@ def test_create_payment_gateway_mode():
 
     data = recurring.recurring_data
     assert data is not None
-    assert data.Status.COMPLETED == data.status
+    assert data.Status.DECLINED == data.status

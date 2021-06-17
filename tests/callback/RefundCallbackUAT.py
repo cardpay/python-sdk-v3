@@ -26,8 +26,6 @@ def test_process_callback():
     else:
         callback = client.from_json(json, RefundCallback)
 
-        print(callback)
-
         data = callback.refund_data
         status = data.status
         if data.Status.COMPLETED == status:

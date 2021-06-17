@@ -19,9 +19,6 @@ callback_processor = client.create_callback_processor()
 
 class PaymentCallbackHandler(CallbackHandler):
     def process(self, callback):
-
-        print(callback)
-
         data = callback.payment_data
         status = data.status
         if data.Status.COMPLETED == status:

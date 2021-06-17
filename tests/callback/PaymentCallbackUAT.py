@@ -50,8 +50,6 @@ def test_process_callback():
     else:
         callback = client.from_json(json, PaymentCallback)
 
-        print(callback)
-
         data = callback.payment_data
         status = data.status
         if data.Status.COMPLETED == status:

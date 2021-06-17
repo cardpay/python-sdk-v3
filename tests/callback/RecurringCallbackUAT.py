@@ -26,8 +26,6 @@ def test_process_callback():
     else:
         callback = client.from_json(json, RecurringCallback)
 
-        print(callback)
-
         data = callback.recurring_data
         status = data.status
         if data.Status.COMPLETED == status:

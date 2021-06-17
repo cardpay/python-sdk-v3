@@ -42,6 +42,7 @@ class InstallmentData(object):
         "note": "str",
         "payments": "int",
         "period": "str",
+        "preauth": "bool",
         "retries": "int",
         "subscription_start": "datetime",
         "trans_type": "str",
@@ -59,6 +60,7 @@ class InstallmentData(object):
         "note": "note",
         "payments": "payments",
         "period": "period",
+        "preauth": "preauth",
         "retries": "retries",
         "subscription_start": "subscription_start",
         "trans_type": "trans_type",
@@ -77,6 +79,7 @@ class InstallmentData(object):
         note=None,
         payments=None,
         period=None,
+        preauth=None,
         retries=None,
         subscription_start=None,
         trans_type=None,
@@ -94,6 +97,7 @@ class InstallmentData(object):
         self._note = None
         self._payments = None
         self._period = None
+        self._preauth = None
         self._retries = None
         self._subscription_start = None
         self._trans_type = None
@@ -119,6 +123,8 @@ class InstallmentData(object):
             self.payments = payments
         if period is not None:
             self.period = period
+        if preauth is not None:
+            self.preauth = preauth
         if retries is not None:
             self.retries = retries
         if subscription_start is not None:
@@ -430,6 +436,29 @@ class InstallmentData(object):
             )
 
         self._period = period
+
+    @property
+    def preauth(self):
+        """Gets the preauth of this InstallmentData.  # noqa: E501
+
+        If set to `true`, the amount will not be captured but only blocked. Installment with `preauth` attribute will be voided automatically in 5 days from the time of creating the preauth transaction.  # noqa: E501
+
+        :return: The preauth of this InstallmentData.  # noqa: E501
+        :rtype: bool
+        """
+        return self._preauth
+
+    @preauth.setter
+    def preauth(self, preauth):
+        """Sets the preauth of this InstallmentData.
+
+        If set to `true`, the amount will not be captured but only blocked. Installment with `preauth` attribute will be voided automatically in 5 days from the time of creating the preauth transaction.  # noqa: E501
+
+        :param preauth: The preauth of this InstallmentData.  # noqa: E501
+        :type: bool
+        """
+
+        self._preauth = preauth
 
     @property
     def retries(self):

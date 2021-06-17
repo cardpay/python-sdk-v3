@@ -30,21 +30,47 @@ class PaymentMethodsResponse(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"category": "str", "name": "str"}
+    swagger_types = {"brands": "list[str]", "category": "str", "name": "str"}
 
-    attribute_map = {"category": "category", "name": "name"}
+    attribute_map = {"brands": "brands", "category": "category", "name": "name"}
 
-    def __init__(self, category=None, name=None):  # noqa: E501
+    def __init__(self, brands=None, category=None, name=None):  # noqa: E501
         """PaymentMethodsResponse - a model defined in Swagger"""  # noqa: E501
 
+        self._brands = None
         self._category = None
         self._name = None
         self.discriminator = None
 
+        if brands is not None:
+            self.brands = brands
         if category is not None:
             self.category = category
         if name is not None:
             self.name = name
+
+    @property
+    def brands(self):
+        """Gets the brands of this PaymentMethodsResponse.  # noqa: E501
+
+        Available Card Brands, is presented only for \"bankcard\" payment method  # noqa: E501
+
+        :return: The brands of this PaymentMethodsResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._brands
+
+    @brands.setter
+    def brands(self, brands):
+        """Sets the brands of this PaymentMethodsResponse.
+
+        Available Card Brands, is presented only for \"bankcard\" payment method  # noqa: E501
+
+        :param brands: The brands of this PaymentMethodsResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._brands = brands
 
     @property
     def category(self):
