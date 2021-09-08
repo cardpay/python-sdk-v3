@@ -244,7 +244,7 @@ class RecurringFilterParameters(object):
     def max_count(self):
         """Gets the max_count of this RecurringFilterParameters.  # noqa: E501
 
-        Limit number of returned transactions (must be less than 10000, default is 1000)  # noqa: E501
+        Limit number of returned transactions (must be less than 10000, default is 1000, minimal value is 1)  # noqa: E501
 
         :return: The max_count of this RecurringFilterParameters.  # noqa: E501
         :rtype: int
@@ -255,7 +255,7 @@ class RecurringFilterParameters(object):
     def max_count(self, max_count):
         """Sets the max_count of this RecurringFilterParameters.
 
-        Limit number of returned transactions (must be less than 10000, default is 1000)  # noqa: E501
+        Limit number of returned transactions (must be less than 10000, default is 1000, minimal value is 1)  # noqa: E501
 
         :param max_count: The max_count of this RecurringFilterParameters.  # noqa: E501
         :type: int
@@ -263,6 +263,10 @@ class RecurringFilterParameters(object):
         if max_count is not None and max_count > 10000:  # noqa: E501
             raise ValueError(
                 "Invalid value for `max_count`, must be a value less than or equal to `10000`"
+            )  # noqa: E501
+        if max_count is not None and max_count < 1:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `max_count`, must be a value greater than or equal to `1`"
             )  # noqa: E501
 
         self._max_count = max_count

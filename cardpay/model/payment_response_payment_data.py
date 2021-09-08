@@ -412,7 +412,6 @@ class PaymentResponsePaymentData(object):
         COMPLETED = "COMPLETED"
         CANCELLED = "CANCELLED"
         REFUNDED = "REFUNDED"
-        PARTIALLY_REFUNDED = "PARTIALLY_REFUNDED"
         VOIDED = "VOIDED"
         TERMINATED = "TERMINATED"
         CHARGED_BACK = "CHARGED_BACK"
@@ -446,7 +445,6 @@ class PaymentResponsePaymentData(object):
             "COMPLETED",
             "CANCELLED",
             "REFUNDED",
-            "PARTIALLY_REFUNDED",
             "VOIDED",
             "TERMINATED",
             "CHARGED_BACK",

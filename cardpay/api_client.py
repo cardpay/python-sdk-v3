@@ -63,10 +63,10 @@ def is_no_proxy_case(url):
 
 
 class ProxyRestClient(rest.RESTClientObject):
-    def __init__(self, configuration, pool_size=4, maxsize=None):
-        super().__init__(configuration, pool_size, maxsize)
+    def __init__(self, configuration, pools_size=4, maxsize=None):
+        super().__init__(configuration, pools_size, maxsize)
         self.no_proxy_rest = rest.RESTClientObject(
-            self._no_proxy_config(configuration), pool_size, maxsize
+            self._no_proxy_config(configuration), pools_size, maxsize
         )
 
     @classmethod
@@ -87,7 +87,6 @@ class ProxyRestClient(rest.RESTClientObject):
         _preload_content=True,
         _request_timeout=None,
     ):
-
         if is_no_proxy_case(url):
             return self.no_proxy_rest.request(
                 method,
@@ -179,7 +178,7 @@ class ApiClient(object):
         self.cookie = None
 
         # Set default User-Agent.
-        self.user_agent = "CardpaySdk/3.1.6/Python"
+        self.user_agent = "CardpaySdk/3.6.21/Python"
 
     def __del__(self):
         if self._pool is not None:

@@ -44,6 +44,14 @@ from cardpay.model.change_subscription_status_claim_response import (
 from cardpay.model.changed_plan_data import ChangedPlanData
 from cardpay.model.claim_response_subscription_data import ClaimResponseSubscriptionData
 from cardpay.model.confirm3ds_request import Confirm3dsRequest
+from cardpay.model.dispute_list import DisputeList
+from cardpay.model.dispute_response import DisputeResponse
+from cardpay.model.dispute_response_card import DisputeResponseCard
+from cardpay.model.dispute_response_card_account import DisputeResponseCardAccount
+from cardpay.model.dispute_response_customer import DisputeResponseCustomer
+from cardpay.model.dispute_response_dispute_data import DisputeResponseDisputeData
+from cardpay.model.dispute_response_merchant_order import DisputeResponseMerchantOrder
+from cardpay.model.dispute_response_payment_data import DisputeResponsePaymentData
 from cardpay.model.filing_recurring_data import FilingRecurringData
 from cardpay.model.filing_request import FilingRequest
 from cardpay.model.filing_request_merchant_order import FilingRequestMerchantOrder
@@ -87,7 +95,6 @@ from cardpay.model.payment_gateway_creation_response import (
 from cardpay.model.payment_gateway_response_payment_data import (
     PaymentGatewayResponsePaymentData,
 )
-from cardpay.model.payment_methods_list import PaymentMethodsList
 from cardpay.model.payment_methods_response import PaymentMethodsResponse
 from cardpay.model.payment_patch_request import PaymentPatchRequest
 from cardpay.model.payment_request import PaymentRequest
@@ -213,6 +220,7 @@ from cardpay.model.subscription_update_request_subscription_data import (
 from cardpay.model.subscription_update_response import SubscriptionUpdateResponse
 from cardpay.model.three_d_secure_data import ThreeDSecureData
 from cardpay.model.three_d_secure_response import ThreeDSecureResponse
+from cardpay.model.transaction_methods_list import TransactionMethodsList
 from cardpay.model.transaction_request import TransactionRequest
 from cardpay.model.transaction_response_e_wallet_account import (
     TransactionResponseEWalletAccount,

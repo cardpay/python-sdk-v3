@@ -201,7 +201,7 @@ class PayoutsApi(object):
         :param str request_id: Request ID (required)
         :param str currency: [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code of transactions currency
         :param datetime end_time: Date and time up to milliseconds (in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format) when requested period ends (not inclusive), UTC time, must be less than 7 days after 'start_time', default is current time (format: yyyy-MM-dd'T'HH:mm:ss'Z')
-        :param int max_count: Limit number of returned transactions (must be less than 10000, default is 1000)
+        :param int max_count: Limit number of returned transactions (must be less than 10000, default is 1000, minimal value is 1)
         :param str merchant_order_id: Merchant order number from the merchant system
         :param str payment_method: Used payment method type name from payment methods list
         :param str sort_order: Sort based on order of results. `asc` for ascending order or `desc` for descending order (default value)
@@ -221,7 +221,7 @@ class PayoutsApi(object):
         :param str request_id: Request ID (required)
         :param str currency: [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code of transactions currency
         :param datetime end_time: Date and time up to milliseconds (in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format) when requested period ends (not inclusive), UTC time, must be less than 7 days after 'start_time', default is current time (format: yyyy-MM-dd'T'HH:mm:ss'Z')
-        :param int max_count: Limit number of returned transactions (must be less than 10000, default is 1000)
+        :param int max_count: Limit number of returned transactions (must be less than 10000, default is 1000, minimal value is 1)
         :param str merchant_order_id: Merchant order number from the merchant system
         :param str payment_method: Used payment method type name from payment methods list
         :param str sort_order: Sort based on order of results. `asc` for ascending order or `desc` for descending order (default value)
@@ -271,6 +271,10 @@ class PayoutsApi(object):
         if "max_count" in params and params["max_count"] > 10000:  # noqa: E501
             raise ValueError(
                 "Invalid value for parameter `max_count` when calling `get_payouts`, must be a value less than or equal to `10000`"
+            )  # noqa: E501
+        if "max_count" in params and params["max_count"] < 1:  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `max_count` when calling `get_payouts`, must be a value greater than or equal to `1`"
             )  # noqa: E501
         if "merchant_order_id" in params and len(params["merchant_order_id"]) > 50:
             raise ValueError(

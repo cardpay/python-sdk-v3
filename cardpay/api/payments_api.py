@@ -201,6 +201,229 @@ class PaymentsApi(object):
             collection_formats=collection_formats,
         )
 
+    def get_dispute(self, payment_id, **kwargs):  # noqa: E501
+        """Get a list of disputes by payment id  # noqa: E501
+
+        :param str payment_id: Payment ID (or refund ID, or recurring ID) (required)
+        :return: DisputeList
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+
+        (data) = self.get_dispute_with_http_info(payment_id, **kwargs)  # noqa: E501
+        return data
+
+    def get_dispute_with_http_info(self, payment_id, **kwargs):  # noqa: E501
+        """Get a list of disputes by payment id  # noqa: E501
+
+        :param str payment_id: Payment ID (or refund ID, or recurring ID) (required)
+        :return: DisputeList
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ["payment_id"]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
+
+        params = locals()
+        for key, val in six.iteritems(params["kwargs"]):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_dispute" % key
+                )
+            params[key] = val
+        del params["kwargs"]
+        # verify the required parameter 'payment_id' is set
+        if "payment_id" not in params or params["payment_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `payment_id` when calling `get_dispute`"
+            )  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if "payment_id" in params:
+            path_params["paymentId"] = params["payment_id"]  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
+
+        return self.api_client.call_api(
+            "/api/disputes/{paymentId}",
+            "GET",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type="DisputeList",  # noqa: E501
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
+    def get_disputes(self, request_id, type, **kwargs):  # noqa: E501
+        """Get a list of disputes  # noqa: E501
+
+        :param str request_id: Request ID (required)
+        :param str type: Defines dispute entity type: `CB` - for chargebacks `RR` - for retrieval requests `FR` - for fraud reports (required)
+        :param int max_count: Limit number of returned dispute entities Must be less or equal to 1000, default is 100, minimal value is 1
+        :param int offset: Starting position (offset) in the list of dispute entities. Must be less or equal to 10000, default is 0, minimal value is 0
+        :param datetime reg_end_time: Dispute registration date & time up to milliseconds (in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format) when requested period ends (inclusive); the default is current time UTC (format - yyyy-MM-dd'T'HH:mm:ss.SSS'Z') Must be less than 10 days after reg_start_time
+        :param datetime reg_start_time: Dispute registration date & time up to milliseconds (in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format) when requested period starts (inclusive); the default is 24 hours before reg_end_time UTC (format - yyyy-MM-dd'T'HH:mm:ss.SSS'Z') (in UTC format)
+        :param str sort_order: Sort based on order of results. `asc` for ascending order or `desc` for descending order (default value) by dispute registration date
+        :return: DisputeList
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+
+        (data) = self.get_disputes_with_http_info(
+            request_id, type, **kwargs
+        )  # noqa: E501
+        return data
+
+    def get_disputes_with_http_info(self, request_id, type, **kwargs):  # noqa: E501
+        """Get a list of disputes  # noqa: E501
+
+        :param str request_id: Request ID (required)
+        :param str type: Defines dispute entity type: `CB` - for chargebacks `RR` - for retrieval requests `FR` - for fraud reports (required)
+        :param int max_count: Limit number of returned dispute entities Must be less or equal to 1000, default is 100, minimal value is 1
+        :param int offset: Starting position (offset) in the list of dispute entities. Must be less or equal to 10000, default is 0, minimal value is 0
+        :param datetime reg_end_time: Dispute registration date & time up to milliseconds (in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format) when requested period ends (inclusive); the default is current time UTC (format - yyyy-MM-dd'T'HH:mm:ss.SSS'Z') Must be less than 10 days after reg_start_time
+        :param datetime reg_start_time: Dispute registration date & time up to milliseconds (in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format) when requested period starts (inclusive); the default is 24 hours before reg_end_time UTC (format - yyyy-MM-dd'T'HH:mm:ss.SSS'Z') (in UTC format)
+        :param str sort_order: Sort based on order of results. `asc` for ascending order or `desc` for descending order (default value) by dispute registration date
+        :return: DisputeList
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = [
+            "request_id",
+            "type",
+            "max_count",
+            "offset",
+            "reg_end_time",
+            "reg_start_time",
+            "sort_order",
+        ]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
+
+        params = locals()
+        for key, val in six.iteritems(params["kwargs"]):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_disputes" % key
+                )
+            params[key] = val
+        del params["kwargs"]
+        # verify the required parameter 'request_id' is set
+        if "request_id" not in params or params["request_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `request_id` when calling `get_disputes`"
+            )  # noqa: E501
+        # verify the required parameter 'type' is set
+        if "type" not in params or params["type"] is None:
+            raise ValueError(
+                "Missing the required parameter `type` when calling `get_disputes`"
+            )  # noqa: E501
+
+        if "request_id" in params and len(params["request_id"]) > 50:
+            raise ValueError(
+                "Invalid value for parameter `request_id` when calling `get_disputes`, length must be less than or equal to `50`"
+            )  # noqa: E501
+        if "request_id" in params and len(params["request_id"]) < 1:
+            raise ValueError(
+                "Invalid value for parameter `request_id` when calling `get_disputes`, length must be greater than or equal to `1`"
+            )  # noqa: E501
+        if "type" in params and not re.search(
+            r"CB|RR|FR", params["type"]
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `type` when calling `get_disputes`, must conform to the pattern `/CB|RR|FR/`"
+            )  # noqa: E501
+        if "max_count" in params and params["max_count"] > 1000:  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `max_count` when calling `get_disputes`, must be a value less than or equal to `1000`"
+            )  # noqa: E501
+        if "offset" in params and params["offset"] > 10000:  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `offset` when calling `get_disputes`, must be a value less than or equal to `10000`"
+            )  # noqa: E501
+        if "sort_order" in params and not re.search(
+            r"asc|desc", params["sort_order"]
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `sort_order` when calling `get_disputes`, must conform to the pattern `/asc|desc/`"
+            )  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if "max_count" in params:
+            query_params.append(("max_count", params["max_count"]))  # noqa: E501
+        if "offset" in params:
+            query_params.append(("offset", params["offset"]))  # noqa: E501
+        if "reg_end_time" in params:
+            query_params.append(("reg_end_time", params["reg_end_time"]))  # noqa: E501
+        if "reg_start_time" in params:
+            query_params.append(
+                ("reg_start_time", params["reg_start_time"])
+            )  # noqa: E501
+        if "request_id" in params:
+            query_params.append(("request_id", params["request_id"]))  # noqa: E501
+        if "sort_order" in params:
+            query_params.append(("sort_order", params["sort_order"]))  # noqa: E501
+        if "type" in params:
+            query_params.append(("type", params["type"]))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
+
+        return self.api_client.call_api(
+            "/api/disputes",
+            "GET",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type="DisputeList",  # noqa: E501
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
     def get_payment(self, payment_id, **kwargs):  # noqa: E501
         """Get payment information  # noqa: E501
 
@@ -278,29 +501,35 @@ class PaymentsApi(object):
             collection_formats=collection_formats,
         )
 
-    def get_payment_methods(self, **kwargs):  # noqa: E501
-        """Get payment methods  # noqa: E501
+    def get_payment_methods(self, request_id, **kwargs):  # noqa: E501
+        """Get payment and payout methods  # noqa: E501
 
-        Endpoint for get payment methods by current terminal code  # noqa: E501
-        :return: PaymentMethodsList
+        Endpoint to get payment and payout methods by current terminal code  # noqa: E501
+        :param str request_id: Request ID, not unique ID of request (required)
+        :param bool payout_methods_only: If `true` was received - **only** available payout methods section will be returned in response (without 'payment_methods' section).  If `false` or absent - available payment and payout methods (both the sections) will be returned in response.
+        :return: TransactionMethodsList
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs["_return_http_data_only"] = True
 
-        (data) = self.get_payment_methods_with_http_info(**kwargs)  # noqa: E501
+        (data) = self.get_payment_methods_with_http_info(
+            request_id, **kwargs
+        )  # noqa: E501
         return data
 
-    def get_payment_methods_with_http_info(self, **kwargs):  # noqa: E501
-        """Get payment methods  # noqa: E501
+    def get_payment_methods_with_http_info(self, request_id, **kwargs):  # noqa: E501
+        """Get payment and payout methods  # noqa: E501
 
-        Endpoint for get payment methods by current terminal code  # noqa: E501
-        :return: PaymentMethodsList
+        Endpoint to get payment and payout methods by current terminal code  # noqa: E501
+        :param str request_id: Request ID, not unique ID of request (required)
+        :param bool payout_methods_only: If `true` was received - **only** available payout methods section will be returned in response (without 'payment_methods' section).  If `false` or absent - available payment and payout methods (both the sections) will be returned in response.
+        :return: TransactionMethodsList
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = []  # noqa: E501
+        all_params = ["request_id", "payout_methods_only"]  # noqa: E501
         all_params.append("_return_http_data_only")
         all_params.append("_preload_content")
         all_params.append("_request_timeout")
@@ -314,12 +543,31 @@ class PaymentsApi(object):
                 )
             params[key] = val
         del params["kwargs"]
+        # verify the required parameter 'request_id' is set
+        if "request_id" not in params or params["request_id"] is None:
+            raise ValueError(
+                "Missing the required parameter `request_id` when calling `get_payment_methods`"
+            )  # noqa: E501
 
+        if "request_id" in params and len(params["request_id"]) > 50:
+            raise ValueError(
+                "Invalid value for parameter `request_id` when calling `get_payment_methods`, length must be less than or equal to `50`"
+            )  # noqa: E501
+        if "request_id" in params and len(params["request_id"]) < 1:
+            raise ValueError(
+                "Invalid value for parameter `request_id` when calling `get_payment_methods`, length must be greater than or equal to `1`"
+            )  # noqa: E501
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
+        if "payout_methods_only" in params:
+            query_params.append(
+                ("payout_methods_only", params["payout_methods_only"])
+            )  # noqa: E501
+        if "request_id" in params:
+            query_params.append(("request_id", params["request_id"]))  # noqa: E501
 
         header_params = {}
 
@@ -341,7 +589,7 @@ class PaymentsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type="PaymentMethodsList",  # noqa: E501
+            response_type="TransactionMethodsList",  # noqa: E501
             _return_http_data_only=params.get("_return_http_data_only"),
             _preload_content=params.get("_preload_content", True),
             _request_timeout=params.get("_request_timeout"),
@@ -354,7 +602,7 @@ class PaymentsApi(object):
         :param str request_id: Request ID (required)
         :param str currency: [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code of transactions currency
         :param datetime end_time: Date and time up to milliseconds (in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format) when requested period ends (not inclusive), UTC time, must be less than 7 days after 'start_time', default is current time (format: yyyy-MM-dd'T'HH:mm:ss'Z')
-        :param int max_count: Limit number of returned transactions (must be less than 10000, default is 1000)
+        :param int max_count: Limit number of returned transactions (must be less than 10000, default is 1000, minimal value is 1)
         :param str merchant_order_id: Merchant order number from the merchant system
         :param str payment_method: Used payment method type name from payment methods list
         :param str sort_order: Sort based on order of results. `asc` for ascending order or `desc` for descending order (default value)
@@ -374,7 +622,7 @@ class PaymentsApi(object):
         :param str request_id: Request ID (required)
         :param str currency: [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code of transactions currency
         :param datetime end_time: Date and time up to milliseconds (in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format) when requested period ends (not inclusive), UTC time, must be less than 7 days after 'start_time', default is current time (format: yyyy-MM-dd'T'HH:mm:ss'Z')
-        :param int max_count: Limit number of returned transactions (must be less than 10000, default is 1000)
+        :param int max_count: Limit number of returned transactions (must be less than 10000, default is 1000, minimal value is 1)
         :param str merchant_order_id: Merchant order number from the merchant system
         :param str payment_method: Used payment method type name from payment methods list
         :param str sort_order: Sort based on order of results. `asc` for ascending order or `desc` for descending order (default value)
@@ -424,6 +672,10 @@ class PaymentsApi(object):
         if "max_count" in params and params["max_count"] > 10000:  # noqa: E501
             raise ValueError(
                 "Invalid value for parameter `max_count` when calling `get_payments`, must be a value less than or equal to `10000`"
+            )  # noqa: E501
+        if "max_count" in params and params["max_count"] < 1:  # noqa: E501
+            raise ValueError(
+                "Invalid value for parameter `max_count` when calling `get_payments`, must be a value greater than or equal to `1`"
             )  # noqa: E501
         if "merchant_order_id" in params and len(params["merchant_order_id"]) > 50:
             raise ValueError(
