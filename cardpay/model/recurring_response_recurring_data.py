@@ -36,6 +36,7 @@ class RecurringResponseRecurringData(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        "action_code": "str",
         "amount": "float",
         "arn": "str",
         "auth_code": "str",
@@ -61,6 +62,7 @@ class RecurringResponseRecurringData(object):
     }
 
     attribute_map = {
+        "action_code": "action_code",
         "amount": "amount",
         "arn": "arn",
         "auth_code": "auth_code",
@@ -87,6 +89,7 @@ class RecurringResponseRecurringData(object):
 
     def __init__(
         self,
+        action_code=None,
         amount=None,
         arn=None,
         auth_code=None,
@@ -112,6 +115,7 @@ class RecurringResponseRecurringData(object):
     ):  # noqa: E501
         """RecurringResponseRecurringData - a model defined in Swagger"""  # noqa: E501
 
+        self._action_code = None
         self._amount = None
         self._arn = None
         self._auth_code = None
@@ -136,6 +140,8 @@ class RecurringResponseRecurringData(object):
         self._trans_type = None
         self.discriminator = None
 
+        if action_code is not None:
+            self.action_code = action_code
         if amount is not None:
             self.amount = amount
         if arn is not None:
@@ -180,6 +186,29 @@ class RecurringResponseRecurringData(object):
             self.type = type
         if trans_type is not None:
             self.trans_type = trans_type
+
+    @property
+    def action_code(self):
+        """Gets the action_code of this RecurringResponseRecurringData.  # noqa: E501
+
+        Action code (only in decline case)  # noqa: E501
+
+        :return: The action_code of this RecurringResponseRecurringData.  # noqa: E501
+        :rtype: str
+        """
+        return self._action_code
+
+    @action_code.setter
+    def action_code(self, action_code):
+        """Sets the action_code of this RecurringResponseRecurringData.
+
+        Action code (only in decline case)  # noqa: E501
+
+        :param action_code: The action_code of this RecurringResponseRecurringData.  # noqa: E501
+        :type: str
+        """
+
+        self._action_code = action_code
 
     @property
     def amount(self):

@@ -35,6 +35,7 @@ class PaymentRequestCard(object):
         "expiration": "str",
         "holder": "str",
         "pan": "str",
+        "pin_code": "str",
         "security_code": "str",
     }
 
@@ -43,11 +44,18 @@ class PaymentRequestCard(object):
         "expiration": "expiration",
         "holder": "holder",
         "pan": "pan",
+        "pin_code": "pin_code",
         "security_code": "security_code",
     }
 
     def __init__(
-        self, acct_type=None, expiration=None, holder=None, pan=None, security_code=None
+        self,
+        acct_type=None,
+        expiration=None,
+        holder=None,
+        pan=None,
+        pin_code=None,
+        security_code=None,
     ):  # noqa: E501
         """PaymentRequestCard - a model defined in Swagger"""  # noqa: E501
 
@@ -55,6 +63,7 @@ class PaymentRequestCard(object):
         self._expiration = None
         self._holder = None
         self._pan = None
+        self._pin_code = None
         self._security_code = None
         self.discriminator = None
 
@@ -66,6 +75,8 @@ class PaymentRequestCard(object):
             self.holder = holder
         if pan is not None:
             self.pan = pan
+        if pin_code is not None:
+            self.pin_code = pin_code
         if security_code is not None:
             self.security_code = security_code
 
@@ -192,6 +203,33 @@ class PaymentRequestCard(object):
             )  # noqa: E501
 
         self._pan = pan
+
+    @property
+    def pin_code(self):
+        """Gets the pin_code of this PaymentRequestCard.  # noqa: E501
+
+
+        :return: The pin_code of this PaymentRequestCard.  # noqa: E501
+        :rtype: str
+        """
+        return self._pin_code
+
+    @pin_code.setter
+    def pin_code(self, pin_code):
+        """Sets the pin_code of this PaymentRequestCard.
+
+
+        :param pin_code: The pin_code of this PaymentRequestCard.  # noqa: E501
+        :type: str
+        """
+        if pin_code is not None and not re.search(
+            r"^[0-9]{4}$", pin_code
+        ):  # noqa: E501
+            raise ValueError(
+                r"Invalid value for `pin_code`, must be a follow pattern or equal to `/^[0-9]{4}$/`"
+            )  # noqa: E501
+
+        self._pin_code = pin_code
 
     @property
     def security_code(self):

@@ -31,6 +31,7 @@ class BankCardPayoutData(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        "action_code": "str",
         "amount": "float",
         "arn": "str",
         "created": "str",
@@ -44,6 +45,7 @@ class BankCardPayoutData(object):
     }
 
     attribute_map = {
+        "action_code": "action_code",
         "amount": "amount",
         "arn": "arn",
         "created": "created",
@@ -58,6 +60,7 @@ class BankCardPayoutData(object):
 
     def __init__(
         self,
+        action_code=None,
         amount=None,
         arn=None,
         created=None,
@@ -71,6 +74,7 @@ class BankCardPayoutData(object):
     ):  # noqa: E501
         """BankCardPayoutData - a model defined in Swagger"""  # noqa: E501
 
+        self._action_code = None
         self._amount = None
         self._arn = None
         self._created = None
@@ -83,6 +87,8 @@ class BankCardPayoutData(object):
         self._status = None
         self.discriminator = None
 
+        if action_code is not None:
+            self.action_code = action_code
         if amount is not None:
             self.amount = amount
         if arn is not None:
@@ -103,6 +109,29 @@ class BankCardPayoutData(object):
             self.rrn = rrn
         if status is not None:
             self.status = status
+
+    @property
+    def action_code(self):
+        """Gets the action_code of this BankCardPayoutData.  # noqa: E501
+
+        Action code (only in decline case)  # noqa: E501
+
+        :return: The action_code of this BankCardPayoutData.  # noqa: E501
+        :rtype: str
+        """
+        return self._action_code
+
+    @action_code.setter
+    def action_code(self, action_code):
+        """Sets the action_code of this BankCardPayoutData.
+
+        Action code (only in decline case)  # noqa: E501
+
+        :param action_code: The action_code of this BankCardPayoutData.  # noqa: E501
+        :type: str
+        """
+
+        self._action_code = action_code
 
     @property
     def amount(self):

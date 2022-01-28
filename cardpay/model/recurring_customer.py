@@ -31,6 +31,7 @@ class RecurringCustomer(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        "contract_number": "str",
         "email": "str",
         "home_phone": "str",
         "id": "str",
@@ -42,6 +43,7 @@ class RecurringCustomer(object):
     }
 
     attribute_map = {
+        "contract_number": "contract_number",
         "email": "email",
         "home_phone": "home_phone",
         "id": "id",
@@ -54,6 +56,7 @@ class RecurringCustomer(object):
 
     def __init__(
         self,
+        contract_number=None,
         email=None,
         home_phone=None,
         id=None,
@@ -65,6 +68,7 @@ class RecurringCustomer(object):
     ):  # noqa: E501
         """RecurringCustomer - a model defined in Swagger"""  # noqa: E501
 
+        self._contract_number = None
         self._email = None
         self._home_phone = None
         self._id = None
@@ -75,6 +79,8 @@ class RecurringCustomer(object):
         self._work_phone = None
         self.discriminator = None
 
+        if contract_number is not None:
+            self.contract_number = contract_number
         self.email = email
         if home_phone is not None:
             self.home_phone = home_phone
@@ -89,6 +95,29 @@ class RecurringCustomer(object):
             self.phone = phone
         if work_phone is not None:
             self.work_phone = work_phone
+
+    @property
+    def contract_number(self):
+        """Gets the contract_number of this RecurringCustomer.  # noqa: E501
+
+        Contract number between customer and merchant. Required for Mexican merchants for scheduled payments.  # noqa: E501
+
+        :return: The contract_number of this RecurringCustomer.  # noqa: E501
+        :rtype: str
+        """
+        return self._contract_number
+
+    @contract_number.setter
+    def contract_number(self, contract_number):
+        """Sets the contract_number of this RecurringCustomer.
+
+        Contract number between customer and merchant. Required for Mexican merchants for scheduled payments.  # noqa: E501
+
+        :param contract_number: The contract_number of this RecurringCustomer.  # noqa: E501
+        :type: str
+        """
+
+        self._contract_number = contract_number
 
     @property
     def email(self):

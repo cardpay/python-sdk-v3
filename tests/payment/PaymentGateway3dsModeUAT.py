@@ -14,7 +14,6 @@ logger = create_logger(__name__)
 client = ApiClient(baseUrl=CARDPAY_API_URL, terminal_code=GATEWAY_TERMINAL_CODE, password=GATEWAY_PASSWORD, debug=DEBUG_MODE)
 payments = PaymentsApi(client)
 
-
 def test_create_payment_gateway_mode_with_3ds():
     # merchant order data
     merchantOrderId = randomString(20)
@@ -85,4 +84,4 @@ def test_create_payment_gateway_mode_with_3ds():
     logger.info(payment)
 
     data = payment.payment_data
-    assert data.Status.IN_PROGRESS == data.status
+    assert data.Status.COMPLETED == data.status

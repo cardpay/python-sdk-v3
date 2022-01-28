@@ -31,6 +31,7 @@ class RefundResponseRefundData(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        "action_code": "str",
         "amount": "float",
         "arn": "str",
         "auth_code": "str",
@@ -45,6 +46,7 @@ class RefundResponseRefundData(object):
     }
 
     attribute_map = {
+        "action_code": "action_code",
         "amount": "amount",
         "arn": "arn",
         "auth_code": "auth_code",
@@ -60,6 +62,7 @@ class RefundResponseRefundData(object):
 
     def __init__(
         self,
+        action_code=None,
         amount=None,
         arn=None,
         auth_code=None,
@@ -74,6 +77,7 @@ class RefundResponseRefundData(object):
     ):  # noqa: E501
         """RefundResponseRefundData - a model defined in Swagger"""  # noqa: E501
 
+        self._action_code = None
         self._amount = None
         self._arn = None
         self._auth_code = None
@@ -87,6 +91,8 @@ class RefundResponseRefundData(object):
         self._status = None
         self.discriminator = None
 
+        if action_code is not None:
+            self.action_code = action_code
         if amount is not None:
             self.amount = amount
         if arn is not None:
@@ -109,6 +115,29 @@ class RefundResponseRefundData(object):
             self.rrn = rrn
         if status is not None:
             self.status = status
+
+    @property
+    def action_code(self):
+        """Gets the action_code of this RefundResponseRefundData.  # noqa: E501
+
+        Refund action code (only for `DECLINED` refund status)  # noqa: E501
+
+        :return: The action_code of this RefundResponseRefundData.  # noqa: E501
+        :rtype: str
+        """
+        return self._action_code
+
+    @action_code.setter
+    def action_code(self, action_code):
+        """Sets the action_code of this RefundResponseRefundData.
+
+        Refund action code (only for `DECLINED` refund status)  # noqa: E501
+
+        :param action_code: The action_code of this RefundResponseRefundData.  # noqa: E501
+        :type: str
+        """
+
+        self._action_code = action_code
 
     @property
     def amount(self):

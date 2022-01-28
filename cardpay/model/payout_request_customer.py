@@ -44,6 +44,7 @@ class PayoutRequestCustomer(object):
         "last_name": "str",
         "living_address": "PayoutRequestLivingAddress",
         "phone": "str",
+        "tax_reason_code": "str",
     }
 
     attribute_map = {
@@ -56,6 +57,7 @@ class PayoutRequestCustomer(object):
         "last_name": "last_name",
         "living_address": "living_address",
         "phone": "phone",
+        "tax_reason_code": "tax_reason_code",
     }
 
     def __init__(
@@ -69,6 +71,7 @@ class PayoutRequestCustomer(object):
         last_name=None,
         living_address=None,
         phone=None,
+        tax_reason_code=None,
     ):  # noqa: E501
         """PayoutRequestCustomer - a model defined in Swagger"""  # noqa: E501
 
@@ -81,6 +84,7 @@ class PayoutRequestCustomer(object):
         self._last_name = None
         self._living_address = None
         self._phone = None
+        self._tax_reason_code = None
         self.discriminator = None
 
         if document_type is not None:
@@ -101,6 +105,8 @@ class PayoutRequestCustomer(object):
             self.living_address = living_address
         if phone is not None:
             self.phone = phone
+        if tax_reason_code is not None:
+            self.tax_reason_code = tax_reason_code
 
     @property
     def document_type(self):
@@ -364,6 +370,35 @@ class PayoutRequestCustomer(object):
             )  # noqa: E501
 
         self._phone = phone
+
+    @property
+    def tax_reason_code(self):
+        """Gets the tax_reason_code of this PayoutRequestCustomer.  # noqa: E501
+
+        Customer's tax reason codeFor 'BANK131 back account mode' is required for methods where country = RU  # noqa: E501
+
+        :return: The tax_reason_code of this PayoutRequestCustomer.  # noqa: E501
+        :rtype: str
+        """
+        return self._tax_reason_code
+
+    @tax_reason_code.setter
+    def tax_reason_code(self, tax_reason_code):
+        """Sets the tax_reason_code of this PayoutRequestCustomer.
+
+        Customer's tax reason codeFor 'BANK131 back account mode' is required for methods where country = RU  # noqa: E501
+
+        :param tax_reason_code: The tax_reason_code of this PayoutRequestCustomer.  # noqa: E501
+        :type: str
+        """
+        if tax_reason_code is not None and not re.search(
+            r"^[0-9]{9}$", tax_reason_code
+        ):  # noqa: E501
+            raise ValueError(
+                r"Invalid value for `tax_reason_code`, must be a follow pattern or equal to `/^[0-9]{9}$/`"
+            )  # noqa: E501
+
+        self._tax_reason_code = tax_reason_code
 
     def to_dict(self):
         """Returns the model properties as a dict"""
