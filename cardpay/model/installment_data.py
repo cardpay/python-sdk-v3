@@ -38,13 +38,9 @@ class InstallmentData(object):
         "initiator": "str",
         "installment_amount": "float",
         "installment_type": "str",
-        "interval": "int",
         "note": "str",
         "payments": "int",
-        "period": "str",
         "preauth": "bool",
-        "retries": "int",
-        "subscription_start": "datetime",
         "trans_type": "str",
     }
 
@@ -56,13 +52,9 @@ class InstallmentData(object):
         "initiator": "initiator",
         "installment_amount": "installment_amount",
         "installment_type": "installment_type",
-        "interval": "interval",
         "note": "note",
         "payments": "payments",
-        "period": "period",
         "preauth": "preauth",
-        "retries": "retries",
-        "subscription_start": "subscription_start",
         "trans_type": "trans_type",
     }
 
@@ -75,13 +67,9 @@ class InstallmentData(object):
         initiator=None,
         installment_amount=None,
         installment_type=None,
-        interval=None,
         note=None,
         payments=None,
-        period=None,
         preauth=None,
-        retries=None,
-        subscription_start=None,
         trans_type=None,
     ):  # noqa: E501
         """InstallmentData - a model defined in Swagger"""  # noqa: E501
@@ -93,13 +81,9 @@ class InstallmentData(object):
         self._initiator = None
         self._installment_amount = None
         self._installment_type = None
-        self._interval = None
         self._note = None
         self._payments = None
-        self._period = None
         self._preauth = None
-        self._retries = None
-        self._subscription_start = None
         self._trans_type = None
         self.discriminator = None
 
@@ -115,20 +99,12 @@ class InstallmentData(object):
             self.installment_amount = installment_amount
         if installment_type is not None:
             self.installment_type = installment_type
-        if interval is not None:
-            self.interval = interval
         if note is not None:
             self.note = note
         if payments is not None:
             self.payments = payments
-        if period is not None:
-            self.period = period
         if preauth is not None:
             self.preauth = preauth
-        if retries is not None:
-            self.retries = retries
-        if subscription_start is not None:
-            self.subscription_start = subscription_start
         if trans_type is not None:
             self.trans_type = trans_type
 
@@ -294,7 +270,7 @@ class InstallmentData(object):
     def installment_type(self):
         """Gets the installment_type of this InstallmentData.  # noqa: E501
 
-        Installment type, 4 possible values: `IF` - issuer financed `MF_HOLD' - merchant financed hold `MF_HOLD_SPLIT' - merchant financed split `MF_WITHOUT_HOLD' - merchant financed without hold   # noqa: E501
+        Installment type, 2 possible values: `IF` - issuer financed `MF_HOLD' - merchant financed hold  # noqa: E501
 
         :return: The installment_type of this InstallmentData.  # noqa: E501
         :rtype: str
@@ -305,46 +281,19 @@ class InstallmentData(object):
     def installment_type(self, installment_type):
         """Sets the installment_type of this InstallmentData.
 
-        Installment type, 4 possible values: `IF` - issuer financed `MF_HOLD' - merchant financed hold `MF_HOLD_SPLIT' - merchant financed split `MF_WITHOUT_HOLD' - merchant financed without hold   # noqa: E501
+        Installment type, 2 possible values: `IF` - issuer financed `MF_HOLD' - merchant financed hold  # noqa: E501
 
         :param installment_type: The installment_type of this InstallmentData.  # noqa: E501
         :type: str
         """
         if installment_type is not None and not re.search(
-            r"IF|MF_HOLD|MF_HOLD_SPLIT|MF_WITHOUT_HOLD", installment_type
+            r"IF|MF_HOLD", installment_type
         ):  # noqa: E501
             raise ValueError(
-                r"Invalid value for `installment_type`, must be a follow pattern or equal to `/IF|MF_HOLD|MF_HOLD_SPLIT|MF_WITHOUT_HOLD/`"
+                r"Invalid value for `installment_type`, must be a follow pattern or equal to `/IF|MF_HOLD/`"
             )  # noqa: E501
 
         self._installment_type = installment_type
-
-    @property
-    def interval(self):
-        """Gets the interval of this InstallmentData.  # noqa: E501
-
-        Frequency interval of period, can be 1-365 depending on selected period value. Minimum value of period + interval can be 7 days / 1 week. Maximum value of period + interval plan can be 365 days / 52 weeks / 12 months / 1 year. 1-60 minutes - for **sandbox environment** and testing purpose only.  # noqa: E501
-
-        :return: The interval of this InstallmentData.  # noqa: E501
-        :rtype: int
-        """
-        return self._interval
-
-    @interval.setter
-    def interval(self, interval):
-        """Sets the interval of this InstallmentData.
-
-        Frequency interval of period, can be 1-365 depending on selected period value. Minimum value of period + interval can be 7 days / 1 week. Maximum value of period + interval plan can be 365 days / 52 weeks / 12 months / 1 year. 1-60 minutes - for **sandbox environment** and testing purpose only.  # noqa: E501
-
-        :param interval: The interval of this InstallmentData.  # noqa: E501
-        :type: int
-        """
-        if interval is not None and interval < 1:  # noqa: E501
-            raise ValueError(
-                "Invalid value for `interval`, must be a value greater than or equal to `1`"
-            )  # noqa: E501
-
-        self._interval = interval
 
     @property
     def note(self):
@@ -381,7 +330,7 @@ class InstallmentData(object):
     def payments(self):
         """Gets the payments of this InstallmentData.  # noqa: E501
 
-        Number of total payments to be charged per defined interval, can be 2-200. For Mexican installment subscription (installment_type = `IF`) should be 1-99.  # noqa: E501
+        Number of total payments, to be charged per defined interval. For installment subscription with installment_type = `MF_HOLD` can be 2-12. For Mexican installment subscription (installment_type = `IF`) should be 1-99.  # noqa: E501
 
         :return: The payments of this InstallmentData.  # noqa: E501
         :rtype: int
@@ -392,7 +341,7 @@ class InstallmentData(object):
     def payments(self, payments):
         """Sets the payments of this InstallmentData.
 
-        Number of total payments to be charged per defined interval, can be 2-200. For Mexican installment subscription (installment_type = `IF`) should be 1-99.  # noqa: E501
+        Number of total payments, to be charged per defined interval. For installment subscription with installment_type = `MF_HOLD` can be 2-12. For Mexican installment subscription (installment_type = `IF`) should be 1-99.  # noqa: E501
 
         :param payments: The payments of this InstallmentData.  # noqa: E501
         :type: int
@@ -400,48 +349,11 @@ class InstallmentData(object):
 
         self._payments = payments
 
-    class Period(object):
-        MINUTE = "minute"
-        DAY = "day"
-        WEEK = "week"
-        MONTH = "month"
-        YEAR = "year"
-
-    @property
-    def period(self):
-        """Gets the period of this InstallmentData.  # noqa: E501
-
-        Initial period of recurring, can be `day`, `week`, `month`, `year`  # noqa: E501
-
-        :return: The period of this InstallmentData.  # noqa: E501
-        :rtype: str
-        """
-        return self._period
-
-    @period.setter
-    def period(self, period):
-        """Sets the period of this InstallmentData.
-
-        Initial period of recurring, can be `day`, `week`, `month`, `year`  # noqa: E501
-
-        :param period: The period of this InstallmentData.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["minute", "day", "week", "month", "year"]  # noqa: E501
-        if period not in allowed_values:
-            raise ValueError(
-                "Invalid value for `period` ({0}), must be one of {1}".format(  # noqa: E501
-                    period, allowed_values
-                )
-            )
-
-        self._period = period
-
     @property
     def preauth(self):
         """Gets the preauth of this InstallmentData.  # noqa: E501
 
-        If set to `true`, the amount will not be captured but only blocked. Installment with `preauth` attribute will be voided automatically in 5 days from the time of creating the preauth transaction.  # noqa: E501
+        If set to `true`, the amount will not be captured but only blocked. Installment with `preauth` attribute will be voided automatically in 7 days from the time of creating the preauth transaction.  # noqa: E501
 
         :return: The preauth of this InstallmentData.  # noqa: E501
         :rtype: bool
@@ -452,59 +364,13 @@ class InstallmentData(object):
     def preauth(self, preauth):
         """Sets the preauth of this InstallmentData.
 
-        If set to `true`, the amount will not be captured but only blocked. Installment with `preauth` attribute will be voided automatically in 5 days from the time of creating the preauth transaction.  # noqa: E501
+        If set to `true`, the amount will not be captured but only blocked. Installment with `preauth` attribute will be voided automatically in 7 days from the time of creating the preauth transaction.  # noqa: E501
 
         :param preauth: The preauth of this InstallmentData.  # noqa: E501
         :type: bool
         """
 
         self._preauth = preauth
-
-    @property
-    def retries(self):
-        """Gets the retries of this InstallmentData.  # noqa: E501
-
-        Number of daily basis retry attempts in case of payment has not been captured successfully, from 1 to 15 attempts can be specified.  # noqa: E501
-
-        :return: The retries of this InstallmentData.  # noqa: E501
-        :rtype: int
-        """
-        return self._retries
-
-    @retries.setter
-    def retries(self, retries):
-        """Sets the retries of this InstallmentData.
-
-        Number of daily basis retry attempts in case of payment has not been captured successfully, from 1 to 15 attempts can be specified.  # noqa: E501
-
-        :param retries: The retries of this InstallmentData.  # noqa: E501
-        :type: int
-        """
-
-        self._retries = retries
-
-    @property
-    def subscription_start(self):
-        """Gets the subscription_start of this InstallmentData.  # noqa: E501
-
-        The date in yyyy-MM-dd format when subscription will actually become activated (grace period). Auth request will be created but Customer will be charged only when subscription start date comes. Leave it empty or specify the current date to activate subscription at once without any grace period applied.  # noqa: E501
-
-        :return: The subscription_start of this InstallmentData.  # noqa: E501
-        :rtype: datetime
-        """
-        return self._subscription_start
-
-    @subscription_start.setter
-    def subscription_start(self, subscription_start):
-        """Sets the subscription_start of this InstallmentData.
-
-        The date in yyyy-MM-dd format when subscription will actually become activated (grace period). Auth request will be created but Customer will be charged only when subscription start date comes. Leave it empty or specify the current date to activate subscription at once without any grace period applied.  # noqa: E501
-
-        :param subscription_start: The subscription_start of this InstallmentData.  # noqa: E501
-        :type: datetime
-        """
-
-        self._subscription_start = subscription_start
 
     class TransType(object):
         _01 = "01"
