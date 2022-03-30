@@ -43,6 +43,7 @@ class ScheduledByMerchantData(object):
         "initiator": "str",
         "note": "str",
         "scheduled_type": "str",
+        "three_ds_challenge_indicator": "str",
         "trans_type": "str",
     }
 
@@ -55,6 +56,7 @@ class ScheduledByMerchantData(object):
         "initiator": "initiator",
         "note": "note",
         "scheduled_type": "scheduled_type",
+        "three_ds_challenge_indicator": "three_ds_challenge_indicator",
         "trans_type": "trans_type",
     }
 
@@ -68,6 +70,7 @@ class ScheduledByMerchantData(object):
         initiator=None,
         note=None,
         scheduled_type=None,
+        three_ds_challenge_indicator=None,
         trans_type=None,
     ):  # noqa: E501
         """ScheduledByMerchantData - a model defined in Swagger"""  # noqa: E501
@@ -80,6 +83,7 @@ class ScheduledByMerchantData(object):
         self._initiator = None
         self._note = None
         self._scheduled_type = None
+        self._three_ds_challenge_indicator = None
         self._trans_type = None
         self.discriminator = None
 
@@ -95,6 +99,8 @@ class ScheduledByMerchantData(object):
         if note is not None:
             self.note = note
         self.scheduled_type = scheduled_type
+        if three_ds_challenge_indicator is not None:
+            self.three_ds_challenge_indicator = three_ds_challenge_indicator
         if trans_type is not None:
             self.trans_type = trans_type
 
@@ -323,6 +329,33 @@ class ScheduledByMerchantData(object):
             )  # noqa: E501
 
         self._scheduled_type = scheduled_type
+
+    @property
+    def three_ds_challenge_indicator(self):
+        """Gets the three_ds_challenge_indicator of this ScheduledByMerchantData.  # noqa: E501
+
+
+        :return: The three_ds_challenge_indicator of this ScheduledByMerchantData.  # noqa: E501
+        :rtype: str
+        """
+        return self._three_ds_challenge_indicator
+
+    @three_ds_challenge_indicator.setter
+    def three_ds_challenge_indicator(self, three_ds_challenge_indicator):
+        """Sets the three_ds_challenge_indicator of this ScheduledByMerchantData.
+
+
+        :param three_ds_challenge_indicator: The three_ds_challenge_indicator of this ScheduledByMerchantData.  # noqa: E501
+        :type: str
+        """
+        if three_ds_challenge_indicator is not None and not re.search(
+            r"01|04", three_ds_challenge_indicator
+        ):  # noqa: E501
+            raise ValueError(
+                r"Invalid value for `three_ds_challenge_indicator`, must be a follow pattern or equal to `/01|04/`"
+            )  # noqa: E501
+
+        self._three_ds_challenge_indicator = three_ds_challenge_indicator
 
     class TransType(object):
         _01 = "01"

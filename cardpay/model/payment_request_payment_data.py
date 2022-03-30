@@ -39,6 +39,7 @@ class PaymentRequestPaymentData(object):
         "generate_token": "bool",
         "note": "str",
         "preauth": "bool",
+        "three_ds_challenge_indicator": "str",
         "trans_type": "str",
     }
 
@@ -51,6 +52,7 @@ class PaymentRequestPaymentData(object):
         "generate_token": "generate_token",
         "note": "note",
         "preauth": "preauth",
+        "three_ds_challenge_indicator": "three_ds_challenge_indicator",
         "trans_type": "trans_type",
     }
 
@@ -64,6 +66,7 @@ class PaymentRequestPaymentData(object):
         generate_token=None,
         note=None,
         preauth=None,
+        three_ds_challenge_indicator=None,
         trans_type=None,
     ):  # noqa: E501
         """PaymentRequestPaymentData - a model defined in Swagger"""  # noqa: E501
@@ -76,6 +79,7 @@ class PaymentRequestPaymentData(object):
         self._generate_token = None
         self._note = None
         self._preauth = None
+        self._three_ds_challenge_indicator = None
         self._trans_type = None
         self.discriminator = None
 
@@ -94,6 +98,8 @@ class PaymentRequestPaymentData(object):
             self.note = note
         if preauth is not None:
             self.preauth = preauth
+        if three_ds_challenge_indicator is not None:
+            self.three_ds_challenge_indicator = three_ds_challenge_indicator
         if trans_type is not None:
             self.trans_type = trans_type
 
@@ -308,6 +314,33 @@ class PaymentRequestPaymentData(object):
         """
 
         self._preauth = preauth
+
+    @property
+    def three_ds_challenge_indicator(self):
+        """Gets the three_ds_challenge_indicator of this PaymentRequestPaymentData.  # noqa: E501
+
+
+        :return: The three_ds_challenge_indicator of this PaymentRequestPaymentData.  # noqa: E501
+        :rtype: str
+        """
+        return self._three_ds_challenge_indicator
+
+    @three_ds_challenge_indicator.setter
+    def three_ds_challenge_indicator(self, three_ds_challenge_indicator):
+        """Sets the three_ds_challenge_indicator of this PaymentRequestPaymentData.
+
+
+        :param three_ds_challenge_indicator: The three_ds_challenge_indicator of this PaymentRequestPaymentData.  # noqa: E501
+        :type: str
+        """
+        if three_ds_challenge_indicator is not None and not re.search(
+            r"01|04", three_ds_challenge_indicator
+        ):  # noqa: E501
+            raise ValueError(
+                r"Invalid value for `three_ds_challenge_indicator`, must be a follow pattern or equal to `/01|04/`"
+            )  # noqa: E501
+
+        self._three_ds_challenge_indicator = three_ds_challenge_indicator
 
     class TransType(object):
         _01 = "01"
