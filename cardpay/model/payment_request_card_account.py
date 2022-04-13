@@ -36,20 +36,25 @@ class PaymentRequestCardAccount(object):
     swagger_types = {
         "billing_address": "BillingAddress",
         "card": "PaymentRequestCard",
+        "encrypted_card_data": "str",
         "token": "str",
     }
 
     attribute_map = {
         "billing_address": "billing_address",
         "card": "card",
+        "encrypted_card_data": "encrypted_card_data",
         "token": "token",
     }
 
-    def __init__(self, billing_address=None, card=None, token=None):  # noqa: E501
+    def __init__(
+        self, billing_address=None, card=None, encrypted_card_data=None, token=None
+    ):  # noqa: E501
         """PaymentRequestCardAccount - a model defined in Swagger"""  # noqa: E501
 
         self._billing_address = None
         self._card = None
+        self._encrypted_card_data = None
         self._token = None
         self.discriminator = None
 
@@ -57,6 +62,8 @@ class PaymentRequestCardAccount(object):
             self.billing_address = billing_address
         if card is not None:
             self.card = card
+        if encrypted_card_data is not None:
+            self.encrypted_card_data = encrypted_card_data
         if token is not None:
             self.token = token
 
@@ -105,6 +112,37 @@ class PaymentRequestCardAccount(object):
         """
 
         self._card = card
+
+    @property
+    def encrypted_card_data(self):
+        """Gets the encrypted_card_data of this PaymentRequestCardAccount.  # noqa: E501
+
+        Encrypted card data. The field includes: pan, security_code, expiration. Only for Gateway mode.  # noqa: E501
+
+        :return: The encrypted_card_data of this PaymentRequestCardAccount.  # noqa: E501
+        :rtype: str
+        """
+        return self._encrypted_card_data
+
+    @encrypted_card_data.setter
+    def encrypted_card_data(self, encrypted_card_data):
+        """Sets the encrypted_card_data of this PaymentRequestCardAccount.
+
+        Encrypted card data. The field includes: pan, security_code, expiration. Only for Gateway mode.  # noqa: E501
+
+        :param encrypted_card_data: The encrypted_card_data of this PaymentRequestCardAccount.  # noqa: E501
+        :type: str
+        """
+        if encrypted_card_data is not None and len(encrypted_card_data) > 1000:
+            raise ValueError(
+                "Invalid value for `encrypted_card_data`, length must be less than or equal to `1000`"
+            )  # noqa: E501
+        if encrypted_card_data is not None and len(encrypted_card_data) < 0:
+            raise ValueError(
+                "Invalid value for `encrypted_card_data`, length must be greater than or equal to `0`"
+            )  # noqa: E501
+
+        self._encrypted_card_data = encrypted_card_data
 
     @property
     def token(self):

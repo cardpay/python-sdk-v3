@@ -40,6 +40,8 @@ class PaymentResponsePaymentData(object):
         "decline_code": "str",
         "decline_reason": "str",
         "id": "str",
+        "installment_type": "str",
+        "installments": "str",
         "invalid_data": "list[str]",
         "is_3d": "bool",
         "note": "str",
@@ -58,6 +60,8 @@ class PaymentResponsePaymentData(object):
         "decline_code": "decline_code",
         "decline_reason": "decline_reason",
         "id": "id",
+        "installment_type": "installment_type",
+        "installments": "installments",
         "invalid_data": "invalid_data",
         "is_3d": "is_3d",
         "note": "note",
@@ -77,6 +81,8 @@ class PaymentResponsePaymentData(object):
         decline_code=None,
         decline_reason=None,
         id=None,
+        installment_type=None,
+        installments=None,
         invalid_data=None,
         is_3d=None,
         note=None,
@@ -95,6 +101,8 @@ class PaymentResponsePaymentData(object):
         self._decline_code = None
         self._decline_reason = None
         self._id = None
+        self._installment_type = None
+        self._installments = None
         self._invalid_data = None
         self._is_3d = None
         self._note = None
@@ -121,6 +129,10 @@ class PaymentResponsePaymentData(object):
             self.decline_reason = decline_reason
         if id is not None:
             self.id = id
+        if installment_type is not None:
+            self.installment_type = installment_type
+        if installments is not None:
+            self.installments = installments
         if invalid_data is not None:
             self.invalid_data = invalid_data
         if is_3d is not None:
@@ -340,6 +352,52 @@ class PaymentResponsePaymentData(object):
         """
 
         self._id = id
+
+    @property
+    def installment_type(self):
+        """Gets the installment_type of this PaymentResponsePaymentData.  # noqa: E501
+
+        Selected installment type  # noqa: E501
+
+        :return: The installment_type of this PaymentResponsePaymentData.  # noqa: E501
+        :rtype: str
+        """
+        return self._installment_type
+
+    @installment_type.setter
+    def installment_type(self, installment_type):
+        """Sets the installment_type of this PaymentResponsePaymentData.
+
+        Selected installment type  # noqa: E501
+
+        :param installment_type: The installment_type of this PaymentResponsePaymentData.  # noqa: E501
+        :type: str
+        """
+
+        self._installment_type = installment_type
+
+    @property
+    def installments(self):
+        """Gets the installments of this PaymentResponsePaymentData.  # noqa: E501
+
+        Number of total installment payments, to be charged  # noqa: E501
+
+        :return: The installments of this PaymentResponsePaymentData.  # noqa: E501
+        :rtype: str
+        """
+        return self._installments
+
+    @installments.setter
+    def installments(self, installments):
+        """Sets the installments of this PaymentResponsePaymentData.
+
+        Number of total installment payments, to be charged  # noqa: E501
+
+        :param installments: The installments of this PaymentResponsePaymentData.  # noqa: E501
+        :type: str
+        """
+
+        self._installments = installments
 
     @property
     def invalid_data(self):

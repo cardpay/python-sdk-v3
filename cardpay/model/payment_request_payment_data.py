@@ -37,6 +37,9 @@ class PaymentRequestPaymentData(object):
         "dynamic_descriptor": "str",
         "encrypted_data": "str",
         "generate_token": "bool",
+        "installment_amount": "float",
+        "installment_type": "str",
+        "installments": "int",
         "note": "str",
         "preauth": "bool",
         "three_ds_challenge_indicator": "str",
@@ -50,6 +53,9 @@ class PaymentRequestPaymentData(object):
         "dynamic_descriptor": "dynamic_descriptor",
         "encrypted_data": "encrypted_data",
         "generate_token": "generate_token",
+        "installment_amount": "installment_amount",
+        "installment_type": "installment_type",
+        "installments": "installments",
         "note": "note",
         "preauth": "preauth",
         "three_ds_challenge_indicator": "three_ds_challenge_indicator",
@@ -64,6 +70,9 @@ class PaymentRequestPaymentData(object):
         dynamic_descriptor=None,
         encrypted_data=None,
         generate_token=None,
+        installment_amount=None,
+        installment_type=None,
+        installments=None,
         note=None,
         preauth=None,
         three_ds_challenge_indicator=None,
@@ -77,6 +86,9 @@ class PaymentRequestPaymentData(object):
         self._dynamic_descriptor = None
         self._encrypted_data = None
         self._generate_token = None
+        self._installment_amount = None
+        self._installment_type = None
+        self._installments = None
         self._note = None
         self._preauth = None
         self._three_ds_challenge_indicator = None
@@ -94,6 +106,12 @@ class PaymentRequestPaymentData(object):
             self.encrypted_data = encrypted_data
         if generate_token is not None:
             self.generate_token = generate_token
+        if installment_amount is not None:
+            self.installment_amount = installment_amount
+        if installment_type is not None:
+            self.installment_type = installment_type
+        if installments is not None:
+            self.installments = installments
         if note is not None:
             self.note = note
         if preauth is not None:
@@ -260,6 +278,81 @@ class PaymentRequestPaymentData(object):
         """
 
         self._generate_token = generate_token
+
+    @property
+    def installment_amount(self):
+        """Gets the installment_amount of this PaymentRequestPaymentData.  # noqa: E501
+
+        Amount of 1 installment payment, should be less or equal to total amount of subscription, can have dot as a decimal separator. Mandatory for Payment Page Mode only.  # noqa: E501
+
+        :return: The installment_amount of this PaymentRequestPaymentData.  # noqa: E501
+        :rtype: float
+        """
+        return self._installment_amount
+
+    @installment_amount.setter
+    def installment_amount(self, installment_amount):
+        """Sets the installment_amount of this PaymentRequestPaymentData.
+
+        Amount of 1 installment payment, should be less or equal to total amount of subscription, can have dot as a decimal separator. Mandatory for Payment Page Mode only.  # noqa: E501
+
+        :param installment_amount: The installment_amount of this PaymentRequestPaymentData.  # noqa: E501
+        :type: float
+        """
+
+        self._installment_amount = installment_amount
+
+    @property
+    def installment_type(self):
+        """Gets the installment_type of this PaymentRequestPaymentData.  # noqa: E501
+
+        Installment type, 2 possible values: `IF` - issuer financed `MF_HOLD' - merchant financed. For installment subscription with hold rest amount.  # noqa: E501
+
+        :return: The installment_type of this PaymentRequestPaymentData.  # noqa: E501
+        :rtype: str
+        """
+        return self._installment_type
+
+    @installment_type.setter
+    def installment_type(self, installment_type):
+        """Sets the installment_type of this PaymentRequestPaymentData.
+
+        Installment type, 2 possible values: `IF` - issuer financed `MF_HOLD' - merchant financed. For installment subscription with hold rest amount.  # noqa: E501
+
+        :param installment_type: The installment_type of this PaymentRequestPaymentData.  # noqa: E501
+        :type: str
+        """
+        if installment_type is not None and not re.search(
+            r"IF|MF_HOLD", installment_type
+        ):  # noqa: E501
+            raise ValueError(
+                r"Invalid value for `installment_type`, must be a follow pattern or equal to `/IF|MF_HOLD/`"
+            )  # noqa: E501
+
+        self._installment_type = installment_type
+
+    @property
+    def installments(self):
+        """Gets the installments of this PaymentRequestPaymentData.  # noqa: E501
+
+        Number of total installment payments, to be charged per defined interval. For installment subscription with installment_type = `MF_HOLD` can be 1-12. For installment subscription with installment_type = `IF` can be 1-99.  # noqa: E501
+
+        :return: The installments of this PaymentRequestPaymentData.  # noqa: E501
+        :rtype: int
+        """
+        return self._installments
+
+    @installments.setter
+    def installments(self, installments):
+        """Sets the installments of this PaymentRequestPaymentData.
+
+        Number of total installment payments, to be charged per defined interval. For installment subscription with installment_type = `MF_HOLD` can be 1-12. For installment subscription with installment_type = `IF` can be 1-99.  # noqa: E501
+
+        :param installments: The installments of this PaymentRequestPaymentData.  # noqa: E501
+        :type: int
+        """
+
+        self._installments = installments
 
     @property
     def note(self):
