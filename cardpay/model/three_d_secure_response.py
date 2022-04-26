@@ -36,6 +36,7 @@ class ThreeDSecureResponse(object):
         "cavv": "str",
         "cavv_algorithm": "str",
         "challenge_cancel": "str",
+        "ds_transaction_id": "str",
         "eci": "str",
         "pa_res": "str",
         "protocol_version": "str",
@@ -52,6 +53,7 @@ class ThreeDSecureResponse(object):
         "cavv": "cavv",
         "cavv_algorithm": "cavv_algorithm",
         "challenge_cancel": "challenge_cancel",
+        "ds_transaction_id": "ds_transaction_id",
         "eci": "eci",
         "pa_res": "pa_res",
         "protocol_version": "protocol_version",
@@ -69,6 +71,7 @@ class ThreeDSecureResponse(object):
         cavv=None,
         cavv_algorithm=None,
         challenge_cancel=None,
+        ds_transaction_id=None,
         eci=None,
         pa_res=None,
         protocol_version=None,
@@ -85,6 +88,7 @@ class ThreeDSecureResponse(object):
         self._cavv = None
         self._cavv_algorithm = None
         self._challenge_cancel = None
+        self._ds_transaction_id = None
         self._eci = None
         self._pa_res = None
         self._protocol_version = None
@@ -105,6 +109,8 @@ class ThreeDSecureResponse(object):
             self.cavv_algorithm = cavv_algorithm
         if challenge_cancel is not None:
             self.challenge_cancel = challenge_cancel
+        if ds_transaction_id is not None:
+            self.ds_transaction_id = ds_transaction_id
         if eci is not None:
             self.eci = eci
         if pa_res is not None:
@@ -236,6 +242,29 @@ class ThreeDSecureResponse(object):
         """
 
         self._challenge_cancel = challenge_cancel
+
+    @property
+    def ds_transaction_id(self):
+        """Gets the ds_transaction_id of this ThreeDSecureResponse.  # noqa: E501
+
+        Transaction Id  # noqa: E501
+
+        :return: The ds_transaction_id of this ThreeDSecureResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._ds_transaction_id
+
+    @ds_transaction_id.setter
+    def ds_transaction_id(self, ds_transaction_id):
+        """Sets the ds_transaction_id of this ThreeDSecureResponse.
+
+        Transaction Id  # noqa: E501
+
+        :param ds_transaction_id: The ds_transaction_id of this ThreeDSecureResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._ds_transaction_id = ds_transaction_id
 
     @property
     def eci(self):
