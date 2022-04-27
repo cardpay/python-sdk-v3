@@ -9,7 +9,7 @@ from recurrings.onclick import do_one_click_payment
 
 logger = create_logger(__name__)
 
-config = Configuration(base_url=CARDPAY_API_URL, terminal_code=GATEWAY_TERMINAL_CODE, password=GATEWAY_PASSWORD, debug=DEBUG_MODE)
+config = Configuration(base_url=CARDPAY_API_URL, terminal_code=GATEWAY_POSTPONED_TERMINAL_CODE, password=GATEWAY_POSTPONED_PASSWORD, debug=DEBUG_MODE)
 recurrings = RecurringsApi(ApiClient(config))
 
 

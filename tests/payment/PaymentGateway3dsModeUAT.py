@@ -11,7 +11,7 @@ from utils.http_utils import do_get
 
 logger = create_logger(__name__)
 
-client = ApiClient(baseUrl=CARDPAY_API_URL, terminal_code=GATEWAY_TERMINAL_CODE, password=GATEWAY_PASSWORD, debug=DEBUG_MODE)
+client = ApiClient(baseUrl=CARDPAY_API_URL, terminal_code=GATEWAY_POSTPONED_TERMINAL_CODE, password=GATEWAY_POSTPONED_PASSWORD, debug=DEBUG_MODE)
 payments = PaymentsApi(client)
 
 def test_create_payment_gateway_mode_with_3ds():
