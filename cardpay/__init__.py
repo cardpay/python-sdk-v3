@@ -195,6 +195,10 @@ from cardpay.model.refund_update_request import RefundUpdateRequest
 from cardpay.model.refund_update_response import RefundUpdateResponse
 from cardpay.model.refunds_list import RefundsList
 from cardpay.model.renamed_plan_data import RenamedPlanData
+from cardpay.model.report import Report
+from cardpay.model.reports_data import ReportsData
+from cardpay.model.reports_request import ReportsRequest
+from cardpay.model.reports_response import ReportsResponse
 from cardpay.model.request import Request
 from cardpay.model.request_updated_transaction_data import RequestUpdatedTransactionData
 from cardpay.model.response_plan_data import ResponsePlanData
@@ -251,6 +255,7 @@ from cardpay.api.payouts_api import PayoutsApi
 from cardpay.api.recurrings_api import RecurringsApi
 from cardpay.api.recurrings_installments_api import RecurringsInstallmentsApi
 from cardpay.api.refunds_api import RefundsApi
+from cardpay.api.reports_api_controller_api import ReportsApiControllerApi
 
 
 def formatExpirationDate(date):
