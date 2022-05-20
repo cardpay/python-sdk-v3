@@ -339,7 +339,7 @@ class ThreeDSecureResponse(object):
     def status(self):
         """Gets the status of this ThreeDSecureResponse.  # noqa: E501
 
-        3DS status (from PaRes for 3Ds 1.0, ARes message for 3Ds 2.0) (possible values Y,A,U)  # noqa: E501
+        3DS status (from PaRes for 3Ds 1.0, ARes message for 3Ds 2.0) (possible values Y,A,U,N)  # noqa: E501
 
         :return: The status of this ThreeDSecureResponse.  # noqa: E501
         :rtype: str
@@ -350,7 +350,7 @@ class ThreeDSecureResponse(object):
     def status(self, status):
         """Sets the status of this ThreeDSecureResponse.
 
-        3DS status (from PaRes for 3Ds 1.0, ARes message for 3Ds 2.0) (possible values Y,A,U)  # noqa: E501
+        3DS status (from PaRes for 3Ds 1.0, ARes message for 3Ds 2.0) (possible values Y,A,U,N)  # noqa: E501
 
         :param status: The status of this ThreeDSecureResponse.  # noqa: E501
         :type: str
