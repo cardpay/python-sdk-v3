@@ -60,7 +60,7 @@ class ReportsData(object):
     def end_date(self):
         """Gets the end_date of this ReportsData.  # noqa: E501
 
-        End date of period in which the reports were generated. Period between dates is no more than 7 days. Format: yyyy-MM-dd  # noqa: E501
+        End date of period on which the reports were generated. Period between dates is no more than 7 days.  The format is yyyy-MM-dd  If ‘end_date’ is skipped then default value is used: ‘start_date’ + 7 days  # noqa: E501
 
         :return: The end_date of this ReportsData.  # noqa: E501
         :rtype: date
@@ -71,7 +71,7 @@ class ReportsData(object):
     def end_date(self, end_date):
         """Sets the end_date of this ReportsData.
 
-        End date of period in which the reports were generated. Period between dates is no more than 7 days. Format: yyyy-MM-dd  # noqa: E501
+        End date of period on which the reports were generated. Period between dates is no more than 7 days.  The format is yyyy-MM-dd  If ‘end_date’ is skipped then default value is used: ‘start_date’ + 7 days  # noqa: E501
 
         :param end_date: The end_date of this ReportsData.  # noqa: E501
         :type: date
@@ -106,7 +106,7 @@ class ReportsData(object):
     def start_date(self):
         """Gets the start_date of this ReportsData.  # noqa: E501
 
-        Start date of period in which the reports were generated. Format: yyyy-MM-dd  # noqa: E501
+        Start date of period on which the reports were generated. The format is yyyy-MM-dd  # noqa: E501
 
         :return: The start_date of this ReportsData.  # noqa: E501
         :rtype: date
@@ -117,7 +117,7 @@ class ReportsData(object):
     def start_date(self, start_date):
         """Sets the start_date of this ReportsData.
 
-        Start date of period in which the reports were generated. Format: yyyy-MM-dd  # noqa: E501
+        Start date of period on which the reports were generated. The format is yyyy-MM-dd  # noqa: E501
 
         :param start_date: The start_date of this ReportsData.  # noqa: E501
         :type: date

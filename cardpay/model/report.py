@@ -31,7 +31,6 @@ class Report(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        "currency": "str",
         "download_url": "str",
         "file_id": "str",
         "file_name": "str",
@@ -45,22 +44,20 @@ class Report(object):
     }
 
     attribute_map = {
-        "currency": "currency",
-        "download_url": "downloadUrl",
-        "file_id": "fileId",
-        "file_name": "fileName",
-        "hash_sum": "hashSum",
-        "report_type": "reportType",
-        "settlement_date": "settlementDate",
-        "settlement_id": "settlementId",
+        "download_url": "download_url",
+        "file_id": "file_id",
+        "file_name": "file_name",
+        "hash_sum": "hash_sum",
+        "report_type": "report_type",
+        "settlement_date": "settlement_date",
+        "settlement_id": "settlement_id",
         "size": "size",
         "status": "status",
-        "website_name": "websiteName",
+        "website_name": "website_name",
     }
 
     def __init__(
         self,
-        currency=None,
         download_url=None,
         file_id=None,
         file_name=None,
@@ -74,7 +71,6 @@ class Report(object):
     ):  # noqa: E501
         """Report - a model defined in Swagger"""  # noqa: E501
 
-        self._currency = None
         self._download_url = None
         self._file_id = None
         self._file_name = None
@@ -87,8 +83,6 @@ class Report(object):
         self._website_name = None
         self.discriminator = None
 
-        if currency is not None:
-            self.currency = currency
         if download_url is not None:
             self.download_url = download_url
         if file_id is not None:
@@ -111,30 +105,10 @@ class Report(object):
             self.website_name = website_name
 
     @property
-    def currency(self):
-        """Gets the currency of this Report.  # noqa: E501
-
-
-        :return: The currency of this Report.  # noqa: E501
-        :rtype: str
-        """
-        return self._currency
-
-    @currency.setter
-    def currency(self, currency):
-        """Sets the currency of this Report.
-
-
-        :param currency: The currency of this Report.  # noqa: E501
-        :type: str
-        """
-
-        self._currency = currency
-
-    @property
     def download_url(self):
         """Gets the download_url of this Report.  # noqa: E501
 
+        Link to archive downloading. Link is available for 24 hours  # noqa: E501
 
         :return: The download_url of this Report.  # noqa: E501
         :rtype: str
@@ -145,6 +119,7 @@ class Report(object):
     def download_url(self, download_url):
         """Sets the download_url of this Report.
 
+        Link to archive downloading. Link is available for 24 hours  # noqa: E501
 
         :param download_url: The download_url of this Report.  # noqa: E501
         :type: str
@@ -156,6 +131,7 @@ class Report(object):
     def file_id(self):
         """Gets the file_id of this Report.  # noqa: E501
 
+        The identifier of report's file  # noqa: E501
 
         :return: The file_id of this Report.  # noqa: E501
         :rtype: str
@@ -166,6 +142,7 @@ class Report(object):
     def file_id(self, file_id):
         """Sets the file_id of this Report.
 
+        The identifier of report's file  # noqa: E501
 
         :param file_id: The file_id of this Report.  # noqa: E501
         :type: str
@@ -177,6 +154,7 @@ class Report(object):
     def file_name(self):
         """Gets the file_name of this Report.  # noqa: E501
 
+        The file name  # noqa: E501
 
         :return: The file_name of this Report.  # noqa: E501
         :rtype: str
@@ -187,6 +165,7 @@ class Report(object):
     def file_name(self, file_name):
         """Sets the file_name of this Report.
 
+        The file name  # noqa: E501
 
         :param file_name: The file_name of this Report.  # noqa: E501
         :type: str
@@ -198,6 +177,7 @@ class Report(object):
     def hash_sum(self):
         """Gets the hash_sum of this Report.  # noqa: E501
 
+        Hash sum of file (sha256)  # noqa: E501
 
         :return: The hash_sum of this Report.  # noqa: E501
         :rtype: str
@@ -208,6 +188,7 @@ class Report(object):
     def hash_sum(self, hash_sum):
         """Sets the hash_sum of this Report.
 
+        Hash sum of file (sha256)  # noqa: E501
 
         :param hash_sum: The hash_sum of this Report.  # noqa: E501
         :type: str
@@ -219,6 +200,7 @@ class Report(object):
     def report_type(self):
         """Gets the report_type of this Report.  # noqa: E501
 
+        Specific report type, one of: \"regular_settlement\", \"icpp_settlement\"  # noqa: E501
 
         :return: The report_type of this Report.  # noqa: E501
         :rtype: str
@@ -229,6 +211,7 @@ class Report(object):
     def report_type(self, report_type):
         """Sets the report_type of this Report.
 
+        Specific report type, one of: \"regular_settlement\", \"icpp_settlement\"  # noqa: E501
 
         :param report_type: The report_type of this Report.  # noqa: E501
         :type: str
@@ -240,6 +223,7 @@ class Report(object):
     def settlement_date(self):
         """Gets the settlement_date of this Report.  # noqa: E501
 
+        Date of settlement. The format is yyyy-MM-dd  # noqa: E501
 
         :return: The settlement_date of this Report.  # noqa: E501
         :rtype: str
@@ -250,6 +234,7 @@ class Report(object):
     def settlement_date(self, settlement_date):
         """Sets the settlement_date of this Report.
 
+        Date of settlement. The format is yyyy-MM-dd  # noqa: E501
 
         :param settlement_date: The settlement_date of this Report.  # noqa: E501
         :type: str
@@ -261,6 +246,7 @@ class Report(object):
     def settlement_id(self):
         """Gets the settlement_id of this Report.  # noqa: E501
 
+        The identifier of settlement. Can be the same for several objects in sample  # noqa: E501
 
         :return: The settlement_id of this Report.  # noqa: E501
         :rtype: int
@@ -271,6 +257,7 @@ class Report(object):
     def settlement_id(self, settlement_id):
         """Sets the settlement_id of this Report.
 
+        The identifier of settlement. Can be the same for several objects in sample  # noqa: E501
 
         :param settlement_id: The settlement_id of this Report.  # noqa: E501
         :type: int
@@ -282,6 +269,7 @@ class Report(object):
     def size(self):
         """Gets the size of this Report.  # noqa: E501
 
+        Size of file in bytes  # noqa: E501
 
         :return: The size of this Report.  # noqa: E501
         :rtype: int
@@ -292,6 +280,7 @@ class Report(object):
     def size(self, size):
         """Sets the size of this Report.
 
+        Size of file in bytes  # noqa: E501
 
         :param size: The size of this Report.  # noqa: E501
         :type: int
@@ -308,6 +297,7 @@ class Report(object):
     def status(self):
         """Gets the status of this Report.  # noqa: E501
 
+        One of statuses:  \"IN_PROGRESS\"  \"COMPLETED\"  \"FAILED\"  # noqa: E501
 
         :return: The status of this Report.  # noqa: E501
         :rtype: str
@@ -318,6 +308,7 @@ class Report(object):
     def status(self, status):
         """Sets the status of this Report.
 
+        One of statuses:  \"IN_PROGRESS\"  \"COMPLETED\"  \"FAILED\"  # noqa: E501
 
         :param status: The status of this Report.  # noqa: E501
         :type: str
@@ -336,6 +327,7 @@ class Report(object):
     def website_name(self):
         """Gets the website_name of this Report.  # noqa: E501
 
+        Name of website  # noqa: E501
 
         :return: The website_name of this Report.  # noqa: E501
         :rtype: str
@@ -346,6 +338,7 @@ class Report(object):
     def website_name(self, website_name):
         """Sets the website_name of this Report.
 
+        Name of website  # noqa: E501
 
         :param website_name: The website_name of this Report.  # noqa: E501
         :type: str

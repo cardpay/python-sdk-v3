@@ -41,10 +41,10 @@ class ReportsResponse(object):
     }
 
     attribute_map = {
-        "download_url": "downloadUrl",
-        "hash_sum": "hashSum",
+        "download_url": "download_url",
+        "hash_sum": "hash_sum",
         "reports": "reports",
-        "sample_id": "sampleId",
+        "sample_id": "sample_id",
         "size": "size",
     }
 
@@ -75,6 +75,7 @@ class ReportsResponse(object):
     def download_url(self):
         """Gets the download_url of this ReportsResponse.  # noqa: E501
 
+        Link to file downloading. Link is available for 24 hours  # noqa: E501
 
         :return: The download_url of this ReportsResponse.  # noqa: E501
         :rtype: str
@@ -85,6 +86,7 @@ class ReportsResponse(object):
     def download_url(self, download_url):
         """Sets the download_url of this ReportsResponse.
 
+        Link to file downloading. Link is available for 24 hours  # noqa: E501
 
         :param download_url: The download_url of this ReportsResponse.  # noqa: E501
         :type: str
@@ -96,6 +98,7 @@ class ReportsResponse(object):
     def hash_sum(self):
         """Gets the hash_sum of this ReportsResponse.  # noqa: E501
 
+        Hash sum of file (sha256)  # noqa: E501
 
         :return: The hash_sum of this ReportsResponse.  # noqa: E501
         :rtype: str
@@ -106,6 +109,7 @@ class ReportsResponse(object):
     def hash_sum(self, hash_sum):
         """Sets the hash_sum of this ReportsResponse.
 
+        Hash sum of file (sha256)  # noqa: E501
 
         :param hash_sum: The hash_sum of this ReportsResponse.  # noqa: E501
         :type: str
@@ -117,6 +121,7 @@ class ReportsResponse(object):
     def reports(self):
         """Gets the reports of this ReportsResponse.  # noqa: E501
 
+        List of settlement reports  # noqa: E501
 
         :return: The reports of this ReportsResponse.  # noqa: E501
         :rtype: list[Report]
@@ -127,6 +132,7 @@ class ReportsResponse(object):
     def reports(self, reports):
         """Sets the reports of this ReportsResponse.
 
+        List of settlement reports  # noqa: E501
 
         :param reports: The reports of this ReportsResponse.  # noqa: E501
         :type: list[Report]
@@ -138,6 +144,7 @@ class ReportsResponse(object):
     def sample_id(self):
         """Gets the sample_id of this ReportsResponse.  # noqa: E501
 
+        The identifier of reports' sample  # noqa: E501
 
         :return: The sample_id of this ReportsResponse.  # noqa: E501
         :rtype: str
@@ -148,6 +155,7 @@ class ReportsResponse(object):
     def sample_id(self, sample_id):
         """Sets the sample_id of this ReportsResponse.
 
+        The identifier of reports' sample  # noqa: E501
 
         :param sample_id: The sample_id of this ReportsResponse.  # noqa: E501
         :type: str
@@ -159,6 +167,7 @@ class ReportsResponse(object):
     def size(self):
         """Gets the size of this ReportsResponse.  # noqa: E501
 
+        Size of file in bytes  # noqa: E501
 
         :return: The size of this ReportsResponse.  # noqa: E501
         :rtype: int
@@ -169,6 +178,7 @@ class ReportsResponse(object):
     def size(self, size):
         """Sets the size of this ReportsResponse.
 
+        Size of file in bytes  # noqa: E501
 
         :param size: The size of this ReportsResponse.  # noqa: E501
         :type: int

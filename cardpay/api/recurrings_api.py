@@ -365,7 +365,7 @@ class RecurringsApi(object):
             collection_formats=collection_formats,
         )
 
-    def get_authentication_data2(self, recurring_id, **kwargs):  # noqa: E501
+    def get_authentication_data1(self, recurring_id, **kwargs):  # noqa: E501
         """Get recurring payment 3DS result information  # noqa: E501
 
         :param str recurring_id: Recurring ID (required)
@@ -375,12 +375,12 @@ class RecurringsApi(object):
         """
         kwargs["_return_http_data_only"] = True
 
-        (data) = self.get_authentication_data2_with_http_info(
+        (data) = self.get_authentication_data1_with_http_info(
             recurring_id, **kwargs
         )  # noqa: E501
         return data
 
-    def get_authentication_data2_with_http_info(
+    def get_authentication_data1_with_http_info(
         self, recurring_id, **kwargs
     ):  # noqa: E501
         """Get recurring payment 3DS result information  # noqa: E501
@@ -401,14 +401,14 @@ class RecurringsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_authentication_data2" % key
+                    " to method get_authentication_data1" % key
                 )
             params[key] = val
         del params["kwargs"]
         # verify the required parameter 'recurring_id' is set
         if "recurring_id" not in params or params["recurring_id"] is None:
             raise ValueError(
-                "Missing the required parameter `recurring_id` when calling `get_authentication_data2`"
+                "Missing the required parameter `recurring_id` when calling `get_authentication_data1`"
             )  # noqa: E501
 
         collection_formats = {}

@@ -60,9 +60,6 @@ from cardpay.model.filter_parameters import FilterParameters
 from cardpay.model.flight import Flight
 from cardpay.model.flights import Flights
 from cardpay.model.installment_data import InstallmentData
-from cardpay.model.installment_subscription_request import (
-    InstallmentSubscriptionRequest,
-)
 from cardpay.model.item import Item
 from cardpay.model.limit_info_response import LimitInfoResponse
 from cardpay.model.mobile_card_account_response import MobileCardAccountResponse
@@ -164,7 +161,6 @@ from cardpay.model.recurring_plan_request import RecurringPlanRequest
 from cardpay.model.recurring_plan_request_plan_data import RecurringPlanRequestPlanData
 from cardpay.model.recurring_plan_response import RecurringPlanResponse
 from cardpay.model.recurring_request_filing import RecurringRequestFiling
-from cardpay.model.recurring_request_merchant_order import RecurringRequestMerchantOrder
 from cardpay.model.recurring_request_recurring_data import RecurringRequestRecurringData
 from cardpay.model.recurring_response import RecurringResponse
 from cardpay.model.recurring_response_filing import RecurringResponseFiling
@@ -206,8 +202,6 @@ from cardpay.model.response_updated_transaction_data import (
     ResponseUpdatedTransactionData,
 )
 from cardpay.model.return_urls import ReturnUrls
-from cardpay.model.schedule_option import ScheduleOption
-from cardpay.model.schedule_options_response import ScheduleOptionsResponse
 from cardpay.model.scheduled_by_merchant_data import ScheduledByMerchantData
 from cardpay.model.scheduled_data import ScheduledData
 from cardpay.model.shipping_address import ShippingAddress
@@ -222,6 +216,7 @@ from cardpay.model.subscription_update_request_subscription_data import (
     SubscriptionUpdateRequestSubscriptionData,
 )
 from cardpay.model.subscription_update_response import SubscriptionUpdateResponse
+from cardpay.model.supported_payment_method import SupportedPaymentMethod
 from cardpay.model.three_d_secure_data import ThreeDSecureData
 from cardpay.model.three_d_secure_response import ThreeDSecureResponse
 from cardpay.model.transaction_methods_list import TransactionMethodsList
@@ -253,7 +248,6 @@ from cardpay.api.mobile_api import MobileApi
 from cardpay.api.payments_api import PaymentsApi
 from cardpay.api.payouts_api import PayoutsApi
 from cardpay.api.recurrings_api import RecurringsApi
-from cardpay.api.recurrings_installments_api import RecurringsInstallmentsApi
 from cardpay.api.refunds_api import RefundsApi
 from cardpay.api.reports_api_controller_api import ReportsApiControllerApi
 

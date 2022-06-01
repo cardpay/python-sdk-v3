@@ -120,7 +120,7 @@ class PaymentsApi(object):
             collection_formats=collection_formats,
         )
 
-    def get_authentication_data1(self, payment_id, **kwargs):  # noqa: E501
+    def get_authentication_data(self, payment_id, **kwargs):  # noqa: E501
         """Get payment 3DS result information  # noqa: E501
 
         :param str payment_id: Payment ID (required)
@@ -130,12 +130,12 @@ class PaymentsApi(object):
         """
         kwargs["_return_http_data_only"] = True
 
-        (data) = self.get_authentication_data1_with_http_info(
+        (data) = self.get_authentication_data_with_http_info(
             payment_id, **kwargs
         )  # noqa: E501
         return data
 
-    def get_authentication_data1_with_http_info(
+    def get_authentication_data_with_http_info(
         self, payment_id, **kwargs
     ):  # noqa: E501
         """Get payment 3DS result information  # noqa: E501
@@ -156,14 +156,14 @@ class PaymentsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_authentication_data1" % key
+                    " to method get_authentication_data" % key
                 )
             params[key] = val
         del params["kwargs"]
         # verify the required parameter 'payment_id' is set
         if "payment_id" not in params or params["payment_id"] is None:
             raise ValueError(
-                "Missing the required parameter `payment_id` when calling `get_authentication_data1`"
+                "Missing the required parameter `payment_id` when calling `get_authentication_data`"
             )  # noqa: E501
 
         collection_formats = {}

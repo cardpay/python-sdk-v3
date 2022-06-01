@@ -110,31 +110,29 @@ class ReportsApiControllerApi(object):
             collection_formats=collection_formats,
         )
 
-    def g_et_reports_content(self, file_id, **kwargs):  # noqa: E501
-        """Download prepared file: single report by id or all reports collected into archive by sample id  # noqa: E501
+    def g_et_reports_content(self, id, **kwargs):  # noqa: E501
+        """Download the report file  # noqa: E501
 
-        :param str file_id: file_id (required)
+        :param str id: id (required)
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs["_return_http_data_only"] = True
 
-        (data) = self.g_et_reports_content_with_http_info(
-            file_id, **kwargs
-        )  # noqa: E501
+        (data) = self.g_et_reports_content_with_http_info(id, **kwargs)  # noqa: E501
         return data
 
-    def g_et_reports_content_with_http_info(self, file_id, **kwargs):  # noqa: E501
-        """Download prepared file: single report by id or all reports collected into archive by sample id  # noqa: E501
+    def g_et_reports_content_with_http_info(self, id, **kwargs):  # noqa: E501
+        """Download the report file  # noqa: E501
 
-        :param str file_id: file_id (required)
+        :param str id: id (required)
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ["file_id"]  # noqa: E501
+        all_params = ["id"]  # noqa: E501
         all_params.append("_return_http_data_only")
         all_params.append("_preload_content")
         all_params.append("_request_timeout")
@@ -148,19 +146,19 @@ class ReportsApiControllerApi(object):
                 )
             params[key] = val
         del params["kwargs"]
-        # verify the required parameter 'file_id' is set
-        if "file_id" not in params or params["file_id"] is None:
+        # verify the required parameter 'id' is set
+        if "id" not in params or params["id"] is None:
             raise ValueError(
-                "Missing the required parameter `file_id` when calling `g_et_reports_content`"
+                "Missing the required parameter `id` when calling `g_et_reports_content`"
             )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
+        if "id" in params:
+            path_params["id"] = params["id"]  # noqa: E501
 
         query_params = []
-        if "file_id" in params:
-            query_params.append(("file_id", params["file_id"]))  # noqa: E501
 
         header_params = {}
 
@@ -174,7 +172,7 @@ class ReportsApiControllerApi(object):
         )  # noqa: E501
 
         return self.api_client.call_api(
-            "/api/reports/download",
+            "/api/reports/download/{id}",
             "GET",
             path_params,
             query_params,
@@ -190,7 +188,7 @@ class ReportsApiControllerApi(object):
         )
 
     def p_ost_reports(self, request, **kwargs):  # noqa: E501
-        """Starts preparation of settlement reports for merchants  # noqa: E501
+        """Initiate the reports' preparation  # noqa: E501
 
         :param ReportsRequest request: request (required)
         :return: ReportsResponse
@@ -203,7 +201,7 @@ class ReportsApiControllerApi(object):
         return data
 
     def p_ost_reports_with_http_info(self, request, **kwargs):  # noqa: E501
-        """Starts preparation of settlement reports for merchants  # noqa: E501
+        """Initiate the reports' preparation  # noqa: E501
 
         :param ReportsRequest request: request (required)
         :return: ReportsResponse

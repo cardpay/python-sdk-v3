@@ -64,7 +64,7 @@ class ReportsRequest(object):
     def callback_url(self):
         """Gets the callback_url of this ReportsRequest.  # noqa: E501
 
-        Url for sending resulted callback. If field is skipped then callback won't be sent  # noqa: E501
+        Url for sending resulted callback. If field is skipped then callback won't be sent.  Common requirements for callback are actual https://integration.cardpay-test.com/#callbacks  # noqa: E501
 
         :return: The callback_url of this ReportsRequest.  # noqa: E501
         :rtype: str
@@ -75,7 +75,7 @@ class ReportsRequest(object):
     def callback_url(self, callback_url):
         """Sets the callback_url of this ReportsRequest.
 
-        Url for sending resulted callback. If field is skipped then callback won't be sent  # noqa: E501
+        Url for sending resulted callback. If field is skipped then callback won't be sent.  Common requirements for callback are actual https://integration.cardpay-test.com/#callbacks  # noqa: E501
 
         :param callback_url: The callback_url of this ReportsRequest.  # noqa: E501
         :type: str
@@ -95,7 +95,7 @@ class ReportsRequest(object):
     def reports_data(self):
         """Gets the reports_data of this ReportsRequest.  # noqa: E501
 
-        Contains data which describe requested report  # noqa: E501
+        ReportsData  # noqa: E501
 
         :return: The reports_data of this ReportsRequest.  # noqa: E501
         :rtype: ReportsData
@@ -106,7 +106,7 @@ class ReportsRequest(object):
     def reports_data(self, reports_data):
         """Sets the reports_data of this ReportsRequest.
 
-        Contains data which describe requested report  # noqa: E501
+        ReportsData  # noqa: E501
 
         :param reports_data: The reports_data of this ReportsRequest.  # noqa: E501
         :type: ReportsData
