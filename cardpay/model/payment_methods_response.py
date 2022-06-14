@@ -141,7 +141,7 @@ class PaymentMethodsResponse(object):
     def supported_payment_methods(self):
         """Gets the supported_payment_methods of this PaymentMethodsResponse.  # noqa: E501
 
-        Supported by adapter Payment Methods  # noqa: E501
+        Supported payment methods  # noqa: E501
 
         :return: The supported_payment_methods of this PaymentMethodsResponse.  # noqa: E501
         :rtype: list[SupportedPaymentMethod]
@@ -152,7 +152,7 @@ class PaymentMethodsResponse(object):
     def supported_payment_methods(self, supported_payment_methods):
         """Sets the supported_payment_methods of this PaymentMethodsResponse.
 
-        Supported by adapter Payment Methods  # noqa: E501
+        Supported payment methods  # noqa: E501
 
         :param supported_payment_methods: The supported_payment_methods of this PaymentMethodsResponse.  # noqa: E501
         :type: list[SupportedPaymentMethod]
