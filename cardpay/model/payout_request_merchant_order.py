@@ -30,20 +30,56 @@ class PayoutRequestMerchantOrder(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"description": "str", "id": "str"}
+    swagger_types = {
+        "cryptocurrency_indicator": "bool",
+        "description": "str",
+        "id": "str",
+    }
 
-    attribute_map = {"description": "description", "id": "id"}
+    attribute_map = {
+        "cryptocurrency_indicator": "cryptocurrency_indicator",
+        "description": "description",
+        "id": "id",
+    }
 
-    def __init__(self, description=None, id=None):  # noqa: E501
+    def __init__(
+        self, cryptocurrency_indicator=None, description=None, id=None
+    ):  # noqa: E501
         """PayoutRequestMerchantOrder - a model defined in Swagger"""  # noqa: E501
 
+        self._cryptocurrency_indicator = None
         self._description = None
         self._id = None
         self.discriminator = None
 
+        if cryptocurrency_indicator is not None:
+            self.cryptocurrency_indicator = cryptocurrency_indicator
         if description is not None:
             self.description = description
         self.id = id
+
+    @property
+    def cryptocurrency_indicator(self):
+        """Gets the cryptocurrency_indicator of this PayoutRequestMerchantOrder.  # noqa: E501
+
+        Indicator should be added if there will be cryptocurrency in transaction  # noqa: E501
+
+        :return: The cryptocurrency_indicator of this PayoutRequestMerchantOrder.  # noqa: E501
+        :rtype: bool
+        """
+        return self._cryptocurrency_indicator
+
+    @cryptocurrency_indicator.setter
+    def cryptocurrency_indicator(self, cryptocurrency_indicator):
+        """Sets the cryptocurrency_indicator of this PayoutRequestMerchantOrder.
+
+        Indicator should be added if there will be cryptocurrency in transaction  # noqa: E501
+
+        :param cryptocurrency_indicator: The cryptocurrency_indicator of this PayoutRequestMerchantOrder.  # noqa: E501
+        :type: bool
+        """
+
+        self._cryptocurrency_indicator = cryptocurrency_indicator
 
     @property
     def description(self):
