@@ -30,21 +30,55 @@ class PaymentGatewayResponsePaymentData(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"id": "str", "separate_auth": "bool"}
+    swagger_types = {
+        "extended_data": "dict(str, str)",
+        "id": "str",
+        "separate_auth": "bool",
+    }
 
-    attribute_map = {"id": "id", "separate_auth": "separate_auth"}
+    attribute_map = {
+        "extended_data": "extended_data",
+        "id": "id",
+        "separate_auth": "separate_auth",
+    }
 
-    def __init__(self, id=None, separate_auth=None):  # noqa: E501
+    def __init__(self, extended_data=None, id=None, separate_auth=None):  # noqa: E501
         """PaymentGatewayResponsePaymentData - a model defined in Swagger"""  # noqa: E501
 
+        self._extended_data = None
         self._id = None
         self._separate_auth = None
         self.discriminator = None
 
+        if extended_data is not None:
+            self.extended_data = extended_data
         if id is not None:
             self.id = id
         if separate_auth is not None:
             self.separate_auth = separate_auth
+
+    @property
+    def extended_data(self):
+        """Gets the extended_data of this PaymentGatewayResponsePaymentData.  # noqa: E501
+
+        Extended structure with information for processing a payment in gateway mode. Contact your account manager to enable it  # noqa: E501
+
+        :return: The extended_data of this PaymentGatewayResponsePaymentData.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._extended_data
+
+    @extended_data.setter
+    def extended_data(self, extended_data):
+        """Sets the extended_data of this PaymentGatewayResponsePaymentData.
+
+        Extended structure with information for processing a payment in gateway mode. Contact your account manager to enable it  # noqa: E501
+
+        :param extended_data: The extended_data of this PaymentGatewayResponsePaymentData.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._extended_data = extended_data
 
     @property
     def id(self):

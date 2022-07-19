@@ -39,7 +39,6 @@ class PaymentResponsePaymentData(object):
         "currency": "str",
         "decline_code": "str",
         "decline_reason": "str",
-        "extended_data": "dict(str, str)",
         "id": "str",
         "installment_type": "str",
         "installments": "str",
@@ -60,7 +59,6 @@ class PaymentResponsePaymentData(object):
         "currency": "currency",
         "decline_code": "decline_code",
         "decline_reason": "decline_reason",
-        "extended_data": "extended_data",
         "id": "id",
         "installment_type": "installment_type",
         "installments": "installments",
@@ -82,7 +80,6 @@ class PaymentResponsePaymentData(object):
         currency=None,
         decline_code=None,
         decline_reason=None,
-        extended_data=None,
         id=None,
         installment_type=None,
         installments=None,
@@ -103,7 +100,6 @@ class PaymentResponsePaymentData(object):
         self._currency = None
         self._decline_code = None
         self._decline_reason = None
-        self._extended_data = None
         self._id = None
         self._installment_type = None
         self._installments = None
@@ -131,8 +127,6 @@ class PaymentResponsePaymentData(object):
             self.decline_code = decline_code
         if decline_reason is not None:
             self.decline_reason = decline_reason
-        if extended_data is not None:
-            self.extended_data = extended_data
         if id is not None:
             self.id = id
         if installment_type is not None:
@@ -335,29 +329,6 @@ class PaymentResponsePaymentData(object):
         """
 
         self._decline_reason = decline_reason
-
-    @property
-    def extended_data(self):
-        """Gets the extended_data of this PaymentResponsePaymentData.  # noqa: E501
-
-        Extended structure with information for processing a payment in gateway mode. Contact your account manager to enable it  # noqa: E501
-
-        :return: The extended_data of this PaymentResponsePaymentData.  # noqa: E501
-        :rtype: dict(str, str)
-        """
-        return self._extended_data
-
-    @extended_data.setter
-    def extended_data(self, extended_data):
-        """Sets the extended_data of this PaymentResponsePaymentData.
-
-        Extended structure with information for processing a payment in gateway mode. Contact your account manager to enable it  # noqa: E501
-
-        :param extended_data: The extended_data of this PaymentResponsePaymentData.  # noqa: E501
-        :type: dict(str, str)
-        """
-
-        self._extended_data = extended_data
 
     @property
     def id(self):

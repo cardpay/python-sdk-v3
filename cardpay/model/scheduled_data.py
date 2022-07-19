@@ -34,6 +34,7 @@ class ScheduledData(object):
     """
     swagger_types = {
         "dynamic_descriptor": "str",
+        "encrypted_data": "str",
         "generate_token": "bool",
         "initial_amount": "float",
         "initiator": "str",
@@ -47,6 +48,7 @@ class ScheduledData(object):
 
     attribute_map = {
         "dynamic_descriptor": "dynamic_descriptor",
+        "encrypted_data": "encrypted_data",
         "generate_token": "generate_token",
         "initial_amount": "initial_amount",
         "initiator": "initiator",
@@ -61,6 +63,7 @@ class ScheduledData(object):
     def __init__(
         self,
         dynamic_descriptor=None,
+        encrypted_data=None,
         generate_token=None,
         initial_amount=None,
         initiator=None,
@@ -74,6 +77,7 @@ class ScheduledData(object):
         """ScheduledData - a model defined in Swagger"""  # noqa: E501
 
         self._dynamic_descriptor = None
+        self._encrypted_data = None
         self._generate_token = None
         self._initial_amount = None
         self._initiator = None
@@ -87,6 +91,8 @@ class ScheduledData(object):
 
         if dynamic_descriptor is not None:
             self.dynamic_descriptor = dynamic_descriptor
+        if encrypted_data is not None:
+            self.encrypted_data = encrypted_data
         if generate_token is not None:
             self.generate_token = generate_token
         if initial_amount is not None:
@@ -135,6 +141,37 @@ class ScheduledData(object):
             )  # noqa: E501
 
         self._dynamic_descriptor = dynamic_descriptor
+
+    @property
+    def encrypted_data(self):
+        """Gets the encrypted_data of this ScheduledData.  # noqa: E501
+
+        The encrypted payment credentials encoded in base64. *(for APPLEPAY payment method only)*  # noqa: E501
+
+        :return: The encrypted_data of this ScheduledData.  # noqa: E501
+        :rtype: str
+        """
+        return self._encrypted_data
+
+    @encrypted_data.setter
+    def encrypted_data(self, encrypted_data):
+        """Sets the encrypted_data of this ScheduledData.
+
+        The encrypted payment credentials encoded in base64. *(for APPLEPAY payment method only)*  # noqa: E501
+
+        :param encrypted_data: The encrypted_data of this ScheduledData.  # noqa: E501
+        :type: str
+        """
+        if encrypted_data is not None and len(encrypted_data) > 10000:
+            raise ValueError(
+                "Invalid value for `encrypted_data`, length must be less than or equal to `10000`"
+            )  # noqa: E501
+        if encrypted_data is not None and len(encrypted_data) < 0:
+            raise ValueError(
+                "Invalid value for `encrypted_data`, length must be greater than or equal to `0`"
+            )  # noqa: E501
+
+        self._encrypted_data = encrypted_data
 
     @property
     def generate_token(self):
