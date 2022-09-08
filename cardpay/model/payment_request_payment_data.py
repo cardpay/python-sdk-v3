@@ -42,6 +42,7 @@ class PaymentRequestPaymentData(object):
         "installments": "str",
         "note": "str",
         "preauth": "bool",
+        "sca_exemption": "str",
         "three_ds_challenge_indicator": "str",
         "trans_type": "str",
     }
@@ -58,6 +59,7 @@ class PaymentRequestPaymentData(object):
         "installments": "installments",
         "note": "note",
         "preauth": "preauth",
+        "sca_exemption": "sca_exemption",
         "three_ds_challenge_indicator": "three_ds_challenge_indicator",
         "trans_type": "trans_type",
     }
@@ -75,6 +77,7 @@ class PaymentRequestPaymentData(object):
         installments=None,
         note=None,
         preauth=None,
+        sca_exemption=None,
         three_ds_challenge_indicator=None,
         trans_type=None,
     ):  # noqa: E501
@@ -91,6 +94,7 @@ class PaymentRequestPaymentData(object):
         self._installments = None
         self._note = None
         self._preauth = None
+        self._sca_exemption = None
         self._three_ds_challenge_indicator = None
         self._trans_type = None
         self.discriminator = None
@@ -116,6 +120,8 @@ class PaymentRequestPaymentData(object):
             self.note = note
         if preauth is not None:
             self.preauth = preauth
+        if sca_exemption is not None:
+            self.sca_exemption = sca_exemption
         if three_ds_challenge_indicator is not None:
             self.three_ds_challenge_indicator = three_ds_challenge_indicator
         if trans_type is not None:
@@ -407,6 +413,35 @@ class PaymentRequestPaymentData(object):
         """
 
         self._preauth = preauth
+
+    @property
+    def sca_exemption(self):
+        """Gets the sca_exemption of this PaymentRequestPaymentData.  # noqa: E501
+
+        Indicates the exemption type that you want to request for the transaction. Possible value: LOW_VALUE  # noqa: E501
+
+        :return: The sca_exemption of this PaymentRequestPaymentData.  # noqa: E501
+        :rtype: str
+        """
+        return self._sca_exemption
+
+    @sca_exemption.setter
+    def sca_exemption(self, sca_exemption):
+        """Sets the sca_exemption of this PaymentRequestPaymentData.
+
+        Indicates the exemption type that you want to request for the transaction. Possible value: LOW_VALUE  # noqa: E501
+
+        :param sca_exemption: The sca_exemption of this PaymentRequestPaymentData.  # noqa: E501
+        :type: str
+        """
+        if sca_exemption is not None and not re.search(
+            r"LOW_VALUE", sca_exemption
+        ):  # noqa: E501
+            raise ValueError(
+                r"Invalid value for `sca_exemption`, must be a follow pattern or equal to `/LOW_VALUE/`"
+            )  # noqa: E501
+
+        self._sca_exemption = sca_exemption
 
     @property
     def three_ds_challenge_indicator(self):

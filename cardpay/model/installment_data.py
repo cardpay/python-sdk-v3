@@ -118,7 +118,7 @@ class InstallmentData(object):
     def amount(self):
         """Gets the amount of this InstallmentData.  # noqa: E501
 
-        The total transaction amount in selected currency with dot as a decimal separator, must be less than 100 millions  # noqa: E501
+        The total transaction amount in selected currency with dot as a decimal separator, must be less than 10 billion  # noqa: E501
 
         :return: The amount of this InstallmentData.  # noqa: E501
         :rtype: float
@@ -129,7 +129,7 @@ class InstallmentData(object):
     def amount(self, amount):
         """Sets the amount of this InstallmentData.
 
-        The total transaction amount in selected currency with dot as a decimal separator, must be less than 100 millions  # noqa: E501
+        The total transaction amount in selected currency with dot as a decimal separator, must be less than 10 billion  # noqa: E501
 
         :param amount: The amount of this InstallmentData.  # noqa: E501
         :type: float

@@ -37,6 +37,7 @@ class PaymentRequestCardAccount(object):
         "billing_address": "BillingAddress",
         "card": "PaymentRequestCard",
         "encrypted_card_data": "str",
+        "recipient_info": "str",
         "token": "str",
     }
 
@@ -44,17 +45,24 @@ class PaymentRequestCardAccount(object):
         "billing_address": "billing_address",
         "card": "card",
         "encrypted_card_data": "encrypted_card_data",
+        "recipient_info": "recipient_info",
         "token": "token",
     }
 
     def __init__(
-        self, billing_address=None, card=None, encrypted_card_data=None, token=None
+        self,
+        billing_address=None,
+        card=None,
+        encrypted_card_data=None,
+        recipient_info=None,
+        token=None,
     ):  # noqa: E501
         """PaymentRequestCardAccount - a model defined in Swagger"""  # noqa: E501
 
         self._billing_address = None
         self._card = None
         self._encrypted_card_data = None
+        self._recipient_info = None
         self._token = None
         self.discriminator = None
 
@@ -64,6 +72,8 @@ class PaymentRequestCardAccount(object):
             self.card = card
         if encrypted_card_data is not None:
             self.encrypted_card_data = encrypted_card_data
+        if recipient_info is not None:
+            self.recipient_info = recipient_info
         if token is not None:
             self.token = token
 
@@ -143,6 +153,37 @@ class PaymentRequestCardAccount(object):
             )  # noqa: E501
 
         self._encrypted_card_data = encrypted_card_data
+
+    @property
+    def recipient_info(self):
+        """Gets the recipient_info of this PaymentRequestCardAccount.  # noqa: E501
+
+        Recipient full name. Property `recipient_info` may be required by Bank. In most cases it's Cardholder's name, contact Unlimint manager for requirements. Mandatory only for money transfer operation.  # noqa: E501
+
+        :return: The recipient_info of this PaymentRequestCardAccount.  # noqa: E501
+        :rtype: str
+        """
+        return self._recipient_info
+
+    @recipient_info.setter
+    def recipient_info(self, recipient_info):
+        """Sets the recipient_info of this PaymentRequestCardAccount.
+
+        Recipient full name. Property `recipient_info` may be required by Bank. In most cases it's Cardholder's name, contact Unlimint manager for requirements. Mandatory only for money transfer operation.  # noqa: E501
+
+        :param recipient_info: The recipient_info of this PaymentRequestCardAccount.  # noqa: E501
+        :type: str
+        """
+        if recipient_info is not None and len(recipient_info) > 500:
+            raise ValueError(
+                "Invalid value for `recipient_info`, length must be less than or equal to `500`"
+            )  # noqa: E501
+        if recipient_info is not None and len(recipient_info) < 0:
+            raise ValueError(
+                "Invalid value for `recipient_info`, length must be greater than or equal to `0`"
+            )  # noqa: E501
+
+        self._recipient_info = recipient_info
 
     @property
     def token(self):

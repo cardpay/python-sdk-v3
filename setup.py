@@ -12,7 +12,7 @@ with open(os.path.join(here, "README.md"), "r", encoding="utf-8") as fp:
 
 setup(
     name="cardpay",
-    version="3.24.2",
+    version="3.27.13",
     description="Unlimint APIv3 Python SDK",
     author_email="",
     url="https://github.com/cardpay/python-sdk-v3.git",

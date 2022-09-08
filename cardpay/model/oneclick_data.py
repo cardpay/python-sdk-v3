@@ -43,6 +43,7 @@ class OneclickData(object):
         "initiator": "str",
         "note": "str",
         "preauth": "bool",
+        "sca_exemption": "str",
         "three_ds_challenge_indicator": "str",
         "trans_type": "str",
     }
@@ -56,6 +57,7 @@ class OneclickData(object):
         "initiator": "initiator",
         "note": "note",
         "preauth": "preauth",
+        "sca_exemption": "sca_exemption",
         "three_ds_challenge_indicator": "three_ds_challenge_indicator",
         "trans_type": "trans_type",
     }
@@ -70,6 +72,7 @@ class OneclickData(object):
         initiator=None,
         note=None,
         preauth=None,
+        sca_exemption=None,
         three_ds_challenge_indicator=None,
         trans_type=None,
     ):  # noqa: E501
@@ -83,6 +86,7 @@ class OneclickData(object):
         self._initiator = None
         self._note = None
         self._preauth = None
+        self._sca_exemption = None
         self._three_ds_challenge_indicator = None
         self._trans_type = None
         self.discriminator = None
@@ -101,6 +105,8 @@ class OneclickData(object):
             self.note = note
         if preauth is not None:
             self.preauth = preauth
+        if sca_exemption is not None:
+            self.sca_exemption = sca_exemption
         if three_ds_challenge_indicator is not None:
             self.three_ds_challenge_indicator = three_ds_challenge_indicator
         if trans_type is not None:
@@ -110,7 +116,7 @@ class OneclickData(object):
     def amount(self):
         """Gets the amount of this OneclickData.  # noqa: E501
 
-        The total transaction amount in selected currency with dot as a decimal separator, must be less than 100 millions  # noqa: E501
+        The total transaction amount in selected currency with dot as a decimal separator, must be less than 10 billion  # noqa: E501
 
         :return: The amount of this OneclickData.  # noqa: E501
         :rtype: float
@@ -121,7 +127,7 @@ class OneclickData(object):
     def amount(self, amount):
         """Sets the amount of this OneclickData.
 
-        The total transaction amount in selected currency with dot as a decimal separator, must be less than 100 millions  # noqa: E501
+        The total transaction amount in selected currency with dot as a decimal separator, must be less than 10 billion  # noqa: E501
 
         :param amount: The amount of this OneclickData.  # noqa: E501
         :type: float
@@ -317,6 +323,35 @@ class OneclickData(object):
         """
 
         self._preauth = preauth
+
+    @property
+    def sca_exemption(self):
+        """Gets the sca_exemption of this OneclickData.  # noqa: E501
+
+        Indicates the exemption type that you want to request for the transaction. Possible value: LOW_VALUE  # noqa: E501
+
+        :return: The sca_exemption of this OneclickData.  # noqa: E501
+        :rtype: str
+        """
+        return self._sca_exemption
+
+    @sca_exemption.setter
+    def sca_exemption(self, sca_exemption):
+        """Sets the sca_exemption of this OneclickData.
+
+        Indicates the exemption type that you want to request for the transaction. Possible value: LOW_VALUE  # noqa: E501
+
+        :param sca_exemption: The sca_exemption of this OneclickData.  # noqa: E501
+        :type: str
+        """
+        if sca_exemption is not None and not re.search(
+            r"LOW_VALUE", sca_exemption
+        ):  # noqa: E501
+            raise ValueError(
+                r"Invalid value for `sca_exemption`, must be a follow pattern or equal to `/LOW_VALUE/`"
+            )  # noqa: E501
+
+        self._sca_exemption = sca_exemption
 
     @property
     def three_ds_challenge_indicator(self):
