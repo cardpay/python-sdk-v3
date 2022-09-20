@@ -29,6 +29,8 @@ from cardpay.model.authentication_error import AuthenticationError
 from cardpay.model.bad_request_error import BadRequestError
 from cardpay.model.bank_card_payout_data import BankCardPayoutData
 from cardpay.model.billing_address import BillingAddress
+from cardpay.model.card_info_request import CardInfoRequest
+from cardpay.model.card_info_response import CardInfoResponse
 from cardpay.model.change_subscription_status_claim_response import (
     ChangeSubscriptionStatusClaimResponse,
 )
@@ -215,6 +217,7 @@ from cardpay.model.recurring_update_request import RecurringUpdateRequest
 
 # import apis into api package
 from cardpay.api.auth_api import AuthApi
+from cardpay.api.card_info_api import CardInfoApi
 from cardpay.api.limits_api import LimitsApi
 from cardpay.api.payments_api import PaymentsApi
 from cardpay.api.payouts_api import PayoutsApi
