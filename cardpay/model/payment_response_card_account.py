@@ -32,8 +32,11 @@ class PaymentResponseCardAccount(object):
     """
     swagger_types = {
         "acct_type": "str",
+        "card_brand": "str",
+        "card_type": "str",
         "expiration": "str",
         "holder": "str",
+        "issuer": "str",
         "issuing_country_code": "str",
         "masked_pan": "str",
         "token": "str",
@@ -41,8 +44,11 @@ class PaymentResponseCardAccount(object):
 
     attribute_map = {
         "acct_type": "acct_type",
+        "card_brand": "card_brand",
+        "card_type": "card_type",
         "expiration": "expiration",
         "holder": "holder",
+        "issuer": "issuer",
         "issuing_country_code": "issuing_country_code",
         "masked_pan": "masked_pan",
         "token": "token",
@@ -51,8 +57,11 @@ class PaymentResponseCardAccount(object):
     def __init__(
         self,
         acct_type=None,
+        card_brand=None,
+        card_type=None,
         expiration=None,
         holder=None,
+        issuer=None,
         issuing_country_code=None,
         masked_pan=None,
         token=None,
@@ -60,8 +69,11 @@ class PaymentResponseCardAccount(object):
         """PaymentResponseCardAccount - a model defined in Swagger"""  # noqa: E501
 
         self._acct_type = None
+        self._card_brand = None
+        self._card_type = None
         self._expiration = None
         self._holder = None
+        self._issuer = None
         self._issuing_country_code = None
         self._masked_pan = None
         self._token = None
@@ -69,10 +81,16 @@ class PaymentResponseCardAccount(object):
 
         if acct_type is not None:
             self.acct_type = acct_type
+        if card_brand is not None:
+            self.card_brand = card_brand
+        if card_type is not None:
+            self.card_type = card_type
         if expiration is not None:
             self.expiration = expiration
         if holder is not None:
             self.holder = holder
+        if issuer is not None:
+            self.issuer = issuer
         if issuing_country_code is not None:
             self.issuing_country_code = issuing_country_code
         if masked_pan is not None:
@@ -112,6 +130,72 @@ class PaymentResponseCardAccount(object):
             )
 
         self._acct_type = acct_type
+
+    @property
+    def card_brand(self):
+        """Gets the card_brand of this PaymentResponseCardAccount.  # noqa: E501
+
+        Card brand  # noqa: E501
+
+        :return: The card_brand of this PaymentResponseCardAccount.  # noqa: E501
+        :rtype: str
+        """
+        return self._card_brand
+
+    @card_brand.setter
+    def card_brand(self, card_brand):
+        """Sets the card_brand of this PaymentResponseCardAccount.
+
+        Card brand  # noqa: E501
+
+        :param card_brand: The card_brand of this PaymentResponseCardAccount.  # noqa: E501
+        :type: str
+        """
+
+        self._card_brand = card_brand
+
+    class CardType(object):
+        DEBIT = "DEBIT"
+        CREDIT = "CREDIT"
+        PREPAID = "PREPAID"
+        OTHER = "OTHER"
+        UNKNOWN = "UNKNOWN"
+
+    @property
+    def card_type(self):
+        """Gets the card_type of this PaymentResponseCardAccount.  # noqa: E501
+
+        Card type  # noqa: E501
+
+        :return: The card_type of this PaymentResponseCardAccount.  # noqa: E501
+        :rtype: str
+        """
+        return self._card_type
+
+    @card_type.setter
+    def card_type(self, card_type):
+        """Sets the card_type of this PaymentResponseCardAccount.
+
+        Card type  # noqa: E501
+
+        :param card_type: The card_type of this PaymentResponseCardAccount.  # noqa: E501
+        :type: str
+        """
+        allowed_values = [
+            "DEBIT",
+            "CREDIT",
+            "PREPAID",
+            "OTHER",
+            "UNKNOWN",
+        ]  # noqa: E501
+        if card_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `card_type` ({0}), must be one of {1}".format(  # noqa: E501
+                    card_type, allowed_values
+                )
+            )
+
+        self._card_type = card_type
 
     @property
     def expiration(self):
@@ -158,6 +242,29 @@ class PaymentResponseCardAccount(object):
         """
 
         self._holder = holder
+
+    @property
+    def issuer(self):
+        """Gets the issuer of this PaymentResponseCardAccount.  # noqa: E501
+
+        Card issuer  # noqa: E501
+
+        :return: The issuer of this PaymentResponseCardAccount.  # noqa: E501
+        :rtype: str
+        """
+        return self._issuer
+
+    @issuer.setter
+    def issuer(self, issuer):
+        """Sets the issuer of this PaymentResponseCardAccount.
+
+        Card issuer  # noqa: E501
+
+        :param issuer: The issuer of this PaymentResponseCardAccount.  # noqa: E501
+        :type: str
+        """
+
+        self._issuer = issuer
 
     @property
     def issuing_country_code(self):

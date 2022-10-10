@@ -30,24 +30,138 @@ class RefundResponseCard(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"issuing_country_code": "str", "masked_pan": "str"}
+    swagger_types = {
+        "card_brand": "str",
+        "card_type": "str",
+        "issuer": "str",
+        "issuing_country_code": "str",
+        "masked_pan": "str",
+    }
 
     attribute_map = {
+        "card_brand": "card_brand",
+        "card_type": "card_type",
+        "issuer": "issuer",
         "issuing_country_code": "issuing_country_code",
         "masked_pan": "masked_pan",
     }
 
-    def __init__(self, issuing_country_code=None, masked_pan=None):  # noqa: E501
+    def __init__(
+        self,
+        card_brand=None,
+        card_type=None,
+        issuer=None,
+        issuing_country_code=None,
+        masked_pan=None,
+    ):  # noqa: E501
         """RefundResponseCard - a model defined in Swagger"""  # noqa: E501
 
+        self._card_brand = None
+        self._card_type = None
+        self._issuer = None
         self._issuing_country_code = None
         self._masked_pan = None
         self.discriminator = None
 
+        if card_brand is not None:
+            self.card_brand = card_brand
+        if card_type is not None:
+            self.card_type = card_type
+        if issuer is not None:
+            self.issuer = issuer
         if issuing_country_code is not None:
             self.issuing_country_code = issuing_country_code
         if masked_pan is not None:
             self.masked_pan = masked_pan
+
+    @property
+    def card_brand(self):
+        """Gets the card_brand of this RefundResponseCard.  # noqa: E501
+
+        Card brand  # noqa: E501
+
+        :return: The card_brand of this RefundResponseCard.  # noqa: E501
+        :rtype: str
+        """
+        return self._card_brand
+
+    @card_brand.setter
+    def card_brand(self, card_brand):
+        """Sets the card_brand of this RefundResponseCard.
+
+        Card brand  # noqa: E501
+
+        :param card_brand: The card_brand of this RefundResponseCard.  # noqa: E501
+        :type: str
+        """
+
+        self._card_brand = card_brand
+
+    class CardType(object):
+        DEBIT = "DEBIT"
+        CREDIT = "CREDIT"
+        PREPAID = "PREPAID"
+        OTHER = "OTHER"
+        UNKNOWN = "UNKNOWN"
+
+    @property
+    def card_type(self):
+        """Gets the card_type of this RefundResponseCard.  # noqa: E501
+
+        Card type  # noqa: E501
+
+        :return: The card_type of this RefundResponseCard.  # noqa: E501
+        :rtype: str
+        """
+        return self._card_type
+
+    @card_type.setter
+    def card_type(self, card_type):
+        """Sets the card_type of this RefundResponseCard.
+
+        Card type  # noqa: E501
+
+        :param card_type: The card_type of this RefundResponseCard.  # noqa: E501
+        :type: str
+        """
+        allowed_values = [
+            "DEBIT",
+            "CREDIT",
+            "PREPAID",
+            "OTHER",
+            "UNKNOWN",
+        ]  # noqa: E501
+        if card_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `card_type` ({0}), must be one of {1}".format(  # noqa: E501
+                    card_type, allowed_values
+                )
+            )
+
+        self._card_type = card_type
+
+    @property
+    def issuer(self):
+        """Gets the issuer of this RefundResponseCard.  # noqa: E501
+
+        Card issuer  # noqa: E501
+
+        :return: The issuer of this RefundResponseCard.  # noqa: E501
+        :rtype: str
+        """
+        return self._issuer
+
+    @issuer.setter
+    def issuer(self, issuer):
+        """Sets the issuer of this RefundResponseCard.
+
+        Card issuer  # noqa: E501
+
+        :param issuer: The issuer of this RefundResponseCard.  # noqa: E501
+        :type: str
+        """
+
+        self._issuer = issuer
 
     @property
     def issuing_country_code(self):

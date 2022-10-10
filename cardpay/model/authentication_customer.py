@@ -35,8 +35,10 @@ class AuthenticationCustomer(object):
         "home_phone": "str",
         "id": "str",
         "ip": "str",
+        "ip_country": "str",
         "locale": "str",
         "phone": "str",
+        "user_agent": "str",
         "work_phone": "str",
     }
 
@@ -45,8 +47,10 @@ class AuthenticationCustomer(object):
         "home_phone": "home_phone",
         "id": "id",
         "ip": "ip",
+        "ip_country": "ip_country",
         "locale": "locale",
         "phone": "phone",
+        "user_agent": "user_agent",
         "work_phone": "work_phone",
     }
 
@@ -56,8 +60,10 @@ class AuthenticationCustomer(object):
         home_phone=None,
         id=None,
         ip=None,
+        ip_country=None,
         locale=None,
         phone=None,
+        user_agent=None,
         work_phone=None,
     ):  # noqa: E501
         """AuthenticationCustomer - a model defined in Swagger"""  # noqa: E501
@@ -66,8 +72,10 @@ class AuthenticationCustomer(object):
         self._home_phone = None
         self._id = None
         self._ip = None
+        self._ip_country = None
         self._locale = None
         self._phone = None
+        self._user_agent = None
         self._work_phone = None
         self.discriminator = None
 
@@ -79,10 +87,14 @@ class AuthenticationCustomer(object):
             self.id = id
         if ip is not None:
             self.ip = ip
+        if ip_country is not None:
+            self.ip_country = ip_country
         if locale is not None:
             self.locale = locale
         if phone is not None:
             self.phone = phone
+        if user_agent is not None:
+            self.user_agent = user_agent
         if work_phone is not None:
             self.work_phone = work_phone
 
@@ -179,6 +191,29 @@ class AuthenticationCustomer(object):
         self._ip = ip
 
     @property
+    def ip_country(self):
+        """Gets the ip_country of this AuthenticationCustomer.  # noqa: E501
+
+        Customer country by IP  # noqa: E501
+
+        :return: The ip_country of this AuthenticationCustomer.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_country
+
+    @ip_country.setter
+    def ip_country(self, ip_country):
+        """Sets the ip_country of this AuthenticationCustomer.
+
+        Customer country by IP  # noqa: E501
+
+        :param ip_country: The ip_country of this AuthenticationCustomer.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_country = ip_country
+
+    @property
     def locale(self):
         """Gets the locale of this AuthenticationCustomer.  # noqa: E501
 
@@ -223,6 +258,29 @@ class AuthenticationCustomer(object):
         """
 
         self._phone = phone
+
+    @property
+    def user_agent(self):
+        """Gets the user_agent of this AuthenticationCustomer.  # noqa: E501
+
+        User agent  # noqa: E501
+
+        :return: The user_agent of this AuthenticationCustomer.  # noqa: E501
+        :rtype: str
+        """
+        return self._user_agent
+
+    @user_agent.setter
+    def user_agent(self, user_agent):
+        """Sets the user_agent of this AuthenticationCustomer.
+
+        User agent  # noqa: E501
+
+        :param user_agent: The user_agent of this AuthenticationCustomer.  # noqa: E501
+        :type: str
+        """
+
+        self._user_agent = user_agent
 
     @property
     def work_phone(self):

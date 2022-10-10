@@ -30,21 +30,39 @@ class RefundResponseCustomer(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"email": "str", "id": "str"}
+    swagger_types = {
+        "email": "str",
+        "id": "str",
+        "ip_country": "str",
+        "user_agent": "str",
+    }
 
-    attribute_map = {"email": "email", "id": "id"}
+    attribute_map = {
+        "email": "email",
+        "id": "id",
+        "ip_country": "ip_country",
+        "user_agent": "user_agent",
+    }
 
-    def __init__(self, email=None, id=None):  # noqa: E501
+    def __init__(
+        self, email=None, id=None, ip_country=None, user_agent=None
+    ):  # noqa: E501
         """RefundResponseCustomer - a model defined in Swagger"""  # noqa: E501
 
         self._email = None
         self._id = None
+        self._ip_country = None
+        self._user_agent = None
         self.discriminator = None
 
         if email is not None:
             self.email = email
         if id is not None:
             self.id = id
+        if ip_country is not None:
+            self.ip_country = ip_country
+        if user_agent is not None:
+            self.user_agent = user_agent
 
     @property
     def email(self):
@@ -91,6 +109,52 @@ class RefundResponseCustomer(object):
         """
 
         self._id = id
+
+    @property
+    def ip_country(self):
+        """Gets the ip_country of this RefundResponseCustomer.  # noqa: E501
+
+        Customer country by IP  # noqa: E501
+
+        :return: The ip_country of this RefundResponseCustomer.  # noqa: E501
+        :rtype: str
+        """
+        return self._ip_country
+
+    @ip_country.setter
+    def ip_country(self, ip_country):
+        """Sets the ip_country of this RefundResponseCustomer.
+
+        Customer country by IP  # noqa: E501
+
+        :param ip_country: The ip_country of this RefundResponseCustomer.  # noqa: E501
+        :type: str
+        """
+
+        self._ip_country = ip_country
+
+    @property
+    def user_agent(self):
+        """Gets the user_agent of this RefundResponseCustomer.  # noqa: E501
+
+        User agent  # noqa: E501
+
+        :return: The user_agent of this RefundResponseCustomer.  # noqa: E501
+        :rtype: str
+        """
+        return self._user_agent
+
+    @user_agent.setter
+    def user_agent(self, user_agent):
+        """Sets the user_agent of this RefundResponseCustomer.
+
+        User agent  # noqa: E501
+
+        :param user_agent: The user_agent of this RefundResponseCustomer.  # noqa: E501
+        :type: str
+        """
+
+        self._user_agent = user_agent
 
     def to_dict(self):
         """Returns the model properties as a dict"""
