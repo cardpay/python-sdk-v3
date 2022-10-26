@@ -45,6 +45,7 @@ from cardpay.model.dispute_response_customer import DisputeResponseCustomer
 from cardpay.model.dispute_response_dispute_data import DisputeResponseDisputeData
 from cardpay.model.dispute_response_merchant_order import DisputeResponseMerchantOrder
 from cardpay.model.dispute_response_payment_data import DisputeResponsePaymentData
+from cardpay.model.ewallet_account import EwalletAccount
 from cardpay.model.filing_recurring_data import FilingRecurringData
 from cardpay.model.filing_request import FilingRequest
 from cardpay.model.filing_request_merchant_order import FilingRequestMerchantOrder
@@ -115,6 +116,8 @@ from cardpay.model.payout_response_payout_data import PayoutResponsePayoutData
 from cardpay.model.payout_update_request import PayoutUpdateRequest
 from cardpay.model.payout_update_response import PayoutUpdateResponse
 from cardpay.model.payouts_list import PayoutsList
+from cardpay.model.pix_account_details_request import PixAccountDetailsRequest
+from cardpay.model.pix_account_details_response import PixAccountDetailsResponse
 from cardpay.model.plan import Plan
 from cardpay.model.plan_data_list import PlanDataList
 from cardpay.model.plan_update_request import PlanUpdateRequest
@@ -221,6 +224,7 @@ from cardpay.api.card_info_api import CardInfoApi
 from cardpay.api.limits_api import LimitsApi
 from cardpay.api.payments_api import PaymentsApi
 from cardpay.api.payouts_api import PayoutsApi
+from cardpay.api.pix_account_details_api import PixAccountDetailsApi
 from cardpay.api.recurrings_api import RecurringsApi
 from cardpay.api.refunds_api import RefundsApi
 from cardpay.api.reports_api_controller_api import ReportsApiControllerApi

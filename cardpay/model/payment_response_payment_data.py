@@ -48,6 +48,7 @@ class PaymentResponsePaymentData(object):
         "rrn": "str",
         "status": "str",
         "trans_type": "str",
+        "type": "str",
     }
 
     attribute_map = {
@@ -68,6 +69,7 @@ class PaymentResponsePaymentData(object):
         "rrn": "rrn",
         "status": "status",
         "trans_type": "trans_type",
+        "type": "type",
     }
 
     def __init__(
@@ -89,6 +91,7 @@ class PaymentResponsePaymentData(object):
         rrn=None,
         status=None,
         trans_type=None,
+        type=None,
     ):  # noqa: E501
         """PaymentResponsePaymentData - a model defined in Swagger"""  # noqa: E501
 
@@ -109,6 +112,7 @@ class PaymentResponsePaymentData(object):
         self._rrn = None
         self._status = None
         self._trans_type = None
+        self._type = None
         self.discriminator = None
 
         if action_code is not None:
@@ -145,6 +149,8 @@ class PaymentResponsePaymentData(object):
             self.status = status
         if trans_type is not None:
             self.trans_type = trans_type
+        if type is not None:
+            self.type = type
 
     @property
     def action_code(self):
@@ -580,6 +586,29 @@ class PaymentResponsePaymentData(object):
             )
 
         self._trans_type = trans_type
+
+    @property
+    def type(self):
+        """Gets the type of this PaymentResponsePaymentData.  # noqa: E501
+
+        Payment type, can be PAYMENT, INSTALLMENT  # noqa: E501
+
+        :return: The type of this PaymentResponsePaymentData.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this PaymentResponsePaymentData.
+
+        Payment type, can be PAYMENT, INSTALLMENT  # noqa: E501
+
+        :param type: The type of this PaymentResponsePaymentData.  # noqa: E501
+        :type: str
+        """
+
+        self._type = type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

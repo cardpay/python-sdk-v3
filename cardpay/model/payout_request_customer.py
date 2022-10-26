@@ -163,9 +163,9 @@ class PayoutRequestCustomer(object):
             raise ValueError(
                 "Invalid value for `email`, length must be less than or equal to `256`"
             )  # noqa: E501
-        if email is not None and len(email) < 0:
+        if email is not None and len(email) < 3:
             raise ValueError(
-                "Invalid value for `email`, length must be greater than or equal to `0`"
+                "Invalid value for `email`, length must be greater than or equal to `3`"
             )  # noqa: E501
 
         self._email = email
