@@ -16,6 +16,7 @@ import re  # noqa: F401
 
 import six
 
+from cardpay.model.authentication_data import AuthenticationData  # noqa: F401,E501
 from cardpay.model.payment_response_card_account import (
     PaymentResponseCardAccount,
 )  # noqa: F401,E501
@@ -47,6 +48,7 @@ class RecurringResponse(object):
         "recurring_data": "RecurringResponseRecurringData",
         "card_account": "PaymentResponseCardAccount",
         "customer": "RecurringCustomer",
+        "authentication_data": "AuthenticationData",
     }
 
     attribute_map = {
@@ -55,6 +57,7 @@ class RecurringResponse(object):
         "recurring_data": "recurring_data",
         "card_account": "card_account",
         "customer": "customer",
+        "authentication_data": "authentication_data",
     }
 
     def __init__(
@@ -64,6 +67,7 @@ class RecurringResponse(object):
         recurring_data=None,
         card_account=None,
         customer=None,
+        authentication_data=None,
     ):  # noqa: E501
         """RecurringResponse - a model defined in Swagger"""  # noqa: E501
 
@@ -72,6 +76,7 @@ class RecurringResponse(object):
         self._recurring_data = None
         self._card_account = None
         self._customer = None
+        self._authentication_data = None
         self.discriminator = None
 
         if payment_method is not None:
@@ -84,6 +89,8 @@ class RecurringResponse(object):
             self.card_account = card_account
         if customer is not None:
             self.customer = customer
+        if authentication_data is not None:
+            self.authentication_data = authentication_data
 
     @property
     def payment_method(self):
@@ -199,6 +206,29 @@ class RecurringResponse(object):
         """
 
         self._customer = customer
+
+    @property
+    def authentication_data(self):
+        """Gets the authentication_data of this RecurringResponse.  # noqa: E501
+
+        Authentication data  # noqa: E501
+
+        :return: The authentication_data of this RecurringResponse.  # noqa: E501
+        :rtype: AuthenticationData
+        """
+        return self._authentication_data
+
+    @authentication_data.setter
+    def authentication_data(self, authentication_data):
+        """Sets the authentication_data of this RecurringResponse.
+
+        Authentication data  # noqa: E501
+
+        :param authentication_data: The authentication_data of this RecurringResponse.  # noqa: E501
+        :type: AuthenticationData
+        """
+
+        self._authentication_data = authentication_data
 
     def to_dict(self):
         """Returns the model properties as a dict"""
