@@ -57,6 +57,7 @@ class InvoiceCreationResponse(object):
     def invoice_data(self):
         """Gets the invoice_data of this InvoiceCreationResponse.  # noqa: E501
 
+        Structure of invoice data  # noqa: E501
 
         :return: The invoice_data of this InvoiceCreationResponse.  # noqa: E501
         :rtype: InvoiceCreationDataResponse
@@ -67,6 +68,7 @@ class InvoiceCreationResponse(object):
     def invoice_data(self, invoice_data):
         """Sets the invoice_data of this InvoiceCreationResponse.
 
+        Structure of invoice data  # noqa: E501
 
         :param invoice_data: The invoice_data of this InvoiceCreationResponse.  # noqa: E501
         :type: InvoiceCreationDataResponse
@@ -78,6 +80,7 @@ class InvoiceCreationResponse(object):
     def invoice_url(self):
         """Gets the invoice_url of this InvoiceCreationResponse.  # noqa: E501
 
+        Invoice URL  # noqa: E501
 
         :return: The invoice_url of this InvoiceCreationResponse.  # noqa: E501
         :rtype: str
@@ -88,6 +91,7 @@ class InvoiceCreationResponse(object):
     def invoice_url(self, invoice_url):
         """Sets the invoice_url of this InvoiceCreationResponse.
 
+        Invoice URL  # noqa: E501
 
         :param invoice_url: The invoice_url of this InvoiceCreationResponse.  # noqa: E501
         :type: str

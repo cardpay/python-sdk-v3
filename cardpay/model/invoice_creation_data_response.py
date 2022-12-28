@@ -47,6 +47,7 @@ class InvoiceCreationDataResponse(object):
     def id(self):
         """Gets the id of this InvoiceCreationDataResponse.  # noqa: E501
 
+        Identifier of invoice  # noqa: E501
 
         :return: The id of this InvoiceCreationDataResponse.  # noqa: E501
         :rtype: str
@@ -57,6 +58,7 @@ class InvoiceCreationDataResponse(object):
     def id(self, id):
         """Sets the id of this InvoiceCreationDataResponse.
 
+        Identifier of invoice  # noqa: E501
 
         :param id: The id of this InvoiceCreationDataResponse.  # noqa: E501
         :type: str

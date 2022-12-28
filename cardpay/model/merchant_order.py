@@ -43,15 +43,14 @@ class MerchantOrder(object):
         self._items = None
         self.discriminator = None
 
-        if id is not None:
-            self.id = id
-        if items is not None:
-            self.items = items
+        self.id = id
+        self.items = items
 
     @property
     def id(self):
         """Gets the id of this MerchantOrder.  # noqa: E501
 
+        Order ID used by the merchant’s shopping cart  # noqa: E501
 
         :return: The id of this MerchantOrder.  # noqa: E501
         :rtype: str
@@ -62,10 +61,13 @@ class MerchantOrder(object):
     def id(self, id):
         """Sets the id of this MerchantOrder.
 
+        Order ID used by the merchant’s shopping cart  # noqa: E501
 
         :param id: The id of this MerchantOrder.  # noqa: E501
         :type: str
         """
+        if id is None:
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
         if id is not None and len(id) > 50:
             raise ValueError(
                 "Invalid value for `id`, length must be less than or equal to `50`"
@@ -81,6 +83,7 @@ class MerchantOrder(object):
     def items(self):
         """Gets the items of this MerchantOrder.  # noqa: E501
 
+        Array of items (in the shopping cart)  # noqa: E501
 
         :return: The items of this MerchantOrder.  # noqa: E501
         :rtype: list[Item]
@@ -91,10 +94,15 @@ class MerchantOrder(object):
     def items(self, items):
         """Sets the items of this MerchantOrder.
 
+        Array of items (in the shopping cart)  # noqa: E501
 
         :param items: The items of this MerchantOrder.  # noqa: E501
         :type: list[Item]
         """
+        if items is None:
+            raise ValueError(
+                "Invalid value for `items`, must not be `None`"
+            )  # noqa: E501
 
         self._items = items
 

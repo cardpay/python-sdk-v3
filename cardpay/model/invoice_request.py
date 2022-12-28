@@ -41,7 +41,6 @@ class InvoiceRequest(object):
         "customer": "Customer",
         "invoice_data": "InvoiceDataRequest",
         "merchant_order": "MerchantOrder",
-        "payment_methods": "list[str]",
         "return_urls": "ReturnUrls",
     }
 
@@ -50,7 +49,6 @@ class InvoiceRequest(object):
         "customer": "customer",
         "invoice_data": "invoice_data",
         "merchant_order": "merchant_order",
-        "payment_methods": "payment_methods",
         "return_urls": "return_urls",
     }
 
@@ -60,7 +58,6 @@ class InvoiceRequest(object):
         customer=None,
         invoice_data=None,
         merchant_order=None,
-        payment_methods=None,
         return_urls=None,
     ):  # noqa: E501
         """InvoiceRequest - a model defined in Swagger"""  # noqa: E501
@@ -69,7 +66,6 @@ class InvoiceRequest(object):
         self._customer = None
         self._invoice_data = None
         self._merchant_order = None
-        self._payment_methods = None
         self._return_urls = None
         self.discriminator = None
 
@@ -78,8 +74,6 @@ class InvoiceRequest(object):
             self.customer = customer
         self.invoice_data = invoice_data
         self.merchant_order = merchant_order
-        if payment_methods is not None:
-            self.payment_methods = payment_methods
         if return_urls is not None:
             self.return_urls = return_urls
 
@@ -114,6 +108,7 @@ class InvoiceRequest(object):
     def customer(self):
         """Gets the customer of this InvoiceRequest.  # noqa: E501
 
+        Customer data  # noqa: E501
 
         :return: The customer of this InvoiceRequest.  # noqa: E501
         :rtype: Customer
@@ -124,6 +119,7 @@ class InvoiceRequest(object):
     def customer(self, customer):
         """Sets the customer of this InvoiceRequest.
 
+        Customer data  # noqa: E501
 
         :param customer: The customer of this InvoiceRequest.  # noqa: E501
         :type: Customer
@@ -135,6 +131,7 @@ class InvoiceRequest(object):
     def invoice_data(self):
         """Gets the invoice_data of this InvoiceRequest.  # noqa: E501
 
+        Invoice data  # noqa: E501
 
         :return: The invoice_data of this InvoiceRequest.  # noqa: E501
         :rtype: InvoiceDataRequest
@@ -145,6 +142,7 @@ class InvoiceRequest(object):
     def invoice_data(self, invoice_data):
         """Sets the invoice_data of this InvoiceRequest.
 
+        Invoice data  # noqa: E501
 
         :param invoice_data: The invoice_data of this InvoiceRequest.  # noqa: E501
         :type: InvoiceDataRequest
@@ -160,6 +158,7 @@ class InvoiceRequest(object):
     def merchant_order(self):
         """Gets the merchant_order of this InvoiceRequest.  # noqa: E501
 
+        Merchant order data  # noqa: E501
 
         :return: The merchant_order of this InvoiceRequest.  # noqa: E501
         :rtype: MerchantOrder
@@ -170,6 +169,7 @@ class InvoiceRequest(object):
     def merchant_order(self, merchant_order):
         """Sets the merchant_order of this InvoiceRequest.
 
+        Merchant order data  # noqa: E501
 
         :param merchant_order: The merchant_order of this InvoiceRequest.  # noqa: E501
         :type: MerchantOrder
@@ -182,30 +182,10 @@ class InvoiceRequest(object):
         self._merchant_order = merchant_order
 
     @property
-    def payment_methods(self):
-        """Gets the payment_methods of this InvoiceRequest.  # noqa: E501
-
-
-        :return: The payment_methods of this InvoiceRequest.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._payment_methods
-
-    @payment_methods.setter
-    def payment_methods(self, payment_methods):
-        """Sets the payment_methods of this InvoiceRequest.
-
-
-        :param payment_methods: The payment_methods of this InvoiceRequest.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._payment_methods = payment_methods
-
-    @property
     def return_urls(self):
         """Gets the return_urls of this InvoiceRequest.  # noqa: E501
 
+        Return URLs are the URLs where customer returns by pressing “Back to the shop” or “Cancel” button in Payment Page mode  # noqa: E501
 
         :return: The return_urls of this InvoiceRequest.  # noqa: E501
         :rtype: ReturnUrls
@@ -216,6 +196,7 @@ class InvoiceRequest(object):
     def return_urls(self, return_urls):
         """Sets the return_urls of this InvoiceRequest.
 
+        Return URLs are the URLs where customer returns by pressing “Back to the shop” or “Cancel” button in Payment Page mode  # noqa: E501
 
         :param return_urls: The return_urls of this InvoiceRequest.  # noqa: E501
         :type: ReturnUrls

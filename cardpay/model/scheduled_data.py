@@ -33,6 +33,7 @@ class ScheduledData(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        "contract_number": "str",
         "dynamic_descriptor": "str",
         "encrypted_data": "str",
         "generate_token": "bool",
@@ -47,6 +48,7 @@ class ScheduledData(object):
     }
 
     attribute_map = {
+        "contract_number": "contract_number",
         "dynamic_descriptor": "dynamic_descriptor",
         "encrypted_data": "encrypted_data",
         "generate_token": "generate_token",
@@ -62,6 +64,7 @@ class ScheduledData(object):
 
     def __init__(
         self,
+        contract_number=None,
         dynamic_descriptor=None,
         encrypted_data=None,
         generate_token=None,
@@ -76,6 +79,7 @@ class ScheduledData(object):
     ):  # noqa: E501
         """ScheduledData - a model defined in Swagger"""  # noqa: E501
 
+        self._contract_number = None
         self._dynamic_descriptor = None
         self._encrypted_data = None
         self._generate_token = None
@@ -89,6 +93,8 @@ class ScheduledData(object):
         self._trans_type = None
         self.discriminator = None
 
+        if contract_number is not None:
+            self.contract_number = contract_number
         if dynamic_descriptor is not None:
             self.dynamic_descriptor = dynamic_descriptor
         if encrypted_data is not None:
@@ -110,6 +116,29 @@ class ScheduledData(object):
             self.three_ds_challenge_indicator = three_ds_challenge_indicator
         if trans_type is not None:
             self.trans_type = trans_type
+
+    @property
+    def contract_number(self):
+        """Gets the contract_number of this ScheduledData.  # noqa: E501
+
+        Contract number between customer and merchant. Required for Mexican merchants for scheduled payments.  # noqa: E501
+
+        :return: The contract_number of this ScheduledData.  # noqa: E501
+        :rtype: str
+        """
+        return self._contract_number
+
+    @contract_number.setter
+    def contract_number(self, contract_number):
+        """Sets the contract_number of this ScheduledData.
+
+        Contract number between customer and merchant. Required for Mexican merchants for scheduled payments.  # noqa: E501
+
+        :param contract_number: The contract_number of this ScheduledData.  # noqa: E501
+        :type: str
+        """
+
+        self._contract_number = contract_number
 
     @property
     def dynamic_descriptor(self):

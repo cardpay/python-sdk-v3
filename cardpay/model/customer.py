@@ -30,55 +30,27 @@ class Customer(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"phone": "str", "email": "str"}
+    swagger_types = {"email": "str", "phone": "str"}
 
-    attribute_map = {"phone": "phone", "email": "email"}
+    attribute_map = {"email": "email", "phone": "phone"}
 
-    def __init__(self, phone=None, email=None):  # noqa: E501
+    def __init__(self, email=None, phone=None):  # noqa: E501
         """Customer - a model defined in Swagger"""  # noqa: E501
 
-        self._phone = None
         self._email = None
+        self._phone = None
         self.discriminator = None
 
-        if phone is not None:
-            self.phone = phone
         if email is not None:
             self.email = email
-
-    @property
-    def phone(self):
-        """Gets the phone of this Customer.  # noqa: E501
-
-
-        :return: The phone of this Customer.  # noqa: E501
-        :rtype: str
-        """
-        return self._phone
-
-    @phone.setter
-    def phone(self, phone):
-        """Sets the phone of this Customer.
-
-
-        :param phone: The phone of this Customer.  # noqa: E501
-        :type: str
-        """
-        if phone is not None and len(phone) > 18:
-            raise ValueError(
-                "Invalid value for `phone`, length must be less than or equal to `18`"
-            )  # noqa: E501
-        if phone is not None and len(phone) < 8:
-            raise ValueError(
-                "Invalid value for `phone`, length must be greater than or equal to `8`"
-            )  # noqa: E501
-
-        self._phone = phone
+        if phone is not None:
+            self.phone = phone
 
     @property
     def email(self):
         """Gets the email of this Customer.  # noqa: E501
 
+        Email address of the customer  # noqa: E501
 
         :return: The email of this Customer.  # noqa: E501
         :rtype: str
@@ -89,6 +61,7 @@ class Customer(object):
     def email(self, email):
         """Sets the email of this Customer.
 
+        Email address of the customer  # noqa: E501
 
         :param email: The email of this Customer.  # noqa: E501
         :type: str
@@ -103,6 +76,37 @@ class Customer(object):
             )  # noqa: E501
 
         self._email = email
+
+    @property
+    def phone(self):
+        """Gets the phone of this Customer.  # noqa: E501
+
+        Customer phone number  # noqa: E501
+
+        :return: The phone of this Customer.  # noqa: E501
+        :rtype: str
+        """
+        return self._phone
+
+    @phone.setter
+    def phone(self, phone):
+        """Sets the phone of this Customer.
+
+        Customer phone number  # noqa: E501
+
+        :param phone: The phone of this Customer.  # noqa: E501
+        :type: str
+        """
+        if phone is not None and len(phone) > 18:
+            raise ValueError(
+                "Invalid value for `phone`, length must be less than or equal to `18`"
+            )  # noqa: E501
+        if phone is not None and len(phone) < 8:
+            raise ValueError(
+                "Invalid value for `phone`, length must be greater than or equal to `8`"
+            )  # noqa: E501
+
+        self._phone = phone
 
     def to_dict(self):
         """Returns the model properties as a dict"""

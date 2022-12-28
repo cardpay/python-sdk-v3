@@ -30,58 +30,32 @@ class InvoiceDataRequest(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {
-        "amount": "float",
-        "currency": "str",
-        "expire_at": "datetime",
-        "installment_amount": "float",
-        "installment_type": "str",
-        "installments": "list[int]",
-    }
+    swagger_types = {"amount": "float", "currency": "str", "expire_at": "datetime"}
 
     attribute_map = {
         "amount": "amount",
         "currency": "currency",
         "expire_at": "expire_at",
-        "installment_amount": "installment_amount",
-        "installment_type": "installment_type",
-        "installments": "installments",
     }
 
-    def __init__(
-        self,
-        amount=None,
-        currency=None,
-        expire_at=None,
-        installment_amount=None,
-        installment_type=None,
-        installments=None,
-    ):  # noqa: E501
+    def __init__(self, amount=None, currency=None, expire_at=None):  # noqa: E501
         """InvoiceDataRequest - a model defined in Swagger"""  # noqa: E501
 
         self._amount = None
         self._currency = None
         self._expire_at = None
-        self._installment_amount = None
-        self._installment_type = None
-        self._installments = None
         self.discriminator = None
 
-        if amount is not None:
-            self.amount = amount
+        self.amount = amount
         self.currency = currency
-        self.expire_at = expire_at
-        if installment_amount is not None:
-            self.installment_amount = installment_amount
-        if installment_type is not None:
-            self.installment_type = installment_type
-        if installments is not None:
-            self.installments = installments
+        if expire_at is not None:
+            self.expire_at = expire_at
 
     @property
     def amount(self):
         """Gets the amount of this InvoiceDataRequest.  # noqa: E501
 
+        The total invoice amount in selected currency with dot as a decimal separator, must be less than 10 billion  # noqa: E501
 
         :return: The amount of this InvoiceDataRequest.  # noqa: E501
         :rtype: float
@@ -92,10 +66,15 @@ class InvoiceDataRequest(object):
     def amount(self, amount):
         """Sets the amount of this InvoiceDataRequest.
 
+        The total invoice amount in selected currency with dot as a decimal separator, must be less than 10 billion  # noqa: E501
 
         :param amount: The amount of this InvoiceDataRequest.  # noqa: E501
         :type: float
         """
+        if amount is None:
+            raise ValueError(
+                "Invalid value for `amount`, must not be `None`"
+            )  # noqa: E501
 
         self._amount = amount
 
@@ -103,6 +82,7 @@ class InvoiceDataRequest(object):
     def currency(self):
         """Gets the currency of this InvoiceDataRequest.  # noqa: E501
 
+        ISO 4217 currency code  # noqa: E501
 
         :return: The currency of this InvoiceDataRequest.  # noqa: E501
         :rtype: str
@@ -113,6 +93,7 @@ class InvoiceDataRequest(object):
     def currency(self, currency):
         """Sets the currency of this InvoiceDataRequest.
 
+        ISO 4217 currency code  # noqa: E501
 
         :param currency: The currency of this InvoiceDataRequest.  # noqa: E501
         :type: str
@@ -128,6 +109,7 @@ class InvoiceDataRequest(object):
     def expire_at(self):
         """Gets the expire_at of this InvoiceDataRequest.  # noqa: E501
 
+        Date of invoice expiring. Invoice cannot be used after this date.  # noqa: E501
 
         :return: The expire_at of this InvoiceDataRequest.  # noqa: E501
         :rtype: datetime
@@ -138,79 +120,13 @@ class InvoiceDataRequest(object):
     def expire_at(self, expire_at):
         """Sets the expire_at of this InvoiceDataRequest.
 
+        Date of invoice expiring. Invoice cannot be used after this date.  # noqa: E501
 
         :param expire_at: The expire_at of this InvoiceDataRequest.  # noqa: E501
         :type: datetime
         """
-        if expire_at is None:
-            raise ValueError(
-                "Invalid value for `expire_at`, must not be `None`"
-            )  # noqa: E501
 
         self._expire_at = expire_at
-
-    @property
-    def installment_amount(self):
-        """Gets the installment_amount of this InvoiceDataRequest.  # noqa: E501
-
-
-        :return: The installment_amount of this InvoiceDataRequest.  # noqa: E501
-        :rtype: float
-        """
-        return self._installment_amount
-
-    @installment_amount.setter
-    def installment_amount(self, installment_amount):
-        """Sets the installment_amount of this InvoiceDataRequest.
-
-
-        :param installment_amount: The installment_amount of this InvoiceDataRequest.  # noqa: E501
-        :type: float
-        """
-
-        self._installment_amount = installment_amount
-
-    @property
-    def installment_type(self):
-        """Gets the installment_type of this InvoiceDataRequest.  # noqa: E501
-
-
-        :return: The installment_type of this InvoiceDataRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._installment_type
-
-    @installment_type.setter
-    def installment_type(self, installment_type):
-        """Sets the installment_type of this InvoiceDataRequest.
-
-
-        :param installment_type: The installment_type of this InvoiceDataRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._installment_type = installment_type
-
-    @property
-    def installments(self):
-        """Gets the installments of this InvoiceDataRequest.  # noqa: E501
-
-
-        :return: The installments of this InvoiceDataRequest.  # noqa: E501
-        :rtype: list[int]
-        """
-        return self._installments
-
-    @installments.setter
-    def installments(self, installments):
-        """Sets the installments of this InvoiceDataRequest.
-
-
-        :param installments: The installments of this InvoiceDataRequest.  # noqa: E501
-        :type: list[int]
-        """
-
-        self._installments = installments
 
     def to_dict(self):
         """Returns the model properties as a dict"""

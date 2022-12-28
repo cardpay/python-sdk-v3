@@ -35,9 +35,6 @@ class InvoiceGetDataResponse(object):
         "currency": "str",
         "expire_at": "datetime",
         "id": "str",
-        "installment_amount": "float",
-        "installment_type": "str",
-        "installments": "int",
         "status": "str",
     }
 
@@ -46,22 +43,11 @@ class InvoiceGetDataResponse(object):
         "currency": "currency",
         "expire_at": "expire_at",
         "id": "id",
-        "installment_amount": "installment_amount",
-        "installment_type": "installment_type",
-        "installments": "installments",
         "status": "status",
     }
 
     def __init__(
-        self,
-        amount=None,
-        currency=None,
-        expire_at=None,
-        id=None,
-        installment_amount=None,
-        installment_type=None,
-        installments=None,
-        status=None,
+        self, amount=None, currency=None, expire_at=None, id=None, status=None
     ):  # noqa: E501
         """InvoiceGetDataResponse - a model defined in Swagger"""  # noqa: E501
 
@@ -69,9 +55,6 @@ class InvoiceGetDataResponse(object):
         self._currency = None
         self._expire_at = None
         self._id = None
-        self._installment_amount = None
-        self._installment_type = None
-        self._installments = None
         self._status = None
         self.discriminator = None
 
@@ -80,12 +63,6 @@ class InvoiceGetDataResponse(object):
         if expire_at is not None:
             self.expire_at = expire_at
         self.id = id
-        if installment_amount is not None:
-            self.installment_amount = installment_amount
-        if installment_type is not None:
-            self.installment_type = installment_type
-        if installments is not None:
-            self.installments = installments
         if status is not None:
             self.status = status
 
@@ -93,6 +70,7 @@ class InvoiceGetDataResponse(object):
     def amount(self):
         """Gets the amount of this InvoiceGetDataResponse.  # noqa: E501
 
+        The total invoice amount in selected currency with dot as a decimal separator  # noqa: E501
 
         :return: The amount of this InvoiceGetDataResponse.  # noqa: E501
         :rtype: float
@@ -103,6 +81,7 @@ class InvoiceGetDataResponse(object):
     def amount(self, amount):
         """Sets the amount of this InvoiceGetDataResponse.
 
+        The total invoice amount in selected currency with dot as a decimal separator  # noqa: E501
 
         :param amount: The amount of this InvoiceGetDataResponse.  # noqa: E501
         :type: float
@@ -118,6 +97,7 @@ class InvoiceGetDataResponse(object):
     def currency(self):
         """Gets the currency of this InvoiceGetDataResponse.  # noqa: E501
 
+        ISO 4217 currency code  # noqa: E501
 
         :return: The currency of this InvoiceGetDataResponse.  # noqa: E501
         :rtype: str
@@ -128,6 +108,7 @@ class InvoiceGetDataResponse(object):
     def currency(self, currency):
         """Sets the currency of this InvoiceGetDataResponse.
 
+        ISO 4217 currency code  # noqa: E501
 
         :param currency: The currency of this InvoiceGetDataResponse.  # noqa: E501
         :type: str
@@ -143,6 +124,7 @@ class InvoiceGetDataResponse(object):
     def expire_at(self):
         """Gets the expire_at of this InvoiceGetDataResponse.  # noqa: E501
 
+        Date of invoice expiring. Invoice cannot be used after this date.  # noqa: E501
 
         :return: The expire_at of this InvoiceGetDataResponse.  # noqa: E501
         :rtype: datetime
@@ -153,6 +135,7 @@ class InvoiceGetDataResponse(object):
     def expire_at(self, expire_at):
         """Sets the expire_at of this InvoiceGetDataResponse.
 
+        Date of invoice expiring. Invoice cannot be used after this date.  # noqa: E501
 
         :param expire_at: The expire_at of this InvoiceGetDataResponse.  # noqa: E501
         :type: datetime
@@ -164,6 +147,7 @@ class InvoiceGetDataResponse(object):
     def id(self):
         """Gets the id of this InvoiceGetDataResponse.  # noqa: E501
 
+        Identifier of created invoice.  # noqa: E501
 
         :return: The id of this InvoiceGetDataResponse.  # noqa: E501
         :rtype: str
@@ -174,6 +158,7 @@ class InvoiceGetDataResponse(object):
     def id(self, id):
         """Sets the id of this InvoiceGetDataResponse.
 
+        Identifier of created invoice.  # noqa: E501
 
         :param id: The id of this InvoiceGetDataResponse.  # noqa: E501
         :type: str
@@ -184,72 +169,10 @@ class InvoiceGetDataResponse(object):
         self._id = id
 
     @property
-    def installment_amount(self):
-        """Gets the installment_amount of this InvoiceGetDataResponse.  # noqa: E501
-
-
-        :return: The installment_amount of this InvoiceGetDataResponse.  # noqa: E501
-        :rtype: float
-        """
-        return self._installment_amount
-
-    @installment_amount.setter
-    def installment_amount(self, installment_amount):
-        """Sets the installment_amount of this InvoiceGetDataResponse.
-
-
-        :param installment_amount: The installment_amount of this InvoiceGetDataResponse.  # noqa: E501
-        :type: float
-        """
-
-        self._installment_amount = installment_amount
-
-    @property
-    def installment_type(self):
-        """Gets the installment_type of this InvoiceGetDataResponse.  # noqa: E501
-
-
-        :return: The installment_type of this InvoiceGetDataResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._installment_type
-
-    @installment_type.setter
-    def installment_type(self, installment_type):
-        """Sets the installment_type of this InvoiceGetDataResponse.
-
-
-        :param installment_type: The installment_type of this InvoiceGetDataResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._installment_type = installment_type
-
-    @property
-    def installments(self):
-        """Gets the installments of this InvoiceGetDataResponse.  # noqa: E501
-
-
-        :return: The installments of this InvoiceGetDataResponse.  # noqa: E501
-        :rtype: int
-        """
-        return self._installments
-
-    @installments.setter
-    def installments(self, installments):
-        """Sets the installments of this InvoiceGetDataResponse.
-
-
-        :param installments: The installments of this InvoiceGetDataResponse.  # noqa: E501
-        :type: int
-        """
-
-        self._installments = installments
-
-    @property
     def status(self):
         """Gets the status of this InvoiceGetDataResponse.  # noqa: E501
 
+        Status of invoice.  # noqa: E501
 
         :return: The status of this InvoiceGetDataResponse.  # noqa: E501
         :rtype: str
@@ -260,6 +183,7 @@ class InvoiceGetDataResponse(object):
     def status(self, status):
         """Sets the status of this InvoiceGetDataResponse.
 
+        Status of invoice.  # noqa: E501
 
         :param status: The status of this InvoiceGetDataResponse.  # noqa: E501
         :type: str

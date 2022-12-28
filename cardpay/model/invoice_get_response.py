@@ -71,6 +71,7 @@ class InvoiceGetResponse(object):
     def customer(self):
         """Gets the customer of this InvoiceGetResponse.  # noqa: E501
 
+        Customer data  # noqa: E501
 
         :return: The customer of this InvoiceGetResponse.  # noqa: E501
         :rtype: Customer
@@ -81,6 +82,7 @@ class InvoiceGetResponse(object):
     def customer(self, customer):
         """Sets the customer of this InvoiceGetResponse.
 
+        Customer data  # noqa: E501
 
         :param customer: The customer of this InvoiceGetResponse.  # noqa: E501
         :type: Customer
@@ -96,6 +98,7 @@ class InvoiceGetResponse(object):
     def invoice_data(self):
         """Gets the invoice_data of this InvoiceGetResponse.  # noqa: E501
 
+        Invoice data  # noqa: E501
 
         :return: The invoice_data of this InvoiceGetResponse.  # noqa: E501
         :rtype: InvoiceGetDataResponse
@@ -106,6 +109,7 @@ class InvoiceGetResponse(object):
     def invoice_data(self, invoice_data):
         """Sets the invoice_data of this InvoiceGetResponse.
 
+        Invoice data  # noqa: E501
 
         :param invoice_data: The invoice_data of this InvoiceGetResponse.  # noqa: E501
         :type: InvoiceGetDataResponse
@@ -121,6 +125,7 @@ class InvoiceGetResponse(object):
     def invoice_url(self):
         """Gets the invoice_url of this InvoiceGetResponse.  # noqa: E501
 
+        Invoice URL  # noqa: E501
 
         :return: The invoice_url of this InvoiceGetResponse.  # noqa: E501
         :rtype: str
@@ -131,6 +136,7 @@ class InvoiceGetResponse(object):
     def invoice_url(self, invoice_url):
         """Sets the invoice_url of this InvoiceGetResponse.
 
+        Invoice URL  # noqa: E501
 
         :param invoice_url: The invoice_url of this InvoiceGetResponse.  # noqa: E501
         :type: str
@@ -142,6 +148,7 @@ class InvoiceGetResponse(object):
     def merchant_order(self):
         """Gets the merchant_order of this InvoiceGetResponse.  # noqa: E501
 
+        Merchant order data  # noqa: E501
 
         :return: The merchant_order of this InvoiceGetResponse.  # noqa: E501
         :rtype: MerchantOrder
@@ -152,6 +159,7 @@ class InvoiceGetResponse(object):
     def merchant_order(self, merchant_order):
         """Sets the merchant_order of this InvoiceGetResponse.
 
+        Merchant order data  # noqa: E501
 
         :param merchant_order: The merchant_order of this InvoiceGetResponse.  # noqa: E501
         :type: MerchantOrder
