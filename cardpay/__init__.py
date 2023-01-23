@@ -37,7 +37,6 @@ from cardpay.model.change_subscription_status_claim_response import (
 from cardpay.model.changed_plan_data import ChangedPlanData
 from cardpay.model.claim_response_subscription_data import ClaimResponseSubscriptionData
 from cardpay.model.confirm3ds_request import Confirm3dsRequest
-from cardpay.model.customer import Customer
 from cardpay.model.dispute_list import DisputeList
 from cardpay.model.dispute_response import DisputeResponse
 from cardpay.model.dispute_response_card import DisputeResponseCard
@@ -57,13 +56,15 @@ from cardpay.model.flights import Flights
 from cardpay.model.installment_data import InstallmentData
 from cardpay.model.invoice_creation_data_response import InvoiceCreationDataResponse
 from cardpay.model.invoice_creation_response import InvoiceCreationResponse
+from cardpay.model.invoice_customer import InvoiceCustomer
 from cardpay.model.invoice_data_request import InvoiceDataRequest
 from cardpay.model.invoice_get_data_response import InvoiceGetDataResponse
 from cardpay.model.invoice_get_response import InvoiceGetResponse
+from cardpay.model.invoice_item import InvoiceItem
+from cardpay.model.invoice_merchant_order import InvoiceMerchantOrder
 from cardpay.model.invoice_request import InvoiceRequest
 from cardpay.model.item import Item
 from cardpay.model.limit_info_response import LimitInfoResponse
-from cardpay.model.merchant_order import MerchantOrder
 from cardpay.model.next_subscription_payment import NextSubscriptionPayment
 from cardpay.model.not_found_error import NotFoundError
 from cardpay.model.o_auth_error import OAuthError
@@ -229,7 +230,7 @@ from cardpay.model.recurring_update_request import RecurringUpdateRequest
 # import apis into api package
 from cardpay.api.auth_api import AuthApi
 from cardpay.api.card_info_api import CardInfoApi
-from cardpay.api.invoice_rest_controller_api import InvoiceRestControllerApi
+from cardpay.api.invoices_api import InvoicesApi
 from cardpay.api.limits_api import LimitsApi
 from cardpay.api.payments_api import PaymentsApi
 from cardpay.api.payouts_api import PayoutsApi

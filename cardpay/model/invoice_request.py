@@ -16,9 +16,9 @@ import re  # noqa: F401
 
 import six
 
-from cardpay.model.customer import Customer  # noqa: F401,E501
+from cardpay.model.invoice_customer import InvoiceCustomer  # noqa: F401,E501
 from cardpay.model.invoice_data_request import InvoiceDataRequest  # noqa: F401,E501
-from cardpay.model.merchant_order import MerchantOrder  # noqa: F401,E501
+from cardpay.model.invoice_merchant_order import InvoiceMerchantOrder  # noqa: F401,E501
 from cardpay.model.request import Request  # noqa: F401,E501
 from cardpay.model.return_urls import ReturnUrls  # noqa: F401,E501
 
@@ -38,9 +38,9 @@ class InvoiceRequest(object):
     """
     swagger_types = {
         "request": "Request",
-        "customer": "Customer",
+        "customer": "InvoiceCustomer",
         "invoice_data": "InvoiceDataRequest",
-        "merchant_order": "MerchantOrder",
+        "merchant_order": "InvoiceMerchantOrder",
         "return_urls": "ReturnUrls",
     }
 
@@ -111,7 +111,7 @@ class InvoiceRequest(object):
         Customer data  # noqa: E501
 
         :return: The customer of this InvoiceRequest.  # noqa: E501
-        :rtype: Customer
+        :rtype: InvoiceCustomer
         """
         return self._customer
 
@@ -122,7 +122,7 @@ class InvoiceRequest(object):
         Customer data  # noqa: E501
 
         :param customer: The customer of this InvoiceRequest.  # noqa: E501
-        :type: Customer
+        :type: InvoiceCustomer
         """
 
         self._customer = customer
@@ -161,7 +161,7 @@ class InvoiceRequest(object):
         Merchant order data  # noqa: E501
 
         :return: The merchant_order of this InvoiceRequest.  # noqa: E501
-        :rtype: MerchantOrder
+        :rtype: InvoiceMerchantOrder
         """
         return self._merchant_order
 
@@ -172,7 +172,7 @@ class InvoiceRequest(object):
         Merchant order data  # noqa: E501
 
         :param merchant_order: The merchant_order of this InvoiceRequest.  # noqa: E501
-        :type: MerchantOrder
+        :type: InvoiceMerchantOrder
         """
         if merchant_order is None:
             raise ValueError(

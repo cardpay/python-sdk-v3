@@ -16,11 +16,11 @@ import re  # noqa: F401
 
 import six
 
-from cardpay.model.customer import Customer  # noqa: F401,E501
+from cardpay.model.invoice_customer import InvoiceCustomer  # noqa: F401,E501
 from cardpay.model.invoice_get_data_response import (
     InvoiceGetDataResponse,
 )  # noqa: F401,E501
-from cardpay.model.merchant_order import MerchantOrder  # noqa: F401,E501
+from cardpay.model.invoice_merchant_order import InvoiceMerchantOrder  # noqa: F401,E501
 
 
 class InvoiceGetResponse(object):
@@ -37,10 +37,10 @@ class InvoiceGetResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        "customer": "Customer",
+        "customer": "InvoiceCustomer",
         "invoice_data": "InvoiceGetDataResponse",
         "invoice_url": "str",
-        "merchant_order": "MerchantOrder",
+        "merchant_order": "InvoiceMerchantOrder",
     }
 
     attribute_map = {
@@ -74,7 +74,7 @@ class InvoiceGetResponse(object):
         Customer data  # noqa: E501
 
         :return: The customer of this InvoiceGetResponse.  # noqa: E501
-        :rtype: Customer
+        :rtype: InvoiceCustomer
         """
         return self._customer
 
@@ -85,7 +85,7 @@ class InvoiceGetResponse(object):
         Customer data  # noqa: E501
 
         :param customer: The customer of this InvoiceGetResponse.  # noqa: E501
-        :type: Customer
+        :type: InvoiceCustomer
         """
         if customer is None:
             raise ValueError(
@@ -151,7 +151,7 @@ class InvoiceGetResponse(object):
         Merchant order data  # noqa: E501
 
         :return: The merchant_order of this InvoiceGetResponse.  # noqa: E501
-        :rtype: MerchantOrder
+        :rtype: InvoiceMerchantOrder
         """
         return self._merchant_order
 
@@ -162,7 +162,7 @@ class InvoiceGetResponse(object):
         Merchant order data  # noqa: E501
 
         :param merchant_order: The merchant_order of this InvoiceGetResponse.  # noqa: E501
-        :type: MerchantOrder
+        :type: InvoiceMerchantOrder
         """
         if merchant_order is None:
             raise ValueError(
