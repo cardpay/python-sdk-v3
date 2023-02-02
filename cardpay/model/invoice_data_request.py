@@ -109,7 +109,7 @@ class InvoiceDataRequest(object):
     def expire_at(self):
         """Gets the expire_at of this InvoiceDataRequest.  # noqa: E501
 
-        Date of invoice expiring. Invoice cannot be used after this date.  # noqa: E501
+        Date and time of invoice expiring. Invoice cannot be used after this date and time.  # noqa: E501
 
         :return: The expire_at of this InvoiceDataRequest.  # noqa: E501
         :rtype: datetime
@@ -120,7 +120,7 @@ class InvoiceDataRequest(object):
     def expire_at(self, expire_at):
         """Sets the expire_at of this InvoiceDataRequest.
 
-        Date of invoice expiring. Invoice cannot be used after this date.  # noqa: E501
+        Date and time of invoice expiring. Invoice cannot be used after this date and time.  # noqa: E501
 
         :param expire_at: The expire_at of this InvoiceDataRequest.  # noqa: E501
         :type: datetime

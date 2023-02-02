@@ -66,14 +66,6 @@ class InvoiceCustomer(object):
         :param email: The email of this InvoiceCustomer.  # noqa: E501
         :type: str
         """
-        if email is not None and len(email) > 256:
-            raise ValueError(
-                "Invalid value for `email`, length must be less than or equal to `256`"
-            )  # noqa: E501
-        if email is not None and len(email) < 3:
-            raise ValueError(
-                "Invalid value for `email`, length must be greater than or equal to `3`"
-            )  # noqa: E501
 
         self._email = email
 
@@ -97,14 +89,6 @@ class InvoiceCustomer(object):
         :param phone: The phone of this InvoiceCustomer.  # noqa: E501
         :type: str
         """
-        if phone is not None and len(phone) > 18:
-            raise ValueError(
-                "Invalid value for `phone`, length must be less than or equal to `18`"
-            )  # noqa: E501
-        if phone is not None and len(phone) < 8:
-            raise ValueError(
-                "Invalid value for `phone`, length must be greater than or equal to `8`"
-            )  # noqa: E501
 
         self._phone = phone
 
