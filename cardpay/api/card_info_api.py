@@ -37,7 +37,7 @@ class CardInfoApi(object):
         """Get card information  # noqa: E501
 
         :param CardInfoRequest card_info_request: cardInfoRequest (required)
-        :return: CardInfoResponse
+        :return: list[CardInfoResponse]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -52,7 +52,7 @@ class CardInfoApi(object):
         """Get card information  # noqa: E501
 
         :param CardInfoRequest card_info_request: cardInfoRequest (required)
-        :return: CardInfoResponse
+        :return: list[CardInfoResponse]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -111,7 +111,7 @@ class CardInfoApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type="CardInfoResponse",  # noqa: E501
+            response_type="list[CardInfoResponse]",  # noqa: E501
             _return_http_data_only=params.get("_return_http_data_only"),
             _preload_content=params.get("_preload_content", True),
             _request_timeout=params.get("_request_timeout"),
