@@ -31,7 +31,6 @@ class RefundResponseRefundData(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        "action_code": "str",
         "amount": "float",
         "arn": "str",
         "auth_code": "str",
@@ -39,6 +38,7 @@ class RefundResponseRefundData(object):
         "currency": "str",
         "decline_code": "str",
         "decline_reason": "str",
+        "extended_decline_reason": "str",
         "id": "str",
         "is_3d": "bool",
         "rrn": "str",
@@ -46,7 +46,6 @@ class RefundResponseRefundData(object):
     }
 
     attribute_map = {
-        "action_code": "action_code",
         "amount": "amount",
         "arn": "arn",
         "auth_code": "auth_code",
@@ -54,6 +53,7 @@ class RefundResponseRefundData(object):
         "currency": "currency",
         "decline_code": "decline_code",
         "decline_reason": "decline_reason",
+        "extended_decline_reason": "extended_decline_reason",
         "id": "id",
         "is_3d": "is_3d",
         "rrn": "rrn",
@@ -62,7 +62,6 @@ class RefundResponseRefundData(object):
 
     def __init__(
         self,
-        action_code=None,
         amount=None,
         arn=None,
         auth_code=None,
@@ -70,6 +69,7 @@ class RefundResponseRefundData(object):
         currency=None,
         decline_code=None,
         decline_reason=None,
+        extended_decline_reason=None,
         id=None,
         is_3d=None,
         rrn=None,
@@ -77,7 +77,6 @@ class RefundResponseRefundData(object):
     ):  # noqa: E501
         """RefundResponseRefundData - a model defined in Swagger"""  # noqa: E501
 
-        self._action_code = None
         self._amount = None
         self._arn = None
         self._auth_code = None
@@ -85,14 +84,13 @@ class RefundResponseRefundData(object):
         self._currency = None
         self._decline_code = None
         self._decline_reason = None
+        self._extended_decline_reason = None
         self._id = None
         self._is_3d = None
         self._rrn = None
         self._status = None
         self.discriminator = None
 
-        if action_code is not None:
-            self.action_code = action_code
         if amount is not None:
             self.amount = amount
         if arn is not None:
@@ -107,6 +105,8 @@ class RefundResponseRefundData(object):
             self.decline_code = decline_code
         if decline_reason is not None:
             self.decline_reason = decline_reason
+        if extended_decline_reason is not None:
+            self.extended_decline_reason = extended_decline_reason
         if id is not None:
             self.id = id
         if is_3d is not None:
@@ -115,29 +115,6 @@ class RefundResponseRefundData(object):
             self.rrn = rrn
         if status is not None:
             self.status = status
-
-    @property
-    def action_code(self):
-        """Gets the action_code of this RefundResponseRefundData.  # noqa: E501
-
-        Refund action code (only for `DECLINED` refund status)  # noqa: E501
-
-        :return: The action_code of this RefundResponseRefundData.  # noqa: E501
-        :rtype: str
-        """
-        return self._action_code
-
-    @action_code.setter
-    def action_code(self, action_code):
-        """Sets the action_code of this RefundResponseRefundData.
-
-        Refund action code (only for `DECLINED` refund status)  # noqa: E501
-
-        :param action_code: The action_code of this RefundResponseRefundData.  # noqa: E501
-        :type: str
-        """
-
-        self._action_code = action_code
 
     @property
     def amount(self):
@@ -299,6 +276,29 @@ class RefundResponseRefundData(object):
         """
 
         self._decline_reason = decline_reason
+
+    @property
+    def extended_decline_reason(self):
+        """Gets the extended_decline_reason of this RefundResponseRefundData.  # noqa: E501
+
+        Original decline reason. Can be presented in responses if original network response code is presented and option is enabled for Merchant. Not presented by default, ask Unlimint manager to enable it if needed.  # noqa: E501
+
+        :return: The extended_decline_reason of this RefundResponseRefundData.  # noqa: E501
+        :rtype: str
+        """
+        return self._extended_decline_reason
+
+    @extended_decline_reason.setter
+    def extended_decline_reason(self, extended_decline_reason):
+        """Sets the extended_decline_reason of this RefundResponseRefundData.
+
+        Original decline reason. Can be presented in responses if original network response code is presented and option is enabled for Merchant. Not presented by default, ask Unlimint manager to enable it if needed.  # noqa: E501
+
+        :param extended_decline_reason: The extended_decline_reason of this RefundResponseRefundData.  # noqa: E501
+        :type: str
+        """
+
+        self._extended_decline_reason = extended_decline_reason
 
     @property
     def id(self):
