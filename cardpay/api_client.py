@@ -178,7 +178,7 @@ class ApiClient(object):
         self.cookie = None
 
         # Set default User-Agent.
-        self.user_agent = "CardpaySdk/3.42.5/Python"
+        self.user_agent = "CardpaySdk/3.44.22/Python"
 
     def __del__(self):
         if self._pool is not None:

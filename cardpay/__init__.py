@@ -57,7 +57,7 @@ from cardpay.model.installment_data import InstallmentData
 from cardpay.model.invoice_creation_data_response import InvoiceCreationDataResponse
 from cardpay.model.invoice_creation_response import InvoiceCreationResponse
 from cardpay.model.invoice_customer import InvoiceCustomer
-from cardpay.model.invoice_data_request import InvoiceDataRequest
+from cardpay.model.invoice_data import InvoiceData
 from cardpay.model.invoice_get_data_response import InvoiceGetDataResponse
 from cardpay.model.invoice_get_response import InvoiceGetResponse
 from cardpay.model.invoice_item import InvoiceItem

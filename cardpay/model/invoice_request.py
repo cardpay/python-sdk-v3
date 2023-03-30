@@ -17,7 +17,7 @@ import re  # noqa: F401
 import six
 
 from cardpay.model.invoice_customer import InvoiceCustomer  # noqa: F401,E501
-from cardpay.model.invoice_data_request import InvoiceDataRequest  # noqa: F401,E501
+from cardpay.model.invoice_data import InvoiceData  # noqa: F401,E501
 from cardpay.model.invoice_merchant_order import InvoiceMerchantOrder  # noqa: F401,E501
 from cardpay.model.request import Request  # noqa: F401,E501
 from cardpay.model.return_urls import ReturnUrls  # noqa: F401,E501
@@ -39,7 +39,7 @@ class InvoiceRequest(object):
     swagger_types = {
         "request": "Request",
         "customer": "InvoiceCustomer",
-        "invoice_data": "InvoiceDataRequest",
+        "invoice_data": "InvoiceData",
         "merchant_order": "InvoiceMerchantOrder",
         "return_urls": "ReturnUrls",
     }
@@ -134,7 +134,7 @@ class InvoiceRequest(object):
         Invoice data  # noqa: E501
 
         :return: The invoice_data of this InvoiceRequest.  # noqa: E501
-        :rtype: InvoiceDataRequest
+        :rtype: InvoiceData
         """
         return self._invoice_data
 
@@ -145,7 +145,7 @@ class InvoiceRequest(object):
         Invoice data  # noqa: E501
 
         :param invoice_data: The invoice_data of this InvoiceRequest.  # noqa: E501
-        :type: InvoiceDataRequest
+        :type: InvoiceData
         """
         if invoice_data is None:
             raise ValueError(
@@ -185,7 +185,7 @@ class InvoiceRequest(object):
     def return_urls(self):
         """Gets the return_urls of this InvoiceRequest.  # noqa: E501
 
-        Return URLs are the URLs where customer returns by pressing “Back to the shop” or “Cancel” button in Payment Page mode  # noqa: E501
+        Return URLs are the URLs where customer returns by pressing 'Back to the shop' or 'Cancel' button in Payment Page mode  # noqa: E501
 
         :return: The return_urls of this InvoiceRequest.  # noqa: E501
         :rtype: ReturnUrls
@@ -196,7 +196,7 @@ class InvoiceRequest(object):
     def return_urls(self, return_urls):
         """Sets the return_urls of this InvoiceRequest.
 
-        Return URLs are the URLs where customer returns by pressing “Back to the shop” or “Cancel” button in Payment Page mode  # noqa: E501
+        Return URLs are the URLs where customer returns by pressing 'Back to the shop' or 'Cancel' button in Payment Page mode  # noqa: E501
 
         :param return_urls: The return_urls of this InvoiceRequest.  # noqa: E501
         :type: ReturnUrls
