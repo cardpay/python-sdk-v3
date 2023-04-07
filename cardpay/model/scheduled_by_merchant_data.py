@@ -42,6 +42,7 @@ class ScheduledByMerchantData(object):
         "filing": "RecurringResponseFiling",
         "generate_token": "bool",
         "initiator": "str",
+        "network_trans_id": "str",
         "note": "str",
         "scheduled_type": "str",
         "three_ds_challenge_indicator": "str",
@@ -56,6 +57,7 @@ class ScheduledByMerchantData(object):
         "filing": "filing",
         "generate_token": "generate_token",
         "initiator": "initiator",
+        "network_trans_id": "network_trans_id",
         "note": "note",
         "scheduled_type": "scheduled_type",
         "three_ds_challenge_indicator": "three_ds_challenge_indicator",
@@ -71,6 +73,7 @@ class ScheduledByMerchantData(object):
         filing=None,
         generate_token=None,
         initiator=None,
+        network_trans_id=None,
         note=None,
         scheduled_type=None,
         three_ds_challenge_indicator=None,
@@ -85,6 +88,7 @@ class ScheduledByMerchantData(object):
         self._filing = None
         self._generate_token = None
         self._initiator = None
+        self._network_trans_id = None
         self._note = None
         self._scheduled_type = None
         self._three_ds_challenge_indicator = None
@@ -102,6 +106,8 @@ class ScheduledByMerchantData(object):
         if generate_token is not None:
             self.generate_token = generate_token
         self.initiator = initiator
+        if network_trans_id is not None:
+            self.network_trans_id = network_trans_id
         if note is not None:
             self.note = note
         self.scheduled_type = scheduled_type
@@ -294,6 +300,29 @@ class ScheduledByMerchantData(object):
             )  # noqa: E501
 
         self._initiator = initiator
+
+    @property
+    def network_trans_id(self):
+        """Gets the network_trans_id of this ScheduledByMerchantData.  # noqa: E501
+
+        Network Reference Number of original transaction  # noqa: E501
+
+        :return: The network_trans_id of this ScheduledByMerchantData.  # noqa: E501
+        :rtype: str
+        """
+        return self._network_trans_id
+
+    @network_trans_id.setter
+    def network_trans_id(self, network_trans_id):
+        """Sets the network_trans_id of this ScheduledByMerchantData.
+
+        Network Reference Number of original transaction  # noqa: E501
+
+        :param network_trans_id: The network_trans_id of this ScheduledByMerchantData.  # noqa: E501
+        :type: str
+        """
+
+        self._network_trans_id = network_trans_id
 
     @property
     def note(self):

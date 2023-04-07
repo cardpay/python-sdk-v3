@@ -42,6 +42,7 @@ class OneclickData(object):
         "filing": "RecurringRequestFiling",
         "generate_token": "bool",
         "initiator": "str",
+        "network_trans_id": "str",
         "note": "str",
         "preauth": "bool",
         "sca_exemption": "str",
@@ -57,6 +58,7 @@ class OneclickData(object):
         "filing": "filing",
         "generate_token": "generate_token",
         "initiator": "initiator",
+        "network_trans_id": "network_trans_id",
         "note": "note",
         "preauth": "preauth",
         "sca_exemption": "sca_exemption",
@@ -73,6 +75,7 @@ class OneclickData(object):
         filing=None,
         generate_token=None,
         initiator=None,
+        network_trans_id=None,
         note=None,
         preauth=None,
         sca_exemption=None,
@@ -88,6 +91,7 @@ class OneclickData(object):
         self._filing = None
         self._generate_token = None
         self._initiator = None
+        self._network_trans_id = None
         self._note = None
         self._preauth = None
         self._sca_exemption = None
@@ -107,6 +111,8 @@ class OneclickData(object):
         if generate_token is not None:
             self.generate_token = generate_token
         self.initiator = initiator
+        if network_trans_id is not None:
+            self.network_trans_id = network_trans_id
         if note is not None:
             self.note = note
         if preauth is not None:
@@ -298,6 +304,29 @@ class OneclickData(object):
             )  # noqa: E501
 
         self._initiator = initiator
+
+    @property
+    def network_trans_id(self):
+        """Gets the network_trans_id of this OneclickData.  # noqa: E501
+
+        Network Reference Number of original transaction  # noqa: E501
+
+        :return: The network_trans_id of this OneclickData.  # noqa: E501
+        :rtype: str
+        """
+        return self._network_trans_id
+
+    @network_trans_id.setter
+    def network_trans_id(self, network_trans_id):
+        """Sets the network_trans_id of this OneclickData.
+
+        Network Reference Number of original transaction  # noqa: E501
+
+        :param network_trans_id: The network_trans_id of this OneclickData.  # noqa: E501
+        :type: str
+        """
+
+        self._network_trans_id = network_trans_id
 
     @property
     def note(self):

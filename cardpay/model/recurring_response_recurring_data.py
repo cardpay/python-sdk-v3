@@ -51,6 +51,7 @@ class RecurringResponseRecurringData(object):
         "installment_type": "str",
         "invalid_data": "list[str]",
         "is_3d": "bool",
+        "network_trans_id": "str",
         "note": "str",
         "payments": "str",
         "rrn": "str",
@@ -77,6 +78,7 @@ class RecurringResponseRecurringData(object):
         "installment_type": "installment_type",
         "invalid_data": "invalid_data",
         "is_3d": "is_3d",
+        "network_trans_id": "network_trans_id",
         "note": "note",
         "payments": "payments",
         "rrn": "rrn",
@@ -104,6 +106,7 @@ class RecurringResponseRecurringData(object):
         installment_type=None,
         invalid_data=None,
         is_3d=None,
+        network_trans_id=None,
         note=None,
         payments=None,
         rrn=None,
@@ -130,6 +133,7 @@ class RecurringResponseRecurringData(object):
         self._installment_type = None
         self._invalid_data = None
         self._is_3d = None
+        self._network_trans_id = None
         self._note = None
         self._payments = None
         self._rrn = None
@@ -170,6 +174,8 @@ class RecurringResponseRecurringData(object):
             self.invalid_data = invalid_data
         if is_3d is not None:
             self.is_3d = is_3d
+        if network_trans_id is not None:
+            self.network_trans_id = network_trans_id
         if note is not None:
             self.note = note
         if payments is not None:
@@ -531,6 +537,29 @@ class RecurringResponseRecurringData(object):
         """
 
         self._is_3d = is_3d
+
+    @property
+    def network_trans_id(self):
+        """Gets the network_trans_id of this RecurringResponseRecurringData.  # noqa: E501
+
+        Network Reference Number of original transaction  # noqa: E501
+
+        :return: The network_trans_id of this RecurringResponseRecurringData.  # noqa: E501
+        :rtype: str
+        """
+        return self._network_trans_id
+
+    @network_trans_id.setter
+    def network_trans_id(self, network_trans_id):
+        """Sets the network_trans_id of this RecurringResponseRecurringData.
+
+        Network Reference Number of original transaction  # noqa: E501
+
+        :param network_trans_id: The network_trans_id of this RecurringResponseRecurringData.  # noqa: E501
+        :type: str
+        """
+
+        self._network_trans_id = network_trans_id
 
     @property
     def note(self):
