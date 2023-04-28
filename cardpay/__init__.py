@@ -114,7 +114,6 @@ from cardpay.model.payout_request_living_address import PayoutRequestLivingAddre
 from cardpay.model.payout_request_merchant_order import PayoutRequestMerchantOrder
 from cardpay.model.payout_request_payout_data import PayoutRequestPayoutData
 from cardpay.model.payout_response import PayoutResponse
-from cardpay.model.payout_response_card import PayoutResponseCard
 from cardpay.model.payout_response_card_account import PayoutResponseCardAccount
 from cardpay.model.payout_response_cryptocurrency_account import (
     PayoutResponseCryptocurrencyAccount,
@@ -167,7 +166,6 @@ from cardpay.model.refund_request_merchant_order import RefundRequestMerchantOrd
 from cardpay.model.refund_request_payment_data import RefundRequestPaymentData
 from cardpay.model.refund_request_refund_data import RefundRequestRefundData
 from cardpay.model.refund_response import RefundResponse
-from cardpay.model.refund_response_card import RefundResponseCard
 from cardpay.model.refund_response_card_account import RefundResponseCardAccount
 from cardpay.model.refund_response_customer import RefundResponseCustomer
 from cardpay.model.refund_response_e_wallet_account import RefundResponseEWalletAccount

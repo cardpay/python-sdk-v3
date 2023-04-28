@@ -35,6 +35,7 @@ class PayoutRequestCustomer(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        "birth_date": "str",
         "document_type": "str",
         "email": "str",
         "first_name": "str",
@@ -48,6 +49,7 @@ class PayoutRequestCustomer(object):
     }
 
     attribute_map = {
+        "birth_date": "birth_date",
         "document_type": "document_type",
         "email": "email",
         "first_name": "first_name",
@@ -62,6 +64,7 @@ class PayoutRequestCustomer(object):
 
     def __init__(
         self,
+        birth_date=None,
         document_type=None,
         email=None,
         first_name=None,
@@ -75,6 +78,7 @@ class PayoutRequestCustomer(object):
     ):  # noqa: E501
         """PayoutRequestCustomer - a model defined in Swagger"""  # noqa: E501
 
+        self._birth_date = None
         self._document_type = None
         self._email = None
         self._first_name = None
@@ -87,6 +91,8 @@ class PayoutRequestCustomer(object):
         self._tax_reason_code = None
         self.discriminator = None
 
+        if birth_date is not None:
+            self.birth_date = birth_date
         if document_type is not None:
             self.document_type = document_type
         if email is not None:
@@ -107,6 +113,29 @@ class PayoutRequestCustomer(object):
             self.phone = phone
         if tax_reason_code is not None:
             self.tax_reason_code = tax_reason_code
+
+    @property
+    def birth_date(self):
+        """Gets the birth_date of this PayoutRequestCustomer.  # noqa: E501
+
+        Customer birth date  # noqa: E501
+
+        :return: The birth_date of this PayoutRequestCustomer.  # noqa: E501
+        :rtype: str
+        """
+        return self._birth_date
+
+    @birth_date.setter
+    def birth_date(self, birth_date):
+        """Sets the birth_date of this PayoutRequestCustomer.
+
+        Customer birth date  # noqa: E501
+
+        :param birth_date: The birth_date of this PayoutRequestCustomer.  # noqa: E501
+        :type: str
+        """
+
+        self._birth_date = birth_date
 
     @property
     def document_type(self):
