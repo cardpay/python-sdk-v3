@@ -37,6 +37,7 @@ from cardpay.model.change_subscription_status_claim_response import (
 from cardpay.model.changed_plan_data import ChangedPlanData
 from cardpay.model.claim_response_subscription_data import ClaimResponseSubscriptionData
 from cardpay.model.confirm3ds_request import Confirm3dsRequest
+from cardpay.model.device import Device
 from cardpay.model.dispute_list import DisputeList
 from cardpay.model.dispute_response import DisputeResponse
 from cardpay.model.dispute_response_card import DisputeResponseCard

@@ -16,6 +16,7 @@ import re  # noqa: F401
 
 import six
 
+from cardpay.model.device import Device  # noqa: F401,E501
 from cardpay.model.payment_request_living_address import (
     PaymentRequestLivingAddress,
 )  # noqa: F401,E501
@@ -36,6 +37,7 @@ class PaymentRequestCustomer(object):
     """
     swagger_types = {
         "birth_date": "datetime",
+        "device": "Device",
         "document_type": "str",
         "email": "str",
         "first_name": "str",
@@ -53,6 +55,7 @@ class PaymentRequestCustomer(object):
 
     attribute_map = {
         "birth_date": "birth_date",
+        "device": "device",
         "document_type": "document_type",
         "email": "email",
         "first_name": "first_name",
@@ -71,6 +74,7 @@ class PaymentRequestCustomer(object):
     def __init__(
         self,
         birth_date=None,
+        device=None,
         document_type=None,
         email=None,
         first_name=None,
@@ -88,6 +92,7 @@ class PaymentRequestCustomer(object):
         """PaymentRequestCustomer - a model defined in Swagger"""  # noqa: E501
 
         self._birth_date = None
+        self._device = None
         self._document_type = None
         self._email = None
         self._first_name = None
@@ -105,6 +110,8 @@ class PaymentRequestCustomer(object):
 
         if birth_date is not None:
             self.birth_date = birth_date
+        if device is not None:
+            self.device = device
         if document_type is not None:
             self.document_type = document_type
         if email is not None:
@@ -154,6 +161,29 @@ class PaymentRequestCustomer(object):
         """
 
         self._birth_date = birth_date
+
+    @property
+    def device(self):
+        """Gets the device of this PaymentRequestCustomer.  # noqa: E501
+
+        Customer's device information  # noqa: E501
+
+        :return: The device of this PaymentRequestCustomer.  # noqa: E501
+        :rtype: Device
+        """
+        return self._device
+
+    @device.setter
+    def device(self, device):
+        """Sets the device of this PaymentRequestCustomer.
+
+        Customer's device information  # noqa: E501
+
+        :param device: The device of this PaymentRequestCustomer.  # noqa: E501
+        :type: Device
+        """
+
+        self._device = device
 
     @property
     def document_type(self):
