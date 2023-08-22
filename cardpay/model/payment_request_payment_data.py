@@ -39,7 +39,7 @@ class PaymentRequestPaymentData(object):
         "generate_token": "bool",
         "installment_amount": "float",
         "installment_type": "str",
-        "installments": "str",
+        "installments": "list[int]",
         "note": "str",
         "preauth": "bool",
         "sca_exemption": "str",
@@ -344,7 +344,7 @@ class PaymentRequestPaymentData(object):
         Number of total installment payments, to be charged per defined interval. For installment subscription with installment_type = `MF_HOLD` can be 1-12. For installment subscription with installment_type = `IF` can be 1-99.  # noqa: E501
 
         :return: The installments of this PaymentRequestPaymentData.  # noqa: E501
-        :rtype: str
+        :rtype: list[int]
         """
         return self._installments
 
@@ -355,7 +355,7 @@ class PaymentRequestPaymentData(object):
         Number of total installment payments, to be charged per defined interval. For installment subscription with installment_type = `MF_HOLD` can be 1-12. For installment subscription with installment_type = `IF` can be 1-99.  # noqa: E501
 
         :param installments: The installments of this PaymentRequestPaymentData.  # noqa: E501
-        :type: str
+        :type: list[int]
         """
 
         self._installments = installments

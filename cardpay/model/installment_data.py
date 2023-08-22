@@ -39,7 +39,7 @@ class InstallmentData(object):
         "installment_amount": "float",
         "installment_type": "str",
         "note": "str",
-        "payments": "int",
+        "payments": "list[int]",
         "preauth": "bool",
         "three_ds_challenge_indicator": "str",
         "trans_type": "str",
@@ -339,7 +339,7 @@ class InstallmentData(object):
         Number of total payments, to be charged per defined interval. For installment subscription with installment_type = `MF_HOLD` can be 2-12. For Mexican installment subscription (installment_type = `IF`) should be 1-99.  # noqa: E501
 
         :return: The payments of this InstallmentData.  # noqa: E501
-        :rtype: int
+        :rtype: list[int]
         """
         return self._payments
 
@@ -350,7 +350,7 @@ class InstallmentData(object):
         Number of total payments, to be charged per defined interval. For installment subscription with installment_type = `MF_HOLD` can be 2-12. For Mexican installment subscription (installment_type = `IF`) should be 1-99.  # noqa: E501
 
         :param payments: The payments of this InstallmentData.  # noqa: E501
-        :type: int
+        :type: list[int]
         """
 
         self._payments = payments
