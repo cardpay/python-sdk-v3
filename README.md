@@ -1,6 +1,6 @@
-# Unlimint APIv3 Python SDK
+# Unlimit APIv3 Python SDK
 
-You can sign up for a Unlimint account at https://www.unlimint.com.
+You can sign up for a Unlimit account at https://www.unlimit.com.
 
 ## Getting Started
 
