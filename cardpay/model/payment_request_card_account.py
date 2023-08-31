@@ -158,7 +158,7 @@ class PaymentRequestCardAccount(object):
     def recipient_info(self):
         """Gets the recipient_info of this PaymentRequestCardAccount.  # noqa: E501
 
-        Recipient full name. Property `recipient_info` may be required by Bank. In most cases it's Cardholder's name, contact Unlimint manager for requirements. Mandatory only for money transfer operation.  # noqa: E501
+        Recipient full name. Property `recipient_info` may be required by Bank. In most cases it's Cardholder's name, contact Unlimit manager for requirements. Mandatory only for money transfer operation.  # noqa: E501
 
         :return: The recipient_info of this PaymentRequestCardAccount.  # noqa: E501
         :rtype: str
@@ -169,7 +169,7 @@ class PaymentRequestCardAccount(object):
     def recipient_info(self, recipient_info):
         """Sets the recipient_info of this PaymentRequestCardAccount.
 
-        Recipient full name. Property `recipient_info` may be required by Bank. In most cases it's Cardholder's name, contact Unlimint manager for requirements. Mandatory only for money transfer operation.  # noqa: E501
+        Recipient full name. Property `recipient_info` may be required by Bank. In most cases it's Cardholder's name, contact Unlimit manager for requirements. Mandatory only for money transfer operation.  # noqa: E501
 
         :param recipient_info: The recipient_info of this PaymentRequestCardAccount.  # noqa: E501
         :type: str

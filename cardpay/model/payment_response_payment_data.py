@@ -317,7 +317,7 @@ class PaymentResponsePaymentData(object):
     def extended_decline_reason(self):
         """Gets the extended_decline_reason of this PaymentResponsePaymentData.  # noqa: E501
 
-        Original decline reason. Can be presented in responses if original network response code is presented and option is enabled for Merchant. Not presented by default, ask Unlimint manager to enable it if needed.  # noqa: E501
+        Original decline reason. Can be presented in responses if original network response code is presented and option is enabled for Merchant. Not presented by default, ask Unlimit manager to enable it if needed.  # noqa: E501
 
         :return: The extended_decline_reason of this PaymentResponsePaymentData.  # noqa: E501
         :rtype: str
@@ -328,7 +328,7 @@ class PaymentResponsePaymentData(object):
     def extended_decline_reason(self, extended_decline_reason):
         """Sets the extended_decline_reason of this PaymentResponsePaymentData.
 
-        Original decline reason. Can be presented in responses if original network response code is presented and option is enabled for Merchant. Not presented by default, ask Unlimint manager to enable it if needed.  # noqa: E501
+        Original decline reason. Can be presented in responses if original network response code is presented and option is enabled for Merchant. Not presented by default, ask Unlimit manager to enable it if needed.  # noqa: E501
 
         :param extended_decline_reason: The extended_decline_reason of this PaymentResponsePaymentData.  # noqa: E501
         :type: str

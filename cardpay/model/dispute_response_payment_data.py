@@ -199,7 +199,7 @@ class DisputeResponsePaymentData(object):
     def id(self):
         """Gets the id of this DisputeResponsePaymentData.  # noqa: E501
 
-        Unlimint's payment id  # noqa: E501
+        Unlimit's payment id  # noqa: E501
 
         :return: The id of this DisputeResponsePaymentData.  # noqa: E501
         :rtype: str
@@ -210,7 +210,7 @@ class DisputeResponsePaymentData(object):
     def id(self, id):
         """Sets the id of this DisputeResponsePaymentData.
 
-        Unlimint's payment id  # noqa: E501
+        Unlimit's payment id  # noqa: E501
 
         :param id: The id of this DisputeResponsePaymentData.  # noqa: E501
         :type: str
