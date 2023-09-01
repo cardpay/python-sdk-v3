@@ -1,6 +1,6 @@
-# Unlimint APIv3 Python SDK
+# Unlimit APIv3 Python SDK
 
-You can sign up for a Unlimint account at https://www.unlimint.com.
+You can sign up for a Unlimit account at https://www.unlimit.com
 
 ## Getting Started
 
@@ -22,7 +22,7 @@ pip install git+https://github.com/cardpay/python-sdk-v3.git --upgrade
 or
 
 ```sh
-pip install 'cardpay>=3.55.10' --upgrade
+pip install 'cardpay>=3.55.11' --upgrade
 ```
 
 Then import the package:
