@@ -66,6 +66,8 @@ from cardpay.model.invoice_merchant_order import InvoiceMerchantOrder
 from cardpay.model.invoice_request import InvoiceRequest
 from cardpay.model.item import Item
 from cardpay.model.limit_info_response import LimitInfoResponse
+from cardpay.model.mobile_token_request import MobileTokenRequest
+from cardpay.model.mobile_token_response import MobileTokenResponse
 from cardpay.model.next_subscription_payment import NextSubscriptionPayment
 from cardpay.model.not_found_error import NotFoundError
 from cardpay.model.o_auth_error import OAuthError
@@ -231,6 +233,7 @@ from cardpay.api.auth_api import AuthApi
 from cardpay.api.card_info_api import CardInfoApi
 from cardpay.api.invoices_api import InvoicesApi
 from cardpay.api.limits_api import LimitsApi
+from cardpay.api.mobile_api import MobileApi
 from cardpay.api.payments_api import PaymentsApi
 from cardpay.api.payouts_api import PayoutsApi
 from cardpay.api.pix_account_details_api import PixAccountDetailsApi
