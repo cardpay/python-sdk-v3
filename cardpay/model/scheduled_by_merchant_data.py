@@ -163,6 +163,14 @@ class ScheduledByMerchantData(object):
         :param contract_number: The contract_number of this ScheduledByMerchantData.  # noqa: E501
         :type: str
         """
+        if contract_number is not None and len(contract_number) > 20:
+            raise ValueError(
+                "Invalid value for `contract_number`, length must be less than or equal to `20`"
+            )  # noqa: E501
+        if contract_number is not None and len(contract_number) < 0:
+            raise ValueError(
+                "Invalid value for `contract_number`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._contract_number = contract_number
 

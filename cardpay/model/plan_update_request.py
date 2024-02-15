@@ -89,6 +89,7 @@ class PlanUpdateRequest(object):
     class Operation(object):
         CHANGE_STATUS = "CHANGE_STATUS"
         RENAME = "RENAME"
+        CHANGE_QUANTITY = "CHANGE_QUANTITY"
 
     @property
     def operation(self):
@@ -114,7 +115,7 @@ class PlanUpdateRequest(object):
             raise ValueError(
                 "Invalid value for `operation`, must not be `None`"
             )  # noqa: E501
-        allowed_values = ["CHANGE_STATUS", "RENAME"]  # noqa: E501
+        allowed_values = ["CHANGE_STATUS", "RENAME", "CHANGE_QUANTITY"]  # noqa: E501
         if operation not in allowed_values:
             raise ValueError(
                 "Invalid value for `operation` ({0}), must be one of {1}".format(  # noqa: E501

@@ -39,12 +39,14 @@ class PaymentResponsePaymentData(object):
         "decline_code": "str",
         "decline_reason": "str",
         "extended_decline_reason": "str",
+        "hold_period": "int",
         "id": "str",
         "installment_type": "str",
         "installments": "str",
         "invalid_data": "list[str]",
         "is_3d": "bool",
         "note": "str",
+        "postauth_status": "str",
         "rrn": "str",
         "status": "str",
         "trans_type": "str",
@@ -60,12 +62,14 @@ class PaymentResponsePaymentData(object):
         "decline_code": "decline_code",
         "decline_reason": "decline_reason",
         "extended_decline_reason": "extended_decline_reason",
+        "hold_period": "hold_period",
         "id": "id",
         "installment_type": "installment_type",
         "installments": "installments",
         "invalid_data": "invalid_data",
         "is_3d": "is_3d",
         "note": "note",
+        "postauth_status": "postauth_status",
         "rrn": "rrn",
         "status": "status",
         "trans_type": "trans_type",
@@ -82,12 +86,14 @@ class PaymentResponsePaymentData(object):
         decline_code=None,
         decline_reason=None,
         extended_decline_reason=None,
+        hold_period=None,
         id=None,
         installment_type=None,
         installments=None,
         invalid_data=None,
         is_3d=None,
         note=None,
+        postauth_status=None,
         rrn=None,
         status=None,
         trans_type=None,
@@ -103,12 +109,14 @@ class PaymentResponsePaymentData(object):
         self._decline_code = None
         self._decline_reason = None
         self._extended_decline_reason = None
+        self._hold_period = None
         self._id = None
         self._installment_type = None
         self._installments = None
         self._invalid_data = None
         self._is_3d = None
         self._note = None
+        self._postauth_status = None
         self._rrn = None
         self._status = None
         self._trans_type = None
@@ -131,6 +139,8 @@ class PaymentResponsePaymentData(object):
             self.decline_reason = decline_reason
         if extended_decline_reason is not None:
             self.extended_decline_reason = extended_decline_reason
+        if hold_period is not None:
+            self.hold_period = hold_period
         if id is not None:
             self.id = id
         if installment_type is not None:
@@ -143,6 +153,8 @@ class PaymentResponsePaymentData(object):
             self.is_3d = is_3d
         if note is not None:
             self.note = note
+        if postauth_status is not None:
+            self.postauth_status = postauth_status
         if rrn is not None:
             self.rrn = rrn
         if status is not None:
@@ -337,6 +349,29 @@ class PaymentResponsePaymentData(object):
         self._extended_decline_reason = extended_decline_reason
 
     @property
+    def hold_period(self):
+        """Gets the hold_period of this PaymentResponsePaymentData.  # noqa: E501
+
+        The delay between the authorisation and scheduled auto-capture or auto-void, specified in hours. The minimum hold period is 1 hour, maximum hold period is 7 days (168 hours).  # noqa: E501
+
+        :return: The hold_period of this PaymentResponsePaymentData.  # noqa: E501
+        :rtype: int
+        """
+        return self._hold_period
+
+    @hold_period.setter
+    def hold_period(self, hold_period):
+        """Sets the hold_period of this PaymentResponsePaymentData.
+
+        The delay between the authorisation and scheduled auto-capture or auto-void, specified in hours. The minimum hold period is 1 hour, maximum hold period is 7 days (168 hours).  # noqa: E501
+
+        :param hold_period: The hold_period of this PaymentResponsePaymentData.  # noqa: E501
+        :type: int
+        """
+
+        self._hold_period = hold_period
+
+    @property
     def id(self):
         """Gets the id of this PaymentResponsePaymentData.  # noqa: E501
 
@@ -473,6 +508,29 @@ class PaymentResponsePaymentData(object):
         """
 
         self._note = note
+
+    @property
+    def postauth_status(self):
+        """Gets the postauth_status of this PaymentResponsePaymentData.  # noqa: E501
+
+        The value contains payment status after hold period if payment has not been completed. Possible values: COMPLETE, REVERSE  # noqa: E501
+
+        :return: The postauth_status of this PaymentResponsePaymentData.  # noqa: E501
+        :rtype: str
+        """
+        return self._postauth_status
+
+    @postauth_status.setter
+    def postauth_status(self, postauth_status):
+        """Sets the postauth_status of this PaymentResponsePaymentData.
+
+        The value contains payment status after hold period if payment has not been completed. Possible values: COMPLETE, REVERSE  # noqa: E501
+
+        :param postauth_status: The postauth_status of this PaymentResponsePaymentData.  # noqa: E501
+        :type: str
+        """
+
+        self._postauth_status = postauth_status
 
     @property
     def rrn(self):

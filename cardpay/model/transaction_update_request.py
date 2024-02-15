@@ -84,7 +84,6 @@ class TransactionUpdateRequest(object):
     def transaction_data(self):
         """Gets the transaction_data of this TransactionUpdateRequest.  # noqa: E501
 
-        Transaction data  # noqa: E501
 
         :return: The transaction_data of this TransactionUpdateRequest.  # noqa: E501
         :rtype: RequestUpdatedTransactionData
@@ -95,7 +94,6 @@ class TransactionUpdateRequest(object):
     def transaction_data(self, transaction_data):
         """Sets the transaction_data of this TransactionUpdateRequest.
 
-        Transaction data  # noqa: E501
 
         :param transaction_data: The transaction_data of this TransactionUpdateRequest.  # noqa: E501
         :type: RequestUpdatedTransactionData

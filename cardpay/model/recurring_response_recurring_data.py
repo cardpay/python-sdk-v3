@@ -39,12 +39,14 @@ class RecurringResponseRecurringData(object):
         "amount": "float",
         "arn": "str",
         "auth_code": "str",
+        "begin": "bool",
         "created": "str",
         "currency": "str",
         "decline_code": "str",
         "decline_reason": "str",
         "extended_decline_reason": "str",
         "filing": "RecurringResponseFiling",
+        "hold_period": "int",
         "id": "str",
         "initiator": "str",
         "installment_amount": "float",
@@ -54,6 +56,7 @@ class RecurringResponseRecurringData(object):
         "network_trans_id": "str",
         "note": "str",
         "payments": "str",
+        "postauth_status": "str",
         "rrn": "str",
         "scheduled_type": "str",
         "status": "str",
@@ -66,12 +69,14 @@ class RecurringResponseRecurringData(object):
         "amount": "amount",
         "arn": "arn",
         "auth_code": "auth_code",
+        "begin": "begin",
         "created": "created",
         "currency": "currency",
         "decline_code": "decline_code",
         "decline_reason": "decline_reason",
         "extended_decline_reason": "extended_decline_reason",
         "filing": "filing",
+        "hold_period": "hold_period",
         "id": "id",
         "initiator": "initiator",
         "installment_amount": "installment_amount",
@@ -81,6 +86,7 @@ class RecurringResponseRecurringData(object):
         "network_trans_id": "network_trans_id",
         "note": "note",
         "payments": "payments",
+        "postauth_status": "postauth_status",
         "rrn": "rrn",
         "scheduled_type": "scheduled_type",
         "status": "status",
@@ -94,12 +100,14 @@ class RecurringResponseRecurringData(object):
         amount=None,
         arn=None,
         auth_code=None,
+        begin=None,
         created=None,
         currency=None,
         decline_code=None,
         decline_reason=None,
         extended_decline_reason=None,
         filing=None,
+        hold_period=None,
         id=None,
         initiator=None,
         installment_amount=None,
@@ -109,6 +117,7 @@ class RecurringResponseRecurringData(object):
         network_trans_id=None,
         note=None,
         payments=None,
+        postauth_status=None,
         rrn=None,
         scheduled_type=None,
         status=None,
@@ -121,12 +130,14 @@ class RecurringResponseRecurringData(object):
         self._amount = None
         self._arn = None
         self._auth_code = None
+        self._begin = None
         self._created = None
         self._currency = None
         self._decline_code = None
         self._decline_reason = None
         self._extended_decline_reason = None
         self._filing = None
+        self._hold_period = None
         self._id = None
         self._initiator = None
         self._installment_amount = None
@@ -136,6 +147,7 @@ class RecurringResponseRecurringData(object):
         self._network_trans_id = None
         self._note = None
         self._payments = None
+        self._postauth_status = None
         self._rrn = None
         self._scheduled_type = None
         self._status = None
@@ -150,6 +162,8 @@ class RecurringResponseRecurringData(object):
             self.arn = arn
         if auth_code is not None:
             self.auth_code = auth_code
+        if begin is not None:
+            self.begin = begin
         if created is not None:
             self.created = created
         if currency is not None:
@@ -162,6 +176,8 @@ class RecurringResponseRecurringData(object):
             self.extended_decline_reason = extended_decline_reason
         if filing is not None:
             self.filing = filing
+        if hold_period is not None:
+            self.hold_period = hold_period
         if id is not None:
             self.id = id
         if initiator is not None:
@@ -180,6 +196,8 @@ class RecurringResponseRecurringData(object):
             self.note = note
         if payments is not None:
             self.payments = payments
+        if postauth_status is not None:
+            self.postauth_status = postauth_status
         if rrn is not None:
             self.rrn = rrn
         if scheduled_type is not None:
@@ -261,6 +279,29 @@ class RecurringResponseRecurringData(object):
         """
 
         self._auth_code = auth_code
+
+    @property
+    def begin(self):
+        """Gets the begin of this RecurringResponseRecurringData.  # noqa: E501
+
+        Callback: show first/next recurring  # noqa: E501
+
+        :return: The begin of this RecurringResponseRecurringData.  # noqa: E501
+        :rtype: bool
+        """
+        return self._begin
+
+    @begin.setter
+    def begin(self, begin):
+        """Sets the begin of this RecurringResponseRecurringData.
+
+        Callback: show first/next recurring  # noqa: E501
+
+        :param begin: The begin of this RecurringResponseRecurringData.  # noqa: E501
+        :type: bool
+        """
+
+        self._begin = begin
 
     @property
     def created(self):
@@ -399,6 +440,29 @@ class RecurringResponseRecurringData(object):
         """
 
         self._filing = filing
+
+    @property
+    def hold_period(self):
+        """Gets the hold_period of this RecurringResponseRecurringData.  # noqa: E501
+
+        The delay between the authorisation and scheduled auto-capture or auto-void, specified in hours. The minimum hold period is 1 hour, maximum hold period is 7 days (168 hours).  # noqa: E501
+
+        :return: The hold_period of this RecurringResponseRecurringData.  # noqa: E501
+        :rtype: int
+        """
+        return self._hold_period
+
+    @hold_period.setter
+    def hold_period(self, hold_period):
+        """Sets the hold_period of this RecurringResponseRecurringData.
+
+        The delay between the authorisation and scheduled auto-capture or auto-void, specified in hours. The minimum hold period is 1 hour, maximum hold period is 7 days (168 hours).  # noqa: E501
+
+        :param hold_period: The hold_period of this RecurringResponseRecurringData.  # noqa: E501
+        :type: int
+        """
+
+        self._hold_period = hold_period
 
     @property
     def id(self):
@@ -606,6 +670,29 @@ class RecurringResponseRecurringData(object):
         """
 
         self._payments = payments
+
+    @property
+    def postauth_status(self):
+        """Gets the postauth_status of this RecurringResponseRecurringData.  # noqa: E501
+
+        The value contains payment status after hold period if payment has not been completed. Possible values: COMPLETE, REVERSE  # noqa: E501
+
+        :return: The postauth_status of this RecurringResponseRecurringData.  # noqa: E501
+        :rtype: str
+        """
+        return self._postauth_status
+
+    @postauth_status.setter
+    def postauth_status(self, postauth_status):
+        """Sets the postauth_status of this RecurringResponseRecurringData.
+
+        The value contains payment status after hold period if payment has not been completed. Possible values: COMPLETE, REVERSE  # noqa: E501
+
+        :param postauth_status: The postauth_status of this RecurringResponseRecurringData.  # noqa: E501
+        :type: str
+        """
+
+        self._postauth_status = postauth_status
 
     @property
     def rrn(self):

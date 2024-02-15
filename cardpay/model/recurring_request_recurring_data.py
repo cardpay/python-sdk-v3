@@ -37,10 +37,13 @@ class RecurringRequestRecurringData(object):
     """
     swagger_types = {
         "amount": "float",
+        "contract_number": "str",
         "currency": "str",
         "dynamic_descriptor": "str",
+        "encrypted_data": "str",
         "filing": "RecurringRequestFiling",
         "generate_token": "bool",
+        "initial_amount": "float",
         "initiator": "str",
         "interval": "int",
         "note": "str",
@@ -49,15 +52,20 @@ class RecurringRequestRecurringData(object):
         "plan": "Plan",
         "preauth": "bool",
         "retries": "int",
+        "scheduled_type": "str",
         "subscription_start": "datetime",
+        "trans_type": "str",
     }
 
     attribute_map = {
         "amount": "amount",
+        "contract_number": "contract_number",
         "currency": "currency",
         "dynamic_descriptor": "dynamic_descriptor",
+        "encrypted_data": "encrypted_data",
         "filing": "filing",
         "generate_token": "generate_token",
+        "initial_amount": "initial_amount",
         "initiator": "initiator",
         "interval": "interval",
         "note": "note",
@@ -66,16 +74,21 @@ class RecurringRequestRecurringData(object):
         "plan": "plan",
         "preauth": "preauth",
         "retries": "retries",
+        "scheduled_type": "scheduled_type",
         "subscription_start": "subscription_start",
+        "trans_type": "trans_type",
     }
 
     def __init__(
         self,
         amount=None,
+        contract_number=None,
         currency=None,
         dynamic_descriptor=None,
+        encrypted_data=None,
         filing=None,
         generate_token=None,
+        initial_amount=None,
         initiator=None,
         interval=None,
         note=None,
@@ -84,15 +97,20 @@ class RecurringRequestRecurringData(object):
         plan=None,
         preauth=None,
         retries=None,
+        scheduled_type=None,
         subscription_start=None,
+        trans_type=None,
     ):  # noqa: E501
         """RecurringRequestRecurringData - a model defined in Swagger"""  # noqa: E501
 
         self._amount = None
+        self._contract_number = None
         self._currency = None
         self._dynamic_descriptor = None
+        self._encrypted_data = None
         self._filing = None
         self._generate_token = None
+        self._initial_amount = None
         self._initiator = None
         self._interval = None
         self._note = None
@@ -101,19 +119,27 @@ class RecurringRequestRecurringData(object):
         self._plan = None
         self._preauth = None
         self._retries = None
+        self._scheduled_type = None
         self._subscription_start = None
+        self._trans_type = None
         self.discriminator = None
 
         if amount is not None:
             self.amount = amount
+        if contract_number is not None:
+            self.contract_number = contract_number
         if currency is not None:
             self.currency = currency
         if dynamic_descriptor is not None:
             self.dynamic_descriptor = dynamic_descriptor
+        if encrypted_data is not None:
+            self.encrypted_data = encrypted_data
         if filing is not None:
             self.filing = filing
         if generate_token is not None:
             self.generate_token = generate_token
+        if initial_amount is not None:
+            self.initial_amount = initial_amount
         if initiator is not None:
             self.initiator = initiator
         if interval is not None:
@@ -130,8 +156,12 @@ class RecurringRequestRecurringData(object):
             self.preauth = preauth
         if retries is not None:
             self.retries = retries
+        if scheduled_type is not None:
+            self.scheduled_type = scheduled_type
         if subscription_start is not None:
             self.subscription_start = subscription_start
+        if trans_type is not None:
+            self.trans_type = trans_type
 
     @property
     def amount(self):
@@ -155,6 +185,29 @@ class RecurringRequestRecurringData(object):
         """
 
         self._amount = amount
+
+    @property
+    def contract_number(self):
+        """Gets the contract_number of this RecurringRequestRecurringData.  # noqa: E501
+
+        Contract number between customer and merchant. Required for Mexican merchants for scheduled payments.  # noqa: E501
+
+        :return: The contract_number of this RecurringRequestRecurringData.  # noqa: E501
+        :rtype: str
+        """
+        return self._contract_number
+
+    @contract_number.setter
+    def contract_number(self, contract_number):
+        """Sets the contract_number of this RecurringRequestRecurringData.
+
+        Contract number between customer and merchant. Required for Mexican merchants for scheduled payments.  # noqa: E501
+
+        :param contract_number: The contract_number of this RecurringRequestRecurringData.  # noqa: E501
+        :type: str
+        """
+
+        self._contract_number = contract_number
 
     @property
     def currency(self):
@@ -211,6 +264,37 @@ class RecurringRequestRecurringData(object):
         self._dynamic_descriptor = dynamic_descriptor
 
     @property
+    def encrypted_data(self):
+        """Gets the encrypted_data of this RecurringRequestRecurringData.  # noqa: E501
+
+        The encrypted payment credentials encoded in Base64  # noqa: E501
+
+        :return: The encrypted_data of this RecurringRequestRecurringData.  # noqa: E501
+        :rtype: str
+        """
+        return self._encrypted_data
+
+    @encrypted_data.setter
+    def encrypted_data(self, encrypted_data):
+        """Sets the encrypted_data of this RecurringRequestRecurringData.
+
+        The encrypted payment credentials encoded in Base64  # noqa: E501
+
+        :param encrypted_data: The encrypted_data of this RecurringRequestRecurringData.  # noqa: E501
+        :type: str
+        """
+        if encrypted_data is not None and len(encrypted_data) > 10000:
+            raise ValueError(
+                "Invalid value for `encrypted_data`, length must be less than or equal to `10000`"
+            )  # noqa: E501
+        if encrypted_data is not None and len(encrypted_data) < 0:
+            raise ValueError(
+                "Invalid value for `encrypted_data`, length must be greater than or equal to `0`"
+            )  # noqa: E501
+
+        self._encrypted_data = encrypted_data
+
+    @property
     def filing(self):
         """Gets the filing of this RecurringRequestRecurringData.  # noqa: E501
 
@@ -255,6 +339,29 @@ class RecurringRequestRecurringData(object):
         """
 
         self._generate_token = generate_token
+
+    @property
+    def initial_amount(self):
+        """Gets the initial_amount of this RecurringRequestRecurringData.  # noqa: E501
+
+        The amount charged for the initial period from the creation of the transaction to the start date of the subscription ('subscription_start'). It is indicated by the merchant in case of a discount or extra charge. It pays once during subscription.  # noqa: E501
+
+        :return: The initial_amount of this RecurringRequestRecurringData.  # noqa: E501
+        :rtype: float
+        """
+        return self._initial_amount
+
+    @initial_amount.setter
+    def initial_amount(self, initial_amount):
+        """Sets the initial_amount of this RecurringRequestRecurringData.
+
+        The amount charged for the initial period from the creation of the transaction to the start date of the subscription ('subscription_start'). It is indicated by the merchant in case of a discount or extra charge. It pays once during subscription.  # noqa: E501
+
+        :param initial_amount: The initial_amount of this RecurringRequestRecurringData.  # noqa: E501
+        :type: float
+        """
+
+        self._initial_amount = initial_amount
 
     @property
     def initiator(self):
@@ -487,6 +594,35 @@ class RecurringRequestRecurringData(object):
         self._retries = retries
 
     @property
+    def scheduled_type(self):
+        """Gets the scheduled_type of this RecurringRequestRecurringData.  # noqa: E501
+
+        Scheduled payment type attribute. For scheduled payments by merchant value should be `SM` - scheduled by merchant  # noqa: E501
+
+        :return: The scheduled_type of this RecurringRequestRecurringData.  # noqa: E501
+        :rtype: str
+        """
+        return self._scheduled_type
+
+    @scheduled_type.setter
+    def scheduled_type(self, scheduled_type):
+        """Sets the scheduled_type of this RecurringRequestRecurringData.
+
+        Scheduled payment type attribute. For scheduled payments by merchant value should be `SM` - scheduled by merchant  # noqa: E501
+
+        :param scheduled_type: The scheduled_type of this RecurringRequestRecurringData.  # noqa: E501
+        :type: str
+        """
+        if scheduled_type is not None and not re.search(
+            r"SA|SM", scheduled_type
+        ):  # noqa: E501
+            raise ValueError(
+                r"Invalid value for `scheduled_type`, must be a follow pattern or equal to `/SA|SM/`"
+            )  # noqa: E501
+
+        self._scheduled_type = scheduled_type
+
+    @property
     def subscription_start(self):
         """Gets the subscription_start of this RecurringRequestRecurringData.  # noqa: E501
 
@@ -508,6 +644,29 @@ class RecurringRequestRecurringData(object):
         """
 
         self._subscription_start = subscription_start
+
+    @property
+    def trans_type(self):
+        """Gets the trans_type of this RecurringRequestRecurringData.  # noqa: E501
+
+        Identifies the type of transaction being authenticated  # noqa: E501
+
+        :return: The trans_type of this RecurringRequestRecurringData.  # noqa: E501
+        :rtype: str
+        """
+        return self._trans_type
+
+    @trans_type.setter
+    def trans_type(self, trans_type):
+        """Sets the trans_type of this RecurringRequestRecurringData.
+
+        Identifies the type of transaction being authenticated  # noqa: E501
+
+        :param trans_type: The trans_type of this RecurringRequestRecurringData.  # noqa: E501
+        :type: str
+        """
+
+        self._trans_type = trans_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

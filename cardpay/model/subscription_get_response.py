@@ -23,6 +23,9 @@ from cardpay.model.subscription_customer import SubscriptionCustomer  # noqa: F4
 from cardpay.model.subscription_get_response_plan import (
     SubscriptionGetResponsePlan,
 )  # noqa: F401,E501
+from cardpay.model.subscription_pending_plan_update import (
+    SubscriptionPendingPlanUpdate,
+)  # noqa: F401,E501
 
 
 class SubscriptionGetResponse(object):
@@ -47,8 +50,10 @@ class SubscriptionGetResponse(object):
         "description": "str",
         "id": "str",
         "interval": "int",
+        "is_payment_date_shifted": "bool",
         "next_payment": "NextSubscriptionPayment",
         "payments_due": "int",
+        "pending_plan_update": "SubscriptionPendingPlanUpdate",
         "period": "str",
         "plan": "SubscriptionGetResponsePlan",
         "retries": "int",
@@ -56,6 +61,7 @@ class SubscriptionGetResponse(object):
         "status_reason": "str",
         "subscription_start": "datetime",
         "type": "str",
+        "units": "int",
     }
 
     attribute_map = {
@@ -67,8 +73,10 @@ class SubscriptionGetResponse(object):
         "description": "description",
         "id": "id",
         "interval": "interval",
+        "is_payment_date_shifted": "is_payment_date_shifted",
         "next_payment": "next_payment",
         "payments_due": "payments_due",
+        "pending_plan_update": "pending_plan_update",
         "period": "period",
         "plan": "plan",
         "retries": "retries",
@@ -76,6 +84,7 @@ class SubscriptionGetResponse(object):
         "status_reason": "status_reason",
         "subscription_start": "subscription_start",
         "type": "type",
+        "units": "units",
     }
 
     def __init__(
@@ -88,8 +97,10 @@ class SubscriptionGetResponse(object):
         description=None,
         id=None,
         interval=None,
+        is_payment_date_shifted=None,
         next_payment=None,
         payments_due=None,
+        pending_plan_update=None,
         period=None,
         plan=None,
         retries=None,
@@ -97,6 +108,7 @@ class SubscriptionGetResponse(object):
         status_reason=None,
         subscription_start=None,
         type=None,
+        units=None,
     ):  # noqa: E501
         """SubscriptionGetResponse - a model defined in Swagger"""  # noqa: E501
 
@@ -108,8 +120,10 @@ class SubscriptionGetResponse(object):
         self._description = None
         self._id = None
         self._interval = None
+        self._is_payment_date_shifted = None
         self._next_payment = None
         self._payments_due = None
+        self._pending_plan_update = None
         self._period = None
         self._plan = None
         self._retries = None
@@ -117,6 +131,7 @@ class SubscriptionGetResponse(object):
         self._status_reason = None
         self._subscription_start = None
         self._type = None
+        self._units = None
         self.discriminator = None
 
         if amount_due is not None:
@@ -135,10 +150,14 @@ class SubscriptionGetResponse(object):
             self.id = id
         if interval is not None:
             self.interval = interval
+        if is_payment_date_shifted is not None:
+            self.is_payment_date_shifted = is_payment_date_shifted
         if next_payment is not None:
             self.next_payment = next_payment
         if payments_due is not None:
             self.payments_due = payments_due
+        if pending_plan_update is not None:
+            self.pending_plan_update = pending_plan_update
         if period is not None:
             self.period = period
         if plan is not None:
@@ -153,6 +172,8 @@ class SubscriptionGetResponse(object):
             self.subscription_start = subscription_start
         if type is not None:
             self.type = type
+        if units is not None:
+            self.units = units
 
     @property
     def amount_due(self):
@@ -339,6 +360,29 @@ class SubscriptionGetResponse(object):
         self._interval = interval
 
     @property
+    def is_payment_date_shifted(self):
+        """Gets the is_payment_date_shifted of this SubscriptionGetResponse.  # noqa: E501
+
+        A sign of whether it is possible to change the subscription payment date, because it has already been changed before `true` - can't change `false` - can change  # noqa: E501
+
+        :return: The is_payment_date_shifted of this SubscriptionGetResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_payment_date_shifted
+
+    @is_payment_date_shifted.setter
+    def is_payment_date_shifted(self, is_payment_date_shifted):
+        """Sets the is_payment_date_shifted of this SubscriptionGetResponse.
+
+        A sign of whether it is possible to change the subscription payment date, because it has already been changed before `true` - can't change `false` - can change  # noqa: E501
+
+        :param is_payment_date_shifted: The is_payment_date_shifted of this SubscriptionGetResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_payment_date_shifted = is_payment_date_shifted
+
+    @property
     def next_payment(self):
         """Gets the next_payment of this SubscriptionGetResponse.  # noqa: E501
 
@@ -383,6 +427,29 @@ class SubscriptionGetResponse(object):
         """
 
         self._payments_due = payments_due
+
+    @property
+    def pending_plan_update(self):
+        """Gets the pending_plan_update of this SubscriptionGetResponse.  # noqa: E501
+
+        Pending plan update data  # noqa: E501
+
+        :return: The pending_plan_update of this SubscriptionGetResponse.  # noqa: E501
+        :rtype: SubscriptionPendingPlanUpdate
+        """
+        return self._pending_plan_update
+
+    @pending_plan_update.setter
+    def pending_plan_update(self, pending_plan_update):
+        """Sets the pending_plan_update of this SubscriptionGetResponse.
+
+        Pending plan update data  # noqa: E501
+
+        :param pending_plan_update: The pending_plan_update of this SubscriptionGetResponse.  # noqa: E501
+        :type: SubscriptionPendingPlanUpdate
+        """
+
+        self._pending_plan_update = pending_plan_update
 
     class Period(object):
         MINUTE = "minute"
@@ -596,6 +663,29 @@ class SubscriptionGetResponse(object):
             )
 
         self._type = type
+
+    @property
+    def units(self):
+        """Gets the units of this SubscriptionGetResponse.  # noqa: E501
+
+        Units quantity of the subscription, who can consume their service.  # noqa: E501
+
+        :return: The units of this SubscriptionGetResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._units
+
+    @units.setter
+    def units(self, units):
+        """Sets the units of this SubscriptionGetResponse.
+
+        Units quantity of the subscription, who can consume their service.  # noqa: E501
+
+        :param units: The units of this SubscriptionGetResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._units = units
 
     def to_dict(self):
         """Returns the model properties as a dict"""

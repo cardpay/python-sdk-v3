@@ -35,6 +35,7 @@ class InvoiceGetDataResponse(object):
         "currency": "str",
         "expire_at": "datetime",
         "id": "str",
+        "initial_amount": "float",
         "status": "str",
     }
 
@@ -43,11 +44,18 @@ class InvoiceGetDataResponse(object):
         "currency": "currency",
         "expire_at": "expire_at",
         "id": "id",
+        "initial_amount": "initial_amount",
         "status": "status",
     }
 
     def __init__(
-        self, amount=None, currency=None, expire_at=None, id=None, status=None
+        self,
+        amount=None,
+        currency=None,
+        expire_at=None,
+        id=None,
+        initial_amount=None,
+        status=None,
     ):  # noqa: E501
         """InvoiceGetDataResponse - a model defined in Swagger"""  # noqa: E501
 
@@ -55,14 +63,18 @@ class InvoiceGetDataResponse(object):
         self._currency = None
         self._expire_at = None
         self._id = None
+        self._initial_amount = None
         self._status = None
         self.discriminator = None
 
-        self.amount = amount
+        if amount is not None:
+            self.amount = amount
         self.currency = currency
         if expire_at is not None:
             self.expire_at = expire_at
         self.id = id
+        if initial_amount is not None:
+            self.initial_amount = initial_amount
         if status is not None:
             self.status = status
 
@@ -86,10 +98,6 @@ class InvoiceGetDataResponse(object):
         :param amount: The amount of this InvoiceGetDataResponse.  # noqa: E501
         :type: float
         """
-        if amount is None:
-            raise ValueError(
-                "Invalid value for `amount`, must not be `None`"
-            )  # noqa: E501
 
         self._amount = amount
 
@@ -167,6 +175,29 @@ class InvoiceGetDataResponse(object):
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
+
+    @property
+    def initial_amount(self):
+        """Gets the initial_amount of this InvoiceGetDataResponse.  # noqa: E501
+
+        The amount charged for the initial period from the creation of the transaction to the start date of the subscription  # noqa: E501
+
+        :return: The initial_amount of this InvoiceGetDataResponse.  # noqa: E501
+        :rtype: float
+        """
+        return self._initial_amount
+
+    @initial_amount.setter
+    def initial_amount(self, initial_amount):
+        """Sets the initial_amount of this InvoiceGetDataResponse.
+
+        The amount charged for the initial period from the creation of the transaction to the start date of the subscription  # noqa: E501
+
+        :param initial_amount: The initial_amount of this InvoiceGetDataResponse.  # noqa: E501
+        :type: float
+        """
+
+        self._initial_amount = initial_amount
 
     @property
     def status(self):

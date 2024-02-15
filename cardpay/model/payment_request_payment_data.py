@@ -32,15 +32,16 @@ class PaymentRequestPaymentData(object):
     """
     swagger_types = {
         "amount": "float",
-        "authentication_request": "bool",
         "currency": "str",
         "dynamic_descriptor": "str",
         "encrypted_data": "str",
         "generate_token": "bool",
+        "hold_period": "int",
         "installment_amount": "float",
         "installment_type": "str",
         "installments": "list[int]",
         "note": "str",
+        "postauth_status": "str",
         "preauth": "bool",
         "sca_exemption": "str",
         "three_ds_challenge_indicator": "str",
@@ -49,15 +50,16 @@ class PaymentRequestPaymentData(object):
 
     attribute_map = {
         "amount": "amount",
-        "authentication_request": "authentication_request",
         "currency": "currency",
         "dynamic_descriptor": "dynamic_descriptor",
         "encrypted_data": "encrypted_data",
         "generate_token": "generate_token",
+        "hold_period": "hold_period",
         "installment_amount": "installment_amount",
         "installment_type": "installment_type",
         "installments": "installments",
         "note": "note",
+        "postauth_status": "postauth_status",
         "preauth": "preauth",
         "sca_exemption": "sca_exemption",
         "three_ds_challenge_indicator": "three_ds_challenge_indicator",
@@ -67,15 +69,16 @@ class PaymentRequestPaymentData(object):
     def __init__(
         self,
         amount=None,
-        authentication_request=None,
         currency=None,
         dynamic_descriptor=None,
         encrypted_data=None,
         generate_token=None,
+        hold_period=None,
         installment_amount=None,
         installment_type=None,
         installments=None,
         note=None,
+        postauth_status=None,
         preauth=None,
         sca_exemption=None,
         three_ds_challenge_indicator=None,
@@ -84,15 +87,16 @@ class PaymentRequestPaymentData(object):
         """PaymentRequestPaymentData - a model defined in Swagger"""  # noqa: E501
 
         self._amount = None
-        self._authentication_request = None
         self._currency = None
         self._dynamic_descriptor = None
         self._encrypted_data = None
         self._generate_token = None
+        self._hold_period = None
         self._installment_amount = None
         self._installment_type = None
         self._installments = None
         self._note = None
+        self._postauth_status = None
         self._preauth = None
         self._sca_exemption = None
         self._three_ds_challenge_indicator = None
@@ -101,8 +105,6 @@ class PaymentRequestPaymentData(object):
 
         if amount is not None:
             self.amount = amount
-        if authentication_request is not None:
-            self.authentication_request = authentication_request
         self.currency = currency
         if dynamic_descriptor is not None:
             self.dynamic_descriptor = dynamic_descriptor
@@ -110,6 +112,8 @@ class PaymentRequestPaymentData(object):
             self.encrypted_data = encrypted_data
         if generate_token is not None:
             self.generate_token = generate_token
+        if hold_period is not None:
+            self.hold_period = hold_period
         if installment_amount is not None:
             self.installment_amount = installment_amount
         if installment_type is not None:
@@ -118,6 +122,8 @@ class PaymentRequestPaymentData(object):
             self.installments = installments
         if note is not None:
             self.note = note
+        if postauth_status is not None:
+            self.postauth_status = postauth_status
         if preauth is not None:
             self.preauth = preauth
         if sca_exemption is not None:
@@ -149,29 +155,6 @@ class PaymentRequestPaymentData(object):
         """
 
         self._amount = amount
-
-    @property
-    def authentication_request(self):
-        """Gets the authentication_request of this PaymentRequestPaymentData.  # noqa: E501
-
-        If set to `true`, amount must not be presented in request, no payment will be made, only cardholder authentication will be performed. Also can be used to generate token. *(for BANKCARD payment method only)*  # noqa: E501
-
-        :return: The authentication_request of this PaymentRequestPaymentData.  # noqa: E501
-        :rtype: bool
-        """
-        return self._authentication_request
-
-    @authentication_request.setter
-    def authentication_request(self, authentication_request):
-        """Sets the authentication_request of this PaymentRequestPaymentData.
-
-        If set to `true`, amount must not be presented in request, no payment will be made, only cardholder authentication will be performed. Also can be used to generate token. *(for BANKCARD payment method only)*  # noqa: E501
-
-        :param authentication_request: The authentication_request of this PaymentRequestPaymentData.  # noqa: E501
-        :type: bool
-        """
-
-        self._authentication_request = authentication_request
 
     @property
     def currency(self):
@@ -286,6 +269,37 @@ class PaymentRequestPaymentData(object):
         self._generate_token = generate_token
 
     @property
+    def hold_period(self):
+        """Gets the hold_period of this PaymentRequestPaymentData.  # noqa: E501
+
+        The delay between the authorisation and scheduled auto-capture or auto-void, specified in hours. The minimum hold period is 1 hour, maximum hold period is 7 days (168 hours).  # noqa: E501
+
+        :return: The hold_period of this PaymentRequestPaymentData.  # noqa: E501
+        :rtype: int
+        """
+        return self._hold_period
+
+    @hold_period.setter
+    def hold_period(self, hold_period):
+        """Sets the hold_period of this PaymentRequestPaymentData.
+
+        The delay between the authorisation and scheduled auto-capture or auto-void, specified in hours. The minimum hold period is 1 hour, maximum hold period is 7 days (168 hours).  # noqa: E501
+
+        :param hold_period: The hold_period of this PaymentRequestPaymentData.  # noqa: E501
+        :type: int
+        """
+        if hold_period is not None and hold_period > 168:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `hold_period`, must be a value less than or equal to `168`"
+            )  # noqa: E501
+        if hold_period is not None and hold_period < 1:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `hold_period`, must be a value greater than or equal to `1`"
+            )  # noqa: E501
+
+        self._hold_period = hold_period
+
+    @property
     def installment_amount(self):
         """Gets the installment_amount of this PaymentRequestPaymentData.  # noqa: E501
 
@@ -390,6 +404,40 @@ class PaymentRequestPaymentData(object):
             )  # noqa: E501
 
         self._note = note
+
+    class PostauthStatus(object):
+        REVERSE = "REVERSE"
+        COMPLETE = "COMPLETE"
+
+    @property
+    def postauth_status(self):
+        """Gets the postauth_status of this PaymentRequestPaymentData.  # noqa: E501
+
+        The value contains payment status after hold period if payment has not been completed. Possible values: COMPLETE, REVERSE  # noqa: E501
+
+        :return: The postauth_status of this PaymentRequestPaymentData.  # noqa: E501
+        :rtype: str
+        """
+        return self._postauth_status
+
+    @postauth_status.setter
+    def postauth_status(self, postauth_status):
+        """Sets the postauth_status of this PaymentRequestPaymentData.
+
+        The value contains payment status after hold period if payment has not been completed. Possible values: COMPLETE, REVERSE  # noqa: E501
+
+        :param postauth_status: The postauth_status of this PaymentRequestPaymentData.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["REVERSE", "COMPLETE"]  # noqa: E501
+        if postauth_status not in allowed_values:
+            raise ValueError(
+                "Invalid value for `postauth_status` ({0}), must be one of {1}".format(  # noqa: E501
+                    postauth_status, allowed_values
+                )
+            )
+
+        self._postauth_status = postauth_status
 
     @property
     def preauth(self):

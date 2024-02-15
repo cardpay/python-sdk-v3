@@ -41,9 +41,11 @@ class OneclickData(object):
         "dynamic_descriptor": "str",
         "filing": "RecurringRequestFiling",
         "generate_token": "bool",
+        "hold_period": "int",
         "initiator": "str",
         "network_trans_id": "str",
         "note": "str",
+        "postauth_status": "str",
         "preauth": "bool",
         "sca_exemption": "str",
         "three_ds_challenge_indicator": "str",
@@ -57,9 +59,11 @@ class OneclickData(object):
         "dynamic_descriptor": "dynamic_descriptor",
         "filing": "filing",
         "generate_token": "generate_token",
+        "hold_period": "hold_period",
         "initiator": "initiator",
         "network_trans_id": "network_trans_id",
         "note": "note",
+        "postauth_status": "postauth_status",
         "preauth": "preauth",
         "sca_exemption": "sca_exemption",
         "three_ds_challenge_indicator": "three_ds_challenge_indicator",
@@ -74,9 +78,11 @@ class OneclickData(object):
         dynamic_descriptor=None,
         filing=None,
         generate_token=None,
+        hold_period=None,
         initiator=None,
         network_trans_id=None,
         note=None,
+        postauth_status=None,
         preauth=None,
         sca_exemption=None,
         three_ds_challenge_indicator=None,
@@ -90,9 +96,11 @@ class OneclickData(object):
         self._dynamic_descriptor = None
         self._filing = None
         self._generate_token = None
+        self._hold_period = None
         self._initiator = None
         self._network_trans_id = None
         self._note = None
+        self._postauth_status = None
         self._preauth = None
         self._sca_exemption = None
         self._three_ds_challenge_indicator = None
@@ -110,11 +118,15 @@ class OneclickData(object):
             self.filing = filing
         if generate_token is not None:
             self.generate_token = generate_token
+        if hold_period is not None:
+            self.hold_period = hold_period
         self.initiator = initiator
         if network_trans_id is not None:
             self.network_trans_id = network_trans_id
         if note is not None:
             self.note = note
+        if postauth_status is not None:
+            self.postauth_status = postauth_status
         if preauth is not None:
             self.preauth = preauth
         if sca_exemption is not None:
@@ -167,6 +179,14 @@ class OneclickData(object):
         :param contract_number: The contract_number of this OneclickData.  # noqa: E501
         :type: str
         """
+        if contract_number is not None and len(contract_number) > 20:
+            raise ValueError(
+                "Invalid value for `contract_number`, length must be less than or equal to `20`"
+            )  # noqa: E501
+        if contract_number is not None and len(contract_number) < 0:
+            raise ValueError(
+                "Invalid value for `contract_number`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._contract_number = contract_number
 
@@ -275,6 +295,37 @@ class OneclickData(object):
         self._generate_token = generate_token
 
     @property
+    def hold_period(self):
+        """Gets the hold_period of this OneclickData.  # noqa: E501
+
+        The delay between the authorisation and scheduled auto-capture or auto-void, specified in hours. The minimum hold period is 1 hour, maximum hold period is 7 days (168 hours).  # noqa: E501
+
+        :return: The hold_period of this OneclickData.  # noqa: E501
+        :rtype: int
+        """
+        return self._hold_period
+
+    @hold_period.setter
+    def hold_period(self, hold_period):
+        """Sets the hold_period of this OneclickData.
+
+        The delay between the authorisation and scheduled auto-capture or auto-void, specified in hours. The minimum hold period is 1 hour, maximum hold period is 7 days (168 hours).  # noqa: E501
+
+        :param hold_period: The hold_period of this OneclickData.  # noqa: E501
+        :type: int
+        """
+        if hold_period is not None and hold_period > 168:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `hold_period`, must be a value less than or equal to `168`"
+            )  # noqa: E501
+        if hold_period is not None and hold_period < 1:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `hold_period`, must be a value greater than or equal to `1`"
+            )  # noqa: E501
+
+        self._hold_period = hold_period
+
+    @property
     def initiator(self):
         """Gets the initiator of this OneclickData.  # noqa: E501
 
@@ -358,6 +409,40 @@ class OneclickData(object):
             )  # noqa: E501
 
         self._note = note
+
+    class PostauthStatus(object):
+        REVERSE = "REVERSE"
+        COMPLETE = "COMPLETE"
+
+    @property
+    def postauth_status(self):
+        """Gets the postauth_status of this OneclickData.  # noqa: E501
+
+        The value contains payment status after hold period if payment has not been completed. Possible values: COMPLETE, REVERSE  # noqa: E501
+
+        :return: The postauth_status of this OneclickData.  # noqa: E501
+        :rtype: str
+        """
+        return self._postauth_status
+
+    @postauth_status.setter
+    def postauth_status(self, postauth_status):
+        """Sets the postauth_status of this OneclickData.
+
+        The value contains payment status after hold period if payment has not been completed. Possible values: COMPLETE, REVERSE  # noqa: E501
+
+        :param postauth_status: The postauth_status of this OneclickData.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["REVERSE", "COMPLETE"]  # noqa: E501
+        if postauth_status not in allowed_values:
+            raise ValueError(
+                "Invalid value for `postauth_status` ({0}), must be one of {1}".format(  # noqa: E501
+                    postauth_status, allowed_values
+                )
+            )
+
+        self._postauth_status = postauth_status
 
     @property
     def preauth(self):

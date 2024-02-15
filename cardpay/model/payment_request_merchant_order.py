@@ -37,6 +37,7 @@ class PaymentRequestMerchantOrder(object):
     swagger_types = {
         "cryptocurrency_indicator": "bool",
         "description": "str",
+        "expire_at": "datetime",
         "flights": "Flights",
         "id": "str",
         "items": "list[Item]",
@@ -46,6 +47,7 @@ class PaymentRequestMerchantOrder(object):
     attribute_map = {
         "cryptocurrency_indicator": "cryptocurrency_indicator",
         "description": "description",
+        "expire_at": "expire_at",
         "flights": "flights",
         "id": "id",
         "items": "items",
@@ -56,6 +58,7 @@ class PaymentRequestMerchantOrder(object):
         self,
         cryptocurrency_indicator=None,
         description=None,
+        expire_at=None,
         flights=None,
         id=None,
         items=None,
@@ -65,6 +68,7 @@ class PaymentRequestMerchantOrder(object):
 
         self._cryptocurrency_indicator = None
         self._description = None
+        self._expire_at = None
         self._flights = None
         self._id = None
         self._items = None
@@ -74,6 +78,8 @@ class PaymentRequestMerchantOrder(object):
         if cryptocurrency_indicator is not None:
             self.cryptocurrency_indicator = cryptocurrency_indicator
         self.description = description
+        if expire_at is not None:
+            self.expire_at = expire_at
         if flights is not None:
             self.flights = flights
         self.id = id
@@ -139,6 +145,29 @@ class PaymentRequestMerchantOrder(object):
             )  # noqa: E501
 
         self._description = description
+
+    @property
+    def expire_at(self):
+        """Gets the expire_at of this PaymentRequestMerchantOrder.  # noqa: E501
+
+        Payment expiration date and time in ISO 8601 format (example of format - yyyy-MM-dd'T'HH:mm:ss'Z') Should be UTC time.  Not all payment methods support this options, contact the Unlimit manager for details.  # noqa: E501
+
+        :return: The expire_at of this PaymentRequestMerchantOrder.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._expire_at
+
+    @expire_at.setter
+    def expire_at(self, expire_at):
+        """Sets the expire_at of this PaymentRequestMerchantOrder.
+
+        Payment expiration date and time in ISO 8601 format (example of format - yyyy-MM-dd'T'HH:mm:ss'Z') Should be UTC time.  Not all payment methods support this options, contact the Unlimit manager for details.  # noqa: E501
+
+        :param expire_at: The expire_at of this PaymentRequestMerchantOrder.  # noqa: E501
+        :type: datetime
+        """
+
+        self._expire_at = expire_at
 
     @property
     def flights(self):

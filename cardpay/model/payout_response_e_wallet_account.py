@@ -47,7 +47,7 @@ class PayoutResponseEWalletAccount(object):
     def id(self):
         """Gets the id of this PayoutResponseEWalletAccount.  # noqa: E501
 
-        For QIWI: Customer phone number (from 1 to 15 digits) For WEBMONEY: Customer account number For NETELLER: Customer email For 'Latin America': Customer personal identification number For YANDEXMONEY: Customer wallet number, 11 to 16 digits, begins with `410` For DIRECTBANKINGNGA: bank account number For AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE and TIGO: Customer account number  # noqa: E501
+        For QIWI: Customer phone number (from 1 to 15 digits) For WEBMONEY: Customer account number For NETELLER: Customer email For 'Latin America': Customer personal identification number For DIRECTBANKINGNGA: bank account number For AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE and TIGO: Customer account number  # noqa: E501
 
         :return: The id of this PayoutResponseEWalletAccount.  # noqa: E501
         :rtype: str
@@ -58,7 +58,7 @@ class PayoutResponseEWalletAccount(object):
     def id(self, id):
         """Sets the id of this PayoutResponseEWalletAccount.
 
-        For QIWI: Customer phone number (from 1 to 15 digits) For WEBMONEY: Customer account number For NETELLER: Customer email For 'Latin America': Customer personal identification number For YANDEXMONEY: Customer wallet number, 11 to 16 digits, begins with `410` For DIRECTBANKINGNGA: bank account number For AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE and TIGO: Customer account number  # noqa: E501
+        For QIWI: Customer phone number (from 1 to 15 digits) For WEBMONEY: Customer account number For NETELLER: Customer email For 'Latin America': Customer personal identification number For DIRECTBANKINGNGA: bank account number For AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE and TIGO: Customer account number  # noqa: E501
 
         :param id: The id of this PayoutResponseEWalletAccount.  # noqa: E501
         :type: str

@@ -155,7 +155,7 @@ class RefundResponse(object):
     def ewallet_account(self):
         """Gets the ewallet_account of this RefundResponse.  # noqa: E501
 
-        eWallet account data *(for ALIPAY and QIWI payment methods only)*  # noqa: E501
+        eWallet account data *(for QIWI payment methods only)*  # noqa: E501
 
         :return: The ewallet_account of this RefundResponse.  # noqa: E501
         :rtype: TransactionResponseEWalletAccount
@@ -166,7 +166,7 @@ class RefundResponse(object):
     def ewallet_account(self, ewallet_account):
         """Sets the ewallet_account of this RefundResponse.
 
-        eWallet account data *(for ALIPAY and QIWI payment methods only)*  # noqa: E501
+        eWallet account data *(for QIWI payment methods only)*  # noqa: E501
 
         :param ewallet_account: The ewallet_account of this RefundResponse.  # noqa: E501
         :type: TransactionResponseEWalletAccount

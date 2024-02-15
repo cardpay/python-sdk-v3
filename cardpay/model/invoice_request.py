@@ -19,6 +19,7 @@ import six
 from cardpay.model.invoice_customer import InvoiceCustomer  # noqa: F401,E501
 from cardpay.model.invoice_data import InvoiceData  # noqa: F401,E501
 from cardpay.model.invoice_merchant_order import InvoiceMerchantOrder  # noqa: F401,E501
+from cardpay.model.recurring_data import RecurringData  # noqa: F401,E501
 from cardpay.model.request import Request  # noqa: F401,E501
 from cardpay.model.return_urls import ReturnUrls  # noqa: F401,E501
 
@@ -41,6 +42,7 @@ class InvoiceRequest(object):
         "customer": "InvoiceCustomer",
         "invoice_data": "InvoiceData",
         "merchant_order": "InvoiceMerchantOrder",
+        "recurring_data": "RecurringData",
         "return_urls": "ReturnUrls",
     }
 
@@ -49,6 +51,7 @@ class InvoiceRequest(object):
         "customer": "customer",
         "invoice_data": "invoice_data",
         "merchant_order": "merchant_order",
+        "recurring_data": "recurring_data",
         "return_urls": "return_urls",
     }
 
@@ -58,6 +61,7 @@ class InvoiceRequest(object):
         customer=None,
         invoice_data=None,
         merchant_order=None,
+        recurring_data=None,
         return_urls=None,
     ):  # noqa: E501
         """InvoiceRequest - a model defined in Swagger"""  # noqa: E501
@@ -66,6 +70,7 @@ class InvoiceRequest(object):
         self._customer = None
         self._invoice_data = None
         self._merchant_order = None
+        self._recurring_data = None
         self._return_urls = None
         self.discriminator = None
 
@@ -74,6 +79,8 @@ class InvoiceRequest(object):
             self.customer = customer
         self.invoice_data = invoice_data
         self.merchant_order = merchant_order
+        if recurring_data is not None:
+            self.recurring_data = recurring_data
         if return_urls is not None:
             self.return_urls = return_urls
 
@@ -180,6 +187,29 @@ class InvoiceRequest(object):
             )  # noqa: E501
 
         self._merchant_order = merchant_order
+
+    @property
+    def recurring_data(self):
+        """Gets the recurring_data of this InvoiceRequest.  # noqa: E501
+
+        Recurring data  # noqa: E501
+
+        :return: The recurring_data of this InvoiceRequest.  # noqa: E501
+        :rtype: RecurringData
+        """
+        return self._recurring_data
+
+    @recurring_data.setter
+    def recurring_data(self, recurring_data):
+        """Sets the recurring_data of this InvoiceRequest.
+
+        Recurring data  # noqa: E501
+
+        :param recurring_data: The recurring_data of this InvoiceRequest.  # noqa: E501
+        :type: RecurringData
+        """
+
+        self._recurring_data = recurring_data
 
     @property
     def return_urls(self):

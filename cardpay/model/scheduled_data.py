@@ -45,6 +45,7 @@ class ScheduledData(object):
         "subscription_start": "datetime",
         "three_ds_challenge_indicator": "str",
         "trans_type": "str",
+        "units": "int",
     }
 
     attribute_map = {
@@ -60,6 +61,7 @@ class ScheduledData(object):
         "subscription_start": "subscription_start",
         "three_ds_challenge_indicator": "three_ds_challenge_indicator",
         "trans_type": "trans_type",
+        "units": "units",
     }
 
     def __init__(
@@ -76,6 +78,7 @@ class ScheduledData(object):
         subscription_start=None,
         three_ds_challenge_indicator=None,
         trans_type=None,
+        units=None,
     ):  # noqa: E501
         """ScheduledData - a model defined in Swagger"""  # noqa: E501
 
@@ -91,6 +94,7 @@ class ScheduledData(object):
         self._subscription_start = None
         self._three_ds_challenge_indicator = None
         self._trans_type = None
+        self._units = None
         self.discriminator = None
 
         if contract_number is not None:
@@ -116,6 +120,8 @@ class ScheduledData(object):
             self.three_ds_challenge_indicator = three_ds_challenge_indicator
         if trans_type is not None:
             self.trans_type = trans_type
+        if units is not None:
+            self.units = units
 
     @property
     def contract_number(self):
@@ -137,6 +143,14 @@ class ScheduledData(object):
         :param contract_number: The contract_number of this ScheduledData.  # noqa: E501
         :type: str
         """
+        if contract_number is not None and len(contract_number) > 20:
+            raise ValueError(
+                "Invalid value for `contract_number`, length must be less than or equal to `20`"
+            )  # noqa: E501
+        if contract_number is not None and len(contract_number) < 0:
+            raise ValueError(
+                "Invalid value for `contract_number`, length must be greater than or equal to `0`"
+            )  # noqa: E501
 
         self._contract_number = contract_number
 
@@ -446,6 +460,33 @@ class ScheduledData(object):
             )
 
         self._trans_type = trans_type
+
+    @property
+    def units(self):
+        """Gets the units of this ScheduledData.  # noqa: E501
+
+        Units quantity of the subscription, who can consume their service.  # noqa: E501
+
+        :return: The units of this ScheduledData.  # noqa: E501
+        :rtype: int
+        """
+        return self._units
+
+    @units.setter
+    def units(self, units):
+        """Sets the units of this ScheduledData.
+
+        Units quantity of the subscription, who can consume their service.  # noqa: E501
+
+        :param units: The units of this ScheduledData.  # noqa: E501
+        :type: int
+        """
+        if units is not None and units < 1:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `units`, must be a value greater than or equal to `1`"
+            )  # noqa: E501
+
+        self._units = units
 
     def to_dict(self):
         """Returns the model properties as a dict"""

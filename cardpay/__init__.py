@@ -22,13 +22,17 @@ from cardpay.configuration import Configuration
 # import models into sdk package
 from cardpay.model.api_error import ApiError
 from cardpay.model.api_tokens import ApiTokens
+from cardpay.model.auth_data_request import AuthDataRequest
+from cardpay.model.authentication_create_response import AuthenticationCreateResponse
 from cardpay.model.authentication_customer import AuthenticationCustomer
 from cardpay.model.authentication_data import AuthenticationData
+from cardpay.model.authentication_data_request import AuthenticationDataRequest
 from cardpay.model.authentication_data_response import AuthenticationDataResponse
 from cardpay.model.authentication_error import AuthenticationError
 from cardpay.model.bad_request_error import BadRequestError
 from cardpay.model.bank_card_payout_data import BankCardPayoutData
 from cardpay.model.billing_address import BillingAddress
+from cardpay.model.browser_info import BrowserInfo
 from cardpay.model.card_info_request import CardInfoRequest
 from cardpay.model.card_info_response import CardInfoResponse
 from cardpay.model.change_subscription_status_claim_response import (
@@ -131,12 +135,14 @@ from cardpay.model.pix_account_details_request import PixAccountDetailsRequest
 from cardpay.model.pix_account_details_response import PixAccountDetailsResponse
 from cardpay.model.plan import Plan
 from cardpay.model.plan_data_list import PlanDataList
+from cardpay.model.plan_quantity import PlanQuantity
 from cardpay.model.plan_update_request import PlanUpdateRequest
 from cardpay.model.plan_update_request_plan_data import PlanUpdateRequestPlanData
 from cardpay.model.plan_update_response import PlanUpdateResponse
 from cardpay.model.recurring_callback import RecurringCallback
 from cardpay.model.recurring_creation_request import RecurringCreationRequest
 from cardpay.model.recurring_customer import RecurringCustomer
+from cardpay.model.recurring_data import RecurringData
 from cardpay.model.recurring_filter_parameters import RecurringFilterParameters
 from cardpay.model.recurring_gateway_creation_response import (
     RecurringGatewayCreationResponse,
@@ -198,6 +204,7 @@ from cardpay.model.subscription_filter_parameters import SubscriptionFilterParam
 from cardpay.model.subscription_get_response import SubscriptionGetResponse
 from cardpay.model.subscription_get_response_plan import SubscriptionGetResponsePlan
 from cardpay.model.subscription_list import SubscriptionList
+from cardpay.model.subscription_pending_plan_update import SubscriptionPendingPlanUpdate
 from cardpay.model.subscription_update_request import SubscriptionUpdateRequest
 from cardpay.model.subscription_update_request_subscription_data import (
     SubscriptionUpdateRequestSubscriptionData,
@@ -222,14 +229,17 @@ from cardpay.model.updated_subscription_recurring_data import (
 )
 from cardpay.model.payment_confirm3ds_request import PaymentConfirm3dsRequest
 from cardpay.model.payment_execute_request import PaymentExecuteRequest
+from cardpay.model.payment_increment_request import PaymentIncrementRequest
 from cardpay.model.payment_update_request import PaymentUpdateRequest
 from cardpay.model.recurring_confirm3ds_request import RecurringConfirm3dsRequest
 from cardpay.model.recurring_execute_request import RecurringExecuteRequest
+from cardpay.model.recurring_increment_request import RecurringIncrementRequest
 from cardpay.model.recurring_update_request import RecurringUpdateRequest
 
 
 # import apis into api package
 from cardpay.api.auth_api import AuthApi
+from cardpay.api.authentication_api import AuthenticationApi
 from cardpay.api.card_info_api import CardInfoApi
 from cardpay.api.invoices_api import InvoicesApi
 from cardpay.api.limits_api import LimitsApi

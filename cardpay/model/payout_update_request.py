@@ -38,20 +38,30 @@ class PayoutUpdateRequest(object):
     swagger_types = {
         "request": "Request",
         "payout_data": "RequestUpdatedTransactionData",
+        "transaction_data": "RequestUpdatedTransactionData",
     }
 
-    attribute_map = {"request": "request", "payout_data": "payout_data"}
+    attribute_map = {
+        "request": "request",
+        "payout_data": "payout_data",
+        "transaction_data": "transaction_data",
+    }
 
-    def __init__(self, request=None, payout_data=None):  # noqa: E501
+    def __init__(
+        self, request=None, payout_data=None, transaction_data=None
+    ):  # noqa: E501
         """PayoutUpdateRequest - a model defined in Swagger"""  # noqa: E501
 
         self._request = None
         self._payout_data = None
+        self._transaction_data = None
         self.discriminator = None
 
         self.request = request
         if payout_data is not None:
             self.payout_data = payout_data
+        if transaction_data is not None:
+            self.transaction_data = transaction_data
 
     @property
     def request(self):
@@ -84,7 +94,7 @@ class PayoutUpdateRequest(object):
     def payout_data(self):
         """Gets the payout_data of this PayoutUpdateRequest.  # noqa: E501
 
-        Transaction data  # noqa: E501
+        Payout data  # noqa: E501
 
         :return: The payout_data of this PayoutUpdateRequest.  # noqa: E501
         :rtype: RequestUpdatedTransactionData
@@ -95,13 +105,34 @@ class PayoutUpdateRequest(object):
     def payout_data(self, payout_data):
         """Sets the payout_data of this PayoutUpdateRequest.
 
-        Transaction data  # noqa: E501
+        Payout data  # noqa: E501
 
         :param payout_data: The payout_data of this PayoutUpdateRequest.  # noqa: E501
         :type: RequestUpdatedTransactionData
         """
 
         self._payout_data = payout_data
+
+    @property
+    def transaction_data(self):
+        """Gets the transaction_data of this PayoutUpdateRequest.  # noqa: E501
+
+
+        :return: The transaction_data of this PayoutUpdateRequest.  # noqa: E501
+        :rtype: RequestUpdatedTransactionData
+        """
+        return self._transaction_data
+
+    @transaction_data.setter
+    def transaction_data(self, transaction_data):
+        """Sets the transaction_data of this PayoutUpdateRequest.
+
+
+        :param transaction_data: The transaction_data of this PayoutUpdateRequest.  # noqa: E501
+        :type: RequestUpdatedTransactionData
+        """
+
+        self._transaction_data = transaction_data
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -207,7 +207,7 @@ class PaymentCallback(object):
     def ewallet_account(self):
         """Gets the ewallet_account of this PaymentCallback.  # noqa: E501
 
-        eWallet account data *(for ALIPAY, QIWI, WEBMONEY, NETELLER, YANDEXMONEY, DIRECTBANKINGNGA, AQRCODE, AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE, TIGO and 'Latin America' payment methods only)*  # noqa: E501
+        eWallet account data *(for QIWI, WEBMONEY, NETELLER, DIRECTBANKINGNGA, AQRCODE, AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE, TIGO and 'Latin America' payment methods only)*  # noqa: E501
 
         :return: The ewallet_account of this PaymentCallback.  # noqa: E501
         :rtype: TransactionResponseEWalletAccount
@@ -218,7 +218,7 @@ class PaymentCallback(object):
     def ewallet_account(self, ewallet_account):
         """Sets the ewallet_account of this PaymentCallback.
 
-        eWallet account data *(for ALIPAY, QIWI, WEBMONEY, NETELLER, YANDEXMONEY, DIRECTBANKINGNGA, AQRCODE, AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE, TIGO and 'Latin America' payment methods only)*  # noqa: E501
+        eWallet account data *(for QIWI, WEBMONEY, NETELLER, DIRECTBANKINGNGA, AQRCODE, AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE, TIGO and 'Latin America' payment methods only)*  # noqa: E501
 
         :param ewallet_account: The ewallet_account of this PaymentCallback.  # noqa: E501
         :type: TransactionResponseEWalletAccount

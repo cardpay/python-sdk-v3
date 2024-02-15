@@ -57,6 +57,7 @@ class PayoutResponse(object):
         "ewallet_account": "PayoutResponseEWalletAccount",
         "payment_data": "PayoutPaymentData",
         "payout_data": "PayoutResponsePayoutData",
+        "redirect_url": "str",
         "payment_method": "str",
         "merchant_order": "TransactionResponseMerchantOrder",
     }
@@ -68,6 +69,7 @@ class PayoutResponse(object):
         "ewallet_account": "ewallet_account",
         "payment_data": "payment_data",
         "payout_data": "payout_data",
+        "redirect_url": "redirect_url",
         "payment_method": "payment_method",
         "merchant_order": "merchant_order",
     }
@@ -80,6 +82,7 @@ class PayoutResponse(object):
         ewallet_account=None,
         payment_data=None,
         payout_data=None,
+        redirect_url=None,
         payment_method=None,
         merchant_order=None,
     ):  # noqa: E501
@@ -91,6 +94,7 @@ class PayoutResponse(object):
         self._ewallet_account = None
         self._payment_data = None
         self._payout_data = None
+        self._redirect_url = None
         self._payment_method = None
         self._merchant_order = None
         self.discriminator = None
@@ -106,6 +110,8 @@ class PayoutResponse(object):
         if payment_data is not None:
             self.payment_data = payment_data
         self.payout_data = payout_data
+        if redirect_url is not None:
+            self.redirect_url = redirect_url
         if payment_method is not None:
             self.payment_method = payment_method
         if merchant_order is not None:
@@ -252,6 +258,29 @@ class PayoutResponse(object):
             )  # noqa: E501
 
         self._payout_data = payout_data
+
+    @property
+    def redirect_url(self):
+        """Gets the redirect_url of this PayoutResponse.  # noqa: E501
+
+        URL Customer should be redirected to  # noqa: E501
+
+        :return: The redirect_url of this PayoutResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._redirect_url
+
+    @redirect_url.setter
+    def redirect_url(self, redirect_url):
+        """Sets the redirect_url of this PayoutResponse.
+
+        URL Customer should be redirected to  # noqa: E501
+
+        :param redirect_url: The redirect_url of this PayoutResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._redirect_url = redirect_url
 
     @property
     def payment_method(self):

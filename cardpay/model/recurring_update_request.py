@@ -42,26 +42,33 @@ class RecurringUpdateRequest(object):
         "request": "Request",
         "operation": "str",
         "recurring_data": "PaymentUpdateTransactionData",
+        "transaction_data": "PaymentUpdateTransactionData",
     }
 
     attribute_map = {
         "request": "request",
         "operation": "operation",
         "recurring_data": "recurring_data",
+        "transaction_data": "transaction_data",
     }
 
-    def __init__(self, request=None, operation=None, recurring_data=None):  # noqa: E501
+    def __init__(
+        self, request=None, operation=None, recurring_data=None, transaction_data=None
+    ):  # noqa: E501
         """RecurringUpdateRequest - a model defined in Swagger"""  # noqa: E501
 
         self._request = None
         self._operation = None
         self._recurring_data = None
+        self._transaction_data = None
         self.discriminator = None
 
         self.request = request
         self.operation = operation
         if recurring_data is not None:
             self.recurring_data = recurring_data
+        if transaction_data is not None:
+            self.transaction_data = transaction_data
 
     @property
     def request(self):
@@ -94,6 +101,7 @@ class RecurringUpdateRequest(object):
         CHANGE_STATUS = "CHANGE_STATUS"
         CONFIRM_3DS = "CONFIRM_3DS"
         EXECUTE = "EXECUTE"
+        INCREMENT = "INCREMENT"
 
     @property
     def operation(self):
@@ -119,7 +127,12 @@ class RecurringUpdateRequest(object):
             raise ValueError(
                 "Invalid value for `operation`, must not be `None`"
             )  # noqa: E501
-        allowed_values = ["CHANGE_STATUS", "CONFIRM_3DS", "EXECUTE"]  # noqa: E501
+        allowed_values = [
+            "CHANGE_STATUS",
+            "CONFIRM_3DS",
+            "EXECUTE",
+            "INCREMENT",
+        ]  # noqa: E501
         if operation not in allowed_values:
             raise ValueError(
                 "Invalid value for `operation` ({0}), must be one of {1}".format(  # noqa: E501
@@ -133,7 +146,7 @@ class RecurringUpdateRequest(object):
     def recurring_data(self):
         """Gets the recurring_data of this RecurringUpdateRequest.  # noqa: E501
 
-        Transaction data  # noqa: E501
+        Recurring data  # noqa: E501
 
         :return: The recurring_data of this RecurringUpdateRequest.  # noqa: E501
         :rtype: PaymentUpdateTransactionData
@@ -144,13 +157,34 @@ class RecurringUpdateRequest(object):
     def recurring_data(self, recurring_data):
         """Sets the recurring_data of this RecurringUpdateRequest.
 
-        Transaction data  # noqa: E501
+        Recurring data  # noqa: E501
 
         :param recurring_data: The recurring_data of this RecurringUpdateRequest.  # noqa: E501
         :type: PaymentUpdateTransactionData
         """
 
         self._recurring_data = recurring_data
+
+    @property
+    def transaction_data(self):
+        """Gets the transaction_data of this RecurringUpdateRequest.  # noqa: E501
+
+
+        :return: The transaction_data of this RecurringUpdateRequest.  # noqa: E501
+        :rtype: PaymentUpdateTransactionData
+        """
+        return self._transaction_data
+
+    @transaction_data.setter
+    def transaction_data(self, transaction_data):
+        """Sets the transaction_data of this RecurringUpdateRequest.
+
+
+        :param transaction_data: The transaction_data of this RecurringUpdateRequest.  # noqa: E501
+        :type: PaymentUpdateTransactionData
+        """
+
+        self._transaction_data = transaction_data
 
     def to_dict(self):
         """Returns the model properties as a dict"""

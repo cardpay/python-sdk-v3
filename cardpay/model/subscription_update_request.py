@@ -92,6 +92,9 @@ class SubscriptionUpdateRequest(object):
         CHANGE_STATUS = "CHANGE_STATUS"
         REPAYMENT = "REPAYMENT"
         CHANGE_FILING = "CHANGE_FILING"
+        CHANGE_PLAN = "CHANGE_PLAN"
+        CHANGE_PAYMENT_DATE = "CHANGE_PAYMENT_DATE"
+        CHANGE_UNITS = "CHANGE_UNITS"
 
     @property
     def operation(self):
@@ -117,7 +120,14 @@ class SubscriptionUpdateRequest(object):
             raise ValueError(
                 "Invalid value for `operation`, must not be `None`"
             )  # noqa: E501
-        allowed_values = ["CHANGE_STATUS", "REPAYMENT", "CHANGE_FILING"]  # noqa: E501
+        allowed_values = [
+            "CHANGE_STATUS",
+            "REPAYMENT",
+            "CHANGE_FILING",
+            "CHANGE_PLAN",
+            "CHANGE_PAYMENT_DATE",
+            "CHANGE_UNITS",
+        ]  # noqa: E501
         if operation not in allowed_values:
             raise ValueError(
                 "Invalid value for `operation` ({0}), must be one of {1}".format(  # noqa: E501

@@ -38,20 +38,30 @@ class RefundUpdateRequest(object):
     swagger_types = {
         "request": "Request",
         "refund_data": "RequestUpdatedTransactionData",
+        "transaction_data": "RequestUpdatedTransactionData",
     }
 
-    attribute_map = {"request": "request", "refund_data": "refund_data"}
+    attribute_map = {
+        "request": "request",
+        "refund_data": "refund_data",
+        "transaction_data": "transaction_data",
+    }
 
-    def __init__(self, request=None, refund_data=None):  # noqa: E501
+    def __init__(
+        self, request=None, refund_data=None, transaction_data=None
+    ):  # noqa: E501
         """RefundUpdateRequest - a model defined in Swagger"""  # noqa: E501
 
         self._request = None
         self._refund_data = None
+        self._transaction_data = None
         self.discriminator = None
 
         self.request = request
         if refund_data is not None:
             self.refund_data = refund_data
+        if transaction_data is not None:
+            self.transaction_data = transaction_data
 
     @property
     def request(self):
@@ -84,7 +94,7 @@ class RefundUpdateRequest(object):
     def refund_data(self):
         """Gets the refund_data of this RefundUpdateRequest.  # noqa: E501
 
-        Transaction data  # noqa: E501
+        Refund data  # noqa: E501
 
         :return: The refund_data of this RefundUpdateRequest.  # noqa: E501
         :rtype: RequestUpdatedTransactionData
@@ -95,13 +105,34 @@ class RefundUpdateRequest(object):
     def refund_data(self, refund_data):
         """Sets the refund_data of this RefundUpdateRequest.
 
-        Transaction data  # noqa: E501
+        Refund data  # noqa: E501
 
         :param refund_data: The refund_data of this RefundUpdateRequest.  # noqa: E501
         :type: RequestUpdatedTransactionData
         """
 
         self._refund_data = refund_data
+
+    @property
+    def transaction_data(self):
+        """Gets the transaction_data of this RefundUpdateRequest.  # noqa: E501
+
+
+        :return: The transaction_data of this RefundUpdateRequest.  # noqa: E501
+        :rtype: RequestUpdatedTransactionData
+        """
+        return self._transaction_data
+
+    @transaction_data.setter
+    def transaction_data(self, transaction_data):
+        """Sets the transaction_data of this RefundUpdateRequest.
+
+
+        :param transaction_data: The transaction_data of this RefundUpdateRequest.  # noqa: E501
+        :type: RequestUpdatedTransactionData
+        """
+
+        self._transaction_data = transaction_data
 
     def to_dict(self):
         """Returns the model properties as a dict"""

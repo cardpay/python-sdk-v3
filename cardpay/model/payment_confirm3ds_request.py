@@ -40,6 +40,7 @@ class PaymentConfirm3dsRequest(object):
         "request": "Request",
         "operation": "str",
         "payment_data": "PaymentUpdateTransactionData",
+        "c_res": "str",
         "pa_res": "str",
     }
 
@@ -47,17 +48,19 @@ class PaymentConfirm3dsRequest(object):
         "request": "request",
         "operation": "operation",
         "payment_data": "payment_data",
+        "c_res": "CRes",
         "pa_res": "PaRes",
     }
 
     def __init__(
-        self, request=None, operation=None, payment_data=None, pa_res=None
+        self, request=None, operation=None, payment_data=None, c_res=None, pa_res=None
     ):  # noqa: E501
         """PaymentConfirm3dsRequest - a model defined in Swagger"""  # noqa: E501
 
         self._request = None
         self._operation = None
         self._payment_data = None
+        self._c_res = None
         self._pa_res = None
         self.discriminator = None
 
@@ -65,7 +68,10 @@ class PaymentConfirm3dsRequest(object):
         self.operation = operation
         if payment_data is not None:
             self.payment_data = payment_data
-        self.pa_res = pa_res
+        if c_res is not None:
+            self.c_res = c_res
+        if pa_res is not None:
+            self.pa_res = pa_res
 
     @property
     def request(self):
@@ -98,6 +104,7 @@ class PaymentConfirm3dsRequest(object):
         CHANGE_STATUS = "CHANGE_STATUS"
         CONFIRM_3DS = "CONFIRM_3DS"
         EXECUTE = "EXECUTE"
+        INCREMENT = "INCREMENT"
 
     @property
     def operation(self):
@@ -123,7 +130,12 @@ class PaymentConfirm3dsRequest(object):
             raise ValueError(
                 "Invalid value for `operation`, must not be `None`"
             )  # noqa: E501
-        allowed_values = ["CHANGE_STATUS", "CONFIRM_3DS", "EXECUTE"]  # noqa: E501
+        allowed_values = [
+            "CHANGE_STATUS",
+            "CONFIRM_3DS",
+            "EXECUTE",
+            "INCREMENT",
+        ]  # noqa: E501
         if operation not in allowed_values:
             raise ValueError(
                 "Invalid value for `operation` ({0}), must be one of {1}".format(  # noqa: E501
@@ -157,10 +169,33 @@ class PaymentConfirm3dsRequest(object):
         self._payment_data = payment_data
 
     @property
+    def c_res(self):
+        """Gets the c_res of this PaymentConfirm3dsRequest.  # noqa: E501
+
+        Bank authentication result, for 3-D Secure 2 *(for BANKCARD payment method only)*  # noqa: E501
+
+        :return: The c_res of this PaymentConfirm3dsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._c_res
+
+    @c_res.setter
+    def c_res(self, c_res):
+        """Sets the c_res of this PaymentConfirm3dsRequest.
+
+        Bank authentication result, for 3-D Secure 2 *(for BANKCARD payment method only)*  # noqa: E501
+
+        :param c_res: The c_res of this PaymentConfirm3dsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._c_res = c_res
+
+    @property
     def pa_res(self):
         """Gets the pa_res of this PaymentConfirm3dsRequest.  # noqa: E501
 
-        Bank authentication result *(for BANKCARD payment method only)*  # noqa: E501
+        Bank authentication result, for 3-D Secure 1 *(for BANKCARD payment method only)*  # noqa: E501
 
         :return: The pa_res of this PaymentConfirm3dsRequest.  # noqa: E501
         :rtype: str
@@ -171,15 +206,11 @@ class PaymentConfirm3dsRequest(object):
     def pa_res(self, pa_res):
         """Sets the pa_res of this PaymentConfirm3dsRequest.
 
-        Bank authentication result *(for BANKCARD payment method only)*  # noqa: E501
+        Bank authentication result, for 3-D Secure 1 *(for BANKCARD payment method only)*  # noqa: E501
 
         :param pa_res: The pa_res of this PaymentConfirm3dsRequest.  # noqa: E501
         :type: str
         """
-        if pa_res is None:
-            raise ValueError(
-                "Invalid value for `pa_res`, must not be `None`"
-            )  # noqa: E501
 
         self._pa_res = pa_res
 

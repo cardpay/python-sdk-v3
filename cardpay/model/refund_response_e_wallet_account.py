@@ -47,7 +47,7 @@ class RefundResponseEWalletAccount(object):
     def id(self):
         """Gets the id of this RefundResponseEWalletAccount.  # noqa: E501
 
-        For ALIPAY: Customer account number. For QIWI: Customer phone number (from 1 to 15 digits). For YANDEXMONEY: Customer wallet number, 11 to 16 digits, begins with `410`.  # noqa: E501
+        For QIWI: Customer phone number (from 1 to 15 digits).  # noqa: E501
 
         :return: The id of this RefundResponseEWalletAccount.  # noqa: E501
         :rtype: str
@@ -58,7 +58,7 @@ class RefundResponseEWalletAccount(object):
     def id(self, id):
         """Sets the id of this RefundResponseEWalletAccount.
 
-        For ALIPAY: Customer account number. For QIWI: Customer phone number (from 1 to 15 digits). For YANDEXMONEY: Customer wallet number, 11 to 16 digits, begins with `410`.  # noqa: E501
+        For QIWI: Customer phone number (from 1 to 15 digits).  # noqa: E501
 
         :param id: The id of this RefundResponseEWalletAccount.  # noqa: E501
         :type: str

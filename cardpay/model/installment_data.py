@@ -35,11 +35,13 @@ class InstallmentData(object):
         "currency": "str",
         "dynamic_descriptor": "str",
         "generate_token": "bool",
+        "hold_period": "int",
         "initiator": "str",
         "installment_amount": "float",
         "installment_type": "str",
         "note": "str",
         "payments": "list[int]",
+        "postauth_status": "str",
         "preauth": "bool",
         "three_ds_challenge_indicator": "str",
         "trans_type": "str",
@@ -50,11 +52,13 @@ class InstallmentData(object):
         "currency": "currency",
         "dynamic_descriptor": "dynamic_descriptor",
         "generate_token": "generate_token",
+        "hold_period": "hold_period",
         "initiator": "initiator",
         "installment_amount": "installment_amount",
         "installment_type": "installment_type",
         "note": "note",
         "payments": "payments",
+        "postauth_status": "postauth_status",
         "preauth": "preauth",
         "three_ds_challenge_indicator": "three_ds_challenge_indicator",
         "trans_type": "trans_type",
@@ -66,11 +70,13 @@ class InstallmentData(object):
         currency=None,
         dynamic_descriptor=None,
         generate_token=None,
+        hold_period=None,
         initiator=None,
         installment_amount=None,
         installment_type=None,
         note=None,
         payments=None,
+        postauth_status=None,
         preauth=None,
         three_ds_challenge_indicator=None,
         trans_type=None,
@@ -81,11 +87,13 @@ class InstallmentData(object):
         self._currency = None
         self._dynamic_descriptor = None
         self._generate_token = None
+        self._hold_period = None
         self._initiator = None
         self._installment_amount = None
         self._installment_type = None
         self._note = None
         self._payments = None
+        self._postauth_status = None
         self._preauth = None
         self._three_ds_challenge_indicator = None
         self._trans_type = None
@@ -98,6 +106,8 @@ class InstallmentData(object):
             self.dynamic_descriptor = dynamic_descriptor
         if generate_token is not None:
             self.generate_token = generate_token
+        if hold_period is not None:
+            self.hold_period = hold_period
         self.initiator = initiator
         if installment_amount is not None:
             self.installment_amount = installment_amount
@@ -107,6 +117,8 @@ class InstallmentData(object):
             self.note = note
         if payments is not None:
             self.payments = payments
+        if postauth_status is not None:
+            self.postauth_status = postauth_status
         if preauth is not None:
             self.preauth = preauth
         if three_ds_challenge_indicator is not None:
@@ -217,6 +229,37 @@ class InstallmentData(object):
         """
 
         self._generate_token = generate_token
+
+    @property
+    def hold_period(self):
+        """Gets the hold_period of this InstallmentData.  # noqa: E501
+
+        The delay between the authorisation and scheduled auto-capture or auto-void, specified in hours. The minimum hold period is 1 hour, maximum hold period is 7 days (168 hours).  # noqa: E501
+
+        :return: The hold_period of this InstallmentData.  # noqa: E501
+        :rtype: int
+        """
+        return self._hold_period
+
+    @hold_period.setter
+    def hold_period(self, hold_period):
+        """Sets the hold_period of this InstallmentData.
+
+        The delay between the authorisation and scheduled auto-capture or auto-void, specified in hours. The minimum hold period is 1 hour, maximum hold period is 7 days (168 hours).  # noqa: E501
+
+        :param hold_period: The hold_period of this InstallmentData.  # noqa: E501
+        :type: int
+        """
+        if hold_period is not None and hold_period > 168:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `hold_period`, must be a value less than or equal to `168`"
+            )  # noqa: E501
+        if hold_period is not None and hold_period < 1:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `hold_period`, must be a value greater than or equal to `1`"
+            )  # noqa: E501
+
+        self._hold_period = hold_period
 
     @property
     def initiator(self):
@@ -354,6 +397,40 @@ class InstallmentData(object):
         """
 
         self._payments = payments
+
+    class PostauthStatus(object):
+        REVERSE = "REVERSE"
+        COMPLETE = "COMPLETE"
+
+    @property
+    def postauth_status(self):
+        """Gets the postauth_status of this InstallmentData.  # noqa: E501
+
+        The value contains payment status after hold period if payment has not been completed. Possible values: COMPLETE, REVERSE  # noqa: E501
+
+        :return: The postauth_status of this InstallmentData.  # noqa: E501
+        :rtype: str
+        """
+        return self._postauth_status
+
+    @postauth_status.setter
+    def postauth_status(self, postauth_status):
+        """Sets the postauth_status of this InstallmentData.
+
+        The value contains payment status after hold period if payment has not been completed. Possible values: COMPLETE, REVERSE  # noqa: E501
+
+        :param postauth_status: The postauth_status of this InstallmentData.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["REVERSE", "COMPLETE"]  # noqa: E501
+        if postauth_status not in allowed_values:
+            raise ValueError(
+                "Invalid value for `postauth_status` ({0}), must be one of {1}".format(  # noqa: E501
+                    postauth_status, allowed_values
+                )
+            )
+
+        self._postauth_status = postauth_status
 
     @property
     def preauth(self):

@@ -16,6 +16,7 @@ import re  # noqa: F401
 
 import six
 
+from cardpay.model.browser_info import BrowserInfo  # noqa: F401,E501
 from cardpay.model.device import Device  # noqa: F401,E501
 from cardpay.model.payment_request_living_address import (
     PaymentRequestLivingAddress,
@@ -37,6 +38,7 @@ class PaymentRequestCustomer(object):
     """
     swagger_types = {
         "birth_date": "datetime",
+        "browser_info": "BrowserInfo",
         "device": "Device",
         "document_type": "str",
         "email": "str",
@@ -49,12 +51,14 @@ class PaymentRequestCustomer(object):
         "living_address": "PaymentRequestLivingAddress",
         "locale": "str",
         "phone": "str",
+        "user_agent": "str",
         "work_phone": "str",
         "ip": "str",
     }
 
     attribute_map = {
         "birth_date": "birth_date",
+        "browser_info": "browser_info",
         "device": "device",
         "document_type": "document_type",
         "email": "email",
@@ -67,6 +71,7 @@ class PaymentRequestCustomer(object):
         "living_address": "living_address",
         "locale": "locale",
         "phone": "phone",
+        "user_agent": "user_agent",
         "work_phone": "work_phone",
         "ip": "ip",
     }
@@ -74,6 +79,7 @@ class PaymentRequestCustomer(object):
     def __init__(
         self,
         birth_date=None,
+        browser_info=None,
         device=None,
         document_type=None,
         email=None,
@@ -86,12 +92,14 @@ class PaymentRequestCustomer(object):
         living_address=None,
         locale=None,
         phone=None,
+        user_agent=None,
         work_phone=None,
         ip=None,
     ):  # noqa: E501
         """PaymentRequestCustomer - a model defined in Swagger"""  # noqa: E501
 
         self._birth_date = None
+        self._browser_info = None
         self._device = None
         self._document_type = None
         self._email = None
@@ -104,12 +112,15 @@ class PaymentRequestCustomer(object):
         self._living_address = None
         self._locale = None
         self._phone = None
+        self._user_agent = None
         self._work_phone = None
         self._ip = None
         self.discriminator = None
 
         if birth_date is not None:
             self.birth_date = birth_date
+        if browser_info is not None:
+            self.browser_info = browser_info
         if device is not None:
             self.device = device
         if document_type is not None:
@@ -134,6 +145,8 @@ class PaymentRequestCustomer(object):
             self.locale = locale
         if phone is not None:
             self.phone = phone
+        if user_agent is not None:
+            self.user_agent = user_agent
         if work_phone is not None:
             self.work_phone = work_phone
         if ip is not None:
@@ -161,6 +174,29 @@ class PaymentRequestCustomer(object):
         """
 
         self._birth_date = birth_date
+
+    @property
+    def browser_info(self):
+        """Gets the browser_info of this PaymentRequestCustomer.  # noqa: E501
+
+        Browser info  # noqa: E501
+
+        :return: The browser_info of this PaymentRequestCustomer.  # noqa: E501
+        :rtype: BrowserInfo
+        """
+        return self._browser_info
+
+    @browser_info.setter
+    def browser_info(self, browser_info):
+        """Sets the browser_info of this PaymentRequestCustomer.
+
+        Browser info  # noqa: E501
+
+        :param browser_info: The browser_info of this PaymentRequestCustomer.  # noqa: E501
+        :type: BrowserInfo
+        """
+
+        self._browser_info = browser_info
 
     @property
     def device(self):
@@ -228,14 +264,6 @@ class PaymentRequestCustomer(object):
         :param email: The email of this PaymentRequestCustomer.  # noqa: E501
         :type: str
         """
-        if email is not None and len(email) > 256:
-            raise ValueError(
-                "Invalid value for `email`, length must be less than or equal to `256`"
-            )  # noqa: E501
-        if email is not None and len(email) < 3:
-            raise ValueError(
-                "Invalid value for `email`, length must be greater than or equal to `3`"
-            )  # noqa: E501
 
         self._email = email
 
@@ -501,6 +529,37 @@ class PaymentRequestCustomer(object):
             )  # noqa: E501
 
         self._phone = phone
+
+    @property
+    def user_agent(self):
+        """Gets the user_agent of this PaymentRequestCustomer.  # noqa: E501
+
+        User agent  # noqa: E501
+
+        :return: The user_agent of this PaymentRequestCustomer.  # noqa: E501
+        :rtype: str
+        """
+        return self._user_agent
+
+    @user_agent.setter
+    def user_agent(self, user_agent):
+        """Sets the user_agent of this PaymentRequestCustomer.
+
+        User agent  # noqa: E501
+
+        :param user_agent: The user_agent of this PaymentRequestCustomer.  # noqa: E501
+        :type: str
+        """
+        if user_agent is not None and len(user_agent) > 2048:
+            raise ValueError(
+                "Invalid value for `user_agent`, length must be less than or equal to `2048`"
+            )  # noqa: E501
+        if user_agent is not None and len(user_agent) < 0:
+            raise ValueError(
+                "Invalid value for `user_agent`, length must be greater than or equal to `0`"
+            )  # noqa: E501
+
+        self._user_agent = user_agent
 
     @property
     def work_phone(self):

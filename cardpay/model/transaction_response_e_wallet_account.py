@@ -73,7 +73,7 @@ class TransactionResponseEWalletAccount(object):
     def id(self):
         """Gets the id of this TransactionResponseEWalletAccount.  # noqa: E501
 
-        For ALIPAY - 16 digits number For QIWI - Customer phone number (from 1 to 15 digits) For WEBMONEY - Customer account number For NETELLER - Email address of the customer For YANDEXMONEY - Customer wallet number, 11 to 16 digits, begins with 410 For DIRECTBANKINGNGA - Bank account number For AQRCODE - Customer account number For AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE, TIGO - Customer account number For 'Latin America' - Customer’s personal identification number For DIRECTBANKINGEU - Sender IBAN (optional)  # noqa: E501
+        For QIWI - Customer phone number (from 1 to 15 digits) For WEBMONEY - Customer account number For NETELLER - Email address of the customer For DIRECTBANKINGNGA - Bank account number For AQRCODE - Customer account number For AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE, TIGO - Customer account number For 'Latin America' - Customer’s personal identification number For DIRECTBANKINGEU - Sender IBAN (optional)  # noqa: E501
 
         :return: The id of this TransactionResponseEWalletAccount.  # noqa: E501
         :rtype: str
@@ -84,7 +84,7 @@ class TransactionResponseEWalletAccount(object):
     def id(self, id):
         """Sets the id of this TransactionResponseEWalletAccount.
 
-        For ALIPAY - 16 digits number For QIWI - Customer phone number (from 1 to 15 digits) For WEBMONEY - Customer account number For NETELLER - Email address of the customer For YANDEXMONEY - Customer wallet number, 11 to 16 digits, begins with 410 For DIRECTBANKINGNGA - Bank account number For AQRCODE - Customer account number For AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE, TIGO - Customer account number For 'Latin America' - Customer’s personal identification number For DIRECTBANKINGEU - Sender IBAN (optional)  # noqa: E501
+        For QIWI - Customer phone number (from 1 to 15 digits) For WEBMONEY - Customer account number For NETELLER - Email address of the customer For DIRECTBANKINGNGA - Bank account number For AQRCODE - Customer account number For AIRTEL, MPESA, MTN, UGANDAMOBILE, VODAFONE, TIGO - Customer account number For 'Latin America' - Customer’s personal identification number For DIRECTBANKINGEU - Sender IBAN (optional)  # noqa: E501
 
         :param id: The id of this TransactionResponseEWalletAccount.  # noqa: E501
         :type: str

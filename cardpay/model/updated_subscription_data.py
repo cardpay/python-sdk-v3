@@ -16,6 +16,7 @@ import re  # noqa: F401
 
 import six
 
+from cardpay.model.plan import Plan  # noqa: F401,E501
 from cardpay.model.recurring_response_filing import (
     RecurringResponseFiling,
 )  # noqa: F401,E501
@@ -43,10 +44,13 @@ class UpdatedSubscriptionData(object):
         "filing": "RecurringResponseFiling",
         "id": "str",
         "is_executed": "bool",
+        "next_payment_date": "datetime",
+        "plan": "Plan",
         "recurring_data": "UpdatedSubscriptionRecurringData",
         "remaining_amount": "float",
         "status": "str",
         "status_to": "str",
+        "units": "int",
         "updated": "datetime",
     }
 
@@ -56,10 +60,13 @@ class UpdatedSubscriptionData(object):
         "filing": "filing",
         "id": "id",
         "is_executed": "is_executed",
+        "next_payment_date": "next_payment_date",
+        "plan": "plan",
         "recurring_data": "recurring_data",
         "remaining_amount": "remaining_amount",
         "status": "status",
         "status_to": "status_to",
+        "units": "units",
         "updated": "updated",
     }
 
@@ -70,10 +77,13 @@ class UpdatedSubscriptionData(object):
         filing=None,
         id=None,
         is_executed=None,
+        next_payment_date=None,
+        plan=None,
         recurring_data=None,
         remaining_amount=None,
         status=None,
         status_to=None,
+        units=None,
         updated=None,
     ):  # noqa: E501
         """UpdatedSubscriptionData - a model defined in Swagger"""  # noqa: E501
@@ -83,10 +93,13 @@ class UpdatedSubscriptionData(object):
         self._filing = None
         self._id = None
         self._is_executed = None
+        self._next_payment_date = None
+        self._plan = None
         self._recurring_data = None
         self._remaining_amount = None
         self._status = None
         self._status_to = None
+        self._units = None
         self._updated = None
         self.discriminator = None
 
@@ -100,6 +113,10 @@ class UpdatedSubscriptionData(object):
             self.id = id
         if is_executed is not None:
             self.is_executed = is_executed
+        if next_payment_date is not None:
+            self.next_payment_date = next_payment_date
+        if plan is not None:
+            self.plan = plan
         if recurring_data is not None:
             self.recurring_data = recurring_data
         if remaining_amount is not None:
@@ -108,6 +125,8 @@ class UpdatedSubscriptionData(object):
             self.status = status
         if status_to is not None:
             self.status_to = status_to
+        if units is not None:
+            self.units = units
         if updated is not None:
             self.updated = updated
 
@@ -225,6 +244,50 @@ class UpdatedSubscriptionData(object):
         """
 
         self._is_executed = is_executed
+
+    @property
+    def next_payment_date(self):
+        """Gets the next_payment_date of this UpdatedSubscriptionData.  # noqa: E501
+
+
+        :return: The next_payment_date of this UpdatedSubscriptionData.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._next_payment_date
+
+    @next_payment_date.setter
+    def next_payment_date(self, next_payment_date):
+        """Sets the next_payment_date of this UpdatedSubscriptionData.
+
+
+        :param next_payment_date: The next_payment_date of this UpdatedSubscriptionData.  # noqa: E501
+        :type: datetime
+        """
+
+        self._next_payment_date = next_payment_date
+
+    @property
+    def plan(self):
+        """Gets the plan of this UpdatedSubscriptionData.  # noqa: E501
+
+        Plan data  # noqa: E501
+
+        :return: The plan of this UpdatedSubscriptionData.  # noqa: E501
+        :rtype: Plan
+        """
+        return self._plan
+
+    @plan.setter
+    def plan(self, plan):
+        """Sets the plan of this UpdatedSubscriptionData.
+
+        Plan data  # noqa: E501
+
+        :param plan: The plan of this UpdatedSubscriptionData.  # noqa: E501
+        :type: Plan
+        """
+
+        self._plan = plan
 
     @property
     def recurring_data(self):
@@ -369,6 +432,29 @@ class UpdatedSubscriptionData(object):
             )
 
         self._status_to = status_to
+
+    @property
+    def units(self):
+        """Gets the units of this UpdatedSubscriptionData.  # noqa: E501
+
+        New quantity of subscription units  # noqa: E501
+
+        :return: The units of this UpdatedSubscriptionData.  # noqa: E501
+        :rtype: int
+        """
+        return self._units
+
+    @units.setter
+    def units(self, units):
+        """Sets the units of this UpdatedSubscriptionData.
+
+        New quantity of subscription units  # noqa: E501
+
+        :param units: The units of this UpdatedSubscriptionData.  # noqa: E501
+        :type: int
+        """
+
+        self._units = units
 
     @property
     def updated(self):

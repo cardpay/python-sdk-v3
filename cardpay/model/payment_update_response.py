@@ -93,6 +93,7 @@ class PaymentUpdateResponse(object):
         CHANGE_STATUS = "CHANGE_STATUS"
         CONFIRM_3DS = "CONFIRM_3DS"
         EXECUTE = "EXECUTE"
+        INCREMENT = "INCREMENT"
 
     @property
     def operation(self):
@@ -114,7 +115,12 @@ class PaymentUpdateResponse(object):
         :param operation: The operation of this PaymentUpdateResponse.  # noqa: E501
         :type: str
         """
-        allowed_values = ["CHANGE_STATUS", "CONFIRM_3DS", "EXECUTE"]  # noqa: E501
+        allowed_values = [
+            "CHANGE_STATUS",
+            "CONFIRM_3DS",
+            "EXECUTE",
+            "INCREMENT",
+        ]  # noqa: E501
         if operation not in allowed_values:
             raise ValueError(
                 "Invalid value for `operation` ({0}), must be one of {1}".format(  # noqa: E501
