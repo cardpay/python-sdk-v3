@@ -45,6 +45,7 @@ class PaymentRequestPaymentData(object):
         "preauth": "bool",
         "sca_exemption": "str",
         "three_ds_challenge_indicator": "str",
+        "three_ds_mode": "str",
         "trans_type": "str",
     }
 
@@ -63,6 +64,7 @@ class PaymentRequestPaymentData(object):
         "preauth": "preauth",
         "sca_exemption": "sca_exemption",
         "three_ds_challenge_indicator": "three_ds_challenge_indicator",
+        "three_ds_mode": "three_ds_mode",
         "trans_type": "trans_type",
     }
 
@@ -82,6 +84,7 @@ class PaymentRequestPaymentData(object):
         preauth=None,
         sca_exemption=None,
         three_ds_challenge_indicator=None,
+        three_ds_mode=None,
         trans_type=None,
     ):  # noqa: E501
         """PaymentRequestPaymentData - a model defined in Swagger"""  # noqa: E501
@@ -100,6 +103,7 @@ class PaymentRequestPaymentData(object):
         self._preauth = None
         self._sca_exemption = None
         self._three_ds_challenge_indicator = None
+        self._three_ds_mode = None
         self._trans_type = None
         self.discriminator = None
 
@@ -130,6 +134,8 @@ class PaymentRequestPaymentData(object):
             self.sca_exemption = sca_exemption
         if three_ds_challenge_indicator is not None:
             self.three_ds_challenge_indicator = three_ds_challenge_indicator
+        if three_ds_mode is not None:
+            self.three_ds_mode = three_ds_mode
         if trans_type is not None:
             self.trans_type = trans_type
 
@@ -517,6 +523,29 @@ class PaymentRequestPaymentData(object):
             )  # noqa: E501
 
         self._three_ds_challenge_indicator = three_ds_challenge_indicator
+
+    @property
+    def three_ds_mode(self):
+        """Gets the three_ds_mode of this PaymentRequestPaymentData.  # noqa: E501
+
+        Parameter 'three_ds_mode' indicates desire to conduct the transaction with full 3-D Secure, partial 3-D Secure, or without it, possible values: `01` - FULL 3-D Secure `02` - 3DS required but can be skipped `03` - NON 3-D Secure  # noqa: E501
+
+        :return: The three_ds_mode of this PaymentRequestPaymentData.  # noqa: E501
+        :rtype: str
+        """
+        return self._three_ds_mode
+
+    @three_ds_mode.setter
+    def three_ds_mode(self, three_ds_mode):
+        """Sets the three_ds_mode of this PaymentRequestPaymentData.
+
+        Parameter 'three_ds_mode' indicates desire to conduct the transaction with full 3-D Secure, partial 3-D Secure, or without it, possible values: `01` - FULL 3-D Secure `02` - 3DS required but can be skipped `03` - NON 3-D Secure  # noqa: E501
+
+        :param three_ds_mode: The three_ds_mode of this PaymentRequestPaymentData.  # noqa: E501
+        :type: str
+        """
+
+        self._three_ds_mode = three_ds_mode
 
     class TransType(object):
         _01 = "01"
