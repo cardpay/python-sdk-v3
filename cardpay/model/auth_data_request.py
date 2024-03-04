@@ -43,6 +43,7 @@ class AuthDataRequest(object):
         "note": "str",
         "recurring_data": "RecurringData",
         "sca_exemption": "str",
+        "three_ds_challenge_indicator": "str",
         "trans_type": "str",
         "type": "str",
     }
@@ -58,6 +59,7 @@ class AuthDataRequest(object):
         "note": "note",
         "recurring_data": "recurring_data",
         "sca_exemption": "sca_exemption",
+        "three_ds_challenge_indicator": "three_ds_challenge_indicator",
         "trans_type": "trans_type",
         "type": "type",
     }
@@ -74,6 +76,7 @@ class AuthDataRequest(object):
         note=None,
         recurring_data=None,
         sca_exemption=None,
+        three_ds_challenge_indicator=None,
         trans_type=None,
         type=None,
     ):  # noqa: E501
@@ -89,6 +92,7 @@ class AuthDataRequest(object):
         self._note = None
         self._recurring_data = None
         self._sca_exemption = None
+        self._three_ds_challenge_indicator = None
         self._trans_type = None
         self._type = None
         self.discriminator = None
@@ -111,6 +115,8 @@ class AuthDataRequest(object):
             self.recurring_data = recurring_data
         if sca_exemption is not None:
             self.sca_exemption = sca_exemption
+        if three_ds_challenge_indicator is not None:
+            self.three_ds_challenge_indicator = three_ds_challenge_indicator
         if trans_type is not None:
             self.trans_type = trans_type
         if type is not None:
@@ -379,6 +385,33 @@ class AuthDataRequest(object):
             )  # noqa: E501
 
         self._sca_exemption = sca_exemption
+
+    @property
+    def three_ds_challenge_indicator(self):
+        """Gets the three_ds_challenge_indicator of this AuthDataRequest.  # noqa: E501
+
+
+        :return: The three_ds_challenge_indicator of this AuthDataRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._three_ds_challenge_indicator
+
+    @three_ds_challenge_indicator.setter
+    def three_ds_challenge_indicator(self, three_ds_challenge_indicator):
+        """Sets the three_ds_challenge_indicator of this AuthDataRequest.
+
+
+        :param three_ds_challenge_indicator: The three_ds_challenge_indicator of this AuthDataRequest.  # noqa: E501
+        :type: str
+        """
+        if three_ds_challenge_indicator is not None and not re.search(
+            r"01|04", three_ds_challenge_indicator
+        ):  # noqa: E501
+            raise ValueError(
+                r"Invalid value for `three_ds_challenge_indicator`, must be a follow pattern or equal to `/01|04/`"
+            )  # noqa: E501
+
+        self._three_ds_challenge_indicator = three_ds_challenge_indicator
 
     @property
     def trans_type(self):
