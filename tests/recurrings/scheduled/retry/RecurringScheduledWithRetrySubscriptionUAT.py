@@ -28,7 +28,7 @@ def test_scheduled_subscription():
 
     # perform create scheduled subscription
     response = recurrings.create_plan(request)
-    assert response is not None
 
+    assert response is not None
     assert response.plan_data is not None
-    return response.plan_data.id
+    assert response.plan_data.id is not None

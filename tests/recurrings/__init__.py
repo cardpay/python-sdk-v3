@@ -68,7 +68,7 @@ def create_recurring_request(plan_id=None, pan=CARD_NON3DS_CONFIRMED, currency=N
     )
 
     if plan_id is not None:
-        result.recurring_data.plan = Plan(plan_id)
+        result.recurring_data.plan = Plan(None, plan_id)
 
     if currency is not None:
         result.recurring_data.currency = currency
