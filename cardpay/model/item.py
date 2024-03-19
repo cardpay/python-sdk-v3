@@ -160,7 +160,7 @@ class Item(object):
     def price(self):
         """Gets the price of this Item.  # noqa: E501
 
-        Price of product / service with dot as a decimal separator, must be less than 200 million  # noqa: E501
+        Price of product / service with dot as a decimal separator, must be less than 10 billion  # noqa: E501
 
         :return: The price of this Item.  # noqa: E501
         :rtype: float
@@ -171,7 +171,7 @@ class Item(object):
     def price(self, price):
         """Sets the price of this Item.
 
-        Price of product / service with dot as a decimal separator, must be less than 200 million  # noqa: E501
+        Price of product / service with dot as a decimal separator, must be less than 10 billion  # noqa: E501
 
         :param price: The price of this Item.  # noqa: E501
         :type: float

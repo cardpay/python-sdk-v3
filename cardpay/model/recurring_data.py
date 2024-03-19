@@ -33,6 +33,7 @@ class RecurringData(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        "begin": "bool",
         "contract_number": "str",
         "initial_amount": "float",
         "plan": "Plan",
@@ -41,6 +42,7 @@ class RecurringData(object):
     }
 
     attribute_map = {
+        "begin": "begin",
         "contract_number": "contract_number",
         "initial_amount": "initial_amount",
         "plan": "plan",
@@ -50,6 +52,7 @@ class RecurringData(object):
 
     def __init__(
         self,
+        begin=None,
         contract_number=None,
         initial_amount=None,
         plan=None,
@@ -58,6 +61,7 @@ class RecurringData(object):
     ):  # noqa: E501
         """RecurringData - a model defined in Swagger"""  # noqa: E501
 
+        self._begin = None
         self._contract_number = None
         self._initial_amount = None
         self._plan = None
@@ -65,6 +69,8 @@ class RecurringData(object):
         self._type = None
         self.discriminator = None
 
+        if begin is not None:
+            self.begin = begin
         if contract_number is not None:
             self.contract_number = contract_number
         if initial_amount is not None:
@@ -75,6 +81,29 @@ class RecurringData(object):
             self.subscription_start = subscription_start
         if type is not None:
             self.type = type
+
+    @property
+    def begin(self):
+        """Gets the begin of this RecurringData.  # noqa: E501
+
+        Is acceptable only for One-click type  # noqa: E501
+
+        :return: The begin of this RecurringData.  # noqa: E501
+        :rtype: bool
+        """
+        return self._begin
+
+    @begin.setter
+    def begin(self, begin):
+        """Sets the begin of this RecurringData.
+
+        Is acceptable only for One-click type  # noqa: E501
+
+        :param begin: The begin of this RecurringData.  # noqa: E501
+        :type: bool
+        """
+
+        self._begin = begin
 
     @property
     def contract_number(self):

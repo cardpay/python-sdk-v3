@@ -116,7 +116,7 @@ class InvoiceItem(object):
     def price(self):
         """Gets the price of this InvoiceItem.  # noqa: E501
 
-        Price of product / service with dot as a decimal separator, must be less than a 1000000 (one million, NOT inclusive)  For currencies with 0 digits after digital separator (like VND, IDR and others) - limit is 200000000 (200 million, NOT inclusive)  # noqa: E501
+        Price of product / service with dot as a decimal separator, must be less than 10 billion  # noqa: E501
 
         :return: The price of this InvoiceItem.  # noqa: E501
         :rtype: float
@@ -127,7 +127,7 @@ class InvoiceItem(object):
     def price(self, price):
         """Sets the price of this InvoiceItem.
 
-        Price of product / service with dot as a decimal separator, must be less than a 1000000 (one million, NOT inclusive)  For currencies with 0 digits after digital separator (like VND, IDR and others) - limit is 200000000 (200 million, NOT inclusive)  # noqa: E501
+        Price of product / service with dot as a decimal separator, must be less than 10 billion  # noqa: E501
 
         :param price: The price of this InvoiceItem.  # noqa: E501
         :type: float
