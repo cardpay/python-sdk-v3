@@ -41,6 +41,7 @@ class AuthenticationData(object):
         "decline_code": "str",
         "decline_reason": "str",
         "id": "str",
+        "invalid_data": "list[str]",
         "status": "str",
         "three_d_secure": "ThreeDSecureResponse",
         "trans_type": "str",
@@ -54,6 +55,7 @@ class AuthenticationData(object):
         "decline_code": "decline_code",
         "decline_reason": "decline_reason",
         "id": "id",
+        "invalid_data": "invalid_data",
         "status": "status",
         "three_d_secure": "three_d_secure",
         "trans_type": "trans_type",
@@ -68,6 +70,7 @@ class AuthenticationData(object):
         decline_code=None,
         decline_reason=None,
         id=None,
+        invalid_data=None,
         status=None,
         three_d_secure=None,
         trans_type=None,
@@ -81,6 +84,7 @@ class AuthenticationData(object):
         self._decline_code = None
         self._decline_reason = None
         self._id = None
+        self._invalid_data = None
         self._status = None
         self._three_d_secure = None
         self._trans_type = None
@@ -99,6 +103,8 @@ class AuthenticationData(object):
             self.decline_reason = decline_reason
         if id is not None:
             self.id = id
+        if invalid_data is not None:
+            self.invalid_data = invalid_data
         if status is not None:
             self.status = status
         if three_d_secure is not None:
@@ -245,6 +251,29 @@ class AuthenticationData(object):
         """
 
         self._id = id
+
+    @property
+    def invalid_data(self):
+        """Gets the invalid_data of this AuthenticationData.  # noqa: E501
+
+        List incorrect fields for decline  # noqa: E501
+
+        :return: The invalid_data of this AuthenticationData.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._invalid_data
+
+    @invalid_data.setter
+    def invalid_data(self, invalid_data):
+        """Sets the invalid_data of this AuthenticationData.
+
+        List incorrect fields for decline  # noqa: E501
+
+        :param invalid_data: The invalid_data of this AuthenticationData.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._invalid_data = invalid_data
 
     class Status(object):
         NEW = "NEW"
