@@ -30,21 +30,24 @@ class InvoiceCustomer(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"email": "str", "id": "str", "phone": "str"}
+    swagger_types = {"email": "str", "id": "str", "locale": "str", "phone": "str"}
 
-    attribute_map = {"email": "email", "id": "id", "phone": "phone"}
+    attribute_map = {"email": "email", "id": "id", "locale": "locale", "phone": "phone"}
 
-    def __init__(self, email=None, id=None, phone=None):  # noqa: E501
+    def __init__(self, email=None, id=None, locale=None, phone=None):  # noqa: E501
         """InvoiceCustomer - a model defined in Swagger"""  # noqa: E501
 
         self._email = None
         self._id = None
+        self._locale = None
         self._phone = None
         self.discriminator = None
 
         if email is not None:
             self.email = email
         self.id = id
+        if locale is not None:
+            self.locale = locale
         if phone is not None:
             self.phone = phone
 
@@ -103,6 +106,29 @@ class InvoiceCustomer(object):
             )  # noqa: E501
 
         self._id = id
+
+    @property
+    def locale(self):
+        """Gets the locale of this InvoiceCustomer.  # noqa: E501
+
+        Preferred locale for the payment page ([ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code). The default locale (en or other locale if it's set as default in Merchant account) will be applied if the selected locale (received in request) is not supported. Supported locales are: `ar`, `az`, `bg`, `cs`, `de`, `el`, `en`, `es`, `fr`, `hu`, `hy`, `id`, `it`, `ja`, `ka`, `ko`, `ms`, `nl`, `pl`, `pt`, `ro`, `ru`, `sr`, `sv`, `th`, `tr`, `uk`, `vi`, `zh`  # noqa: E501
+
+        :return: The locale of this InvoiceCustomer.  # noqa: E501
+        :rtype: str
+        """
+        return self._locale
+
+    @locale.setter
+    def locale(self, locale):
+        """Sets the locale of this InvoiceCustomer.
+
+        Preferred locale for the payment page ([ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code). The default locale (en or other locale if it's set as default in Merchant account) will be applied if the selected locale (received in request) is not supported. Supported locales are: `ar`, `az`, `bg`, `cs`, `de`, `el`, `en`, `es`, `fr`, `hu`, `hy`, `id`, `it`, `ja`, `ka`, `ko`, `ms`, `nl`, `pl`, `pt`, `ro`, `ru`, `sr`, `sv`, `th`, `tr`, `uk`, `vi`, `zh`  # noqa: E501
+
+        :param locale: The locale of this InvoiceCustomer.  # noqa: E501
+        :type: str
+        """
+
+        self._locale = locale
 
     @property
     def phone(self):
