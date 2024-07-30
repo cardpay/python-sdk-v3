@@ -33,10 +33,11 @@ class PixAccountDetailsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def account_details(self, details_request, **kwargs):  # noqa: E501
-        """Get pix account details  # noqa: E501
+    def account_details(self, details_request, method, **kwargs):  # noqa: E501
+        """Get methods account details  # noqa: E501
 
-        :param PixAccountDetailsRequest details_request: detailsRequest (required)
+        :param AccountDetailsRequest details_request: detailsRequest (required)
+        :param str method: method (required)
         :return: PixAccountDetailsResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -44,20 +45,23 @@ class PixAccountDetailsApi(object):
         kwargs["_return_http_data_only"] = True
 
         (data) = self.account_details_with_http_info(
-            details_request, **kwargs
+            details_request, method, **kwargs
         )  # noqa: E501
         return data
 
-    def account_details_with_http_info(self, details_request, **kwargs):  # noqa: E501
-        """Get pix account details  # noqa: E501
+    def account_details_with_http_info(
+        self, details_request, method, **kwargs
+    ):  # noqa: E501
+        """Get methods account details  # noqa: E501
 
-        :param PixAccountDetailsRequest details_request: detailsRequest (required)
+        :param AccountDetailsRequest details_request: detailsRequest (required)
+        :param str method: method (required)
         :return: PixAccountDetailsResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ["details_request"]  # noqa: E501
+        all_params = ["details_request", "method"]  # noqa: E501
         all_params.append("_return_http_data_only")
         all_params.append("_preload_content")
         all_params.append("_request_timeout")
@@ -76,10 +80,17 @@ class PixAccountDetailsApi(object):
             raise ValueError(
                 "Missing the required parameter `details_request` when calling `account_details`"
             )  # noqa: E501
+        # verify the required parameter 'method' is set
+        if "method" not in params or params["method"] is None:
+            raise ValueError(
+                "Missing the required parameter `method` when calling `account_details`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
+        if "method" in params:
+            path_params["method"] = params["method"]  # noqa: E501
 
         query_params = []
 
@@ -103,7 +114,7 @@ class PixAccountDetailsApi(object):
         )  # noqa: E501
 
         return self.api_client.call_api(
-            "/api/account_details/pix",
+            "/api/account_details/{method}",
             "POST",
             path_params,
             query_params,

@@ -318,14 +318,6 @@ class PaymentRequestCustomer(object):
         :param full_name: The full_name of this PaymentRequestCustomer.  # noqa: E501
         :type: str
         """
-        if full_name is not None and len(full_name) > 256:
-            raise ValueError(
-                "Invalid value for `full_name`, length must be less than or equal to `256`"
-            )  # noqa: E501
-        if full_name is not None and len(full_name) < 1:
-            raise ValueError(
-                "Invalid value for `full_name`, length must be greater than or equal to `1`"
-            )  # noqa: E501
 
         self._full_name = full_name
 
@@ -519,14 +511,6 @@ class PaymentRequestCustomer(object):
         :param phone: The phone of this PaymentRequestCustomer.  # noqa: E501
         :type: str
         """
-        if phone is not None and len(phone) > 18:
-            raise ValueError(
-                "Invalid value for `phone`, length must be less than or equal to `18`"
-            )  # noqa: E501
-        if phone is not None and len(phone) < 8:
-            raise ValueError(
-                "Invalid value for `phone`, length must be greater than or equal to `8`"
-            )  # noqa: E501
 
         self._phone = phone
 

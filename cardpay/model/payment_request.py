@@ -58,6 +58,7 @@ class PaymentRequest(object):
         "customer": "PaymentRequestCustomer",
         "ewallet_account": "PaymentRequestEWalletAccount",
         "merchant_order": "PaymentRequestMerchantOrder",
+        "payment_by_invoice": "bool",
         "payment_data": "PaymentRequestPaymentData",
         "payment_method": "str",
         "payment_methods": "list[str]",
@@ -71,6 +72,7 @@ class PaymentRequest(object):
         "customer": "customer",
         "ewallet_account": "ewallet_account",
         "merchant_order": "merchant_order",
+        "payment_by_invoice": "payment_by_invoice",
         "payment_data": "payment_data",
         "payment_method": "payment_method",
         "payment_methods": "payment_methods",
@@ -85,6 +87,7 @@ class PaymentRequest(object):
         customer=None,
         ewallet_account=None,
         merchant_order=None,
+        payment_by_invoice=None,
         payment_data=None,
         payment_method=None,
         payment_methods=None,
@@ -98,6 +101,7 @@ class PaymentRequest(object):
         self._customer = None
         self._ewallet_account = None
         self._merchant_order = None
+        self._payment_by_invoice = None
         self._payment_data = None
         self._payment_method = None
         self._payment_methods = None
@@ -112,6 +116,8 @@ class PaymentRequest(object):
         if ewallet_account is not None:
             self.ewallet_account = ewallet_account
         self.merchant_order = merchant_order
+        if payment_by_invoice is not None:
+            self.payment_by_invoice = payment_by_invoice
         self.payment_data = payment_data
         if payment_method is not None:
             self.payment_method = payment_method
@@ -273,6 +279,27 @@ class PaymentRequest(object):
             )  # noqa: E501
 
         self._merchant_order = merchant_order
+
+    @property
+    def payment_by_invoice(self):
+        """Gets the payment_by_invoice of this PaymentRequest.  # noqa: E501
+
+
+        :return: The payment_by_invoice of this PaymentRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._payment_by_invoice
+
+    @payment_by_invoice.setter
+    def payment_by_invoice(self, payment_by_invoice):
+        """Sets the payment_by_invoice of this PaymentRequest.
+
+
+        :param payment_by_invoice: The payment_by_invoice of this PaymentRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._payment_by_invoice = payment_by_invoice
 
     @property
     def payment_data(self):

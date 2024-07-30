@@ -34,18 +34,22 @@ class PaymentRequestCard(object):
         "acct_type": "str",
         "expiration": "str",
         "holder": "str",
+        "network_token": "bool",
         "pan": "str",
         "pin_code": "str",
         "security_code": "str",
+        "token_cryptogram": "str",
     }
 
     attribute_map = {
         "acct_type": "acct_type",
         "expiration": "expiration",
         "holder": "holder",
+        "network_token": "network_token",
         "pan": "pan",
         "pin_code": "pin_code",
         "security_code": "security_code",
+        "token_cryptogram": "token_cryptogram",
     }
 
     def __init__(
@@ -53,18 +57,22 @@ class PaymentRequestCard(object):
         acct_type=None,
         expiration=None,
         holder=None,
+        network_token=None,
         pan=None,
         pin_code=None,
         security_code=None,
+        token_cryptogram=None,
     ):  # noqa: E501
         """PaymentRequestCard - a model defined in Swagger"""  # noqa: E501
 
         self._acct_type = None
         self._expiration = None
         self._holder = None
+        self._network_token = None
         self._pan = None
         self._pin_code = None
         self._security_code = None
+        self._token_cryptogram = None
         self.discriminator = None
 
         if acct_type is not None:
@@ -73,12 +81,16 @@ class PaymentRequestCard(object):
             self.expiration = expiration
         if holder is not None:
             self.holder = holder
+        if network_token is not None:
+            self.network_token = network_token
         if pan is not None:
             self.pan = pan
         if pin_code is not None:
             self.pin_code = pin_code
         if security_code is not None:
             self.security_code = security_code
+        if token_cryptogram is not None:
+            self.token_cryptogram = token_cryptogram
 
     class AcctType(object):
         _01 = "01"
@@ -174,6 +186,27 @@ class PaymentRequestCard(object):
         self._holder = holder
 
     @property
+    def network_token(self):
+        """Gets the network_token of this PaymentRequestCard.  # noqa: E501
+
+
+        :return: The network_token of this PaymentRequestCard.  # noqa: E501
+        :rtype: bool
+        """
+        return self._network_token
+
+    @network_token.setter
+    def network_token(self, network_token):
+        """Sets the network_token of this PaymentRequestCard.
+
+
+        :param network_token: The network_token of this PaymentRequestCard.  # noqa: E501
+        :type: bool
+        """
+
+        self._network_token = network_token
+
+    @property
     def pan(self):
         """Gets the pan of this PaymentRequestCard.  # noqa: E501
 
@@ -259,6 +292,27 @@ class PaymentRequestCard(object):
             )  # noqa: E501
 
         self._security_code = security_code
+
+    @property
+    def token_cryptogram(self):
+        """Gets the token_cryptogram of this PaymentRequestCard.  # noqa: E501
+
+
+        :return: The token_cryptogram of this PaymentRequestCard.  # noqa: E501
+        :rtype: str
+        """
+        return self._token_cryptogram
+
+    @token_cryptogram.setter
+    def token_cryptogram(self, token_cryptogram):
+        """Sets the token_cryptogram of this PaymentRequestCard.
+
+
+        :param token_cryptogram: The token_cryptogram of this PaymentRequestCard.  # noqa: E501
+        :type: str
+        """
+
+        self._token_cryptogram = token_cryptogram
 
     def to_dict(self):
         """Returns the model properties as a dict"""

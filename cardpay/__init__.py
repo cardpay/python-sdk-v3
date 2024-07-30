@@ -20,6 +20,7 @@ from cardpay.api_client import ApiClient
 from cardpay.configuration import Configuration
 
 # import models into sdk package
+from cardpay.model.account_details_request import AccountDetailsRequest
 from cardpay.model.api_error import ApiError
 from cardpay.model.api_tokens import ApiTokens
 from cardpay.model.auth_data_request import AuthDataRequest
@@ -29,6 +30,8 @@ from cardpay.model.authentication_data import AuthenticationData
 from cardpay.model.authentication_data_request import AuthenticationDataRequest
 from cardpay.model.authentication_data_response import AuthenticationDataResponse
 from cardpay.model.authentication_error import AuthenticationError
+from cardpay.model.authentication_patch_request import AuthenticationPatchRequest
+from cardpay.model.authentication_update_response import AuthenticationUpdateResponse
 from cardpay.model.bad_request_error import BadRequestError
 from cardpay.model.bank_card_payout_data import BankCardPayoutData
 from cardpay.model.billing_address import BillingAddress
@@ -70,6 +73,7 @@ from cardpay.model.invoice_merchant_order import InvoiceMerchantOrder
 from cardpay.model.invoice_request import InvoiceRequest
 from cardpay.model.item import Item
 from cardpay.model.limit_info_response import LimitInfoResponse
+from cardpay.model.map_ofstring_andstring import MapOfstringAndstring
 from cardpay.model.mobile_token_request import MobileTokenRequest
 from cardpay.model.mobile_token_response import MobileTokenResponse
 from cardpay.model.next_subscription_payment import NextSubscriptionPayment
@@ -131,7 +135,6 @@ from cardpay.model.payout_response_payout_data import PayoutResponsePayoutData
 from cardpay.model.payout_update_request import PayoutUpdateRequest
 from cardpay.model.payout_update_response import PayoutUpdateResponse
 from cardpay.model.payouts_list import PayoutsList
-from cardpay.model.pix_account_details_request import PixAccountDetailsRequest
 from cardpay.model.pix_account_details_response import PixAccountDetailsResponse
 from cardpay.model.plan import Plan
 from cardpay.model.plan_data_list import PlanDataList
@@ -226,6 +229,9 @@ from cardpay.model.updated_plan_data import UpdatedPlanData
 from cardpay.model.updated_subscription_data import UpdatedSubscriptionData
 from cardpay.model.updated_subscription_recurring_data import (
     UpdatedSubscriptionRecurringData,
+)
+from cardpay.model.authentication_confirm3ds_request import (
+    AuthenticationConfirm3dsRequest,
 )
 from cardpay.model.payment_confirm3ds_request import PaymentConfirm3dsRequest
 from cardpay.model.payment_execute_request import PaymentExecuteRequest
