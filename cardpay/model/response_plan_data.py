@@ -17,6 +17,9 @@ import re  # noqa: F401
 import six
 
 from cardpay.model.plan_quantity import PlanQuantity  # noqa: F401,E501
+from cardpay.model.plan_subscription_decline_logic import (
+    PlanSubscriptionDeclineLogic,
+)  # noqa: F401,E501
 
 
 class ResponsePlanData(object):
@@ -44,6 +47,7 @@ class ResponsePlanData(object):
         "retries": "int",
         "pricing_model": "str",
         "quantity": "list[PlanQuantity]",
+        "subscription_decline_logic": "PlanSubscriptionDeclineLogic",
     }
 
     attribute_map = {
@@ -58,6 +62,7 @@ class ResponsePlanData(object):
         "retries": "retries",
         "pricing_model": "pricing_model",
         "quantity": "quantity",
+        "subscription_decline_logic": "subscription_decline_logic",
     }
 
     def __init__(
@@ -73,6 +78,7 @@ class ResponsePlanData(object):
         retries=None,
         pricing_model=None,
         quantity=None,
+        subscription_decline_logic=None,
     ):  # noqa: E501
         """ResponsePlanData - a model defined in Swagger"""  # noqa: E501
 
@@ -87,6 +93,7 @@ class ResponsePlanData(object):
         self._retries = None
         self._pricing_model = None
         self._quantity = None
+        self._subscription_decline_logic = None
         self.discriminator = None
 
         if id is not None:
@@ -111,6 +118,8 @@ class ResponsePlanData(object):
             self.pricing_model = pricing_model
         if quantity is not None:
             self.quantity = quantity
+        if subscription_decline_logic is not None:
+            self.subscription_decline_logic = subscription_decline_logic
 
     @property
     def id(self):
@@ -389,6 +398,29 @@ class ResponsePlanData(object):
         """
 
         self._quantity = quantity
+
+    @property
+    def subscription_decline_logic(self):
+        """Gets the subscription_decline_logic of this ResponsePlanData.  # noqa: E501
+
+        Subscription decline logic  # noqa: E501
+
+        :return: The subscription_decline_logic of this ResponsePlanData.  # noqa: E501
+        :rtype: PlanSubscriptionDeclineLogic
+        """
+        return self._subscription_decline_logic
+
+    @subscription_decline_logic.setter
+    def subscription_decline_logic(self, subscription_decline_logic):
+        """Sets the subscription_decline_logic of this ResponsePlanData.
+
+        Subscription decline logic  # noqa: E501
+
+        :param subscription_decline_logic: The subscription_decline_logic of this ResponsePlanData.  # noqa: E501
+        :type: PlanSubscriptionDeclineLogic
+        """
+
+        self._subscription_decline_logic = subscription_decline_logic
 
     def to_dict(self):
         """Returns the model properties as a dict"""

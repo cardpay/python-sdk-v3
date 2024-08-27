@@ -381,6 +381,8 @@ class RefundResponseRefundData(object):
         TERMINATED = "TERMINATED"
         CHARGED_BACK = "CHARGED_BACK"
         CHARGEBACK_RESOLVED = "CHARGEBACK_RESOLVED"
+        UNPAID = "UNPAID"
+        WAITING = "WAITING"
 
     @property
     def status(self):
@@ -414,6 +416,8 @@ class RefundResponseRefundData(object):
             "TERMINATED",
             "CHARGED_BACK",
             "CHARGEBACK_RESOLVED",
+            "UNPAID",
+            "WAITING",
         ]  # noqa: E501
         if status not in allowed_values:
             raise ValueError(

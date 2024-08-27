@@ -139,6 +139,7 @@ from cardpay.model.pix_account_details_response import PixAccountDetailsResponse
 from cardpay.model.plan import Plan
 from cardpay.model.plan_data_list import PlanDataList
 from cardpay.model.plan_quantity import PlanQuantity
+from cardpay.model.plan_subscription_decline_logic import PlanSubscriptionDeclineLogic
 from cardpay.model.plan_update_request import PlanUpdateRequest
 from cardpay.model.plan_update_request_plan_data import PlanUpdateRequestPlanData
 from cardpay.model.plan_update_response import PlanUpdateResponse

@@ -147,6 +147,8 @@ class SubscriptionUpdateRequestSubscriptionData(object):
         COMPLETED = "COMPLETED"
         CARD_EXPIRED = "CARD_EXPIRED"
         ACTIVATION_FAILED = "ACTIVATION_FAILED"
+        UNPAID = "UNPAID"
+        WAITING = "WAITING"
 
     @property
     def status_to(self):
@@ -177,6 +179,8 @@ class SubscriptionUpdateRequestSubscriptionData(object):
             "COMPLETED",
             "CARD_EXPIRED",
             "ACTIVATION_FAILED",
+            "UNPAID",
+            "WAITING",
         ]  # noqa: E501
         if status_to not in allowed_values:
             raise ValueError(
