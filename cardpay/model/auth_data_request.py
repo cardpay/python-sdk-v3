@@ -272,10 +272,10 @@ class AuthDataRequest(object):
         :type: str
         """
         if installment_type is not None and not re.search(
-            r"IF|MF_HOLD", installment_type
+            r"^(IF|MF_HOLD)?$", installment_type
         ):  # noqa: E501
             raise ValueError(
-                r"Invalid value for `installment_type`, must be a follow pattern or equal to `/IF|MF_HOLD/`"
+                r"Invalid value for `installment_type`, must be a follow pattern or equal to `/^(IF|MF_HOLD)?$/`"
             )  # noqa: E501
 
         self._installment_type = installment_type

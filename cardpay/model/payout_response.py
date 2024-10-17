@@ -51,6 +51,7 @@ class PayoutResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        "additional_data": "dict(str, str)",
         "card_account": "PayoutResponseCardAccount",
         "cryptocurrency_account": "PayoutResponseCryptocurrencyAccount",
         "customer": "PayoutResponseCustomer",
@@ -63,6 +64,7 @@ class PayoutResponse(object):
     }
 
     attribute_map = {
+        "additional_data": "additional_data",
         "card_account": "card_account",
         "cryptocurrency_account": "cryptocurrency_account",
         "customer": "customer",
@@ -76,6 +78,7 @@ class PayoutResponse(object):
 
     def __init__(
         self,
+        additional_data=None,
         card_account=None,
         cryptocurrency_account=None,
         customer=None,
@@ -88,6 +91,7 @@ class PayoutResponse(object):
     ):  # noqa: E501
         """PayoutResponse - a model defined in Swagger"""  # noqa: E501
 
+        self._additional_data = None
         self._card_account = None
         self._cryptocurrency_account = None
         self._customer = None
@@ -99,6 +103,8 @@ class PayoutResponse(object):
         self._merchant_order = None
         self.discriminator = None
 
+        if additional_data is not None:
+            self.additional_data = additional_data
         if card_account is not None:
             self.card_account = card_account
         if cryptocurrency_account is not None:
@@ -116,6 +122,29 @@ class PayoutResponse(object):
             self.payment_method = payment_method
         if merchant_order is not None:
             self.merchant_order = merchant_order
+
+    @property
+    def additional_data(self):
+        """Gets the additional_data of this PayoutResponse.  # noqa: E501
+
+        Arbitrary-formatted key-value structure  # noqa: E501
+
+        :return: The additional_data of this PayoutResponse.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._additional_data
+
+    @additional_data.setter
+    def additional_data(self, additional_data):
+        """Sets the additional_data of this PayoutResponse.
+
+        Arbitrary-formatted key-value structure  # noqa: E501
+
+        :param additional_data: The additional_data of this PayoutResponse.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._additional_data = additional_data
 
     @property
     def card_account(self):

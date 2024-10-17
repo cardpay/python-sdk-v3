@@ -39,6 +39,7 @@ class OneclickData(object):
         "contract_number": "str",
         "currency": "str",
         "dynamic_descriptor": "str",
+        "encrypted_data": "str",
         "filing": "RecurringRequestFiling",
         "generate_token": "bool",
         "hold_period": "int",
@@ -57,6 +58,7 @@ class OneclickData(object):
         "contract_number": "contract_number",
         "currency": "currency",
         "dynamic_descriptor": "dynamic_descriptor",
+        "encrypted_data": "encrypted_data",
         "filing": "filing",
         "generate_token": "generate_token",
         "hold_period": "hold_period",
@@ -76,6 +78,7 @@ class OneclickData(object):
         contract_number=None,
         currency=None,
         dynamic_descriptor=None,
+        encrypted_data=None,
         filing=None,
         generate_token=None,
         hold_period=None,
@@ -94,6 +97,7 @@ class OneclickData(object):
         self._contract_number = None
         self._currency = None
         self._dynamic_descriptor = None
+        self._encrypted_data = None
         self._filing = None
         self._generate_token = None
         self._hold_period = None
@@ -114,6 +118,8 @@ class OneclickData(object):
         self.currency = currency
         if dynamic_descriptor is not None:
             self.dynamic_descriptor = dynamic_descriptor
+        if encrypted_data is not None:
+            self.encrypted_data = encrypted_data
         if filing is not None:
             self.filing = filing
         if generate_token is not None:
@@ -247,6 +253,37 @@ class OneclickData(object):
             )  # noqa: E501
 
         self._dynamic_descriptor = dynamic_descriptor
+
+    @property
+    def encrypted_data(self):
+        """Gets the encrypted_data of this OneclickData.  # noqa: E501
+
+        The encrypted recurring credentials encoded in base64. *(for APPLEPAY payment method only)*  # noqa: E501
+
+        :return: The encrypted_data of this OneclickData.  # noqa: E501
+        :rtype: str
+        """
+        return self._encrypted_data
+
+    @encrypted_data.setter
+    def encrypted_data(self, encrypted_data):
+        """Sets the encrypted_data of this OneclickData.
+
+        The encrypted recurring credentials encoded in base64. *(for APPLEPAY payment method only)*  # noqa: E501
+
+        :param encrypted_data: The encrypted_data of this OneclickData.  # noqa: E501
+        :type: str
+        """
+        if encrypted_data is not None and len(encrypted_data) > 10000:
+            raise ValueError(
+                "Invalid value for `encrypted_data`, length must be less than or equal to `10000`"
+            )  # noqa: E501
+        if encrypted_data is not None and len(encrypted_data) < 0:
+            raise ValueError(
+                "Invalid value for `encrypted_data`, length must be greater than or equal to `0`"
+            )  # noqa: E501
+
+        self._encrypted_data = encrypted_data
 
     @property
     def filing(self):

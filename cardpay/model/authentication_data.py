@@ -16,6 +16,9 @@ import re  # noqa: F401
 
 import six
 
+from cardpay.model.recurring_response_recurring_data import (
+    RecurringResponseRecurringData,
+)  # noqa: F401,E501
 from cardpay.model.three_d_secure_response import (
     ThreeDSecureResponse,
 )  # noqa: F401,E501
@@ -41,7 +44,10 @@ class AuthenticationData(object):
         "decline_code": "str",
         "decline_reason": "str",
         "id": "str",
+        "installment_type": "str",
+        "installments": "str",
         "invalid_data": "list[str]",
+        "recurring_data": "RecurringResponseRecurringData",
         "status": "str",
         "three_d_secure": "ThreeDSecureResponse",
         "trans_type": "str",
@@ -55,7 +61,10 @@ class AuthenticationData(object):
         "decline_code": "decline_code",
         "decline_reason": "decline_reason",
         "id": "id",
+        "installment_type": "installment_type",
+        "installments": "installments",
         "invalid_data": "invalid_data",
+        "recurring_data": "recurring_data",
         "status": "status",
         "three_d_secure": "three_d_secure",
         "trans_type": "trans_type",
@@ -70,7 +79,10 @@ class AuthenticationData(object):
         decline_code=None,
         decline_reason=None,
         id=None,
+        installment_type=None,
+        installments=None,
         invalid_data=None,
+        recurring_data=None,
         status=None,
         three_d_secure=None,
         trans_type=None,
@@ -84,7 +96,10 @@ class AuthenticationData(object):
         self._decline_code = None
         self._decline_reason = None
         self._id = None
+        self._installment_type = None
+        self._installments = None
         self._invalid_data = None
+        self._recurring_data = None
         self._status = None
         self._three_d_secure = None
         self._trans_type = None
@@ -103,8 +118,14 @@ class AuthenticationData(object):
             self.decline_reason = decline_reason
         if id is not None:
             self.id = id
+        if installment_type is not None:
+            self.installment_type = installment_type
+        if installments is not None:
+            self.installments = installments
         if invalid_data is not None:
             self.invalid_data = invalid_data
+        if recurring_data is not None:
+            self.recurring_data = recurring_data
         if status is not None:
             self.status = status
         if three_d_secure is not None:
@@ -253,6 +274,52 @@ class AuthenticationData(object):
         self._id = id
 
     @property
+    def installment_type(self):
+        """Gets the installment_type of this AuthenticationData.  # noqa: E501
+
+        Installment type, 2 possible values: `IF` - issuer financed `MF_HOLD' - merchant financed. For installment subscription with hold rest amount.  # noqa: E501
+
+        :return: The installment_type of this AuthenticationData.  # noqa: E501
+        :rtype: str
+        """
+        return self._installment_type
+
+    @installment_type.setter
+    def installment_type(self, installment_type):
+        """Sets the installment_type of this AuthenticationData.
+
+        Installment type, 2 possible values: `IF` - issuer financed `MF_HOLD' - merchant financed. For installment subscription with hold rest amount.  # noqa: E501
+
+        :param installment_type: The installment_type of this AuthenticationData.  # noqa: E501
+        :type: str
+        """
+
+        self._installment_type = installment_type
+
+    @property
+    def installments(self):
+        """Gets the installments of this AuthenticationData.  # noqa: E501
+
+        Number of total installment payments.  # noqa: E501
+
+        :return: The installments of this AuthenticationData.  # noqa: E501
+        :rtype: str
+        """
+        return self._installments
+
+    @installments.setter
+    def installments(self, installments):
+        """Sets the installments of this AuthenticationData.
+
+        Number of total installment payments.  # noqa: E501
+
+        :param installments: The installments of this AuthenticationData.  # noqa: E501
+        :type: str
+        """
+
+        self._installments = installments
+
+    @property
     def invalid_data(self):
         """Gets the invalid_data of this AuthenticationData.  # noqa: E501
 
@@ -274,6 +341,29 @@ class AuthenticationData(object):
         """
 
         self._invalid_data = invalid_data
+
+    @property
+    def recurring_data(self):
+        """Gets the recurring_data of this AuthenticationData.  # noqa: E501
+
+        Recurring data  # noqa: E501
+
+        :return: The recurring_data of this AuthenticationData.  # noqa: E501
+        :rtype: RecurringResponseRecurringData
+        """
+        return self._recurring_data
+
+    @recurring_data.setter
+    def recurring_data(self, recurring_data):
+        """Sets the recurring_data of this AuthenticationData.
+
+        Recurring data  # noqa: E501
+
+        :param recurring_data: The recurring_data of this AuthenticationData.  # noqa: E501
+        :type: RecurringResponseRecurringData
+        """
+
+        self._recurring_data = recurring_data
 
     class Status(object):
         NEW = "NEW"

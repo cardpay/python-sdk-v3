@@ -17,6 +17,7 @@ import re  # noqa: F401
 import six
 
 from cardpay.model.plan_quantity import PlanQuantity  # noqa: F401,E501
+from cardpay.model.plan_retry import PlanRetry  # noqa: F401,E501
 from cardpay.model.plan_subscription_decline_logic import (
     PlanSubscriptionDeclineLogic,
 )  # noqa: F401,E501
@@ -44,6 +45,7 @@ class RecurringPlanRequestPlanData(object):
         "pricing_model": "str",
         "quantity": "list[PlanQuantity]",
         "retries": "int",
+        "retry": "PlanRetry",
         "subscription_decline_logic": "PlanSubscriptionDeclineLogic",
     }
 
@@ -56,6 +58,7 @@ class RecurringPlanRequestPlanData(object):
         "pricing_model": "pricing_model",
         "quantity": "quantity",
         "retries": "retries",
+        "retry": "retry",
         "subscription_decline_logic": "subscription_decline_logic",
     }
 
@@ -69,6 +72,7 @@ class RecurringPlanRequestPlanData(object):
         pricing_model=None,
         quantity=None,
         retries=None,
+        retry=None,
         subscription_decline_logic=None,
     ):  # noqa: E501
         """RecurringPlanRequestPlanData - a model defined in Swagger"""  # noqa: E501
@@ -81,6 +85,7 @@ class RecurringPlanRequestPlanData(object):
         self._pricing_model = None
         self._quantity = None
         self._retries = None
+        self._retry = None
         self._subscription_decline_logic = None
         self.discriminator = None
 
@@ -95,6 +100,8 @@ class RecurringPlanRequestPlanData(object):
             self.quantity = quantity
         if retries is not None:
             self.retries = retries
+        if retry is not None:
+            self.retry = retry
         if subscription_decline_logic is not None:
             self.subscription_decline_logic = subscription_decline_logic
 
@@ -345,6 +352,29 @@ class RecurringPlanRequestPlanData(object):
             )  # noqa: E501
 
         self._retries = retries
+
+    @property
+    def retry(self):
+        """Gets the retry of this RecurringPlanRequestPlanData.  # noqa: E501
+
+        Structure for establishing the logic of retries for subscription based on created plan  # noqa: E501
+
+        :return: The retry of this RecurringPlanRequestPlanData.  # noqa: E501
+        :rtype: PlanRetry
+        """
+        return self._retry
+
+    @retry.setter
+    def retry(self, retry):
+        """Sets the retry of this RecurringPlanRequestPlanData.
+
+        Structure for establishing the logic of retries for subscription based on created plan  # noqa: E501
+
+        :param retry: The retry of this RecurringPlanRequestPlanData.  # noqa: E501
+        :type: PlanRetry
+        """
+
+        self._retry = retry
 
     @property
     def subscription_decline_logic(self):

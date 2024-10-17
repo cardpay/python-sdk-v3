@@ -45,6 +45,7 @@ class PaymentResponsePaymentData(object):
         "installments": "str",
         "invalid_data": "list[str]",
         "is_3d": "bool",
+        "network_trans_id": "str",
         "note": "str",
         "postauth_status": "str",
         "rrn": "str",
@@ -68,6 +69,7 @@ class PaymentResponsePaymentData(object):
         "installments": "installments",
         "invalid_data": "invalid_data",
         "is_3d": "is_3d",
+        "network_trans_id": "network_trans_id",
         "note": "note",
         "postauth_status": "postauth_status",
         "rrn": "rrn",
@@ -92,6 +94,7 @@ class PaymentResponsePaymentData(object):
         installments=None,
         invalid_data=None,
         is_3d=None,
+        network_trans_id=None,
         note=None,
         postauth_status=None,
         rrn=None,
@@ -115,6 +118,7 @@ class PaymentResponsePaymentData(object):
         self._installments = None
         self._invalid_data = None
         self._is_3d = None
+        self._network_trans_id = None
         self._note = None
         self._postauth_status = None
         self._rrn = None
@@ -151,6 +155,8 @@ class PaymentResponsePaymentData(object):
             self.invalid_data = invalid_data
         if is_3d is not None:
             self.is_3d = is_3d
+        if network_trans_id is not None:
+            self.network_trans_id = network_trans_id
         if note is not None:
             self.note = note
         if postauth_status is not None:
@@ -485,6 +491,29 @@ class PaymentResponsePaymentData(object):
         """
 
         self._is_3d = is_3d
+
+    @property
+    def network_trans_id(self):
+        """Gets the network_trans_id of this PaymentResponsePaymentData.  # noqa: E501
+
+        Network Reference Number of original transaction  # noqa: E501
+
+        :return: The network_trans_id of this PaymentResponsePaymentData.  # noqa: E501
+        :rtype: str
+        """
+        return self._network_trans_id
+
+    @network_trans_id.setter
+    def network_trans_id(self, network_trans_id):
+        """Sets the network_trans_id of this PaymentResponsePaymentData.
+
+        Network Reference Number of original transaction  # noqa: E501
+
+        :param network_trans_id: The network_trans_id of this PaymentResponsePaymentData.  # noqa: E501
+        :type: str
+        """
+
+        self._network_trans_id = network_trans_id
 
     @property
     def note(self):

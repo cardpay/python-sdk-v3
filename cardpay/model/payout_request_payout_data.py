@@ -35,6 +35,7 @@ class PayoutRequestPayoutData(object):
         "currency": "str",
         "dynamic_descriptor": "str",
         "generate_token": "bool",
+        "network_trans_id": "str",
         "note": "str",
     }
 
@@ -43,6 +44,7 @@ class PayoutRequestPayoutData(object):
         "currency": "currency",
         "dynamic_descriptor": "dynamic_descriptor",
         "generate_token": "generate_token",
+        "network_trans_id": "network_trans_id",
         "note": "note",
     }
 
@@ -52,6 +54,7 @@ class PayoutRequestPayoutData(object):
         currency=None,
         dynamic_descriptor=None,
         generate_token=None,
+        network_trans_id=None,
         note=None,
     ):  # noqa: E501
         """PayoutRequestPayoutData - a model defined in Swagger"""  # noqa: E501
@@ -60,6 +63,7 @@ class PayoutRequestPayoutData(object):
         self._currency = None
         self._dynamic_descriptor = None
         self._generate_token = None
+        self._network_trans_id = None
         self._note = None
         self.discriminator = None
 
@@ -69,6 +73,8 @@ class PayoutRequestPayoutData(object):
             self.dynamic_descriptor = dynamic_descriptor
         if generate_token is not None:
             self.generate_token = generate_token
+        if network_trans_id is not None:
+            self.network_trans_id = network_trans_id
         if note is not None:
             self.note = note
 
@@ -179,6 +185,29 @@ class PayoutRequestPayoutData(object):
         """
 
         self._generate_token = generate_token
+
+    @property
+    def network_trans_id(self):
+        """Gets the network_trans_id of this PayoutRequestPayoutData.  # noqa: E501
+
+        Network Reference Number of original transaction  # noqa: E501
+
+        :return: The network_trans_id of this PayoutRequestPayoutData.  # noqa: E501
+        :rtype: str
+        """
+        return self._network_trans_id
+
+    @network_trans_id.setter
+    def network_trans_id(self, network_trans_id):
+        """Sets the network_trans_id of this PayoutRequestPayoutData.
+
+        Network Reference Number of original transaction  # noqa: E501
+
+        :param network_trans_id: The network_trans_id of this PayoutRequestPayoutData.  # noqa: E501
+        :type: str
+        """
+
+        self._network_trans_id = network_trans_id
 
     @property
     def note(self):
