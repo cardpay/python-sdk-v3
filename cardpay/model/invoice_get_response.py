@@ -21,6 +21,7 @@ from cardpay.model.invoice_get_data_response import (
     InvoiceGetDataResponse,
 )  # noqa: F401,E501
 from cardpay.model.invoice_merchant_order import InvoiceMerchantOrder  # noqa: F401,E501
+from cardpay.model.payment_data import PaymentData  # noqa: F401,E501
 
 
 class InvoiceGetResponse(object):
@@ -41,6 +42,7 @@ class InvoiceGetResponse(object):
         "invoice_data": "InvoiceGetDataResponse",
         "invoice_url": "str",
         "merchant_order": "InvoiceMerchantOrder",
+        "payment_data": "list[PaymentData]",
     }
 
     attribute_map = {
@@ -48,10 +50,16 @@ class InvoiceGetResponse(object):
         "invoice_data": "invoice_data",
         "invoice_url": "invoice_url",
         "merchant_order": "merchant_order",
+        "payment_data": "payment_data",
     }
 
     def __init__(
-        self, customer=None, invoice_data=None, invoice_url=None, merchant_order=None
+        self,
+        customer=None,
+        invoice_data=None,
+        invoice_url=None,
+        merchant_order=None,
+        payment_data=None,
     ):  # noqa: E501
         """InvoiceGetResponse - a model defined in Swagger"""  # noqa: E501
 
@@ -59,6 +67,7 @@ class InvoiceGetResponse(object):
         self._invoice_data = None
         self._invoice_url = None
         self._merchant_order = None
+        self._payment_data = None
         self.discriminator = None
 
         self.customer = customer
@@ -66,6 +75,8 @@ class InvoiceGetResponse(object):
         if invoice_url is not None:
             self.invoice_url = invoice_url
         self.merchant_order = merchant_order
+        if payment_data is not None:
+            self.payment_data = payment_data
 
     @property
     def customer(self):
@@ -170,6 +181,27 @@ class InvoiceGetResponse(object):
             )  # noqa: E501
 
         self._merchant_order = merchant_order
+
+    @property
+    def payment_data(self):
+        """Gets the payment_data of this InvoiceGetResponse.  # noqa: E501
+
+
+        :return: The payment_data of this InvoiceGetResponse.  # noqa: E501
+        :rtype: list[PaymentData]
+        """
+        return self._payment_data
+
+    @payment_data.setter
+    def payment_data(self, payment_data):
+        """Sets the payment_data of this InvoiceGetResponse.
+
+
+        :param payment_data: The payment_data of this InvoiceGetResponse.  # noqa: E501
+        :type: list[PaymentData]
+        """
+
+        self._payment_data = payment_data
 
     def to_dict(self):
         """Returns the model properties as a dict"""

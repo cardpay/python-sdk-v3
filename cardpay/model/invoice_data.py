@@ -36,6 +36,8 @@ class InvoiceData(object):
         "expire_at": "datetime",
         "installment_type": "str",
         "installments": "list[int]",
+        "reusable": "bool",
+        "reuse_count": "int",
     }
 
     attribute_map = {
@@ -44,6 +46,8 @@ class InvoiceData(object):
         "expire_at": "expire_at",
         "installment_type": "installment_type",
         "installments": "installments",
+        "reusable": "reusable",
+        "reuse_count": "reuse_count",
     }
 
     def __init__(
@@ -53,6 +57,8 @@ class InvoiceData(object):
         expire_at=None,
         installment_type=None,
         installments=None,
+        reusable=None,
+        reuse_count=None,
     ):  # noqa: E501
         """InvoiceData - a model defined in Swagger"""  # noqa: E501
 
@@ -61,6 +67,8 @@ class InvoiceData(object):
         self._expire_at = None
         self._installment_type = None
         self._installments = None
+        self._reusable = None
+        self._reuse_count = None
         self.discriminator = None
 
         self.amount = amount
@@ -71,6 +79,10 @@ class InvoiceData(object):
             self.installment_type = installment_type
         if installments is not None:
             self.installments = installments
+        if reusable is not None:
+            self.reusable = reusable
+        if reuse_count is not None:
+            self.reuse_count = reuse_count
 
     @property
     def amount(self):
@@ -194,6 +206,56 @@ class InvoiceData(object):
         """
 
         self._installments = installments
+
+    @property
+    def reusable(self):
+        """Gets the reusable of this InvoiceData.  # noqa: E501
+
+        The flag that can be used for enabling payment link multiple times  # noqa: E501
+
+        :return: The reusable of this InvoiceData.  # noqa: E501
+        :rtype: bool
+        """
+        return self._reusable
+
+    @reusable.setter
+    def reusable(self, reusable):
+        """Sets the reusable of this InvoiceData.
+
+        The flag that can be used for enabling payment link multiple times  # noqa: E501
+
+        :param reusable: The reusable of this InvoiceData.  # noqa: E501
+        :type: bool
+        """
+
+        self._reusable = reusable
+
+    @property
+    def reuse_count(self):
+        """Gets the reuse_count of this InvoiceData.  # noqa: E501
+
+        The number that customer can pay by this link. Default value 10  # noqa: E501
+
+        :return: The reuse_count of this InvoiceData.  # noqa: E501
+        :rtype: int
+        """
+        return self._reuse_count
+
+    @reuse_count.setter
+    def reuse_count(self, reuse_count):
+        """Sets the reuse_count of this InvoiceData.
+
+        The number that customer can pay by this link. Default value 10  # noqa: E501
+
+        :param reuse_count: The reuse_count of this InvoiceData.  # noqa: E501
+        :type: int
+        """
+        if reuse_count is not None and reuse_count < 1:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `reuse_count`, must be a value greater than or equal to `1`"
+            )  # noqa: E501
+
+        self._reuse_count = reuse_count
 
     def to_dict(self):
         """Returns the model properties as a dict"""

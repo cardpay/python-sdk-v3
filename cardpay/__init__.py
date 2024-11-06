@@ -81,6 +81,7 @@ from cardpay.model.not_found_error import NotFoundError
 from cardpay.model.o_auth_error import OAuthError
 from cardpay.model.oneclick_data import OneclickData
 from cardpay.model.payment_callback import PaymentCallback
+from cardpay.model.payment_data import PaymentData
 from cardpay.model.payment_gateway_creation_response import (
     PaymentGatewayCreationResponse,
 )

@@ -36,6 +36,8 @@ class InvoiceGetDataResponse(object):
         "expire_at": "datetime",
         "id": "str",
         "initial_amount": "float",
+        "remaining_count": "int",
+        "reusable": "bool",
         "status": "str",
     }
 
@@ -45,6 +47,8 @@ class InvoiceGetDataResponse(object):
         "expire_at": "expire_at",
         "id": "id",
         "initial_amount": "initial_amount",
+        "remaining_count": "remaining_count",
+        "reusable": "reusable",
         "status": "status",
     }
 
@@ -55,6 +59,8 @@ class InvoiceGetDataResponse(object):
         expire_at=None,
         id=None,
         initial_amount=None,
+        remaining_count=None,
+        reusable=None,
         status=None,
     ):  # noqa: E501
         """InvoiceGetDataResponse - a model defined in Swagger"""  # noqa: E501
@@ -64,6 +70,8 @@ class InvoiceGetDataResponse(object):
         self._expire_at = None
         self._id = None
         self._initial_amount = None
+        self._remaining_count = None
+        self._reusable = None
         self._status = None
         self.discriminator = None
 
@@ -75,6 +83,10 @@ class InvoiceGetDataResponse(object):
         self.id = id
         if initial_amount is not None:
             self.initial_amount = initial_amount
+        if remaining_count is not None:
+            self.remaining_count = remaining_count
+        if reusable is not None:
+            self.reusable = reusable
         if status is not None:
             self.status = status
 
@@ -198,6 +210,50 @@ class InvoiceGetDataResponse(object):
         """
 
         self._initial_amount = initial_amount
+
+    @property
+    def remaining_count(self):
+        """Gets the remaining_count of this InvoiceGetDataResponse.  # noqa: E501
+
+        Number of allowed payments by invoice.  # noqa: E501
+
+        :return: The remaining_count of this InvoiceGetDataResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._remaining_count
+
+    @remaining_count.setter
+    def remaining_count(self, remaining_count):
+        """Sets the remaining_count of this InvoiceGetDataResponse.
+
+        Number of allowed payments by invoice.  # noqa: E501
+
+        :param remaining_count: The remaining_count of this InvoiceGetDataResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._remaining_count = remaining_count
+
+    @property
+    def reusable(self):
+        """Gets the reusable of this InvoiceGetDataResponse.  # noqa: E501
+
+
+        :return: The reusable of this InvoiceGetDataResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._reusable
+
+    @reusable.setter
+    def reusable(self, reusable):
+        """Sets the reusable of this InvoiceGetDataResponse.
+
+
+        :param reusable: The reusable of this InvoiceGetDataResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._reusable = reusable
 
     @property
     def status(self):
