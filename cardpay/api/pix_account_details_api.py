@@ -134,6 +134,7 @@ class PixAccountDetailsApi(object):
 
         :param str currency: currency (required)
         :param str method: method (required)
+        :param object parameters: parameters
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
@@ -148,12 +149,13 @@ class PixAccountDetailsApi(object):
 
         :param str currency: currency (required)
         :param str method: method (required)
+        :param object parameters: parameters
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ["currency", "method"]  # noqa: E501
+        all_params = ["currency", "method", "parameters"]  # noqa: E501
         all_params.append("_return_http_data_only")
         all_params.append("_preload_content")
         all_params.append("_request_timeout")
@@ -186,6 +188,8 @@ class PixAccountDetailsApi(object):
             path_params["method"] = params["method"]  # noqa: E501
 
         query_params = []
+        if "parameters" in params:
+            query_params.append(("parameters", params["parameters"]))  # noqa: E501
 
         header_params = {}
 

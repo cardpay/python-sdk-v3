@@ -36,7 +36,7 @@ class PayoutRequestCustomer(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        "birth_date": "str",
+        "birth_date": "datetime",
         "device": "Device",
         "document_type": "str",
         "email": "str",
@@ -128,7 +128,7 @@ class PayoutRequestCustomer(object):
         Customer birth date  # noqa: E501
 
         :return: The birth_date of this PayoutRequestCustomer.  # noqa: E501
-        :rtype: str
+        :rtype: datetime
         """
         return self._birth_date
 
@@ -139,7 +139,7 @@ class PayoutRequestCustomer(object):
         Customer birth date  # noqa: E501
 
         :param birth_date: The birth_date of this PayoutRequestCustomer.  # noqa: E501
-        :type: str
+        :type: datetime
         """
 
         self._birth_date = birth_date

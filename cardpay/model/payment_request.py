@@ -19,9 +19,6 @@ import six
 from cardpay.model.payment_request_card_account import (
     PaymentRequestCardAccount,
 )  # noqa: F401,E501
-from cardpay.model.payment_request_cryptocurrency_account import (
-    PaymentRequestCryptocurrencyAccount,
-)  # noqa: F401,E501
 from cardpay.model.payment_request_customer import (
     PaymentRequestCustomer,
 )  # noqa: F401,E501
@@ -54,7 +51,6 @@ class PaymentRequest(object):
     swagger_types = {
         "request": "Request",
         "card_account": "PaymentRequestCardAccount",
-        "cryptocurrency_account": "PaymentRequestCryptocurrencyAccount",
         "customer": "PaymentRequestCustomer",
         "ewallet_account": "PaymentRequestEWalletAccount",
         "merchant_order": "PaymentRequestMerchantOrder",
@@ -68,7 +64,6 @@ class PaymentRequest(object):
     attribute_map = {
         "request": "request",
         "card_account": "card_account",
-        "cryptocurrency_account": "cryptocurrency_account",
         "customer": "customer",
         "ewallet_account": "ewallet_account",
         "merchant_order": "merchant_order",
@@ -83,7 +78,6 @@ class PaymentRequest(object):
         self,
         request=None,
         card_account=None,
-        cryptocurrency_account=None,
         customer=None,
         ewallet_account=None,
         merchant_order=None,
@@ -97,7 +91,6 @@ class PaymentRequest(object):
 
         self._request = None
         self._card_account = None
-        self._cryptocurrency_account = None
         self._customer = None
         self._ewallet_account = None
         self._merchant_order = None
@@ -110,8 +103,6 @@ class PaymentRequest(object):
 
         self.request = request
         self.card_account = card_account
-        if cryptocurrency_account is not None:
-            self.cryptocurrency_account = cryptocurrency_account
         self.customer = customer
         if ewallet_account is not None:
             self.ewallet_account = ewallet_account
@@ -181,29 +172,6 @@ class PaymentRequest(object):
         self._card_account = card_account
 
     @property
-    def cryptocurrency_account(self):
-        """Gets the cryptocurrency_account of this PaymentRequest.  # noqa: E501
-
-        Cryptocurrency data *(for BITCOIN payment method only)*  # noqa: E501
-
-        :return: The cryptocurrency_account of this PaymentRequest.  # noqa: E501
-        :rtype: PaymentRequestCryptocurrencyAccount
-        """
-        return self._cryptocurrency_account
-
-    @cryptocurrency_account.setter
-    def cryptocurrency_account(self, cryptocurrency_account):
-        """Sets the cryptocurrency_account of this PaymentRequest.
-
-        Cryptocurrency data *(for BITCOIN payment method only)*  # noqa: E501
-
-        :param cryptocurrency_account: The cryptocurrency_account of this PaymentRequest.  # noqa: E501
-        :type: PaymentRequestCryptocurrencyAccount
-        """
-
-        self._cryptocurrency_account = cryptocurrency_account
-
-    @property
     def customer(self):
         """Gets the customer of this PaymentRequest.  # noqa: E501
 
@@ -234,7 +202,7 @@ class PaymentRequest(object):
     def ewallet_account(self):
         """Gets the ewallet_account of this PaymentRequest.  # noqa: E501
 
-        eWallet account data *(for all payment method, excluding BANKCARD, BITCOIN, DIRECTBANKINGEU)  # noqa: E501
+        eWallet account data *(for all payment method, excluding BANKCARD, DIRECTBANKINGEU)  # noqa: E501
 
         :return: The ewallet_account of this PaymentRequest.  # noqa: E501
         :rtype: PaymentRequestEWalletAccount
@@ -245,7 +213,7 @@ class PaymentRequest(object):
     def ewallet_account(self, ewallet_account):
         """Sets the ewallet_account of this PaymentRequest.
 
-        eWallet account data *(for all payment method, excluding BANKCARD, BITCOIN, DIRECTBANKINGEU)  # noqa: E501
+        eWallet account data *(for all payment method, excluding BANKCARD, DIRECTBANKINGEU)  # noqa: E501
 
         :param ewallet_account: The ewallet_account of this PaymentRequest.  # noqa: E501
         :type: PaymentRequestEWalletAccount

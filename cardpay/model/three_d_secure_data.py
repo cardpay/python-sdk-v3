@@ -34,6 +34,7 @@ class ThreeDSecureData(object):
         "card_enrollment": "str",
         "cavv": "str",
         "cavv_algorithm": "str",
+        "ds_transaction_id": "str",
         "pa_res": "str",
         "status": "str",
         "three_d_secure_flow": "str",
@@ -44,6 +45,7 @@ class ThreeDSecureData(object):
         "card_enrollment": "card_enrollment",
         "cavv": "cavv",
         "cavv_algorithm": "cavv_algorithm",
+        "ds_transaction_id": "ds_transaction_id",
         "pa_res": "pa_res",
         "status": "status",
         "three_d_secure_flow": "three_d_secure_flow",
@@ -55,6 +57,7 @@ class ThreeDSecureData(object):
         card_enrollment=None,
         cavv=None,
         cavv_algorithm=None,
+        ds_transaction_id=None,
         pa_res=None,
         status=None,
         three_d_secure_flow=None,
@@ -65,6 +68,7 @@ class ThreeDSecureData(object):
         self._card_enrollment = None
         self._cavv = None
         self._cavv_algorithm = None
+        self._ds_transaction_id = None
         self._pa_res = None
         self._status = None
         self._three_d_secure_flow = None
@@ -77,6 +81,8 @@ class ThreeDSecureData(object):
             self.cavv = cavv
         if cavv_algorithm is not None:
             self.cavv_algorithm = cavv_algorithm
+        if ds_transaction_id is not None:
+            self.ds_transaction_id = ds_transaction_id
         if pa_res is not None:
             self.pa_res = pa_res
         if status is not None:
@@ -160,6 +166,29 @@ class ThreeDSecureData(object):
         """
 
         self._cavv_algorithm = cavv_algorithm
+
+    @property
+    def ds_transaction_id(self):
+        """Gets the ds_transaction_id of this ThreeDSecureData.  # noqa: E501
+
+        The unique transaction identifier assigned by the Directory Server to identify a single transaction  # noqa: E501
+
+        :return: The ds_transaction_id of this ThreeDSecureData.  # noqa: E501
+        :rtype: str
+        """
+        return self._ds_transaction_id
+
+    @ds_transaction_id.setter
+    def ds_transaction_id(self, ds_transaction_id):
+        """Sets the ds_transaction_id of this ThreeDSecureData.
+
+        The unique transaction identifier assigned by the Directory Server to identify a single transaction  # noqa: E501
+
+        :param ds_transaction_id: The ds_transaction_id of this ThreeDSecureData.  # noqa: E501
+        :type: str
+        """
+
+        self._ds_transaction_id = ds_transaction_id
 
     @property
     def pa_res(self):

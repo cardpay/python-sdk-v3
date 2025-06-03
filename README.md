@@ -22,7 +22,7 @@ pip install git+https://github.com/cardpay/python-sdk-v3.git --upgrade
 or
 
 ```sh
-pip install 'cardpay>=3.89.16' --upgrade
+pip install 'cardpay>=4.2.13' --upgrade
 ```
 
 Then import the package:

@@ -20,9 +20,6 @@ from cardpay.model.payout_payment_data import PayoutPaymentData  # noqa: F401,E5
 from cardpay.model.payout_request_card_account import (
     PayoutRequestCardAccount,
 )  # noqa: F401,E501
-from cardpay.model.payout_request_cryptocurrency_account import (
-    PayoutRequestCryptocurrencyAccount,
-)  # noqa: F401,E501
 from cardpay.model.payout_request_customer import (
     PayoutRequestCustomer,
 )  # noqa: F401,E501
@@ -54,7 +51,6 @@ class PayoutRequest(object):
     swagger_types = {
         "request": "Request",
         "card_account": "PayoutRequestCardAccount",
-        "cryptocurrency_account": "PayoutRequestCryptocurrencyAccount",
         "customer": "PayoutRequestCustomer",
         "ewallet_account": "PayoutRequestEWalletAccount",
         "merchant_order": "PayoutRequestMerchantOrder",
@@ -66,7 +62,6 @@ class PayoutRequest(object):
     attribute_map = {
         "request": "request",
         "card_account": "card_account",
-        "cryptocurrency_account": "cryptocurrency_account",
         "customer": "customer",
         "ewallet_account": "ewallet_account",
         "merchant_order": "merchant_order",
@@ -79,7 +74,6 @@ class PayoutRequest(object):
         self,
         request=None,
         card_account=None,
-        cryptocurrency_account=None,
         customer=None,
         ewallet_account=None,
         merchant_order=None,
@@ -91,7 +85,6 @@ class PayoutRequest(object):
 
         self._request = None
         self._card_account = None
-        self._cryptocurrency_account = None
         self._customer = None
         self._ewallet_account = None
         self._merchant_order = None
@@ -103,8 +96,6 @@ class PayoutRequest(object):
         self.request = request
         if card_account is not None:
             self.card_account = card_account
-        if cryptocurrency_account is not None:
-            self.cryptocurrency_account = cryptocurrency_account
         if customer is not None:
             self.customer = customer
         if ewallet_account is not None:
@@ -164,29 +155,6 @@ class PayoutRequest(object):
         """
 
         self._card_account = card_account
-
-    @property
-    def cryptocurrency_account(self):
-        """Gets the cryptocurrency_account of this PayoutRequest.  # noqa: E501
-
-        Cryptocurrency account data *(for BITCOIN method only)*  # noqa: E501
-
-        :return: The cryptocurrency_account of this PayoutRequest.  # noqa: E501
-        :rtype: PayoutRequestCryptocurrencyAccount
-        """
-        return self._cryptocurrency_account
-
-    @cryptocurrency_account.setter
-    def cryptocurrency_account(self, cryptocurrency_account):
-        """Sets the cryptocurrency_account of this PayoutRequest.
-
-        Cryptocurrency account data *(for BITCOIN method only)*  # noqa: E501
-
-        :param cryptocurrency_account: The cryptocurrency_account of this PayoutRequest.  # noqa: E501
-        :type: PayoutRequestCryptocurrencyAccount
-        """
-
-        self._cryptocurrency_account = cryptocurrency_account
 
     @property
     def customer(self):

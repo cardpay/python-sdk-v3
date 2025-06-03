@@ -45,6 +45,7 @@ from cardpay.model.changed_plan_data import ChangedPlanData
 from cardpay.model.claim_response_subscription_data import ClaimResponseSubscriptionData
 from cardpay.model.confirm3ds_request import Confirm3dsRequest
 from cardpay.model.device import Device
+from cardpay.model.digital_onboarding_request import DigitalOnboardingRequest
 from cardpay.model.dispute_list import DisputeList
 from cardpay.model.dispute_response import DisputeResponse
 from cardpay.model.dispute_response_card import DisputeResponseCard
@@ -93,9 +94,6 @@ from cardpay.model.payment_patch_request import PaymentPatchRequest
 from cardpay.model.payment_request import PaymentRequest
 from cardpay.model.payment_request_card import PaymentRequestCard
 from cardpay.model.payment_request_card_account import PaymentRequestCardAccount
-from cardpay.model.payment_request_cryptocurrency_account import (
-    PaymentRequestCryptocurrencyAccount,
-)
 from cardpay.model.payment_request_customer import PaymentRequestCustomer
 from cardpay.model.payment_request_e_wallet_account import PaymentRequestEWalletAccount
 from cardpay.model.payment_request_living_address import PaymentRequestLivingAddress
@@ -103,10 +101,8 @@ from cardpay.model.payment_request_merchant_order import PaymentRequestMerchantO
 from cardpay.model.payment_request_payment_data import PaymentRequestPaymentData
 from cardpay.model.payment_response import PaymentResponse
 from cardpay.model.payment_response_card_account import PaymentResponseCardAccount
-from cardpay.model.payment_response_cryptocurrency_account import (
-    PaymentResponseCryptocurrencyAccount,
-)
 from cardpay.model.payment_response_customer import PaymentResponseCustomer
+from cardpay.model.payment_response_living_address import PaymentResponseLivingAddress
 from cardpay.model.payment_response_payment_data import PaymentResponsePaymentData
 from cardpay.model.payment_update_response import PaymentUpdateResponse
 from cardpay.model.payment_update_transaction_data import PaymentUpdateTransactionData
@@ -117,9 +113,6 @@ from cardpay.model.payout_payment_data import PayoutPaymentData
 from cardpay.model.payout_request import PayoutRequest
 from cardpay.model.payout_request_card import PayoutRequestCard
 from cardpay.model.payout_request_card_account import PayoutRequestCardAccount
-from cardpay.model.payout_request_cryptocurrency_account import (
-    PayoutRequestCryptocurrencyAccount,
-)
 from cardpay.model.payout_request_customer import PayoutRequestCustomer
 from cardpay.model.payout_request_e_wallet_account import PayoutRequestEWalletAccount
 from cardpay.model.payout_request_living_address import PayoutRequestLivingAddress
@@ -127,9 +120,6 @@ from cardpay.model.payout_request_merchant_order import PayoutRequestMerchantOrd
 from cardpay.model.payout_request_payout_data import PayoutRequestPayoutData
 from cardpay.model.payout_response import PayoutResponse
 from cardpay.model.payout_response_card_account import PayoutResponseCardAccount
-from cardpay.model.payout_response_cryptocurrency_account import (
-    PayoutResponseCryptocurrencyAccount,
-)
 from cardpay.model.payout_response_customer import PayoutResponseCustomer
 from cardpay.model.payout_response_e_wallet_account import PayoutResponseEWalletAccount
 from cardpay.model.payout_response_payout_data import PayoutResponsePayoutData
@@ -251,6 +241,7 @@ from cardpay.model.recurring_update_request import RecurringUpdateRequest
 from cardpay.api.auth_api import AuthApi
 from cardpay.api.authentication_api import AuthenticationApi
 from cardpay.api.card_info_api import CardInfoApi
+from cardpay.api.digital_onboarding_api import DigitalOnboardingApi
 from cardpay.api.invoices_api import InvoicesApi
 from cardpay.api.limits_api import LimitsApi
 from cardpay.api.mobile_api import MobileApi

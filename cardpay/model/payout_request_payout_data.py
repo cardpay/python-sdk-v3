@@ -34,6 +34,8 @@ class PayoutRequestPayoutData(object):
         "amount": "float",
         "currency": "str",
         "dynamic_descriptor": "str",
+        "encrypted_data": "str",
+        "funding_source": "str",
         "generate_token": "bool",
         "network_trans_id": "str",
         "note": "str",
@@ -43,6 +45,8 @@ class PayoutRequestPayoutData(object):
         "amount": "amount",
         "currency": "currency",
         "dynamic_descriptor": "dynamic_descriptor",
+        "encrypted_data": "encrypted_data",
+        "funding_source": "funding_source",
         "generate_token": "generate_token",
         "network_trans_id": "network_trans_id",
         "note": "note",
@@ -53,6 +57,8 @@ class PayoutRequestPayoutData(object):
         amount=None,
         currency=None,
         dynamic_descriptor=None,
+        encrypted_data=None,
+        funding_source=None,
         generate_token=None,
         network_trans_id=None,
         note=None,
@@ -62,6 +68,8 @@ class PayoutRequestPayoutData(object):
         self._amount = None
         self._currency = None
         self._dynamic_descriptor = None
+        self._encrypted_data = None
+        self._funding_source = None
         self._generate_token = None
         self._network_trans_id = None
         self._note = None
@@ -71,6 +79,10 @@ class PayoutRequestPayoutData(object):
         self.currency = currency
         if dynamic_descriptor is not None:
             self.dynamic_descriptor = dynamic_descriptor
+        if encrypted_data is not None:
+            self.encrypted_data = encrypted_data
+        if funding_source is not None:
+            self.funding_source = funding_source
         if generate_token is not None:
             self.generate_token = generate_token
         if network_trans_id is not None:
@@ -136,7 +148,7 @@ class PayoutRequestPayoutData(object):
     def dynamic_descriptor(self):
         """Gets the dynamic_descriptor of this PayoutRequestPayoutData.  # noqa: E501
 
-        Short description of the service or product, must be enabled by CardPay manager to be used *(for BANKCARD, QIWI, WEBMONEY and BITCOIN methods only)*  # noqa: E501
+        Short description of the service or product, must be enabled by CardPay manager to be used *(for BANKCARD, QIWI, WEBMONEY methods only)*  # noqa: E501
 
         :return: The dynamic_descriptor of this PayoutRequestPayoutData.  # noqa: E501
         :rtype: str
@@ -147,7 +159,7 @@ class PayoutRequestPayoutData(object):
     def dynamic_descriptor(self, dynamic_descriptor):
         """Sets the dynamic_descriptor of this PayoutRequestPayoutData.
 
-        Short description of the service or product, must be enabled by CardPay manager to be used *(for BANKCARD, QIWI, WEBMONEY and BITCOIN methods only)*  # noqa: E501
+        Short description of the service or product, must be enabled by CardPay manager to be used *(for BANKCARD, QIWI, WEBMONEY methods only)*  # noqa: E501
 
         :param dynamic_descriptor: The dynamic_descriptor of this PayoutRequestPayoutData.  # noqa: E501
         :type: str
@@ -162,6 +174,88 @@ class PayoutRequestPayoutData(object):
             )  # noqa: E501
 
         self._dynamic_descriptor = dynamic_descriptor
+
+    @property
+    def encrypted_data(self):
+        """Gets the encrypted_data of this PayoutRequestPayoutData.  # noqa: E501
+
+        The encrypted payment credentials encoded in base64 *(for APPLEPAY payment method only)*  # noqa: E501
+
+        :return: The encrypted_data of this PayoutRequestPayoutData.  # noqa: E501
+        :rtype: str
+        """
+        return self._encrypted_data
+
+    @encrypted_data.setter
+    def encrypted_data(self, encrypted_data):
+        """Sets the encrypted_data of this PayoutRequestPayoutData.
+
+        The encrypted payment credentials encoded in base64 *(for APPLEPAY payment method only)*  # noqa: E501
+
+        :param encrypted_data: The encrypted_data of this PayoutRequestPayoutData.  # noqa: E501
+        :type: str
+        """
+        if encrypted_data is not None and len(encrypted_data) > 10000:
+            raise ValueError(
+                "Invalid value for `encrypted_data`, length must be less than or equal to `10000`"
+            )  # noqa: E501
+        if encrypted_data is not None and len(encrypted_data) < 0:
+            raise ValueError(
+                "Invalid value for `encrypted_data`, length must be greater than or equal to `0`"
+            )  # noqa: E501
+
+        self._encrypted_data = encrypted_data
+
+    class FundingSource(object):
+        CREDIT_CARD = "CREDIT_CARD"
+        DEBIT_CARD = "DEBIT_CARD"
+        PREPAID_CARD = "PREPAID_CARD"
+        DEPOSIT_DEBIT_ACCOUNT = "DEPOSIT_DEBIT_ACCOUNT"
+        CREDIT_ACCOUNT = "CREDIT_ACCOUNT"
+        MOBILE_MONEY_ACCOUNT = "MOBILE_MONEY_ACCOUNT"
+        CASH = "CASH"
+        CHECK = "CHECK"
+        OTHER = "OTHER"
+
+    @property
+    def funding_source(self):
+        """Gets the funding_source of this PayoutRequestPayoutData.  # noqa: E501
+
+        Funding source type. Valid values: 01 - Credit card 02 - Debit card 03 - Prepaid card 04 - Deposit/debit account 05 - Credit account 06 - Mobile money account 07 - Cash 08 - Check 09 - Other  # noqa: E501
+
+        :return: The funding_source of this PayoutRequestPayoutData.  # noqa: E501
+        :rtype: str
+        """
+        return self._funding_source
+
+    @funding_source.setter
+    def funding_source(self, funding_source):
+        """Sets the funding_source of this PayoutRequestPayoutData.
+
+        Funding source type. Valid values: 01 - Credit card 02 - Debit card 03 - Prepaid card 04 - Deposit/debit account 05 - Credit account 06 - Mobile money account 07 - Cash 08 - Check 09 - Other  # noqa: E501
+
+        :param funding_source: The funding_source of this PayoutRequestPayoutData.  # noqa: E501
+        :type: str
+        """
+        allowed_values = [
+            "CREDIT_CARD",
+            "DEBIT_CARD",
+            "PREPAID_CARD",
+            "DEPOSIT_DEBIT_ACCOUNT",
+            "CREDIT_ACCOUNT",
+            "MOBILE_MONEY_ACCOUNT",
+            "CASH",
+            "CHECK",
+            "OTHER",
+        ]  # noqa: E501
+        if funding_source not in allowed_values:
+            raise ValueError(
+                "Invalid value for `funding_source` ({0}), must be one of {1}".format(  # noqa: E501
+                    funding_source, allowed_values
+                )
+            )
+
+        self._funding_source = funding_source
 
     @property
     def generate_token(self):

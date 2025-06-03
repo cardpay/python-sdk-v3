@@ -30,20 +30,48 @@ class PayoutRequestCard(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {"expiration": "str", "pan": "str"}
+    swagger_types = {
+        "expiration": "str",
+        "network_token": "bool",
+        "pan": "str",
+        "token_cryptogram": "str",
+        "token_type": "str",
+    }
 
-    attribute_map = {"expiration": "expiration", "pan": "pan"}
+    attribute_map = {
+        "expiration": "expiration",
+        "network_token": "network_token",
+        "pan": "pan",
+        "token_cryptogram": "token_cryptogram",
+        "token_type": "token_type",
+    }
 
-    def __init__(self, expiration=None, pan=None):  # noqa: E501
+    def __init__(
+        self,
+        expiration=None,
+        network_token=None,
+        pan=None,
+        token_cryptogram=None,
+        token_type=None,
+    ):  # noqa: E501
         """PayoutRequestCard - a model defined in Swagger"""  # noqa: E501
 
         self._expiration = None
+        self._network_token = None
         self._pan = None
+        self._token_cryptogram = None
+        self._token_type = None
         self.discriminator = None
 
         if expiration is not None:
             self.expiration = expiration
+        if network_token is not None:
+            self.network_token = network_token
         self.pan = pan
+        if token_cryptogram is not None:
+            self.token_cryptogram = token_cryptogram
+        if token_type is not None:
+            self.token_type = token_type
 
     @property
     def expiration(self):
@@ -73,6 +101,29 @@ class PayoutRequestCard(object):
             )  # noqa: E501
 
         self._expiration = expiration
+
+    @property
+    def network_token(self):
+        """Gets the network_token of this PayoutRequestCard.  # noqa: E501
+
+        Indicator network token data in payout request instead of card data.  # noqa: E501
+
+        :return: The network_token of this PayoutRequestCard.  # noqa: E501
+        :rtype: bool
+        """
+        return self._network_token
+
+    @network_token.setter
+    def network_token(self, network_token):
+        """Sets the network_token of this PayoutRequestCard.
+
+        Indicator network token data in payout request instead of card data.  # noqa: E501
+
+        :param network_token: The network_token of this PayoutRequestCard.  # noqa: E501
+        :type: bool
+        """
+
+        self._network_token = network_token
 
     @property
     def pan(self):
@@ -108,6 +159,66 @@ class PayoutRequestCard(object):
             )  # noqa: E501
 
         self._pan = pan
+
+    @property
+    def token_cryptogram(self):
+        """Gets the token_cryptogram of this PayoutRequestCard.  # noqa: E501
+
+        Field cryptogram corresponding to the payment token  # noqa: E501
+
+        :return: The token_cryptogram of this PayoutRequestCard.  # noqa: E501
+        :rtype: str
+        """
+        return self._token_cryptogram
+
+    @token_cryptogram.setter
+    def token_cryptogram(self, token_cryptogram):
+        """Sets the token_cryptogram of this PayoutRequestCard.
+
+        Field cryptogram corresponding to the payment token  # noqa: E501
+
+        :param token_cryptogram: The token_cryptogram of this PayoutRequestCard.  # noqa: E501
+        :type: str
+        """
+        if token_cryptogram is not None and len(token_cryptogram) > 100:
+            raise ValueError(
+                "Invalid value for `token_cryptogram`, length must be less than or equal to `100`"
+            )  # noqa: E501
+        if token_cryptogram is not None and len(token_cryptogram) < 1:
+            raise ValueError(
+                "Invalid value for `token_cryptogram`, length must be greater than or equal to `1`"
+            )  # noqa: E501
+
+        self._token_cryptogram = token_cryptogram
+
+    @property
+    def token_type(self):
+        """Gets the token_type of this PayoutRequestCard.  # noqa: E501
+
+        The field specifies the type of token used in a payment request. It indicates the source of the tokenized payment credentials. Possible values: APPLEPAY or NETWORK  # noqa: E501
+
+        :return: The token_type of this PayoutRequestCard.  # noqa: E501
+        :rtype: str
+        """
+        return self._token_type
+
+    @token_type.setter
+    def token_type(self, token_type):
+        """Sets the token_type of this PayoutRequestCard.
+
+        The field specifies the type of token used in a payment request. It indicates the source of the tokenized payment credentials. Possible values: APPLEPAY or NETWORK  # noqa: E501
+
+        :param token_type: The token_type of this PayoutRequestCard.  # noqa: E501
+        :type: str
+        """
+        if token_type is not None and not re.search(
+            r"APPLEPAY|NETWORK", token_type
+        ):  # noqa: E501
+            raise ValueError(
+                r"Invalid value for `token_type`, must be a follow pattern or equal to `/APPLEPAY|NETWORK/`"
+            )  # noqa: E501
+
+        self._token_type = token_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

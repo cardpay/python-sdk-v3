@@ -47,6 +47,7 @@ class PaymentResponsePaymentData(object):
         "is_3d": "bool",
         "network_trans_id": "str",
         "note": "str",
+        "original_amount": "float",
         "postauth_status": "str",
         "rrn": "str",
         "status": "str",
@@ -71,6 +72,7 @@ class PaymentResponsePaymentData(object):
         "is_3d": "is_3d",
         "network_trans_id": "network_trans_id",
         "note": "note",
+        "original_amount": "original_amount",
         "postauth_status": "postauth_status",
         "rrn": "rrn",
         "status": "status",
@@ -96,6 +98,7 @@ class PaymentResponsePaymentData(object):
         is_3d=None,
         network_trans_id=None,
         note=None,
+        original_amount=None,
         postauth_status=None,
         rrn=None,
         status=None,
@@ -120,6 +123,7 @@ class PaymentResponsePaymentData(object):
         self._is_3d = None
         self._network_trans_id = None
         self._note = None
+        self._original_amount = None
         self._postauth_status = None
         self._rrn = None
         self._status = None
@@ -159,6 +163,8 @@ class PaymentResponsePaymentData(object):
             self.network_trans_id = network_trans_id
         if note is not None:
             self.note = note
+        if original_amount is not None:
+            self.original_amount = original_amount
         if postauth_status is not None:
             self.postauth_status = postauth_status
         if rrn is not None:
@@ -539,6 +545,29 @@ class PaymentResponsePaymentData(object):
         self._note = note
 
     @property
+    def original_amount(self):
+        """Gets the original_amount of this PaymentResponsePaymentData.  # noqa: E501
+
+        Payment original amount  # noqa: E501
+
+        :return: The original_amount of this PaymentResponsePaymentData.  # noqa: E501
+        :rtype: float
+        """
+        return self._original_amount
+
+    @original_amount.setter
+    def original_amount(self, original_amount):
+        """Sets the original_amount of this PaymentResponsePaymentData.
+
+        Payment original amount  # noqa: E501
+
+        :param original_amount: The original_amount of this PaymentResponsePaymentData.  # noqa: E501
+        :type: float
+        """
+
+        self._original_amount = original_amount
+
+    @property
     def postauth_status(self):
         """Gets the postauth_status of this PaymentResponsePaymentData.  # noqa: E501
 
@@ -603,7 +632,7 @@ class PaymentResponsePaymentData(object):
     def status(self):
         """Gets the status of this PaymentResponsePaymentData.  # noqa: E501
 
-        Current payment status, *(mandatory for WEBMONEY and BITCOIN payment method only)*  # noqa: E501
+        Current payment status, *(mandatory for WEBMONEY payment method only)*  # noqa: E501
 
         :return: The status of this PaymentResponsePaymentData.  # noqa: E501
         :rtype: str
@@ -614,7 +643,7 @@ class PaymentResponsePaymentData(object):
     def status(self, status):
         """Sets the status of this PaymentResponsePaymentData.
 
-        Current payment status, *(mandatory for WEBMONEY and BITCOIN payment method only)*  # noqa: E501
+        Current payment status, *(mandatory for WEBMONEY payment method only)*  # noqa: E501
 
         :param status: The status of this PaymentResponsePaymentData.  # noqa: E501
         :type: str

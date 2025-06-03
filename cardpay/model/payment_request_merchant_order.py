@@ -35,8 +35,8 @@ class PaymentRequestMerchantOrder(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        "cryptocurrency_indicator": "bool",
         "description": "str",
+        "digital_currency_type": "str",
         "expire_at": "datetime",
         "flights": "Flights",
         "id": "str",
@@ -45,8 +45,8 @@ class PaymentRequestMerchantOrder(object):
     }
 
     attribute_map = {
-        "cryptocurrency_indicator": "cryptocurrency_indicator",
         "description": "description",
+        "digital_currency_type": "digital_currency_type",
         "expire_at": "expire_at",
         "flights": "flights",
         "id": "id",
@@ -56,8 +56,8 @@ class PaymentRequestMerchantOrder(object):
 
     def __init__(
         self,
-        cryptocurrency_indicator=None,
         description=None,
+        digital_currency_type=None,
         expire_at=None,
         flights=None,
         id=None,
@@ -66,8 +66,8 @@ class PaymentRequestMerchantOrder(object):
     ):  # noqa: E501
         """PaymentRequestMerchantOrder - a model defined in Swagger"""  # noqa: E501
 
-        self._cryptocurrency_indicator = None
         self._description = None
+        self._digital_currency_type = None
         self._expire_at = None
         self._flights = None
         self._id = None
@@ -75,9 +75,9 @@ class PaymentRequestMerchantOrder(object):
         self._shipping_address = None
         self.discriminator = None
 
-        if cryptocurrency_indicator is not None:
-            self.cryptocurrency_indicator = cryptocurrency_indicator
         self.description = description
+        if digital_currency_type is not None:
+            self.digital_currency_type = digital_currency_type
         if expire_at is not None:
             self.expire_at = expire_at
         if flights is not None:
@@ -87,29 +87,6 @@ class PaymentRequestMerchantOrder(object):
             self.items = items
         if shipping_address is not None:
             self.shipping_address = shipping_address
-
-    @property
-    def cryptocurrency_indicator(self):
-        """Gets the cryptocurrency_indicator of this PaymentRequestMerchantOrder.  # noqa: E501
-
-        Indicator should be added if there will be cryptocurrency purchase in transaction  # noqa: E501
-
-        :return: The cryptocurrency_indicator of this PaymentRequestMerchantOrder.  # noqa: E501
-        :rtype: bool
-        """
-        return self._cryptocurrency_indicator
-
-    @cryptocurrency_indicator.setter
-    def cryptocurrency_indicator(self, cryptocurrency_indicator):
-        """Sets the cryptocurrency_indicator of this PaymentRequestMerchantOrder.
-
-        Indicator should be added if there will be cryptocurrency purchase in transaction  # noqa: E501
-
-        :param cryptocurrency_indicator: The cryptocurrency_indicator of this PaymentRequestMerchantOrder.  # noqa: E501
-        :type: bool
-        """
-
-        self._cryptocurrency_indicator = cryptocurrency_indicator
 
     @property
     def description(self):
@@ -145,6 +122,53 @@ class PaymentRequestMerchantOrder(object):
             )  # noqa: E501
 
         self._description = description
+
+    class DigitalCurrencyType(object):
+        CRYPTO_CURRENCY_TRANSACTION = "CRYPTO_CURRENCY_TRANSACTION"
+        QUASI_CASH_TRANSACTION = "QUASI_CASH_TRANSACTION"
+        CENTRAL_BANK_DIGITAL_CURRENCY_TRANSACTION = (
+            "CENTRAL_BANK_DIGITAL_CURRENCY_TRANSACTION"
+        )
+        STABLECOIN_TRANSACTION = "STABLECOIN_TRANSACTION"
+        BLOCKCHAIN_NATIVE_TOKEN_COIN_TRANSACTION = (
+            "BLOCKCHAIN_NATIVE_TOKEN_COIN_TRANSACTION"
+        )
+
+    @property
+    def digital_currency_type(self):
+        """Gets the digital_currency_type of this PaymentRequestMerchantOrder.  # noqa: E501
+
+        Type of digital currency or coin involved. Allowed values: 01 - Crypto currency transaction 02 - Quasi cash transaction 03 - Central Bank Digital Currency (CBDC) transaction 04 - Stablecoin transaction 05 - Blockchain Native Token/Coin transaction Required for digital currency transactions. The field is used if the card brand is Visa.  # noqa: E501
+
+        :return: The digital_currency_type of this PaymentRequestMerchantOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._digital_currency_type
+
+    @digital_currency_type.setter
+    def digital_currency_type(self, digital_currency_type):
+        """Sets the digital_currency_type of this PaymentRequestMerchantOrder.
+
+        Type of digital currency or coin involved. Allowed values: 01 - Crypto currency transaction 02 - Quasi cash transaction 03 - Central Bank Digital Currency (CBDC) transaction 04 - Stablecoin transaction 05 - Blockchain Native Token/Coin transaction Required for digital currency transactions. The field is used if the card brand is Visa.  # noqa: E501
+
+        :param digital_currency_type: The digital_currency_type of this PaymentRequestMerchantOrder.  # noqa: E501
+        :type: str
+        """
+        allowed_values = [
+            "CRYPTO_CURRENCY_TRANSACTION",
+            "QUASI_CASH_TRANSACTION",
+            "CENTRAL_BANK_DIGITAL_CURRENCY_TRANSACTION",
+            "STABLECOIN_TRANSACTION",
+            "BLOCKCHAIN_NATIVE_TOKEN_COIN_TRANSACTION",
+        ]  # noqa: E501
+        if digital_currency_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `digital_currency_type` ({0}), must be one of {1}".format(  # noqa: E501
+                    digital_currency_type, allowed_values
+                )
+            )
+
+        self._digital_currency_type = digital_currency_type
 
     @property
     def expire_at(self):

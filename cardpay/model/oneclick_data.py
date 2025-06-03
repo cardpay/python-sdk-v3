@@ -335,7 +335,7 @@ class OneclickData(object):
     def hold_period(self):
         """Gets the hold_period of this OneclickData.  # noqa: E501
 
-        The delay between the authorisation and scheduled auto-capture or auto-void, specified in hours. The minimum hold period is 1 hour, maximum hold period is 7 days (168 hours).  # noqa: E501
+        The delay between the authorisation and scheduled auto-capture or auto-void, specified in hours. The minimum hold period is 1 hour, maximum hold period is: VISA cards: 96 hours MasterCard cards: 144 hours Other cards: 168 hours In Payment Page mode, the maximum delay is 96 hours.  # noqa: E501
 
         :return: The hold_period of this OneclickData.  # noqa: E501
         :rtype: int
@@ -346,15 +346,11 @@ class OneclickData(object):
     def hold_period(self, hold_period):
         """Sets the hold_period of this OneclickData.
 
-        The delay between the authorisation and scheduled auto-capture or auto-void, specified in hours. The minimum hold period is 1 hour, maximum hold period is 7 days (168 hours).  # noqa: E501
+        The delay between the authorisation and scheduled auto-capture or auto-void, specified in hours. The minimum hold period is 1 hour, maximum hold period is: VISA cards: 96 hours MasterCard cards: 144 hours Other cards: 168 hours In Payment Page mode, the maximum delay is 96 hours.  # noqa: E501
 
         :param hold_period: The hold_period of this OneclickData.  # noqa: E501
         :type: int
         """
-        if hold_period is not None and hold_period > 168:  # noqa: E501
-            raise ValueError(
-                "Invalid value for `hold_period`, must be a value less than or equal to `168`"
-            )  # noqa: E501
         if hold_period is not None and hold_period < 1:  # noqa: E501
             raise ValueError(
                 "Invalid value for `hold_period`, must be a value greater than or equal to `1`"

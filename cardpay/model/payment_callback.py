@@ -22,9 +22,6 @@ from cardpay.model.payment_request_customer import (
 from cardpay.model.payment_response_card_account import (
     PaymentResponseCardAccount,
 )  # noqa: F401,E501
-from cardpay.model.payment_response_cryptocurrency_account import (
-    PaymentResponseCryptocurrencyAccount,
-)  # noqa: F401,E501
 from cardpay.model.payment_response_payment_data import (
     PaymentResponsePaymentData,
 )  # noqa: F401,E501
@@ -52,7 +49,6 @@ class PaymentCallback(object):
     swagger_types = {
         "callback_time": "str",
         "card_account": "PaymentResponseCardAccount",
-        "cryptocurrency_account": "PaymentResponseCryptocurrencyAccount",
         "customer": "PaymentRequestCustomer",
         "ewallet_account": "TransactionResponseEWalletAccount",
         "merchant_order": "TransactionResponseMerchantOrder",
@@ -63,7 +59,6 @@ class PaymentCallback(object):
     attribute_map = {
         "callback_time": "callback_time",
         "card_account": "card_account",
-        "cryptocurrency_account": "cryptocurrency_account",
         "customer": "customer",
         "ewallet_account": "ewallet_account",
         "merchant_order": "merchant_order",
@@ -75,7 +70,6 @@ class PaymentCallback(object):
         self,
         callback_time=None,
         card_account=None,
-        cryptocurrency_account=None,
         customer=None,
         ewallet_account=None,
         merchant_order=None,
@@ -86,7 +80,6 @@ class PaymentCallback(object):
 
         self._callback_time = None
         self._card_account = None
-        self._cryptocurrency_account = None
         self._customer = None
         self._ewallet_account = None
         self._merchant_order = None
@@ -98,8 +91,6 @@ class PaymentCallback(object):
             self.callback_time = callback_time
         if card_account is not None:
             self.card_account = card_account
-        if cryptocurrency_account is not None:
-            self.cryptocurrency_account = cryptocurrency_account
         if customer is not None:
             self.customer = customer
         if ewallet_account is not None:
@@ -156,29 +147,6 @@ class PaymentCallback(object):
         """
 
         self._card_account = card_account
-
-    @property
-    def cryptocurrency_account(self):
-        """Gets the cryptocurrency_account of this PaymentCallback.  # noqa: E501
-
-        Cryptocurrency account data *(for BITCOIN payment method only)*  # noqa: E501
-
-        :return: The cryptocurrency_account of this PaymentCallback.  # noqa: E501
-        :rtype: PaymentResponseCryptocurrencyAccount
-        """
-        return self._cryptocurrency_account
-
-    @cryptocurrency_account.setter
-    def cryptocurrency_account(self, cryptocurrency_account):
-        """Sets the cryptocurrency_account of this PaymentCallback.
-
-        Cryptocurrency account data *(for BITCOIN payment method only)*  # noqa: E501
-
-        :param cryptocurrency_account: The cryptocurrency_account of this PaymentCallback.  # noqa: E501
-        :type: PaymentResponseCryptocurrencyAccount
-        """
-
-        self._cryptocurrency_account = cryptocurrency_account
 
     @property
     def customer(self):

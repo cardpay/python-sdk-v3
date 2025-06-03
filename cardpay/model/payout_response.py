@@ -20,9 +20,6 @@ from cardpay.model.payout_payment_data import PayoutPaymentData  # noqa: F401,E5
 from cardpay.model.payout_response_card_account import (
     PayoutResponseCardAccount,
 )  # noqa: F401,E501
-from cardpay.model.payout_response_cryptocurrency_account import (
-    PayoutResponseCryptocurrencyAccount,
-)  # noqa: F401,E501
 from cardpay.model.payout_response_customer import (
     PayoutResponseCustomer,
 )  # noqa: F401,E501
@@ -53,7 +50,6 @@ class PayoutResponse(object):
     swagger_types = {
         "additional_data": "dict(str, str)",
         "card_account": "PayoutResponseCardAccount",
-        "cryptocurrency_account": "PayoutResponseCryptocurrencyAccount",
         "customer": "PayoutResponseCustomer",
         "ewallet_account": "PayoutResponseEWalletAccount",
         "payment_data": "PayoutPaymentData",
@@ -66,7 +62,6 @@ class PayoutResponse(object):
     attribute_map = {
         "additional_data": "additional_data",
         "card_account": "card_account",
-        "cryptocurrency_account": "cryptocurrency_account",
         "customer": "customer",
         "ewallet_account": "ewallet_account",
         "payment_data": "payment_data",
@@ -80,7 +75,6 @@ class PayoutResponse(object):
         self,
         additional_data=None,
         card_account=None,
-        cryptocurrency_account=None,
         customer=None,
         ewallet_account=None,
         payment_data=None,
@@ -93,7 +87,6 @@ class PayoutResponse(object):
 
         self._additional_data = None
         self._card_account = None
-        self._cryptocurrency_account = None
         self._customer = None
         self._ewallet_account = None
         self._payment_data = None
@@ -107,8 +100,6 @@ class PayoutResponse(object):
             self.additional_data = additional_data
         if card_account is not None:
             self.card_account = card_account
-        if cryptocurrency_account is not None:
-            self.cryptocurrency_account = cryptocurrency_account
         if customer is not None:
             self.customer = customer
         if ewallet_account is not None:
@@ -168,29 +159,6 @@ class PayoutResponse(object):
         """
 
         self._card_account = card_account
-
-    @property
-    def cryptocurrency_account(self):
-        """Gets the cryptocurrency_account of this PayoutResponse.  # noqa: E501
-
-        Cryptocurrency account data *(for BITCOIN method only)*  # noqa: E501
-
-        :return: The cryptocurrency_account of this PayoutResponse.  # noqa: E501
-        :rtype: PayoutResponseCryptocurrencyAccount
-        """
-        return self._cryptocurrency_account
-
-    @cryptocurrency_account.setter
-    def cryptocurrency_account(self, cryptocurrency_account):
-        """Sets the cryptocurrency_account of this PayoutResponse.
-
-        Cryptocurrency account data *(for BITCOIN method only)*  # noqa: E501
-
-        :param cryptocurrency_account: The cryptocurrency_account of this PayoutResponse.  # noqa: E501
-        :type: PayoutResponseCryptocurrencyAccount
-        """
-
-        self._cryptocurrency_account = cryptocurrency_account
 
     @property
     def customer(self):

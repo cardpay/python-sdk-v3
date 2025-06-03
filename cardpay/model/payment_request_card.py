@@ -32,6 +32,7 @@ class PaymentRequestCard(object):
     """
     swagger_types = {
         "acct_type": "str",
+        "eci": "str",
         "expiration": "str",
         "holder": "str",
         "network_token": "bool",
@@ -39,10 +40,12 @@ class PaymentRequestCard(object):
         "pin_code": "str",
         "security_code": "str",
         "token_cryptogram": "str",
+        "token_type": "str",
     }
 
     attribute_map = {
         "acct_type": "acct_type",
+        "eci": "eci",
         "expiration": "expiration",
         "holder": "holder",
         "network_token": "network_token",
@@ -50,11 +53,13 @@ class PaymentRequestCard(object):
         "pin_code": "pin_code",
         "security_code": "security_code",
         "token_cryptogram": "token_cryptogram",
+        "token_type": "token_type",
     }
 
     def __init__(
         self,
         acct_type=None,
+        eci=None,
         expiration=None,
         holder=None,
         network_token=None,
@@ -62,10 +67,12 @@ class PaymentRequestCard(object):
         pin_code=None,
         security_code=None,
         token_cryptogram=None,
+        token_type=None,
     ):  # noqa: E501
         """PaymentRequestCard - a model defined in Swagger"""  # noqa: E501
 
         self._acct_type = None
+        self._eci = None
         self._expiration = None
         self._holder = None
         self._network_token = None
@@ -73,10 +80,13 @@ class PaymentRequestCard(object):
         self._pin_code = None
         self._security_code = None
         self._token_cryptogram = None
+        self._token_type = None
         self.discriminator = None
 
         if acct_type is not None:
             self.acct_type = acct_type
+        if eci is not None:
+            self.eci = eci
         if expiration is not None:
             self.expiration = expiration
         if holder is not None:
@@ -91,6 +101,8 @@ class PaymentRequestCard(object):
             self.security_code = security_code
         if token_cryptogram is not None:
             self.token_cryptogram = token_cryptogram
+        if token_type is not None:
+            self.token_type = token_type
 
     class AcctType(object):
         _01 = "01"
@@ -126,6 +138,35 @@ class PaymentRequestCard(object):
         self._acct_type = acct_type
 
     @property
+    def eci(self):
+        """Gets the eci of this PaymentRequestCard.  # noqa: E501
+
+        The electronic commerce indicator  # noqa: E501
+
+        :return: The eci of this PaymentRequestCard.  # noqa: E501
+        :rtype: str
+        """
+        return self._eci
+
+    @eci.setter
+    def eci(self, eci):
+        """Sets the eci of this PaymentRequestCard.
+
+        The electronic commerce indicator  # noqa: E501
+
+        :param eci: The eci of this PaymentRequestCard.  # noqa: E501
+        :type: str
+        """
+        if eci is not None and not re.search(
+            r"^(00|01|02|05|06|07)$", eci
+        ):  # noqa: E501
+            raise ValueError(
+                r"Invalid value for `eci`, must be a follow pattern or equal to `/^(00|01|02|05|06|07)$/`"
+            )  # noqa: E501
+
+        self._eci = eci
+
+    @property
     def expiration(self):
         """Gets the expiration of this PaymentRequestCard.  # noqa: E501
 
@@ -145,12 +186,6 @@ class PaymentRequestCard(object):
         :param expiration: The expiration of this PaymentRequestCard.  # noqa: E501
         :type: str
         """
-        if expiration is not None and not re.search(
-            r"([0-9]{2}\/[0-9]{4})", expiration
-        ):  # noqa: E501
-            raise ValueError(
-                r"Invalid value for `expiration`, must be a follow pattern or equal to `/([0-9]{2}\/[0-9]{4})/`"
-            )  # noqa: E501
 
         self._expiration = expiration
 
@@ -174,14 +209,6 @@ class PaymentRequestCard(object):
         :param holder: The holder of this PaymentRequestCard.  # noqa: E501
         :type: str
         """
-        if holder is not None and len(holder) > 50:
-            raise ValueError(
-                "Invalid value for `holder`, length must be less than or equal to `50`"
-            )  # noqa: E501
-        if holder is not None and len(holder) < 1:
-            raise ValueError(
-                "Invalid value for `holder`, length must be greater than or equal to `1`"
-            )  # noqa: E501
 
         self._holder = holder
 
@@ -226,14 +253,6 @@ class PaymentRequestCard(object):
         :param pan: The pan of this PaymentRequestCard.  # noqa: E501
         :type: str
         """
-        if pan is not None and len(pan) > 19:
-            raise ValueError(
-                "Invalid value for `pan`, length must be less than or equal to `19`"
-            )  # noqa: E501
-        if pan is not None and len(pan) < 13:
-            raise ValueError(
-                "Invalid value for `pan`, length must be greater than or equal to `13`"
-            )  # noqa: E501
 
         self._pan = pan
 
@@ -255,12 +274,6 @@ class PaymentRequestCard(object):
         :param pin_code: The pin_code of this PaymentRequestCard.  # noqa: E501
         :type: str
         """
-        if pin_code is not None and not re.search(
-            r"^[0-9]{4}$", pin_code
-        ):  # noqa: E501
-            raise ValueError(
-                r"Invalid value for `pin_code`, must be a follow pattern or equal to `/^[0-9]{4}$/`"
-            )  # noqa: E501
 
         self._pin_code = pin_code
 
@@ -284,12 +297,6 @@ class PaymentRequestCard(object):
         :param security_code: The security_code of this PaymentRequestCard.  # noqa: E501
         :type: str
         """
-        if security_code is not None and not re.search(
-            r"[0-9]{3,4}", security_code
-        ):  # noqa: E501
-            raise ValueError(
-                r"Invalid value for `security_code`, must be a follow pattern or equal to `/[0-9]{3,4}/`"
-            )  # noqa: E501
 
         self._security_code = security_code
 
@@ -313,6 +320,35 @@ class PaymentRequestCard(object):
         """
 
         self._token_cryptogram = token_cryptogram
+
+    @property
+    def token_type(self):
+        """Gets the token_type of this PaymentRequestCard.  # noqa: E501
+
+        The field specifies the type of token used in a payment request. It indicates the source of the tokenized payment credentials. Possible values: APPLEPAY, GOOGLEPAY or NETWORK  # noqa: E501
+
+        :return: The token_type of this PaymentRequestCard.  # noqa: E501
+        :rtype: str
+        """
+        return self._token_type
+
+    @token_type.setter
+    def token_type(self, token_type):
+        """Sets the token_type of this PaymentRequestCard.
+
+        The field specifies the type of token used in a payment request. It indicates the source of the tokenized payment credentials. Possible values: APPLEPAY, GOOGLEPAY or NETWORK  # noqa: E501
+
+        :param token_type: The token_type of this PaymentRequestCard.  # noqa: E501
+        :type: str
+        """
+        if token_type is not None and not re.search(
+            r"APPLEPAY|GOOGLEPAY|NETWORK", token_type
+        ):  # noqa: E501
+            raise ValueError(
+                r"Invalid value for `token_type`, must be a follow pattern or equal to `/APPLEPAY|GOOGLEPAY|NETWORK/`"
+            )  # noqa: E501
+
+        self._token_type = token_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""
